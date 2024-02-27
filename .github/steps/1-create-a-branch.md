@@ -25,7 +25,7 @@ Looks good!
 
 Now let's create a file for our very first chapter.
 
-```bash
+```properties
 echo "Chapter 1" > chapter1
 ```
 
