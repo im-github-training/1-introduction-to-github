@@ -64,3 +64,17 @@ jobs:
           from_step: 1
           to_step: 2
           branch_name: my-first-branch
+
+      # Add three commits to the my-first-branch branch.
+      - name: Add three commits
+        run: |
+          echo "First commit" > file1.txt
+          git add file1.txt
+          git commit -m "First commit"
+          echo "Second commit" > file2.txt
+          git add file2.txt
+          git commit -m "Second commit"
+          echo "Third commit" > file3.txt
+          git add file3.txt
+          git commit -m "Third commit"
+          git push origin my-first-branch
