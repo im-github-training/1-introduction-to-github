@@ -14,7 +14,7 @@ In the next series of exercises, we'll be using our repository to work on a book
 
 Let's start by making sure the repository is ready for us to start working by typing `git status`.
 
-```bash
+```console
 git status
 
 On branch main
