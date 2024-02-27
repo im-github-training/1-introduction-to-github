@@ -10,7 +10,7 @@ Welcome to the InfoMagnus GitHub Training Platform.
 
 ## Step 1: Fork this repository
 
-Click the `Fork` button on the repository site.
+- Click the `Fork` button on the repository site.
 
 <img src='image.png' width='100%'>
 
@@ -23,15 +23,15 @@ Make sure the following options are set:
 
 ## Step 2: Enable Actions
 
-Click on the 'Actions' in your forked repo.
+- Click on the 'Actions' in your forked repo.
 
 <img src='image-2.png' width='100%'>
 
-Click on "I understand my workflows, go ahead and enable them" (you'll have to trust us)
+- Click on "I understand my workflows, go ahead and enable them" (you'll have to trust us)
 
 <img src='image-3.png' width='100%'>
 
-Then, click "exercises" to return back to the home screen.
+- Then, click "exercises" to return back to the home screen.
 
 <img src='image-5.png' width='100%'>
 
