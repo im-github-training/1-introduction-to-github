@@ -70,15 +70,15 @@ jobs:
         run: |
           echo "Chatper 2" > chapter2
           git add chapter2
-          git commit -m "Added chapter2"
+          git commit -m "Added chaptor2"
 
           echo "Chapter 2" > chapter2
-          git commit -am "Fixed typo"
+          git commit -am "FIxed tyypo"
 
           echo "Section 2" >> chapter2
           git commit -am "Added 'Section 1' to chapter2"
 
           echo "Section 2" >> chapter2
-          git commit -am "Fixed typo"
+          git commit -am "fix"
 
           git push origin my-first-branch
