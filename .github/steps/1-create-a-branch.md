@@ -6,22 +6,71 @@
   Encourage users to open new tabs for steps!
 -->
 
-## Step 1: Create a branch
+# Getting Our Feet Wet
 
-_Welcome to "Introduction to GitHub"! :wave:_
+Let's start by getting familiar with the Git basics.
 
-**What is GitHub?**: GitHub is a collaboration platform that uses _[Git](https://docs.github.com/get-started/quickstart/github-glossary#git)_ for versioning. GitHub is a popular place to share and contribute to [open-source](https://docs.github.com/get-started/quickstart/github-glossary#open-source) software.
-<br>:tv: [Video: What is GitHub?](https://www.youtube.com/watch?v=pBy1zgt0XPc)
+In the next series of exercises, we'll be using our repository to work on a book.
 
-**What is a repository?**: A _[repository](https://docs.github.com/get-started/quickstart/github-glossary#repository)_ is a project containing files and folders. A repository tracks versions of files and folders. For more information, see "[About repositories](https://docs.github.com/en/repositories/creating-and-managing-repositories/about-repositories)" from GitHub Docs.
+Let's start by making sure the repository is ready for us to start working by typing `git status`.
 
-**What is a branch?**: A _[branch](https://docs.github.com/en/get-started/quickstart/github-glossary#branch)_ is a parallel version of your repository. By default, your repository has one branch named `main` and it is considered to be the definitive branch. Creating additional branches allows you to copy the `main` branch of your repository and safely make any changes without disrupting the main project. Many people use branches to work on specific features without affecting any other parts of the project.
+```bash
+git status
 
-Branches allow you to separate your work from the `main` branch. In other words, everyone's work is safe while you contribute. For more information, see "[About branches](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches)".
+On branch main
+nothing to commit, working tree clean
+```
 
-**What is a profile README?**: A _[profile README](https://docs.github.com/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/managing-your-profile-readme)_ is essentially an "About me" section on your GitHub profile where you can share information about yourself with the community on GitHub.com. GitHub shows your profile README at the top of your profile page. For more information, see "[Managing your profile README](https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/managing-your-profile-readme)".
+Looks good!
 
-![profile-readme-example](/images/profile-readme-example.png)
+Now let's create a file for our very first chapter.
+
+```bash
+echo "Chapter 1" > chapter1
+```
+
+Let's see if Git noticed this new file by typing `git status`:
+
+```bash
+git status
+
+On branch main
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        chapter1
+
+nothing added to commit but untracked files present (use "git add" to track)
+```
+
+```bash
+git add chapter1
+git status
+On branch main
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   chapter1
+
+git commit -m "Added chapter1"
+[main 200eaab] Added chapter1
+ 1 file changed, 1 insertion(+)
+ create mode 100644 chapter1
+git status
+On branch main
+nothing to commit, working tree clean
+git log
+commit 200eaaba0e17d7675fe160a00ba987c8f7c00368 (HEAD -> main)
+Author: Sam Peddamatham <sam.pm@infomagnus.com>
+Date:   Mon Feb 26 23:33:00 2024 -0800
+
+    Added chapter1
+
+commit 513dd263275c0f49b4f683a5227043abe0d5ffdc
+Author: Sam Peddamatham <sam.pm@infomagnus.com>
+Date:   Mon Feb 26 23:30:09 2024 -0800
+
+    Initial commit
+(END)
+```
 
 ### :keyboard: Activity: Your first branch
 
