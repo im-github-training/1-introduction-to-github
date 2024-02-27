@@ -6,9 +6,24 @@
   Encourage users to open new tabs for steps!
 -->
 
-# Getting Our Feet Wet
+In this chapter we will be learning about:
+- `git rebase`
+- `git reset`
+- `git merge`
+- `git cherry-pick`
 
-## Chapter 1
+## Chapter 2
+
+Alright, so where we left off last we'd just created a branch called `my-first-branch` and pushed it to `remote`.
+
+To help speed things up, I've gone ahead and created `chapter2` for you.
+
+Let's do a `git pull` and take a look:
+
+```console
+
+```
+
 
 Let's start by getting familiar with the Git basics.
 
@@ -250,20 +265,12 @@ git reset <commit id>
 ## Step: Create a branch
 
 ```bash
-> git switch -c my-first-branch
-Switched to a new branch 'my-first-branch'
+git switch -c my-first-branch
 ```
+
 
 ## Step: Push
 
 ```bash
-> git push --set-upstream origin my-first-branch
-Total 0 (delta 0), reused 0 (delta 0), pack-reused 0
-remote:
-remote: Create a pull request for 'my-first-branch' on GitHub by visiting:
-remote:      https://github.com/im-sampm/1-introduction-to-github/pull/new/my-first-branch
-remote:
-To https://github.com/im-sampm/1-introduction-to-github.git
- * [new branch]      my-first-branch -> my-first-branch
-Branch 'my-first-branch' set up to track remote branch 'my-first-branch' from 'origin'.
+git push
 ```
