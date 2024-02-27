@@ -21,13 +21,20 @@ jobs:
     name: Check current step number
     runs-on: ubuntu-latest
     steps:
+      # Print out github context
+      - name: Debug
+        run: |
+          echo "github context: ${{ toJson(github) }}"
       - name: Checkout
         uses: actions/checkout@v4
       - id: get_step
         run: |
           echo "current_step=$(cat ./.github/steps/-step.txt)" >> $GITHUB_OUTPUT
+
     outputs:
       current_step: ${{ steps.get_step.outputs.current_step }}
+
+
 
   on_commit_a_file:
     name: On commit a file
@@ -41,8 +48,8 @@ jobs:
     if: >-
       ${{ !github.event.repository.is_template
           && needs.get_current_step.outputs.current_step == 2
-          && github.ref_type == 'branch'
-          && github.ref_name == 'my-first-branch' }}
+          && github.event.ref_type == 'branch'
+          && github.event.ref == 'my-first-branch' }}
 
     # We'll run Ubuntu for performance instead of Mac or Windows.
     runs-on: ubuntu-latest

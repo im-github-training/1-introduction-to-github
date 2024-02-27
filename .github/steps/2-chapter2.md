@@ -465,3 +465,39 @@ Deleted branch my-first-branch (was a692dae).
 ```
 
 Thankyouverymuch.
+
+```bash
+> git push
+
+To https://github.com/im-sampm/1-introduction-to-github.git
+ ! [rejected]        main -> main (fetch first)
+error: failed to push some refs to 'https://github.com/im-sampm/1-introduction-to-github.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+> git pull
+remote: Enumerating objects: 24, done.
+remote: Counting objects: 100% (24/24), done.
+remote: Compressing objects: 100% (6/6), done.
+remote: Total 19 (delta 9), reused 18 (delta 8), pack-reused 0
+Unpacking objects: 100% (19/19), 5.71 KiB | 389.00 KiB/s, done.
+From https://github.com/im-sampm/1-introduction-to-github
+   51b9013..e3bedc1  main            -> origin/main
+   51b9013..c866aae  my-first-branch -> origin/my-first-branch
+Updating 51b9013..e3bedc1
+Fast-forward
+ .github/steps/-step.txt |   2 +-
+ README.md               | 506 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++--------------------------
+ 2 files changed, 353 insertions(+), 155 deletions(-)
+
+> git push
+Everything up-to-date
+
+> git branch
+-branch
+To https://github.com/im-sampm/1-introduction-to-github.git
+ - [deleted]         my-first-branch
+```
