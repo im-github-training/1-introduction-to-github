@@ -8,6 +8,8 @@
 
 # Getting Our Feet Wet
 
+## Chapter 1
+
 Let's start by getting familiar with the Git basics.
 
 In the next series of exercises, we'll be using our repository to work on a book.
@@ -15,7 +17,7 @@ In the next series of exercises, we'll be using our repository to work on a book
 Let's start by making sure the repository is ready for us to start working by typing `git status`.
 
 ```console
-git status
+> git status
 
 On branch main
 nothing to commit, working tree clean
@@ -25,14 +27,14 @@ Looks good!
 
 Now let's create a file for our very first chapter.
 
-```properties
+```console
 echo "Chapter 1" > chapter1
 ```
 
 Let's see if Git noticed this new file by typing `git status`:
 
 ```bash
-git status
+> git status
 
 On branch main
 Untracked files:
@@ -42,22 +44,52 @@ Untracked files:
 nothing added to commit but untracked files present (use "git add" to track)
 ```
 
-```bash
+Cool, so Git saw that we added this file but it's not yet tracking the file.
+
+Luckily, Git tells us exactly what we need to do next, a `git add`:
+
+```console
 git add chapter1
-git status
+```
+
+Let's see how things look now:
+
+```bash
+> git status
+
 On branch main
 Changes to be committed:
   (use "git restore --staged <file>..." to unstage)
         new file:   chapter1
+```
 
-git commit -m "Added chapter1"
+Alright, so it looks like our `chapter1` file is staged and ready to be committed!
+
+Let's go ahead and do that with a `git commit`:
+
+```bash
+> git commit -m "Added chapter1"
+
 [main 200eaab] Added chapter1
  1 file changed, 1 insertion(+)
  create mode 100644 chapter1
-git status
+```
+
+And, of course, a quick `git status`:
+
+```bash
+> git status
 On branch main
 nothing to commit, working tree clean
-git log
+```
+
+Nice, looks like the file was moved from the staging area to the repository!
+
+Let's see what `git log` has to say:
+
+```bash
+> git log
+
 commit 200eaaba0e17d7675fe160a00ba987c8f7c00368 (HEAD -> main)
 Author: Sam Peddamatham <sam.pm@infomagnus.com>
 Date:   Mon Feb 26 23:33:00 2024 -0800
@@ -72,23 +104,149 @@ Date:   Mon Feb 26 23:30:09 2024 -0800
 (END)
 ```
 
-### :keyboard: Activity: Your first branch
+Perfect!
 
-1. Open a new browser tab and navigate to your newly made repository. Then, work on the steps in your second tab while you read the instructions in this tab.
-2. Navigate to the **< > Code** tab in the header menu of your repository.
+## A Little Bit Restore
 
-   ![code-tab](/images/code-tab.png)
+Alright, now that we've practiced `git add`'ing and `git commit`'ting files, let's level up our game a bit.
 
-3. Click on the **main** branch drop-down.
+Let's see how Git reacts if we accidentally delete `chapter1`.
 
-   ![main-branch-dropdown](/images/main-branch-dropdown.png)
+First things first, let's double-check and make sure `chapter1`'s still there:
 
-4. In the field, name your branch `my-first-branch`. In this case, the name must be `my-first-branch` to trigger the course workflow.
-5. Click **Create branch: my-first-branch** to create your branch.
+```bash
+> ls -l
+total 4
+-rw-r--r-- 1 me me 10 Feb 26 23:32 chapter1
+```
 
-   ![create-branch-button](/images/create-branch-button.png)
+Yup, don't know what we were expecting...  
 
-   The branch will automatically switch to the one you have just created.
-   The **main** branch drop-down bar will reflect your new branch and display the new branch name.
+Now, let's delete `chapter1` and see what Git has to say with a lil `git status`:
 
-6. Wait about 20 seconds then refresh this page (the one you're following instructions from). [GitHub Actions](https://docs.github.com/en/actions) will automatically update to the next step.
+```bash
+> rm chapter1
+
+> git status
+On branch main
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        deleted:    chapter1
+
+no changes added to commit (use "git add" and/or "git commit -a")
+```
+
+Ok, somewhere in that wall of text, Git's telling us that `chapter1` has indeed been removed from the _working directory_.
+
+And, once again, Git helpfully tells us what to type to restore the file: 
+
+```bash
+git restore chapter1
+```
+
+Double-checking with an `ls -l` shows us that `chapter1` has been
+
+```bash
+ls -l
+total 4
+-rw-r--r-- 1 me me 10 Feb 26 23:36 chapter1
+```
+
+## Section 1
+
+## Trying out git diff
+
+```bash
+echo "Section 1" >> chapter1
+```
+
+```bash
+> git diff
+
+diff --git a/chapter1 b/chapter1
+index 70b252c..211497d 100644
+--- a/chapter1
++++ b/chapter1
+@@ -1 +1,2 @@
+ Chapter 1
++Section 1
+(END)
+```
+
+## Step: Amend a commit
+
+```bash
+> git commit -am "Updated chapter1"
+
+[main 9f5f218] Updated chapter1
+ 1 file changed, 1 insertion(+)
+```
+
+```bash
+> git log
+
+commit 9f5f2188f804514cb32c2a2c9b0dc52f904c366d (HEAD -> main)
+Author: Sam Peddamatham <sam.pm@infomagnus.com>
+Date:   Mon Feb 26 23:39:48 2024 -0800
+
+    Updated chapter1
+
+commit 200eaaba0e17d7675fe160a00ba987c8f7c00368
+Author: Sam Peddamatham <sam.pm@infomagnus.com>
+Date:   Mon Feb 26 23:33:00 2024 -0800
+
+    Added chapter1
+
+commit 513dd263275c0f49b4f683a5227043abe0d5ffdc
+Author: Sam Peddamatham <sam.pm@infomagnus.com>
+Date:   Mon Feb 26 23:30:09 2024 -0800
+
+    Initial commit
+(END)
+```
+
+```bash
+> git commit --amend -m "Added 'Section 1' to chapter1"
+
+[main 4ee397d] Added 'Section 1' to chapter1
+ Date: Mon Feb 26 23:39:48 2024 -0800
+ 1 file changed, 1 insertion(+)
+```
+
+
+```bash
+> git log
+
+commit 4ee397d6dad3855e209260a1e7380cfb65c1a2b5 (HEAD -> main)
+Author: Sam Peddamatham <sam.pm@infomagnus.com>
+Date:   Mon Feb 26 23:39:48 2024 -0800
+
+    Added 'Section 1' to chapter1
+
+commit 200eaaba0e17d7675fe160a00ba987c8f7c00368
+Author: Sam Peddamatham <sam.pm@infomagnus.com>
+Date:   Mon Feb 26 23:33:00 2024 -0800
+
+    Added chapter1
+
+commit 513dd263275c0f49b4f683a5227043abe0d5ffdc
+Author: Sam Peddamatham <sam.pm@infomagnus.com>
+Date:   Mon Feb 26 23:30:09 2024 -0800
+
+    Initial commit
+(END)
+```
+
+## Step: Revert a commit
+
+```bash
+git revert <commit id>
+git log
+  
+git reset <commit id>
+```
+
+```bash
+git push
+```
