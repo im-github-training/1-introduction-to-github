@@ -7,9 +7,7 @@ name: Step 2, Commit a file
 # Reference: https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - my-first-branch
+  delete:
 
 # Reference: https://docs.github.com/en/actions/security-guides/automatic-token-authentication
 permissions:
@@ -42,7 +40,9 @@ jobs:
     # Reference: https://docs.github.com/en/actions/learn-github-actions/expressions
     if: >-
       ${{ !github.event.repository.is_template
-          && needs.get_current_step.outputs.current_step == 2 }}
+          && needs.get_current_step.outputs.current_step == 2
+          && github.ref_type == 'branch'
+          && github.ref_name == 'my-first-branch' }}
 
     # We'll run Ubuntu for performance instead of Mac or Windows.
     runs-on: ubuntu-latest
