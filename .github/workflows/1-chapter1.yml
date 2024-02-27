@@ -73,12 +73,12 @@ jobs:
           git commit -m "Added chapter2"
 
           echo "Chapter 2" > chapter2
-          git commit -m "Fixed typo"
+          git commit -am "Fixed typo"
 
           echo "Section 2" >> chapter2
-          git commit -m "Added 'Section 1' to chapter2"
+          git commit -am "Added 'Section 1' to chapter2"
 
           echo "Section 2" >> chapter2
-          git commit -m "Fixed typo"
+          git commit -am "Fixed typo"
 
           git push origin my-first-branch
