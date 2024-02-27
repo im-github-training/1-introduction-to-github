@@ -14,7 +14,6 @@ Welcome to the InfoMagnus GitHub Training Platform.
 
 <img src='image.png' width='70%'>
 
----
 
 1. Set "Owner *" to your GitHub handle
 1. Check the "Copy the `main` branch only" box
@@ -28,13 +27,11 @@ Click on the 'Actions' in your forked repo.
 
 <img src='image-2.png' width='70%'>
 
----
 
 Click on "I understand my workflows, go ahead and enable them" (you'll have to trust us)
 
 <img src='image-3.png' width='70%'>
 
----
 
 Then, click "exercises" to return back to the home screen.
 
