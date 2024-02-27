@@ -247,6 +247,15 @@ git log
 git reset <commit id>
 ```
 
+## Step: Create a branch
+
+```bash
+git switch -c my-first-branch
+```
+
+
+## Step: Push
+
 ```bash
 git push
 ```
