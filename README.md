@@ -10,36 +10,41 @@ Welcome to the InfoMagnus GitHub Training Platform.
 
 ## Step 1: Fork this repository
 
-### Click the `Fork` button on the repository site.
+1. Click the `Fork` button on the repository site.
 
-<img src='image.png' width='80%'>
+<img src='image.png' width='70%'>
 
-### Make sure the following options are set:
-### 1. Set "Owner *" to your GitHub handle
-### 2. Check the "Copy the `main` branch only" box
-### 3. Click the "Create fork" button!
+---
 
-<img src='image-1.png' width='80%'>
+1. Set "Owner *" to your GitHub handle
+1. Check the "Copy the `main` branch only" box
+1. Click the "Create fork" button!
+
+<img src='image-1.png' width='70%'>
 
 ## Step 2: Enable Actions
 
-### Click on the 'Actions' in your forked repo.
+Click on the 'Actions' in your forked repo.
 
-<img src='image-2.png' width='80%'>
+<img src='image-2.png' width='70%'>
 
-### Click on "I understand my workflows, go ahead and enable them" (you'll have to trust us)
+---
 
-<img src='image-3.png' width='80%'>
+Click on "I understand my workflows, go ahead and enable them" (you'll have to trust us)
 
-### Then, click "exercises" to return back to the home screen.
+<img src='image-3.png' width='70%'>
 
-<img src='image-5.png' width='80%'>
+---
+
+Then, click "exercises" to return back to the home screen.
+
+<img src='image-5.png' width='70%'>
 
 ## Step 3: Star Your Repo!
 
-<img src='image-7.png' width='80%'>
-<img src='image-9.png' width='80%'>
-<img src='image-10.png' width='80%'>
+<img src='image-7.png' width='70%'>
+<img src='image-9.png' width='70%'>
+<img src='image-10.png' width='70%'>
 
 <footer>
 
