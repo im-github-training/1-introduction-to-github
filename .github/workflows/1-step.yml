@@ -21,21 +21,26 @@ jobs:
     name: Get current step number
     runs-on: ubuntu-latest
     env:
-      STEP: 9
+      DEFAULT_STEP: 1
     steps:
+      - name: Set step
+        if: ${{ github.event_name == 'workflow_dispatch' }}
+        run: |
+            echo "STEP=$DEFAULT_STEP" >> $GITHUB_ENV
+            exit 0
+
+      # Needed so we can read the step number from -step.txt
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: If triggered by event
-        if: ${{ github.event_name == 'workflow_dispatch' }}
+      - name: Set step (from file)
+        if: ${{ github.event_name != 'workflow_dispatch' }}
         run: |
             echo "STEP=$(cat ./.github/steps/-step.txt)" >> $GITHUB_ENV
 
       - name: Check step
-        if: ${{ env.STEP != 10 }}
-        run: |
-            echo "The current step is ${{ env.STEP }}"
-            exit 1
+        if: ${{ env.STEP != env.DEFAULT_STEP }}
+        run: core.error('This is an error message')
     outputs:
       current_step: ${{ env.STEP }}
 
@@ -51,11 +56,11 @@ jobs:
     # 4. The branch name is `my-first-branch`.
     # Reference: https://docs.github.com/en/actions/learn-github-actions/contexts
     # Reference: https://docs.github.com/en/actions/learn-github-actions/expressions
-    if: >-
-      ${{ !github.event.repository.is_template
-          && needs.get_step.outputs.current_step == 1
-          && github.ref_type == 'branch'
-          && github.ref_name == 'my-first-branch' }}
+    # if: >-
+    #   ${{ !github.event.repository.is_template
+    #       && needs.get_step.outputs.current_step == 1
+    #       && github.ref_type == 'branch'
+    #       && github.ref_name == 'my-first-branch' }}
 
     steps:
       - run: |
