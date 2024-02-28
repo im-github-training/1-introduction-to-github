@@ -24,19 +24,27 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - if: ${{ github.event_name == 'workflow_dispatch' }}
+      - name: Get step 
+        if: ${{ github.event_name == 'workflow_dispatch' }}
         run: |
             echo "::notice file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
             echo "The workflow was triggered manually"
             echo "CURRENT_STEP=1" >> $GITHUB_ENV
 
-      - if: ${{ github.event_name != 'workflow_dispatch' }}
+      - name: Get step 
+        if: ${{ github.event_name != 'workflow_dispatch' }}
         run: |
             echo "CURRENT_STEP=$(cat ./.github/steps/-step.txt)" >> $GITHUB_ENV
 
+      # Print out env context
+      - name: Print env context
+        run: |
+          echo "The current step is ${{ toJson(env) }}"
+
+
     outputs:
       # Output the CURRENT_STEP environment variable.
-      current_step: ${{ env.STEP }}
+      current_step: ${{ env.CURRENT_STEP }}
 
   main:
     # Check if workflow_dispatch or create event was triggered.
