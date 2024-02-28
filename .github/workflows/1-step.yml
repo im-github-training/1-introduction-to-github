@@ -17,43 +17,58 @@ permissions:
 
 jobs:
   # Get the current step to only run the main job when the learner is on the same step.
-  get_current_step:
+  get_step:
     name: Get current step number
     runs-on: ubuntu-latest
+    env:
+      STEP: 9
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Get step 
-        if: ${{ github.event_name == 'workflow_dispatch' }}
-        run: |
-            echo "::notice file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
-            echo "The workflow was triggered manually"
-            echo "CURRENT_STEP=1" >> $GITHUB_ENV
-
-      - name: Get step 
+      - name: If triggered by event
         if: ${{ github.event_name != 'workflow_dispatch' }}
         run: |
-            echo "CURRENT_STEP=$(cat ./.github/steps/-step.txt)" >> $GITHUB_ENV
+            echo "STEP=$(cat ./.github/steps/-step.txt)" >> $GITHUB_ENV
 
-      # Print out env context
-      - name: Print env context
+      - name: Check step
+        if: ${{ env.STEP != 1 }}
         run: |
-          echo "The current step is ${{ toJson(env) }}"
-
-
+            echo "The current step is ${{ env.STEP }}"
+            exit 1
     outputs:
-      # Output the CURRENT_STEP environment variable.
-      current_step: ${{ env.CURRENT_STEP }}
+      current_step: ${{ env.STEP }}
+
+  test:
+    # Check if workflow_dispatch or create event was triggered.
+    name: On create a branch
+    needs: get_step
+    runs-on: ubuntu-latest
+    # We will only run this action when:
+    # 1. This repository isn't the template repository.
+    # 2. The step is currently 1.
+    # 3. The event is a branch.
+    # 4. The branch name is `my-first-branch`.
+    # Reference: https://docs.github.com/en/actions/learn-github-actions/contexts
+    # Reference: https://docs.github.com/en/actions/learn-github-actions/expressions
+    if: >-
+      ${{ !github.event.repository.is_template
+          && needs.get_step.outputs.current_step == 1
+          && github.ref_type == 'branch'
+          && github.ref_name == 'my-first-branch' }}
+
+    steps:
+      - run: |
+          echo "The current step is ${{ needs.get_step.outputs.current_step }}"
+          exit 1
+
+
 
   main:
     # Check if workflow_dispatch or create event was triggered.
     name: On create a branch
-    needs: get_current_step
+    needs: get_step
     runs-on: ubuntu-latest
     steps:
       - run: |
-          echo "The current step is ${{ needs.get_current_step.outputs.current_step }}"
+          echo "The current step is ${{ needs.get_step.outputs.current_step }}"
           exit 1
 
 
