@@ -6,13 +6,21 @@
   Encourage users to open new tabs for steps!
 -->
 
-# Getting Our Feet Wet
+## Getting Started
+
+To get started, we'll need a local copy of this repository.  To do that:
+
+1. Click the "Code" button, and then click the "Copy url to clipboard" icon:
+
+<img src="../../images/image-9.png" width="70%">
+
+2. Open a terminal window and do a `git clone`:
+
+<img src="../../images/image-10.png" width="70%">
 
 ## Chapter 1
 
-Let's start by getting familiar with the Git basics.
-
-In the next series of exercises, we'll be using our repository to work on a book.
+Ok, in the next series of exercises, we'll be using this repository to work on our next manuscript.
 
 Let's start by making sure the repository is ready for us to start working by typing `git status`.
 
@@ -106,9 +114,9 @@ Date:   Mon Feb 26 23:30:09 2024 -0800
 
 Perfect!
 
-## A Little Bit Restore
+## A Little Bit More
 
-Alright, now that we've practiced `git add`'ing and `git commit`'ting files, let's level up our game a bit.
+Alright, now that we've practiced `git add`'ing and `git commit`'ting files, let's up our game a bit.
 
 Let's see how Git reacts if we accidentally delete `chapter1`.
 
@@ -152,8 +160,6 @@ ls -l
 total 4
 -rw-r--r-- 1 me me 10 Feb 26 23:36 chapter1
 ```
-
-## Section 1
 
 ## Trying out git diff
 

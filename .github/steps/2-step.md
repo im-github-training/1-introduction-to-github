@@ -14,6 +14,8 @@ In this chapter we will be learning about:
 
 ## Chapter 2
 
+### How to clean up your commit history
+
 Alright, so where we left off last we'd just created a branch called `my-first-branch` and pushed it to `remote`.
 
 To help speed things up, I've gone ahead and created `chapter2` for you.
@@ -317,6 +319,10 @@ Date:   Tue Feb 27 10:08:21 2024 +0000
 ```
 
 🤌🤌🤌
+
+### Making changes to old commits
+
+
 
 ### Merging
 

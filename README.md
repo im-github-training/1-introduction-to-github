@@ -39,8 +39,6 @@ Then, click "exercises" to return back to the home screen.
 ## Step 3: Star Your Repo!
 
 <img src="./images/image-7.png" width="70%">
-<img src="./images/image-9.png" width="70%">
-<img src="./images/image-10.png" width="70%">
 
 <footer>
 
