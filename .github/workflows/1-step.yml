@@ -24,26 +24,32 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - if: ${{ github.event_name == 'workflow_dispatch' }}
+        run: |
+            echo "The workflow was triggered manually"
+            echo "CURRENT_STEP=1" >> $GITHUB_ENV
+
+      - if: ${{ github.event_name != 'workflow_dispatch' }}
+        run: |
+            echo "CURRENT_STEP=$(cat ./.github/steps/-step.txt)" >> $GITHUB_ENV
+
       - id: get_step
         run: |
-          current_step=1
-
-          if [[ "${{ github.event_name }}" == "watch" ]]; then 
-            echo "The workflow was triggered by the repo getting 'starred'"
-            echo "CURRENT_STEP=$(cat ./.github/steps/-step.txt)" >> $GITHUB_OUTPUT
-          elif [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then 
-            # echo "The workflow was triggered manually"
-            echo "CURRENT_STEP=$current_step" >> $GITHUB_OUTPUT
-          else
-            echo "The workflow was triggered via unsupported event"
-            exit 1
-          fi
+          echo "STEP=$CURRENT_STEP" >> $GITHUB_OUTPUT
     outputs:
-      current_step: ${{ steps.get_step.outputs.current_step }}
+      # Output the CURRENT_STEP environment variable.
+      current_step: ${{ steps.get_step.outputs.step }}
 
-  on_create_a_branch:
+  main:
+    # Check if workflow_dispatch or create event was triggered.
     name: On create a branch
     needs: get_current_step
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "The current step is ${{ needs.get_current_step.outputs.current_step }}"
+          exit 1
+
 
     # We will only run this action when:
     # 1. This repository isn't the template repository.
@@ -53,7 +59,8 @@ jobs:
     # Reference: https://docs.github.com/en/actions/learn-github-actions/contexts
     # Reference: https://docs.github.com/en/actions/learn-github-actions/expressions
     if: >-
-      ${{ !github.event.repository.is_template
+      ${{ github.event_name == 'watch' 
+          && !github.event.repository.is_template
           && needs.get_current_step.outputs.current_step == 1
           && github.ref_type == 'branch'
           && github.ref_name == 'my-first-branch' }}

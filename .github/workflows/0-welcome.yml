@@ -1,4 +1,4 @@
-name: Step 0, Welcome
+name: Step 0
 
 # This step triggers after the learner creates a new repository from the template.
 # This workflow updates from step 0 to step 1.
@@ -28,21 +28,17 @@ jobs:
         run: |
           current_step=0
 
-          if [[ "${{ github.event_name }}" == "watch" ]]; then 
-            echo "The workflow was triggered by the repo getting 'starred'"
-            echo "CURRENT_STEP=$(cat ./.github/steps/-step.txt)" >> $GITHUB_OUTPUT
-          elif [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then 
-            # echo "The workflow was triggered manually"
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then 
+            echo "The workflow was triggered manually"
             echo "CURRENT_STEP=$current_step" >> $GITHUB_OUTPUT
           else
-            echo "The workflow was triggered via unsupported event"
-            exit 1
+            echo "The workflow was triggered by the repo getting 'starred'"
+            echo "CURRENT_STEP=$(cat ./.github/steps/-step.txt)" >> $GITHUB_OUTPUT
           fi
     outputs:
       current_step: ${{ steps.get_step.outputs.current_step }}
 
-  on_welcome:
-    name: On welcome
+  main:
     needs: get_current_step
 
     # We will only run this action when:
@@ -51,7 +47,7 @@ jobs:
     # Reference: https://docs.github.com/en/actions/learn-github-actions/contexts
     # Reference: https://docs.github.com/en/actions/learn-github-actions/expressions
     if: >-
-      ${{ !github.event.repository.is_template
+      ${{ !github.event.repository.is_template 
           && needs.get_current_step.outputs.current_step == 0 }}
 
     # We'll run Ubuntu for performance instead of Mac or Windows.
