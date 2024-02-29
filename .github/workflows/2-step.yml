@@ -17,41 +17,33 @@ permissions:
 
 jobs:
   # Get the current step to only run the main job when the learner is on the same step.
-  get_current_step:
-    name: Check current step number
+  check_conditions:
     runs-on: ubuntu-latest
+    if: github.event_name != 'workflow_dispatch'
     steps:
-      # Print out github context
-      - name: Debug
-        run: |
-          echo "github context: ${{ toJson(github) }}"
+      # Needed so we can read the step number from -step.txt
       - name: Checkout
         uses: actions/checkout@v4
+
       - id: get_step
-        run: |
-          echo "current_step=$(cat ./.github/steps/-step.txt)" >> $GITHUB_OUTPUT
+        run: echo "step=$(cat ./.github/steps/-step.txt)" >> $GITHUB_OUTPUT
 
-    outputs:
-      current_step: ${{ steps.get_step.outputs.current_step }}
+      - name: Check if correct step
+        if: ${{ steps.get_step.outputs.step != 2 }}
+        run: exit 1
 
-  on_delete_branch:
-    name: On delete branch
-    needs: get_current_step
+      - name: Check if template repository
+        if:  github.event.repository.is_template
+        run: exit 1
 
-    # We will only run this action when:
-    # 1. This repository isn't the template repository.
-    # 2. The step is currently 2.
-    # Reference: https://docs.github.com/en/actions/learn-github-actions/contexts
-    # Reference: https://docs.github.com/en/actions/learn-github-actions/expressions
-    if: >-
-      ${{ !github.event.repository.is_template
-          && needs.get_current_step.outputs.current_step == 2
-          && github.event.ref_type == 'branch'
-          && github.event.ref == 'my-first-branch' }}
+      - name: Check if branch is my-first-branch
+        if: github.ref_type == 'branch' && github.ref != 'my-first-branch'
+        run: exit 1
 
-    # We'll run Ubuntu for performance instead of Mac or Windows.
+  main:
+    needs: check_conditions
     runs-on: ubuntu-latest
-
+    if: github.event_name == 'workflow_dispatch' || success()
     steps:
       # We'll need to check out the repository so that we can edit the README.
       - name: Checkout
