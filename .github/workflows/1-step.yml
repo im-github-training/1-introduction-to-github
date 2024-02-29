@@ -20,7 +20,6 @@ jobs:
   get_current_step:
     name: Get current step number
     runs-on: ubuntu-latest
-    if: github.event_name != 'workflow_dispatch'
     steps:
       # Needed so we can read the step number from -step.txt
       - name: Checkout
