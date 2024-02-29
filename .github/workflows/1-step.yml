@@ -43,8 +43,7 @@ jobs:
     outputs:
       current_step: ${{ env.STEP }}
 
-  test:
-    # Check if workflow_dispatch or create event was triggered.
+  check_condition:
     name: Check step condition
     needs: get_step
     runs-on: ubuntu-latest
@@ -55,6 +54,18 @@ jobs:
     # 4. The branch name is `my-first-branch`.
     # Reference: https://docs.github.com/en/actions/learn-github-actions/contexts
     # Reference: https://docs.github.com/en/actions/learn-github-actions/expressions
+    if: >-
+      success() &&
+        ${{ github.event_name != 'workflow_dispatch'
+          && (github.event.repository.is_template
+          || github.ref_type == 'branch'
+          || github.ref_name == 'my-first-branch') }}
+    steps:
+      - name: Set step
+        run: exit 1
+
+  main:
+    runs-on: ubuntu-latest
     if: >-
       ${{ success()
           && !github.event.repository.is_template
