@@ -34,12 +34,10 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Set step (from file)
-        if: ${{ github.event_name != 'workflow_dispatch' }}
         run: |
             echo "STEP=$(cat ./.github/steps/-step.txt)" >> $GITHUB_ENV
 
-      - name: Check step
-        if: ${{ env.STEP != env.DEFAULT_STEP }}
+      - if: ${{ env.STEP != env.DEFAULT_STEP }}
         run: core.error('This is an error message')
     outputs:
       current_step: ${{ env.STEP }}
