@@ -1,8 +1,6 @@
 {
   "dependencies": {
     "remark": "^15.0.1",
-    "remark-attr": "^0.11.1",
-    "remark-directive": "^3.0.0",
     "remark-parse": "^11.0.0",
     "remark-stringify": "^11.0.0"
   }
