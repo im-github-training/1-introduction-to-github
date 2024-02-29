@@ -51,14 +51,6 @@ $ git switch -c my-first-branch
 
 ### Our First Commit
 
-First, let's create a directory to work in:
-
-```shellSession
-$ mkdir book
-
-$ cd book
-```
-
 Now, let's create a file for Chapter 1 called `chapter1`.
 
 We can do this with a simple `touch chapter`:
@@ -110,7 +102,7 @@ Nice, looks like the file was moved from the staging area to the repository!
 We can confirm the commit is part of our repository history by doing a `git log`:
 
 ```shellSession
-$ git log
+$ git --no-pager log -n 3
 ```
 
 Perfect!
@@ -170,13 +162,27 @@ $ git add chapter1
 $ git commit --amend --no-edit
 ```
 
-And checking with `git log`, we can see the commit date has updated:
+And checking with `git log`, we can see the commit id has updated:
 
 ```shellSession
 $ git --no-pager log -n 3
 ```
 
 > **Note:** Here we used the `--no-edit` flag, which allows us to skip retyping the commit message.
+
+Now, it's good practice to "commit early and often", but it's also good practice to push your changes back to GitHub often.
+
+So let's do that with a `git push`:
+
+```shellSession
+$ git push
+```
+
+
+```shellSession
+$ git push --set-upstream origin my-first-branch
+```
+
 
 #### Reverting a commit
 
@@ -217,8 +223,8 @@ But what's with the `HEAD` thing?  We'll get to that soon...
 ## Wrapping Things Up
 
 
-Now let's push today's work back to GitHub:
+Now let's push today's work back to GitHub.
 
 ```shellSession
-$ git push --set-upstream origin my-first-branch
+$ git push
 ```

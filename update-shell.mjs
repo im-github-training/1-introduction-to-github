@@ -25,6 +25,17 @@ import path from 'path';
 // Get the file name from the command-line arguments
 const filename = process.argv[2];
 
+const workingDir = process.argv[3];
+
+// Create working directory if it doesn't exist
+if (!fs.existsSync(workingDir)) {
+  fs.mkdirSync(workingDir);
+}
+
+const options = {
+  cwd: workingDir
+};
+
 // Get basename of the file
 const basename = path.basename(filename, '.md');
 
@@ -55,9 +66,9 @@ const processor = remark()
         console.log(`${svg_tool} ${commands} --pty`)
 
         // Execute the command and render the output as SVG
-        const cmd_output = execSync(`${svg_tool} ${commands} -I 1000ms -T 1000ms --pty`).toString().trim();
+        const cmd_output = execSync(`${svg_tool} ${commands} -I 1000ms -T 1000ms --pty`, options).toString().trim();
 
-        const imagesDir = '../images';
+        const imagesDir = 'images';
         const imageFilename = `${basename}-shell-${counter++}.svg`;
         fs.writeFileSync(path.join(imagesDir, imageFilename), cmd_output);
 
@@ -78,5 +89,5 @@ const processor = remark()
 const result = processor.processSync(markdownText).toString();
 
 // Write result to file
-const outputPath = path.join('../.github', 'steps', `${basename}-shell.md`);
+const outputPath = path.join('.github', 'steps', `${basename}-shell.md`);
 fs.writeFileSync(outputPath, result);
