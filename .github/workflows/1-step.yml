@@ -75,10 +75,18 @@ jobs:
           echo "Chapter 2" > chapter2
           git commit -am "FIxed tyypo"
 
+          git commit -m "bugfix" --allow-empty
+          git commit -m "bugfix" --allow-empty
+          git commit -m "bugfix" --allow-empty
+
           echo "Section 2" >> chapter2
           git commit -am "Added 'Section 1' to chapter2"
 
           echo "Section 2" >> chapter2
           git commit -am "fix"
+          git commit -m "fix" --allow-empty
+          git commit -m "fix" --allow-empty
+          git commit -m "fiix" --allow-empty
+          git commit -m "fix" --allow-empty
 
           git push origin my-first-branch

@@ -38,17 +38,25 @@ Git is telling us the following things:
 * our `staging area` is empty
 * and no changes have been detected in our `working tree` *or* `working directory`
 
+### Our First Branch
+
+Let's set things up by creating something called a `branch`.
+
+A branch is basically a named pointer to the current commit.  What's neat about them is that they give you a place to experiment and try things out before you make changes to your `main` branch.
+
+!['git switch -c my-first-branch'](/images/1-step-shell-1.svg)
+
 ### Our First Commit
 
 Now, let's create a file for Chapter 1 called `chapter1`.
 
 We can do this with a simple `touch chapter`:
 
-!['touch chapter1'](/images/1-step-shell-1.svg)
+!['touch chapter1'](/images/1-step-shell-2.svg)
 
 Let's see if Git noticed this change to our `working tree` by typing `git status`:
 
-!['git status'](/images/1-step-shell-2.svg)
+!['git status'](/images/1-step-shell-3.svg)
 
 Great, Git noticed that we added the file, but is saying it's *untracked*.
 
@@ -58,27 +66,27 @@ Great, Git noticed that we added the file, but is saying it's *untracked*.
 
 Let's go ahead and start tracking the file with a `git add chapter1`:
 
-!['git add chapter1'](/images/1-step-shell-3.svg)
+!['git add chapter1'](/images/1-step-shell-4.svg)
 
 Let's see how things look now:
 
-!['git status'](/images/1-step-shell-4.svg)
+!['git status'](/images/1-step-shell-5.svg)
 
 Alright, it looks like `chapter1` file is staged and ready to be committed!
 
 Let's go ahead and do that with `git commit -m "Added chapter1"`:
 
-!['git commit -m "Added chapter1"'](/images/1-step-shell-5.svg)
+!['git commit -m "Added chapter1"'](/images/1-step-shell-6.svg)
 
 Let's see what `git status` says now that the file's been committed:
 
-!['git status'](/images/1-step-shell-6.svg)
+!['git status'](/images/1-step-shell-7.svg)
 
 Nice, looks like the file was moved from the staging area to the repository!
 
 We can confirm the commit is part of our repository history by doing a `git log`:
 
-!['git log'](/images/1-step-shell-7.svg)
+!['git log'](/images/1-step-shell-8.svg)
 
 Perfect!
 
@@ -88,7 +96,7 @@ Perfect!
 
 One of the great things about Git is that once a file has been added to a repository, it's *almost* **impossible** to lose it.  We'll prove this out in later exercises, but let's start simple and delete `chapter`.
 
-!['rm chapter1' 'ls -l' 'git status'](/images/1-step-shell-8.svg)
+!['rm chapter1' 'ls -l' 'git status'](/images/1-step-shell-9.svg)
 
 As expected, Git noticed the change to the *working directory*, namely, that `chapter1` was deleted.
 
@@ -96,11 +104,11 @@ Helpfully, Git also tells us what command restores the file, `git restore`.
 
 Let's give it a try:
 
-!['git restore chapter1'](/images/1-step-shell-9.svg)
+!['git restore chapter1'](/images/1-step-shell-10.svg)
 
 Double-checking with an `ls -l` shows us that `chapter1` has been
 
-!['ls -l'](/images/1-step-shell-10.svg)
+!['ls -l'](/images/1-step-shell-11.svg)
 
 #### Amending commits
 
@@ -108,17 +116,17 @@ Something that happens all the time is making a typo in a commit message or comm
 
 First, let's update our commit message:
 
-!['git commit -m "Added Chapter 1" --amend' 'git log'](/images/1-step-shell-11.svg)
+!['git commit -m "Added Chapter 1" --amend' 'git log'](/images/1-step-shell-12.svg)
 
 Great!
 
 Now, let's make an update to `chapter1` and add it to the commit:
 
-!['echo "# Chapter 1" >> chapter1' 'cat chapter1' 'git add chapter1' 'git commit --amend --no-edit'](/images/1-step-shell-12.svg)
+!['echo "# Chapter 1" >> chapter1' 'cat chapter1' 'git add chapter1' 'git commit --amend --no-edit'](/images/1-step-shell-13.svg)
 
 And checking with `git log`, we can see the commit date has updated:
 
-!['git log'](/images/1-step-shell-13.svg)
+!['git log'](/images/1-step-shell-14.svg)
 
 > **Note:** Here we used the `--no-edit` flag, which allows us to skip retyping the commit message.
 
@@ -128,17 +136,17 @@ Occasionally, we'll need to "undo" a commit, and one way of doing that is with `
 
 First, let's update `chapter1`:
 
-!['echo "Lorum ipsum" >> chapter1' 'git commit -am "Brainstorming"' 'cat chapter1' 'git log'](/images/1-step-shell-14.svg)
+!['echo "Lorum ipsum" >> chapter1' 'git commit -am "Brainstorming"' 'cat chapter1' 'git log'](/images/1-step-shell-15.svg)
 
 > **Note:** Here we used the `-a` flag which automatically `git add`s all changes found in tracked files.
 
 Now, let's revert that last commit:
 
-!['git revert HEAD --no-edit'](/images/1-step-shell-15.svg)
+!['git revert HEAD --no-edit'](/images/1-step-shell-16.svg)
 
-!['git log'](/images/1-step-shell-16.svg)
+!['git log'](/images/1-step-shell-17.svg)
 
-!['cat chapter1'](/images/1-step-shell-17.svg)
+!['cat chapter1'](/images/1-step-shell-18.svg)
 
 And there you go!
 
@@ -146,14 +154,6 @@ But what's with the `HEAD` thing?  We'll get to that soon...
 
 ## Wrapping Things Up
 
-Before we finish up for the day, let's set things up for the next lesson by creating something called a `branch`.
-
-A branch is basically a named pointer to the current commit.  What's neat about them is that they create a fork of your entire working tree.
-
-!['git switch -c my-first-branch'](/images/1-step-shell-18.svg)
-
 Now let's push today's work back to GitHub:
 
-```shell
-$ git push --set-upstream origin my-first-branch
-```
+!['git push --set-upstream origin my-first-branch'](/images/1-step-shell-19.svg)
