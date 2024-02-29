@@ -17,60 +17,40 @@ permissions:
 
 jobs:
   # Get the current step to only run the main job when the learner is on the same step.
-  get_step:
+  get_current_step:
     name: Get current step number
     runs-on: ubuntu-latest
-    env:
-      DEFAULT_STEP: 1
+    if: github.event_name != 'workflow_dispatch'
     steps:
-      - name: Set step
-        if: ${{ github.event_name == 'workflow_dispatch' }}
-        run: echo "STEP=$DEFAULT_STEP" >> $GITHUB_ENV; 
-
       # Needed so we can read the step number from -step.txt
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Set step (from file)
-        if: ${{ github.event_name != 'workflow_dispatch' }}
-        run: echo "STEP=$(cat ./.github/steps/-step.txt)" >> $GITHUB_ENV
-
-      - name: Check step
-        if: ${{ env.STEP != env.DEFAULT_STEP }}
-        run: |
-            echo "Not our step. Exiting."
-            exit 1
+      - id: get_step
+        run: echo "step=$(cat ./.github/steps/-step.txt)" >> $GITHUB_OUTPUT
     outputs:
-      current_step: ${{ env.STEP }}
+      step: ${{ steps.get_step.outputs.step }}
 
   check_condition:
-    name: Check step condition
-    needs: get_step
+    needs: get_current_step
     runs-on: ubuntu-latest
-    # We will only run this action when:
-    # 1. This repository isn't the template repository.
-    # 2. The step is currently 1.
-    # 3. The event is a branch.
-    # 4. The branch name is `my-first-branch`.
-    # Reference: https://docs.github.com/en/actions/learn-github-actions/contexts
-    # Reference: https://docs.github.com/en/actions/learn-github-actions/expressions
-    if: >-
-      success() &&
-        ${{ github.event_name != 'workflow_dispatch'
-          && (github.event.repository.is_template
-          || github.ref_type == 'branch'
-          || github.ref_name == 'my-first-branch') }}
+    if: success() && github.event_name != 'workflow_dispatch'
     steps:
-      - name: Set step
+      - name: Check if correct step
+        if: ${{ needs.get_current_step.outputs.step != 1 }}
+        run: exit 1
+
+      - name: Check if template repository
+        if:  github.event.repository.is_template
+        run: exit 1
+
+      - name: Check if branch is my-first-branch
+        if: github.ref_type == 'branch' && github.ref_name != 'my-first-branch'
         run: exit 1
 
   main:
     runs-on: ubuntu-latest
-    if: >-
-      ${{ success()
-          && !github.event.repository.is_template
-          && github.ref_type == 'branch'
-          && github.ref_name == 'my-first-branch' }}
+    if: success()
     steps:
       - run: |
           echo "The current step is ${{ needs.get_step.outputs.current_step }}"
