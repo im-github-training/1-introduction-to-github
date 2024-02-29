@@ -66,7 +66,7 @@ const processor = remark()
           type: 'paragraph',
           children: [{
             type: 'image',
-            url: path.join('images', imageFilename),
+            url: path.join('/images', imageFilename),
             alt: commands,
           }]
         });
