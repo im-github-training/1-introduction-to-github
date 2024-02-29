@@ -34,7 +34,7 @@ jobs:
   check_condition:
     needs: get_current_step
     runs-on: ubuntu-latest
-    if: success() && github.event_name != 'workflow_dispatch'
+    if: github.event_name != 'workflow_dispatch'
     steps:
       - name: Check if correct step
         if: ${{ needs.get_current_step.outputs.step != 1 }}
@@ -49,11 +49,10 @@ jobs:
         run: exit 1
 
   main:
+    needs: check_condition
     runs-on: ubuntu-latest
     if: success()
     steps:
-      - run: |
-          echo "The current step is ${{ needs.get_step.outputs.current_step }}"
 
       # We'll need to check out the repository so that we can edit the README.
       - name: Checkout
@@ -72,6 +71,7 @@ jobs:
 
       # Add three commits to the my-first-branch branch.
       - name: Add chapter2 commits
+        if: github.event_name != 'workflow_dispatch'
         run: |
           echo "Chatper 2" > chapter2
           git add chapter2
