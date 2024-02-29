@@ -1,5 +1,5 @@
 <!-- Created with term-transcript v0.3.0 (https://github.com/slowli/term-transcript) -->
-<svg viewBox="0 0 720 42" width="720" height="42" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 720 244" width="720" height="244" xmlns="http://www.w3.org/2000/svg">
   <switch>
     <g requiredExtensions="http://www.w3.org/1999/xhtml">
       <style>
@@ -57,11 +57,20 @@
         .fg15 { color: #f3f3f3; } .bg15 { background: #f3f3f3; }
       </style>
       <rect width="100%" height="100%" y="0" rx="4.5" style="fill: #1c1c1c;" />
-      <svg x="0" y="10" width="720" height="22" viewBox="0 0 720 22">
-        <foreignObject width="720" height="22">
+      <svg x="0" y="10" width="720" height="224" viewBox="0 0 720 224">
+        <foreignObject width="720" height="224">
           <div xmlns="http://www.w3.org/1999/xhtml" class="container">
-            <div class="input" data-exit-status="0"><pre><span class="prompt">$</span> git restore chapter1</pre></div>
-            <div class="output"><pre></pre></div>
+            <div class="input" data-exit-status="0"><pre><span class="prompt">$</span> git commit -m &quot;Added Chapter 1&quot; --amend</pre></div>
+            <div class="output"><pre>[master f255bff] Added Chapter 1
+ Date: Thu Feb 29 10:56:08 2024 +0000
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 chapter1</pre></div>
+            <div class="input" data-exit-status="0"><pre><span class="prompt">$</span> git log</pre></div>
+            <div class="output"><pre><span class="fg3">commit f255bffe063d957195d0096a0bd0274e43d857ef</span><span class="fg3"> (</span><span class="bold fg6">HEAD</span><span class="fg3"> -&gt; </span><span class="bold fg2">master</span><span class="fg3">)</span>
+Author: Sam Peddamatham &lt;sam.pm@infomagnus.com&gt;
+Date:   Thu Feb 29 10:56:08 2024 +0000
+
+    Added Chapter 1</pre></div>
           </div>
         </foreignObject>
       </svg>

@@ -1,5 +1,5 @@
 <!-- Created with term-transcript v0.3.0 (https://github.com/slowli/term-transcript) -->
-<svg viewBox="0 0 720 138" width="720" height="138" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 720 254" width="720" height="254" xmlns="http://www.w3.org/2000/svg">
   <switch>
     <g requiredExtensions="http://www.w3.org/1999/xhtml">
       <style>
@@ -57,15 +57,21 @@
         .fg15 { color: #f3f3f3; } .bg15 { background: #f3f3f3; }
       </style>
       <rect width="100%" height="100%" y="0" rx="4.5" style="fill: #1c1c1c;" />
-      <svg x="0" y="10" width="720" height="118" viewBox="0 0 720 118">
-        <foreignObject width="720" height="118">
+      <svg x="0" y="10" width="720" height="234" viewBox="0 0 720 234">
+        <foreignObject width="720" height="234">
           <div xmlns="http://www.w3.org/1999/xhtml" class="container">
-            <div class="input" data-exit-status="0"><pre><span class="prompt">$</span> git log</pre></div>
-            <div class="output"><pre><span class="fg3">commit 9eb81391fd84d913db022054018bdc75a4d2c314</span><span class="fg3"> (</span><span class="bold fg6">HEAD</span><span class="fg3"> -&gt; </span><span class="bold fg2">master</span><span class="fg3">)</span>
-Author: Sam Peddamatham &lt;sam.pm@infomagnus.com&gt;
-Date:   Thu Feb 29 08:34:08 2024 +0000
+            <div class="input" data-exit-status="0"><pre><span class="prompt">$</span> rm chapter1</pre></div>
+            <div class="output"><pre></pre></div>
+            <div class="input" data-exit-status="0"><pre><span class="prompt">$</span> ls -l</pre></div>
+            <div class="output"><pre>total 0</pre></div>
+            <div class="input" data-exit-status="0"><pre><span class="prompt">$</span> git status</pre></div>
+            <div class="output"><pre>On branch master
+Changes not staged for commit:
+  (use "git add/rm &lt;file&gt;..." to update what will be committed)
+  (use "git restore &lt;file&gt;..." to discard changes in working directory)
+	<span class="fg1">deleted:    chapter1</span>
 
-    Added chapter1</pre></div>
+no changes added to commit (use "git add" and/or "git commit -a")</pre></div>
           </div>
         </foreignObject>
       </svg>

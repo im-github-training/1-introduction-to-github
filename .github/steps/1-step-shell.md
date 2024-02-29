@@ -28,16 +28,15 @@ To begin, let's make sure everything is in order with our repository.
 
 To do this, we use the `git status` command which (unsurprisingly) prints out the current status of your repository.
 
-```shellSession
-$ git status
-```
+!['git status'](/images/1-step-shell-0.svg)
 
 Looks good!
 
 Git is telling us the following things:
-- we are on the `main` branch
-- our `staging area` is empty
-- and no changes have been detected in our `working tree` _or_ `working directory`
+
+* we are on the `main` branch
+* our `staging area` is empty
+* and no changes have been detected in our `working tree` *or* `working directory`
 
 ### Our First Commit
 
@@ -45,55 +44,41 @@ Now, let's create a file for Chapter 1 called `chapter1`.
 
 We can do this with a simple `touch chapter`:
 
-```shellSession
-$ touch chapter1
-```
+!['touch chapter1'](images/1-step-shell-1.svg)
 
 Let's see if Git noticed this change to our `working tree` by typing `git status`:
 
-```shellSession
-$ git status
-```
+!['git status'](images/1-step-shell-2.svg)
 
-Great, Git noticed that we added the file, but is saying it's _untracked_.
+Great, Git noticed that we added the file, but is saying it's *untracked*.
 
-> The way Git works is that you have to _explicitly_ tell it to start tracking files by using the `git add` command.  Until you do that, Git considers the file _untracked_.
+> The way Git works is that you have to *explicitly* tell it to start tracking files by using the `git add` command.  Until you do that, Git considers the file *untracked*.
 >
 > Once a file has been added via `git add`, it becomes a "tracked" file and Git will start monitoring it for changes. If you modify a tracked file, Git will recognize that it has been modified and will mark it as "modified" but not yet "staged" for the next commit.
 
 Let's go ahead and start tracking the file with a `git add chapter1`:
 
-```shellSession
-$ git add chapter1
-```
+!['git add chapter1'](images/1-step-shell-3.svg)
 
 Let's see how things look now:
 
-```shellSession
-$ git status
-```
+!['git status'](images/1-step-shell-4.svg)
 
 Alright, it looks like `chapter1` file is staged and ready to be committed!
 
 Let's go ahead and do that with `git commit -m "Added chapter1"`:
 
-```shellSession
-$ git commit -m "Added chapter1"
-```
+!['git commit -m "Added chapter1"'](images/1-step-shell-5.svg)
 
 Let's see what `git status` says now that the file's been committed:
 
-```shellSession
-$ git status
-```
+!['git status'](images/1-step-shell-6.svg)
 
 Nice, looks like the file was moved from the staging area to the repository!
 
 We can confirm the commit is part of our repository history by doing a `git log`:
 
-```shellSession
-$ git log
-```
+!['git log'](images/1-step-shell-7.svg)
 
 Perfect!
 
@@ -101,31 +86,21 @@ Perfect!
 
 #### Restoring files
 
-One of the great things about Git is that once a file has been added to a repository, it's _almost_ **impossible** to lose it.  We'll prove this out in later exercises, but let's start simple and delete `chapter`.
+One of the great things about Git is that once a file has been added to a repository, it's *almost* **impossible** to lose it.  We'll prove this out in later exercises, but let's start simple and delete `chapter`.
 
-```shellSession
-$ rm chapter1
+!['rm chapter1' 'ls -l' 'git status'](images/1-step-shell-8.svg)
 
-$ ls -l
-
-$ git status
-```
-
-As expected, Git noticed the change to the _working directory_, namely, that `chapter1` was deleted.
+As expected, Git noticed the change to the *working directory*, namely, that `chapter1` was deleted.
 
 Helpfully, Git also tells us what command restores the file, `git restore`.
 
 Let's give it a try:
 
-```shellSession
-$ git restore chapter1
-```
+!['git restore chapter1'](images/1-step-shell-9.svg)
 
 Double-checking with an `ls -l` shows us that `chapter1` has been
 
-```shellSession
-$ ls -l
-```
+!['ls -l'](images/1-step-shell-10.svg)
 
 #### Amending commits
 
@@ -133,30 +108,17 @@ Something that happens all the time is making a typo in a commit message or comm
 
 First, let's update our commit message:
 
-```shellSession
-$ git commit -m "Added Chapter 1" --amend
-
-$ git log
-```
+!['git commit -m "Added Chapter 1" --amend' 'git log'](images/1-step-shell-11.svg)
 
 Great!
 
 Now, let's make an update to `chapter1` and add it to the commit:
 
-```shellSession
-$ echo "# Chapter 1" >> chapter1
-
-$ cat chapter1
-
-$ git add chapter1
-$ git commit --amend --no-edit
-```
+!['echo "# Chapter 1" >> chapter1' 'cat chapter1' 'git add chapter1' 'git commit --amend --no-edit'](images/1-step-shell-12.svg)
 
 And checking with `git log`, we can see the commit date has updated:
 
-```shellSession
-$ git log
-```
+!['git log'](images/1-step-shell-13.svg)
 
 > **Note:** Here we used the `--no-edit` flag, which allows us to skip retyping the commit message.
 
@@ -166,31 +128,17 @@ Occasionally, we'll need to "undo" a commit, and one way of doing that is with `
 
 First, let's update `chapter1`:
 
-```shellSession
-$ echo "Lorum ipsum" >> chapter1
-
-$ git commit -am "Brainstorming"
-
-$ cat chapter1
-
-$ git log
-```
+!['echo "Lorum ipsum" >> chapter1' 'git commit -am "Brainstorming"' 'cat chapter1' 'git log'](images/1-step-shell-14.svg)
 
 > **Note:** Here we used the `-a` flag which automatically `git add`s all changes found in tracked files.
 
 Now, let's revert that last commit:
 
-```shellSession
-$ git revert HEAD --no-edit
-```
+!['git revert HEAD --no-edit'](images/1-step-shell-15.svg)
 
-```shellSession
-$ git log
-```
+!['git log'](images/1-step-shell-16.svg)
 
-```shellSession
-$ cat chapter1
-```
+!['cat chapter1'](images/1-step-shell-17.svg)
 
 And there you go!
 
@@ -202,9 +150,7 @@ Before we finish up for the day, let's set things up for the next lesson by crea
 
 A branch is basically a named pointer to the current commit.  What's neat about them is that they create a fork of your entire working tree.
 
-```shellSession
-$ git switch -c my-first-branch
-```
+!['git switch -c my-first-branch'](images/1-step-shell-18.svg)
 
 Now let's push today's work back to GitHub:
 

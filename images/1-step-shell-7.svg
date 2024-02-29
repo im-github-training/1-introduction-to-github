@@ -1,5 +1,5 @@
 <!-- Created with term-transcript v0.3.0 (https://github.com/slowli/term-transcript) -->
-<svg viewBox="0 0 720 84" width="720" height="84" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 720 138" width="720" height="138" xmlns="http://www.w3.org/2000/svg">
   <switch>
     <g requiredExtensions="http://www.w3.org/1999/xhtml">
       <style>
@@ -57,12 +57,15 @@
         .fg15 { color: #f3f3f3; } .bg15 { background: #f3f3f3; }
       </style>
       <rect width="100%" height="100%" y="0" rx="4.5" style="fill: #1c1c1c;" />
-      <svg x="0" y="10" width="720" height="64" viewBox="0 0 720 64">
-        <foreignObject width="720" height="64">
+      <svg x="0" y="10" width="720" height="118" viewBox="0 0 720 118">
+        <foreignObject width="720" height="118">
           <div xmlns="http://www.w3.org/1999/xhtml" class="container">
-            <div class="input" data-exit-status="0"><pre><span class="prompt">$</span> git status</pre></div>
-            <div class="output"><pre>On branch master
-nothing to commit, working tree clean</pre></div>
+            <div class="input" data-exit-status="0"><pre><span class="prompt">$</span> git log</pre></div>
+            <div class="output"><pre><span class="fg3">commit ba97cff94bf576de26a295d33f3b2bae2d6c0ec9</span><span class="fg3"> (</span><span class="bold fg6">HEAD</span><span class="fg3"> -&gt; </span><span class="bold fg2">master</span><span class="fg3">)</span>
+Author: Sam Peddamatham &lt;sam.pm@infomagnus.com&gt;
+Date:   Thu Feb 29 10:56:08 2024 +0000
+
+    Added chapter1</pre></div>
           </div>
         </foreignObject>
       </svg>

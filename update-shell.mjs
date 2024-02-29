@@ -78,4 +78,5 @@ const processor = remark()
 const result = processor.processSync(markdownText).toString();
 
 // Write result to file
-fs.writeFileSync(`../${basename}-shell.md`, result);
+const outputPath = path.join('../', '.github', 'steps', `${basename}-shell.md`);
+fs.writeFileSync(outputPath, result);
