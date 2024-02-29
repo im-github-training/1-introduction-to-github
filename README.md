@@ -30,7 +30,7 @@ Ok, in the next series of exercises, we'll be using this repository to work on o
 
 Let's start by making sure the repository is ready for us to start working by typing `git status`.
 
-```console
+```shellSession
 > git status
 
 On branch main
@@ -41,13 +41,13 @@ Looks good!
 
 Now let's create a file for our very first chapter.
 
-```console
+```shell
 echo "Chapter 1" > chapter1
 ```
 
 Let's see if Git noticed this new file by typing `git status`:
 
-```bash
+```shellSession
 > git status
 
 On branch main
