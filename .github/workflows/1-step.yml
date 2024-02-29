@@ -48,8 +48,8 @@ jobs:
         run: exit 1
 
   main:
+    needs: check_condition
     runs-on: ubuntu-latest
-    if: ${{ success() }}
     steps:
 
       # We'll need to check out the repository so that we can edit the README.
