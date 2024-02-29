@@ -154,7 +154,7 @@ First, let's update our commit message:
 ```shellSession
 $ git commit -m "Added Chapter 1" --amend
 
-$ git log
+$ git --no-pager log -n 3
 ```
 
 Great!
@@ -173,7 +173,7 @@ $ git commit --amend --no-edit
 And checking with `git log`, we can see the commit date has updated:
 
 ```shellSession
-$ git log
+$ git --no-pager log -n 3
 ```
 
 > **Note:** Here we used the `--no-edit` flag, which allows us to skip retyping the commit message.
@@ -191,7 +191,7 @@ $ git commit -am "Brainstorming"
 
 $ cat chapter1
 
-$ git log
+$ git --no-pager log -n 3
 ```
 
 > **Note:** Here we used the `-a` flag which automatically `git add`s all changes found in tracked files.
@@ -203,7 +203,7 @@ $ git revert HEAD --no-edit
 ```
 
 ```shellSession
-$ git log
+$ git --no-pager log -n 3
 ```
 
 ```shellSession
