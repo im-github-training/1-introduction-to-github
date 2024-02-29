@@ -22,6 +22,14 @@ To help speed things up, I've gone ahead and created `chapter2` for you.
 
 Let's do a `git pull` and to grab my changes:
 
+```
+total 0^M
+drwxr-xr-x 1 me me 4096 Jan 19 15:13 ^[[0m^[[01;34mgithub-provisioner^[[0m^M
+drwxr-xr-x 1 me me 4096 Feb 28 19:02 ^[[01;34mtestrepo^[[0m^M
+
+Script done on 2024-02-28 19:02:41-08:00 [COMMAND_EXIT_CODE="0"]
+```
+
 ```shellSession
 > git pull
 
