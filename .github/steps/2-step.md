@@ -22,7 +22,7 @@ To help speed things up, I've gone ahead and created `chapter2` for you.
 
 Let's do a `git pull` and to grab my changes:
 
-```console
+```shellSession
 > git pull
 
 remote: Enumerating objects: 24, done.
@@ -44,7 +44,7 @@ Fast-forward
 
 And let's take a look at what we've got:
 
-```console
+```shellSession
 > git log
 
 commit 0cb845ca23430b9f6ec4012ffd84361042ec7bdb (HEAD -> my-first-branch, origin/my-first-branch)
@@ -88,13 +88,13 @@ First, we need to tell `git rebase --interactive` how many commits we want to...
 
 From the `git log` output, we can rebase everything up until the commit that starts with `f14cf2a` (of course, the commit id will be different in _your_ repo).
 
-```bash
+```shellSession
 git rebase --interactive f14cf2a
 ```
 
 Which opens an editor window containing the following:
 
-```bash
+```shellSession
 pick da0a6cf Added chaptor2
 pick bf12273 FIxed tyypo
 pick ca165f1 Added 'Section 1' to chapter2
@@ -132,7 +132,7 @@ pick 0cb845c fix
 Ever so handy (and borderline on oversharing), Git once again helpfully tells us everything we need to know.
 
 
-```bash
+```shellSession
 reword da0a6cf Added chapter2
 squash bf12273 Fixed typo
 reword ca165f1 Added 'Section 1' to chapter2
@@ -141,7 +141,7 @@ squash 0cb845c Fixed typo
 
 Of course, we could have also used the shortform:
 
-```bash
+```shellSession
 r da0a6cf Added chapter2
 s bf12273 Fixed typo
 r ca165f1 Added 'Section 1' to chapter2
@@ -152,7 +152,7 @@ After we hit save, Git will now walk us through the changes we asked for.
 
 First, Git gives us the option to edit the entire commit message for `da0a6cf`:
 
-```bash
+```shellSession
 Added chapter2
 
 # Please enter the commit message for your changes. Lines starting
@@ -176,7 +176,7 @@ Added chapter2
 
 Next, it lets us:
 
-```bash
+```shellSession
 # This is a combination of 2 commits.
 # This is the 1st commit message:
 
@@ -208,7 +208,7 @@ Fixed typo
 
 Since I only want to keep the 1st commit message, I'll comment out commit message #2:
 
-```bash
+```shellSession
 # This is a combination of 2 commits.
 # This is the 1st commit message:
 
@@ -219,7 +219,7 @@ Added chapter2
 #Fixed typo
 ```
 
-```bash
+```shellSession
 Added 'Section 1' to chapter2
 
 # Please enter the commit message for your changes. Lines starting
@@ -241,7 +241,7 @@ Added 'Section 1' to chapter2
 #
 ```
 
-```bash
+```shellSession
 # This is a combination of 2 commits.
 # This is the 1st commit message:
 
@@ -271,7 +271,7 @@ Added 'Section 1' to chapter2
 
 This takes us back to the commandline:
 
-```bash
+```shellSession
 > git rebase --interactive f14cf2a
 
 [detached HEAD 0f9dc5a] Added chapter2
@@ -297,7 +297,7 @@ Successfully rebased and updated refs/heads/my-first-branch.
 
 And checking with a `git log`:
 
-```bash
+```shellSession
 commit a692daeb7209b1da66914523fcd82c955733a057 (HEAD -> my-first-branch)
 Author: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 Date:   Tue Feb 27 10:08:22 2024 +0000
@@ -330,7 +330,7 @@ Now we're ready to merge `chapter2` back into our `main` branch.
 
 Let's switch over the the `main` branch:
 
-```bash
+```shellSession
 > git switch main
 Switched to branch 'main'
 Your branch is behind 'origin/main' by 1 commit, and can be fast-forwarded.
@@ -341,7 +341,7 @@ Hrm... what's this?  It looks like our `local` repository somehow got out of syn
 
 Let's not worry about this for now, and just do what Git tells us, which is a `git pull`:
 
-```bash
+```shellSession
 > git pull
 
 Updating b6dfe21..2c68930
@@ -353,7 +353,7 @@ Fast-forward
 
 Ok, now let's do a `git merge my-first-branch`, which brings up a:
 
-```bash
+```shellSession
 Merge branch 'my-first-branch'
 # Please enter a commit message to explain why this merge is necessary,
 # especially if it merges an updated upstream into a topic branch.
@@ -362,7 +362,7 @@ Merge branch 'my-first-branch'
 # the commit.
 ```
 
-```bash
+```shellSession
 > git merge my-first-branch
 
 Merge made by the 'ort' strategy.
@@ -373,7 +373,7 @@ Merge made by the 'ort' strategy.
 
 And checking with `git log`:
 
-```bash
+```shellSession
 commit f188587c25237d93e114779eb6c903fa044733c5 (HEAD -> main)
 Merge: 2c68930 a692dae
 Author: Sam Peddamatham <sam.pm@infomagnus.com>
@@ -408,7 +408,7 @@ Date:   Tue Feb 27 10:08:21 2024 +0000
 
 Nice... but it feels a bit flat, let's try `git log --oneline --graph --decorate`:
 
-```bash
+```shellSession
 *   f188587 (HEAD -> main) Merge branch 'my-first-branch'
 |\
 | * a692dae (my-first-branch) Added 'Section 1' to chapter2
@@ -430,7 +430,7 @@ We'll have to use `git reset` to reset main back to before the merge, which, fro
 
 Now, let's bring in the changes from `my-first-branch` using the following:
 
-```bash
+```shellSession
 > git rebase my-first-branch
 
 warning: skipped previously applied commit 2c68930
@@ -441,7 +441,7 @@ Successfully rebased and updated refs/heads/main.
 
 And another `git log --oneline --graph --decorate`:
 
-```bash
+```shellSession
 * a692dae (HEAD -> main, my-first-branch) Added 'Section 1' to chapter2
 * ac5a0ea Added chapter2
 * f14cf2a Update to 2 in STEP and README.md
@@ -454,7 +454,7 @@ Nice!
 
 Now we can get rid of the `my-first-branch` branch with a `git branch -d my-first-branch`:
 
-```bash
+```shellSession
 > git branch -d my-first-branch
 
 warning: not deleting branch 'my-first-branch' that is not yet merged to
@@ -465,14 +465,14 @@ If you are sure you want to delete it, run 'git branch -D my-first-branch'.
 
 Er... I meant a `git branch -D my-first-branch`!
 
-```bash
+```shellSession
 > git branch -D my-first-branch
 Deleted branch my-first-branch (was a692dae).
 ```
 
 Thankyouverymuch.
 
-```bash
+```shellSession
 > git push
 
 To https://github.com/im-sampm/1-introduction-to-github.git

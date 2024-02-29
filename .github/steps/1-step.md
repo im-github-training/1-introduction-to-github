@@ -12,11 +12,11 @@ To get started, we'll need a local copy of this repository.  To do that:
 
 1. Click the "Code" button, and then click the "Copy url to clipboard" icon:
 
-<img src="../../images/image-9.png" width="70%">
+![](/images/image-9.png)
 
 2. Open a terminal window and do a `git clone`:
 
-<img src="../../images/image-10.png" width="70%">
+![](/images/image-10.png)
 
 ## Chapter 1
 
@@ -24,7 +24,7 @@ Ok, in the next series of exercises, we'll be using this repository to work on o
 
 Let's start by making sure the repository is ready for us to start working by typing `git status`.
 
-```console
+```shellSession
 > git status
 
 On branch main
@@ -35,13 +35,13 @@ Looks good!
 
 Now let's create a file for our very first chapter.
 
-```console
+```shellSession
 echo "Chapter 1" > chapter1
 ```
 
 Let's see if Git noticed this new file by typing `git status`:
 
-```bash
+```shellSession
 > git status
 
 On branch main
@@ -56,13 +56,13 @@ Cool, so Git saw that we added this file but it's not yet tracking the file.
 
 Luckily, Git tells us exactly what we need to do next, a `git add`:
 
-```console
+```shellSession
 git add chapter1
 ```
 
 Let's see how things look now:
 
-```bash
+```shellSession
 > git status
 
 On branch main
@@ -75,7 +75,7 @@ Alright, so it looks like our `chapter1` file is staged and ready to be committe
 
 Let's go ahead and do that with a `git commit`:
 
-```bash
+```shellSession
 > git commit -m "Added chapter1"
 
 [main 200eaab] Added chapter1
@@ -85,7 +85,7 @@ Let's go ahead and do that with a `git commit`:
 
 And, of course, a quick `git status`:
 
-```bash
+```shellSession
 > git status
 On branch main
 nothing to commit, working tree clean
@@ -95,7 +95,7 @@ Nice, looks like the file was moved from the staging area to the repository!
 
 Let's see what `git log` has to say:
 
-```bash
+```shellSession
 > git log
 
 commit 200eaaba0e17d7675fe160a00ba987c8f7c00368 (HEAD -> main)
@@ -122,7 +122,7 @@ Let's see how Git reacts if we accidentally delete `chapter1`.
 
 First things first, let's double-check and make sure `chapter1`'s still there:
 
-```bash
+```shellSession
 > ls -l
 total 4
 -rw-r--r-- 1 me me 10 Feb 26 23:32 chapter1
@@ -132,7 +132,7 @@ Yup, don't know what we were expecting...
 
 Now, let's delete `chapter1` and see what Git has to say with a lil `git status`:
 
-```bash
+```shellSession
 > rm chapter1
 
 > git status
@@ -149,13 +149,13 @@ Ok, somewhere in that wall of text, Git's telling us that `chapter1` has indeed 
 
 And, once again, Git helpfully tells us what to type to restore the file: 
 
-```bash
+```shellSession
 git restore chapter1
 ```
 
 Double-checking with an `ls -l` shows us that `chapter1` has been
 
-```bash
+```shellSession
 ls -l
 total 4
 -rw-r--r-- 1 me me 10 Feb 26 23:36 chapter1
@@ -163,11 +163,11 @@ total 4
 
 ## Trying out git diff
 
-```bash
+```shellSession
 echo "Section 1" >> chapter1
 ```
 
-```bash
+```shellSession
 > git diff
 
 diff --git a/chapter1 b/chapter1
@@ -182,14 +182,14 @@ index 70b252c..211497d 100644
 
 ## Step: Amend a commit
 
-```bash
+```shellSession
 > git commit -am "Updated chapter1"
 
 [main 9f5f218] Updated chapter1
  1 file changed, 1 insertion(+)
 ```
 
-```bash
+```shellSession
 > git log
 
 commit 9f5f2188f804514cb32c2a2c9b0dc52f904c366d (HEAD -> main)
@@ -212,7 +212,7 @@ Date:   Mon Feb 26 23:30:09 2024 -0800
 (END)
 ```
 
-```bash
+```shellSession
 > git commit --amend -m "Added 'Section 1' to chapter1"
 
 [main 4ee397d] Added 'Section 1' to chapter1
@@ -221,7 +221,7 @@ Date:   Mon Feb 26 23:30:09 2024 -0800
 ```
 
 
-```bash
+```shellSession
 > git log
 
 commit 4ee397d6dad3855e209260a1e7380cfb65c1a2b5 (HEAD -> main)
@@ -246,7 +246,7 @@ Date:   Mon Feb 26 23:30:09 2024 -0800
 
 ## Step: Revert a commit
 
-```bash
+```shellSession
 git revert <commit id>
 git log
   
@@ -255,14 +255,14 @@ git reset <commit id>
 
 ## Step: Create a branch
 
-```bash
+```shellSession
 > git switch -c my-first-branch
 Switched to a new branch 'my-first-branch'
 ```
 
 ## Step: Push
 
-```bash
+```shellSession
 > git push --set-upstream origin my-first-branch
 Total 0 (delta 0), reused 0 (delta 0), pack-reused 0
 remote:
