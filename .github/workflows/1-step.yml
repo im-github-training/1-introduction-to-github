@@ -19,6 +19,7 @@ jobs:
   # Get the current step to only run the main job when the learner is on the same step.
   check_conditions:
     runs-on: ubuntu-latest
+    if: github.event_name != 'workflow_dispatch'
     steps:
       # Needed so we can read the step number from -step.txt
       - name: Checkout
