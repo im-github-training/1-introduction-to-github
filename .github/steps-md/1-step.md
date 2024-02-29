@@ -39,6 +39,16 @@ Git is telling us the following things:
 - our `staging area` is empty
 - and no changes have been detected in our `working tree` _or_ `working directory`
 
+### Our First Branch
+
+Let's set things up by creating something called a `branch`.
+
+A branch is basically a named pointer to the current commit.  What's neat about them is that they give you a place to experiment and try things out before you make changes to your `main` branch.
+
+```shellSession
+$ git switch -c my-first-branch
+```
+
 ### Our First Commit
 
 Now, let's create a file for Chapter 1 called `chapter1`.
@@ -198,16 +208,9 @@ But what's with the `HEAD` thing?  We'll get to that soon...
 
 ## Wrapping Things Up
 
-Before we finish up for the day, let's set things up for the next lesson by creating something called a `branch`.
-
-A branch is basically a named pointer to the current commit.  What's neat about them is that they create a fork of your entire working tree.
-
-```shellSession
-$ git switch -c my-first-branch
-```
 
 Now let's push today's work back to GitHub:
 
-```shell
+```shellSession
 $ git push --set-upstream origin my-first-branch
 ```

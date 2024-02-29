@@ -12,11 +12,11 @@ In this chapter we will be learning about:
 - `git merge`
 - `git cherry-pick`
 
-## Chapter 2
+## Advanced Topics
 
-### How to clean up your commit history
+### Tidying Up Your History
 
-Alright, so where we left off last we'd just created a branch called `my-first-branch` and pushed it to `remote`.
+Where we left off last we'd just created a branch called `my-first-branch` and pushed it to `remote`.
 
 To help speed things up, I've gone ahead and created `chapter2` for you.
 
@@ -430,7 +430,7 @@ Nice... but it feels a bit flat, let's try `git log --oneline --graph --decorate
 
 On second thought, we probably don't want that branch crudding up our repo until the end of time.  Let's bring in our changes using `git rebase` instead.
 
-First, we have to undo our changes.  Sure, we could use `git revert`, but that won't truly get rid of that abomination.  
+First, we have to undo our changes.  Sure, we could use `git revert`, but that won't truly get rid of that abomination.
 
 We'll have to use `git reset` to reset main back to before the merge, which, from the `git log` output above, is commit `2c68930`:
 

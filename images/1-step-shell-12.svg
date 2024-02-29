@@ -67,8 +67,8 @@
             <div class="input" data-exit-status="0"><pre><span class="prompt">$</span> git add chapter1</pre></div>
             <div class="output"><pre></pre></div>
             <div class="input" data-exit-status="0"><pre><span class="prompt">$</span> git commit --amend --no-edit</pre></div>
-            <div class="output"><pre>[master 4819151] Added Chapter 1
- Date: Thu Feb 29 10:56:08 2024 +0000
+            <div class="output"><pre>[main 65a38e2] Added Chapter 1
+ Date: Thu Feb 29 11:10:24 2024 +0000
  1 file changed, 1 insertion(+)
  create mode 100644 chapter1</pre></div>
           </div>
