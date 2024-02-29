@@ -30,10 +30,10 @@ jobs:
 
       # Needed so we can read the step number from -step.txt
       - name: Checkout
+        if: ${{ github.event_name != 'workflow_dispatch' }}
         uses: actions/checkout@v4
 
       - name: Set step (from file)
-        if: ${{ github.event_name != 'workflow_dispatch' }}
         run: |
             echo "STEP=$(cat ./.github/steps/-step.txt)" >> $GITHUB_ENV
 
