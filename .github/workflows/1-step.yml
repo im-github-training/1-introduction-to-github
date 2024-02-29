@@ -17,8 +17,7 @@ permissions:
 
 jobs:
   # Get the current step to only run the main job when the learner is on the same step.
-  get_current_step:
-    name: Get current step number
+  check_conditions:
     runs-on: ubuntu-latest
     steps:
       # Needed so we can read the step number from -step.txt
@@ -27,16 +26,9 @@ jobs:
 
       - id: get_step
         run: echo "step=$(cat ./.github/steps/-step.txt)" >> $GITHUB_OUTPUT
-    outputs:
-      step: ${{ steps.get_step.outputs.step }}
 
-  check_condition:
-    needs: get_current_step
-    runs-on: ubuntu-latest
-    if: github.event_name != 'workflow_dispatch'
-    steps:
       - name: Check if correct step
-        if: ${{ needs.get_current_step.outputs.step != 1 }}
+        if: ${{ steps.get_step.outputs.step != 1 }}
         run: exit 1
 
       - name: Check if template repository
@@ -48,8 +40,9 @@ jobs:
         run: exit 1
 
   main:
-    needs: check_condition
+    needs: check_conditions
     runs-on: ubuntu-latest
+    if: github.event_name == 'workflow_dispatch' || success()
     steps:
 
       # We'll need to check out the repository so that we can edit the README.
