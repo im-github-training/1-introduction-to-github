@@ -1,5 +1,5 @@
 <!-- Created with term-transcript v0.3.0 (https://github.com/slowli/term-transcript) -->
-<svg viewBox="0 0 720 912" width="720" height="912" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 720 894" width="720" height="894" xmlns="http://www.w3.org/2000/svg">
   <switch>
     <g requiredExtensions="http://www.w3.org/1999/xhtml">
       <style>
@@ -26,19 +26,6 @@
         .italic { font-style: italic; }
         .underline { text-decoration: underline; }
         .dimmed { opacity: 0.7; }
-        .hard-br {
-          position: relative;
-          margin-left: 5px;
-        }
-        .hard-br:before {
-          content: '↓';
-          font-size: 16px;
-          height: 16px;
-          position: absolute;
-          bottom: 0;
-          transform: rotate(45deg);
-          opacity: 0.8;
-        }
         .fg0 { color: #1c1c1c; } .bg0 { background: #1c1c1c; }
         .fg1 { color: #ff005b; } .bg1 { background: #ff005b; }
         .fg2 { color: #cee318; } .bg2 { background: #cee318; }
@@ -57,55 +44,55 @@
         .fg15 { color: #f3f3f3; } .bg15 { background: #f3f3f3; }
       </style>
       <rect width="100%" height="100%" y="0" rx="4.5" style="fill: #1c1c1c;" />
-      <svg x="0" y="10" width="720" height="892" viewBox="0 0 720 892">
-        <foreignObject width="720" height="892">
+      <svg x="0" y="10" width="720" height="874" viewBox="0 0 720 874">
+        <foreignObject width="720" height="874">
           <div xmlns="http://www.w3.org/1999/xhtml" class="container">
-            <div class="input" data-exit-status="0"><pre><span class="prompt">$</span> git --no-pager log -n 8</pre></div>
-            <div class="output"><pre><span class="fg3">commit 2ca6445bdb341a7a53bed2a62daedbeb89c12aee</span><span class="fg3"> (</span><span class="bold fg6">HEAD</span><span class="fg3"> -&gt; </span><span class="bold fg2">my-first-branch</span><span class="fg3">, </span><span class="bold fg1">origin<b class="hard-br"><br/></b>/my-first-branch</span><span class="fg3">)</span>
-Author: Sam Peddamatham &lt;sam.pm@infomagnus.com&gt;
-Date:   Thu Feb 29 12:08:09 2024 +0000
+            <div class="input" data-exit-status="0"><pre><span class="prompt">$</span> git log -n 8</pre></div>
+            <div class="output"><pre><span class="fg3">commit bb7cf1d8f9384f5d949aba4828a9a5c7f6cc5cfa</span><span class="fg3"> (</span><span class="bold fg6">HEAD</span><span class="fg3"> -&gt; </span><span class="bold fg2">my-first-branch</span><span class="fg3">, </span><span class="bold fg1">origin/my-first-branch</span><span class="fg3">)</span>
+Author: github-actions[bot] &lt;github-actions[bot]@users.noreply.github.com&gt;
+Date:   Thu Feb 29 17:07:40 2024 +0000
 
     fiix
 
-<span class="fg3">commit ecf83475dc1a3b12e7b456f92484bc0d1186508b</span>
-Author: Sam Peddamatham &lt;sam.pm@infomagnus.com&gt;
-Date:   Thu Feb 29 12:08:08 2024 +0000
+<span class="fg3">commit 8784ff87a25640399d78e79a7db4e98f9f34449b</span>
+Author: github-actions[bot] &lt;github-actions[bot]@users.noreply.github.com&gt;
+Date:   Thu Feb 29 17:07:40 2024 +0000
 
     fix
 
-<span class="fg3">commit 47e545574c9d24fff0bcb0ef51e0e6a71c306753</span>
-Author: Sam Peddamatham &lt;sam.pm@infomagnus.com&gt;
-Date:   Thu Feb 29 12:08:07 2024 +0000
+<span class="fg3">commit b4d7d6b68202c9125fc661729e84cc5fb0a66591</span>
+Author: github-actions[bot] &lt;github-actions[bot]@users.noreply.github.com&gt;
+Date:   Thu Feb 29 17:07:40 2024 +0000
 
     Added 'Section 1' to chapter2
 
-<span class="fg3">commit bb7102dd4ac16151db656920c00c2aeb694f415c</span>
-Author: Sam Peddamatham &lt;sam.pm@infomagnus.com&gt;
-Date:   Thu Feb 29 12:08:06 2024 +0000
+<span class="fg3">commit 6d442950ab6924fc0fc6f4f21fa6fab1edf88fe1</span>
+Author: github-actions[bot] &lt;github-actions[bot]@users.noreply.github.com&gt;
+Date:   Thu Feb 29 17:07:40 2024 +0000
 
     bugfix
 
-<span class="fg3">commit 2b12579e2b9711834424352cb4b22392b09404e3</span>
-Author: Sam Peddamatham &lt;sam.pm@infomagnus.com&gt;
-Date:   Thu Feb 29 12:08:05 2024 +0000
+<span class="fg3">commit 56ca3c1fb2dd33f7019e123770abf8d748b33300</span>
+Author: github-actions[bot] &lt;github-actions[bot]@users.noreply.github.com&gt;
+Date:   Thu Feb 29 17:07:40 2024 +0000
 
     bugfix
 
-<span class="fg3">commit bb1735fa1eb55ff6618cfab5ab4d29bf2634872f</span>
-Author: Sam Peddamatham &lt;sam.pm@infomagnus.com&gt;
-Date:   Thu Feb 29 12:08:04 2024 +0000
+<span class="fg3">commit 8b1216c17b94263dd780bfaa7466a122db091108</span>
+Author: github-actions[bot] &lt;github-actions[bot]@users.noreply.github.com&gt;
+Date:   Thu Feb 29 17:07:40 2024 +0000
 
     FIxed tyypo
 
-<span class="fg3">commit 2a48bfb872bf5e7fd75a68ef90d00a48a3182045</span>
-Author: Sam Peddamatham &lt;sam.pm@infomagnus.com&gt;
-Date:   Thu Feb 29 12:08:03 2024 +0000
+<span class="fg3">commit f329a63671a2f1a9c366b3634c9736bcb09b6087</span>
+Author: github-actions[bot] &lt;github-actions[bot]@users.noreply.github.com&gt;
+Date:   Thu Feb 29 17:07:40 2024 +0000
 
     Added chaptor2
 
-<span class="fg3">commit 606a5db164cde3a212329ac3fc20532cea1715ab</span><span class="fg3"> (</span><span class="bold fg2">main</span><span class="fg3">)</span>
+<span class="fg3">commit 09d12a24b67823ecb26f45a6afdd476a98526a89</span>
 Author: github-actions[bot] &lt;github-actions[bot]@users.noreply.github.com&gt;
-Date:   Thu Feb 29 11:49:45 2024 +0000
+Date:   Thu Feb 29 17:07:39 2024 +0000
 
     Update to 2 in STEP and README.md</pre></div>
           </div>

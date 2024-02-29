@@ -1,11 +1,3 @@
-<!--
-  <<< Author notes: Step 1 >>>
-  Choose 3-5 steps for your course.
-  The first step is always the hardest, so pick something easy!
-  Link to docs.github.com for further explanations.
-  Encourage users to open new tabs for steps!
--->
-
 ## Introduction
 
 In the next series of exercises, we will be using this repository to work on a New York Times bestseller.
@@ -86,7 +78,7 @@ Nice, looks like the file was moved from the staging area to the repository!
 
 We can confirm the commit is part of our repository history by doing a `git log`:
 
-!['git --no-pager log -n 3'](/images/1-step-shell-8.svg)
+!['git log -n 1'](/images/1-step-shell-8.svg)
 
 Perfect!
 
@@ -116,7 +108,7 @@ Something that happens all the time is making a typo in a commit message or comm
 
 First, let's update our commit message:
 
-!['git commit -m "Added Chapter 1" --amend' 'git --no-pager log -n 3'](/images/1-step-shell-12.svg)
+!['git commit -m "Added Chapter 1" --amend' 'git log -n 1'](/images/1-step-shell-12.svg)
 
 Great!
 
@@ -126,33 +118,39 @@ Now, let's make an update to `chapter1` and add it to the commit:
 
 And checking with `git log`, we can see the commit id has updated:
 
-!['git --no-pager log -n 3'](/images/1-step-shell-14.svg)
+!['git log -n 1'](/images/1-step-shell-14.svg)
 
 > **Note:** Here we used the `--no-edit` flag, which allows us to skip retyping the commit message.
-
-Now, it's good practice to "commit early and often", but it's also good practice to push your changes back to GitHub often.
-
-So let's do that with a `git push`:
-
-!['git push'](/images/1-step-shell-15.svg)
-
-!['git push --set-upstream origin my-first-branch'](/images/1-step-shell-16.svg)
 
 #### Reverting a commit
 
 Occasionally, we'll need to "undo" a commit, and one way of doing that is with `git revert`
 
-First, let's update `chapter1`:
+First, let's create a commit that we can revert.
 
-!['echo "Lorum ipsum" >> chapter1' 'git commit -am "Brainstorming"' 'cat chapter1' 'git --no-pager log -n 3'](/images/1-step-shell-17.svg)
+!['echo "Lorum ipsum" >> chapter1' 'cat chapter1'](/images/1-step-shell-15.svg)
+
+So, now `chapter1` has a new line, "Lorum ipsum" added to it.
+
+Let's go ahead and commit that:
+
+!['git commit -am "Brainstorming"'](/images/1-step-shell-16.svg)
 
 > **Note:** Here we used the `-a` flag which automatically `git add`s all changes found in tracked files.
 
-Now, let's revert that last commit:
+Let's check with `git log` to confirm the new commit's there:
+
+!['git log -n 2'](/images/1-step-shell-17.svg)
+
+And now let's revert the commit:
 
 !['git revert HEAD --no-edit'](/images/1-step-shell-18.svg)
 
-!['git --no-pager log -n 3'](/images/1-step-shell-19.svg)
+Once again checking with `git log`:
+
+!['git log -n 2'](/images/1-step-shell-19.svg)
+
+Yup, and now let's check the contents of `chapter1`:
 
 !['cat chapter1'](/images/1-step-shell-20.svg)
 
@@ -165,3 +163,5 @@ But what's with the `HEAD` thing?  We'll get to that soon...
 Now let's push today's work back to GitHub.
 
 !['git push'](/images/1-step-shell-21.svg)
+
+!['git push --set-upstream origin my-first-branch'](/images/1-step-shell-22.svg)

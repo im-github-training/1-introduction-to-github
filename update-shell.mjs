@@ -27,6 +27,8 @@ const filename = process.argv[2];
 
 const workingDir = process.argv[3];
 
+const offset = process.argv[4];
+
 // Create working directory if it doesn't exist
 if (!fs.existsSync(workingDir)) {
   fs.mkdirSync(workingDir);
@@ -48,7 +50,7 @@ const svg_tool = "term-transcript exec"
 const processor = remark()
   .use(remarkParse)
   .use(() => (tree) => {
-    let counter = 0;
+    let counter = offset;
 
     visit(tree, 'code', (node, index, parent) => {
       if (node.lang === 'shellSession') {
@@ -63,10 +65,9 @@ const processor = remark()
 
 
         console.log(commands)
-        console.log(`${svg_tool} ${commands} --pty`)
 
         // Execute the command and render the output as SVG
-        const cmd_output = execSync(`${svg_tool} ${commands} -I 1000ms -T 1000ms --pty`, options).toString().trim();
+        const cmd_output = execSync(`${svg_tool} ${commands} -I 2s -T 1000ms --pty`, options).toString().trim();
 
         const imagesDir = 'images';
         const imageFilename = `${basename}-shell-${counter++}.svg`;

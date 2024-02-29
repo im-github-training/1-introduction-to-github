@@ -1,5 +1,5 @@
 <!-- Created with term-transcript v0.3.0 (https://github.com/slowli/term-transcript) -->
-<svg viewBox="0 0 720 642" width="720" height="642" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 720 282" width="720" height="282" xmlns="http://www.w3.org/2000/svg">
   <switch>
     <g requiredExtensions="http://www.w3.org/1999/xhtml">
       <style>
@@ -57,42 +57,22 @@
         .fg15 { color: #f3f3f3; } .bg15 { background: #f3f3f3; }
       </style>
       <rect width="100%" height="100%" y="0" rx="4.5" style="fill: #1c1c1c;" />
-      <svg x="0" y="10" width="720" height="622" viewBox="0 0 720 622">
-        <foreignObject width="720" height="622">
+      <svg x="0" y="10" width="720" height="262" viewBox="0 0 720 262">
+        <foreignObject width="720" height="262">
           <div xmlns="http://www.w3.org/1999/xhtml" class="container">
-            <div class="input" data-exit-status="0"><pre><span class="prompt">$</span> git --no-pager log -n 5</pre></div>
-            <div class="output"><pre><span class="fg3">commit 198ef218d762277f9880c2ba0660d24736006d58</span><span class="fg3"> (</span><span class="bold fg6">HEAD</span><span class="fg3"> -&gt; </span><span class="bold fg2">main</span><span class="fg3">)</span>
-Merge: c4241cc 1dd3dc0
-Author: Sam Peddamatham &lt;sam.pm@infomagnus.com&gt;
-Date:   Thu Feb 29 13:12:28 2024 +0000
-
-    Merging my-first-branch
-
-<span class="fg3">commit 1dd3dc0567b4ff7363ac6dfd9de18efdb4098371</span><span class="fg3"> (</span><span class="bold fg1">origin/my-first-branch</span><span class="fg3">, </span><span class="bold fg2">my-firs<b class="hard-br"><br/></b>t-branch</span><span class="fg3">)</span>
-Author: Sam Peddamatham &lt;sam.pm@infomagnus.com&gt;
-Date:   Thu Feb 29 12:08:07 2024 +0000
-
-    Added 'Section 1' to chapter2
-
-<span class="fg3">commit d3e262c275644e5262cd9faaf333656260ef15c4</span>
-Author: Sam Peddamatham &lt;sam.pm@infomagnus.com&gt;
-Date:   Thu Feb 29 12:08:03 2024 +0000
-
-    Added Chapter 2
-
-<span class="fg3">commit 606a5db164cde3a212329ac3fc20532cea1715ab</span>
-Author: github-actions[bot] &lt;github-actions[bot]@users.noreply.github.com&gt;
-Date:   Thu Feb 29 11:49:45 2024 +0000
-
-    Update to 2 in STEP and README.md
-
-<span class="fg3">commit 209532f98e2a8de44f4551ce9703e2aa71041c6b</span>
-Author: Sam Peddamatham &lt;sam.pm@infomagnus.com&gt;
-Date:   Thu Feb 29 11:49:12 2024 +0000
-
-    Revert "Brainstorming"
-    
-    This reverts commit 4481fc091594a19e5c52cb956163c0c2c874945f.</pre></div>
+            <div class="input" data-exit-status="0"><pre><span class="prompt">$</span> git log --oneline --graph --decorate -n 10</pre></div>
+            <div class="output"><pre>*   <span class="fg3">0b3798c</span><span class="fg3"> (</span><span class="bold fg6">HEAD</span><span class="fg3"> -&gt; </span><span class="bold fg2">main</span><span class="fg3">)</span> Merging my-first-branch
+<span class="fg1">|</span><span class="fg2">\</span>  
+<span class="fg1">|</span> * <span class="fg3">5ddcaf9</span><span class="fg3"> (</span><span class="bold fg1">origin/my-first-branch</span><span class="fg3">, </span><span class="bold fg2">my-first-branch</span><span class="fg3">)</span> Added 'Section 1' to chapt<b class="hard-br"><br/></b>er2
+<span class="fg1">|</span> * <span class="fg3">b2cc61d</span> Added Chapter 2
+<span class="fg1">|</span> * <span class="fg3">09d12a2</span> Update to 2 in STEP and README.md
+<span class="fg1">|</span> * <span class="fg3">b31d89b</span> Revert "Brainstorming"
+<span class="fg1">|</span> * <span class="fg3">3323718</span> Brainstorming
+<span class="fg1">|</span> * <span class="fg3">a838485</span> Added Chapter 1
+* <span class="fg2">|</span> <span class="fg3">e953098</span><span class="fg3"> (</span><span class="bold fg1">origin/main</span><span class="fg3">, </span><span class="bold fg1">origin/HEAD</span><span class="fg3">)</span> Update to 2 in STEP and README.md
+<span class="fg2">|</span><span class="fg2">/</span>  
+* <span class="fg3">4082a2b</span><span class="fg3"> (</span><span class="bold fg1">upstream/main</span><span class="fg3">)</span> Update
+* <span class="fg3">6eb2b9e</span> Update</pre></div>
           </div>
         </foreignObject>
       </svg>

@@ -1,5 +1,5 @@
 <!-- Created with term-transcript v0.3.0 (https://github.com/slowli/term-transcript) -->
-<svg viewBox="0 0 720 478" width="720" height="478" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 720 244" width="720" height="244" xmlns="http://www.w3.org/2000/svg">
   <switch>
     <g requiredExtensions="http://www.w3.org/1999/xhtml">
       <style>
@@ -57,32 +57,20 @@
         .fg15 { color: #f3f3f3; } .bg15 { background: #f3f3f3; }
       </style>
       <rect width="100%" height="100%" y="0" rx="4.5" style="fill: #1c1c1c;" />
-      <svg x="0" y="10" width="720" height="458" viewBox="0 0 720 458">
-        <foreignObject width="720" height="458">
+      <svg x="0" y="10" width="720" height="224" viewBox="0 0 720 224">
+        <foreignObject width="720" height="224">
           <div xmlns="http://www.w3.org/1999/xhtml" class="container">
             <div class="input" data-exit-status="0"><pre><span class="prompt">$</span> git commit -m &quot;Added Chapter 1&quot; --amend</pre></div>
-            <div class="output"><pre>[my-first-branch a658a99] Added Chapter 1
- Date: Thu Feb 29 15:15:51 2024 +0000
+            <div class="output"><pre>[my-first-branch 60b065d] Added Chapter 1
+ Date: Thu Feb 29 17:05:20 2024 +0000
  1 file changed, 0 insertions(+), 0 deletions(-)
  create mode 100644 book/chapter1</pre></div>
-            <div class="input" data-exit-status="0"><pre><span class="prompt">$</span> git --no-pager log -n 3</pre></div>
-            <div class="output"><pre><span class="fg3">commit a658a9921a86e1d7d0a15558839ce740af51ad82</span><span class="fg3"> (</span><span class="bold fg6">HEAD</span><span class="fg3"> -&gt; </span><span class="bold fg2">my-first-branch</span><span class="fg3">)</span>
+            <div class="input" data-exit-status="0"><pre><span class="prompt">$</span> git log -n 1</pre></div>
+            <div class="output"><pre><span class="fg3">commit 60b065db79c9fedc2a0a5c46a97bfacec4de9d10</span><span class="fg3"> (</span><span class="bold fg6">HEAD</span><span class="fg3"> -&gt; </span><span class="bold fg2">my-first-branch</span><span class="fg3">)</span>
 Author: Sam Peddamatham &lt;sam.pm@infomagnus.com&gt;
-Date:   Thu Feb 29 15:15:51 2024 +0000
+Date:   Thu Feb 29 17:05:20 2024 +0000
 
-    Added Chapter 1
-
-<span class="fg3">commit 6eb2b9e7ce118edb69c668580d2646ad82a1509e</span><span class="fg3"> (</span><span class="bold fg1">upstream/main</span><span class="fg3">, </span><span class="bold fg1">origin/main</span><span class="fg3">, </span><span class="bold fg1">ori<b class="hard-br"><br/></b>gin/HEAD</span><span class="fg3">, </span><span class="bold fg2">main</span><span class="fg3">)</span>
-Author: Sam Peddamatham &lt;sam.pm@infomagnus.com&gt;
-Date:   Thu Feb 29 14:30:32 2024 +0000
-
-    Update
-
-<span class="fg3">commit e0238a8ae63270d85d5e5f3fcc7afaa76459e325</span>
-Author: Sam Peddamatham &lt;sam.pm@infomagnus.com&gt;
-Date:   Thu Feb 29 14:20:06 2024 +0000
-
-    Update</pre></div>
+    Added Chapter 1</pre></div>
           </div>
         </foreignObject>
       </svg>

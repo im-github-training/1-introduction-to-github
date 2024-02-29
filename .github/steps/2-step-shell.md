@@ -23,11 +23,19 @@ To help speed things up, I've gone ahead and created `chapter2` for you.
 
 Let's do a `git pull` and to grab my changes:
 
+<!-- ```shell
+$ git pull
+``` -->
+
 !['git pull'](/images/2-step-shell-0.svg)
 
 And let's take a look at what we've got:
 
-!['git --no-pager log -n 8'](/images/2-step-shell-1.svg)
+<!-- ```shell
+$ git log -n 8
+``` -->
+
+!['git log -n 8'](/images/2-step-shell-1.svg)
 
 *Yeesh...* admittedly not my best work... but I was in a hurry!
 
@@ -35,24 +43,24 @@ Luckily we can easily clean this up with a quick `git rebase --interactive`.
 
 First, we need to tell `git rebase --interactive` how many commits we want to... uh... *rebase*.
 
-From the `git log` output, we can rebase everything up until the commit that starts with `606a5db1` (of course, the commit id will be different in *your* repo).
+From the `git log` output, we can rebase everything up until the commit that starts with `1d386eb` (of course, the commit id will be different in *your* repo).
 
 ```shell
-$ git rebase --interactive 606a5db1
+$ git rebase --interactive HEAD~7
 ```
 
 Which opens an editor window containing the following:
 
 ```shell
-pick 2a48bfb Added chaptor2
-pick bb1735f FIxed tyypo
-pick 2b12579 bugfix # empty
-pick bb7102d bugfix # empty
-pick 47e5455 Added 'Section 1' to chapter2
-pick ecf8347 fix
-pick 2ca6445 fiix # empty
+pick a445d3e Added chaptor2
+pick 630daf2 FIxed tyypo
+pick 8b7ca0e bugfix # empty
+pick e252de9 bugfix # empty
+pick 9c8c02c Added 'Section 1' to chapter2
+pick 3ae5885 fix
+pick f66977a fiix # empty
 
-# Rebase 606a5db..2ca6445 onto 606a5db (7 commands)
+# Rebase 1d386eb..f66977a onto 1d386eb (7 commands)
 #
 # Commands:
 # p, pick <commit> = use commit
@@ -116,15 +124,15 @@ Successfully rebased and updated refs/heads/my-first-branch.
 
 And checking with a `git log`:
 
-!['git --no-pager log -n 3'](/images/2-step-shell-3.svg)
+!['git log -n 3'](/images/2-step-shell-2.svg)
 
 🤌🤌🤌
 
 Now we have to push our changes back to GitHub
 
-!['git push'](/images/2-step-shell-4.svg)
+!['git push'](/images/2-step-shell-3.svg)
 
-!['git push --force'](/images/2-step-shell-5.svg)
+!['git push --force'](/images/2-step-shell-4.svg)
 
 ### Merging Back to Main
 
@@ -132,25 +140,25 @@ Now we're ready to merge `chapter2` back into our `main` branch.
 
 Let's switch over the the `main` branch:
 
-!['git switch main'](/images/2-step-shell-6.svg)
+!['git switch main'](/images/2-step-shell-5.svg)
 
 Hrm... what's this?  It looks like our `local` repository somehow got out of sync with the `remote` repository...
 
 Let's not worry about this for now, and just do what Git tells us, which is a `git pull`:
 
-!['git pull'](/images/2-step-shell-7.svg)
+!['git pull'](/images/2-step-shell-6.svg)
 
 Ok, now let's merge our changes back to the `main` branch with:
 
-!['git merge --no-ff -m "Merging my-first-branch" my-first-branch'](/images/2-step-shell-8.svg)
+!['git merge --no-ff -m "Merging my-first-branch" my-first-branch'](/images/2-step-shell-7.svg)
 
 And checking with `git log`:
 
-!['git --no-pager log -n 5'](/images/2-step-shell-9.svg)
+!['git log -n 5'](/images/2-step-shell-8.svg)
 
 Nice... but it feels a bit flat, let's try:
 
-!['git log --oneline --graph --decorate -n 5'](/images/2-step-shell-10.svg)
+!['git log --oneline --graph --decorate -n 10'](/images/2-step-shell-9.svg)
 
 On second thought, we probably don't want that branch crudding up our repo until the end of time.  Let's bring in our changes using `git rebase` instead.
 
@@ -158,28 +166,28 @@ First, we have to undo our changes.  Sure, we could use `git revert`, but that l
 
 We'll have to use `git reset` to reset main back to before the merge, which, from the `git log` output above, is commit `606a5db`:
 
-!['git reset 606a5db --hard'](/images/2-step-shell-11.svg)
+!['git reset HEAD~ --hard'](/images/2-step-shell-10.svg)
 
 Now, let's bring in the changes from `my-first-branch` using the following:
 
-!['git rebase my-first-branch'](/images/2-step-shell-12.svg)
+!['git rebase my-first-branch'](/images/2-step-shell-11.svg)
 
 And another `git log`:
 
-!['git log --oneline --graph --decorate -n 5'](/images/2-step-shell-13.svg)
+!['git log --oneline --graph --decorate -n 10'](/images/2-step-shell-12.svg)
 
 Nice!
 
 Now we can get rid of the `my-first-branch` branch with a `git branch -d my-first-branch`:
 
-!['git branch -d my-first-branch'](/images/2-step-shell-14.svg)
+!['git branch -d my-first-branch'](/images/2-step-shell-13.svg)
 
 Er... I meant a `git branch -D my-first-branch`!
 
-!['git branch -D my-first-branch'](/images/2-step-shell-15.svg)
+!['git branch -D my-first-branch'](/images/2-step-shell-14.svg)
 
-!['git push'](/images/2-step-shell-16.svg)
+!['git push'](/images/2-step-shell-15.svg)
 
-!['git pull'](/images/2-step-shell-17.svg)
+!['git pull'](/images/2-step-shell-16.svg)
 
-!['git push'](/images/2-step-shell-18.svg)
+!['git push'](/images/2-step-shell-17.svg)

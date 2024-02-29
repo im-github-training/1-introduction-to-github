@@ -1,5 +1,5 @@
 <!-- Created with term-transcript v0.3.0 (https://github.com/slowli/term-transcript) -->
-<svg viewBox="0 0 720 102" width="720" height="102" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 720 282" width="720" height="282" xmlns="http://www.w3.org/2000/svg">
   <switch>
     <g requiredExtensions="http://www.w3.org/1999/xhtml">
       <style>
@@ -22,6 +22,12 @@
         }
         .input-hidden { display: none; }
         .output { margin-bottom: 6px; }
+        .input-failure {
+          border-left: 2px solid #ff005b;
+          border-right: 2px solid #ff005b;
+          background: rgba(255, 0, 65, 0.15);
+        }
+
         .bold,.prompt { font-weight: bold; }
         .italic { font-style: italic; }
         .underline { text-decoration: underline; }
@@ -57,13 +63,23 @@
         .fg15 { color: #f3f3f3; } .bg15 { background: #f3f3f3; }
       </style>
       <rect width="100%" height="100%" y="0" rx="4.5" style="fill: #1c1c1c;" />
-      <svg x="0" y="10" width="720" height="82" viewBox="0 0 720 82">
-        <foreignObject width="720" height="82">
+      <svg x="0" y="10" width="720" height="262" viewBox="0 0 720 262">
+        <foreignObject width="720" height="262">
           <div xmlns="http://www.w3.org/1999/xhtml" class="container">
-            <div class="input" data-exit-status="0"><pre><span class="prompt">$</span> git push</pre></div>
-            <div class="output"><pre>Total 0 (delta 0), reused 0 (delta 0), pack-reused 0
-To https://github.com/im-github-training/exercises.git
-   c4241cc..1dd3dc0  main -&gt; main</pre></div>
+            <div class="input input-failure" data-exit-status="128" title="This command exited with non-zero code"><pre><span class="prompt">$</span> git pull</pre></div>
+            <div class="output"><pre><span class="fg3">hint: You have divergent branches and need to specify how to reconcile them.</span>
+<span class="fg3">hint: You can do so by running one of the following commands sometime before</span>
+<span class="fg3">hint: your next pull:</span>
+<span class="fg3">hint: </span>
+<span class="fg3">hint:   git config pull.rebase false  # merge</span>
+<span class="fg3">hint:   git config pull.rebase true   # rebase</span>
+<span class="fg3">hint:   git config pull.ff only       # fast-forward only</span>
+<span class="fg3">hint: </span>
+<span class="fg3">hint: You can replace "git config" with "git config --global" to set a default</span>
+<span class="fg3">hint: preference for all repositories. You can also pass --rebase, --no-rebase,</span>
+<span class="fg3">hint: or --ff-only on the command line to override the configured default per</span>
+<span class="fg3">hint: invocation.</span>
+fatal: Need to specify how to reconcile divergent branches.</pre></div>
           </div>
         </foreignObject>
       </svg>

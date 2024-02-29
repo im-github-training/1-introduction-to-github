@@ -22,15 +22,19 @@ To help speed things up, I've gone ahead and created `chapter2` for you.
 
 Let's do a `git pull` and to grab my changes:
 
-```shell
+<!-- ```shell
 $ git pull
-```
+``` -->
+
+!['git pull'](/images/2-step-shell-0.svg)
 
 And let's take a look at what we've got:
 
-```shell
-$ git --no-pager log -n 8
-```
+<!-- ```shell
+$ git log -n 8
+``` -->
+
+!['git log -n 8'](/images/2-step-shell-1.svg)
 
 _Yeesh..._ admittedly not my best work... but I was in a hurry!
 
@@ -38,24 +42,24 @@ Luckily we can easily clean this up with a quick `git rebase --interactive`.
 
 First, we need to tell `git rebase --interactive` how many commits we want to... uh... _rebase_.
 
-From the `git log` output, we can rebase everything up until the commit that starts with `606a5db1` (of course, the commit id will be different in _your_ repo).
+From the `git log` output, we can rebase everything up until the commit that starts with `1d386eb` (of course, the commit id will be different in _your_ repo).
 
 ```shell
-$ git rebase --interactive 606a5db1
+$ git rebase --interactive HEAD~7
 ```
 
 Which opens an editor window containing the following:
 
 ```shell
-pick 2a48bfb Added chaptor2
-pick bb1735f FIxed tyypo
-pick 2b12579 bugfix # empty
-pick bb7102d bugfix # empty
-pick 47e5455 Added 'Section 1' to chapter2
-pick ecf8347 fix
-pick 2ca6445 fiix # empty
+pick a445d3e Added chaptor2
+pick 630daf2 FIxed tyypo
+pick 8b7ca0e bugfix # empty
+pick e252de9 bugfix # empty
+pick 9c8c02c Added 'Section 1' to chapter2
+pick 3ae5885 fix
+pick f66977a fiix # empty
 
-# Rebase 606a5db..2ca6445 onto 606a5db (7 commands)
+# Rebase 1d386eb..f66977a onto 1d386eb (7 commands)
 #
 # Commands:
 # p, pick <commit> = use commit
@@ -120,7 +124,7 @@ Successfully rebased and updated refs/heads/my-first-branch.
 And checking with a `git log`:
 
 ```shellSession
-$ git --no-pager log -n 3
+$ git log -n 3
 ```
 
 🤌🤌🤌
@@ -165,13 +169,13 @@ $ git merge --no-ff -m "Merging my-first-branch" my-first-branch
 And checking with `git log`:
 
 ```shellSession
-$ git --no-pager log -n 5
+$ git log -n 5
 ```
 
 Nice... but it feels a bit flat, let's try:
 
 ```shellSession
-$ git log --oneline --graph --decorate -n 5
+$ git log --oneline --graph --decorate -n 10
 ```
 
 On second thought, we probably don't want that branch crudding up our repo until the end of time.  Let's bring in our changes using `git rebase` instead.
@@ -181,7 +185,7 @@ First, we have to undo our changes.  Sure, we could use `git revert`, but that l
 We'll have to use `git reset` to reset main back to before the merge, which, from the `git log` output above, is commit `606a5db`:
 
 ```shellSession
-$ git reset 606a5db --hard
+$ git reset HEAD~ --hard
 ```
 
 Now, let's bring in the changes from `my-first-branch` using the following:
@@ -193,7 +197,7 @@ $ git rebase my-first-branch
 And another `git log`:
 
 ```shellSession
-$ git log --oneline --graph --decorate -n 5
+$ git log --oneline --graph --decorate -n 10
 ```
 
 Nice!

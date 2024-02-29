@@ -1,5 +1,5 @@
 <!-- Created with term-transcript v0.3.0 (https://github.com/slowli/term-transcript) -->
-<svg viewBox="0 0 720 138" width="720" height="138" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 720 318" width="720" height="318" xmlns="http://www.w3.org/2000/svg">
   <switch>
     <g requiredExtensions="http://www.w3.org/1999/xhtml">
       <style>
@@ -26,19 +26,6 @@
         .italic { font-style: italic; }
         .underline { text-decoration: underline; }
         .dimmed { opacity: 0.7; }
-        .hard-br {
-          position: relative;
-          margin-left: 5px;
-        }
-        .hard-br:before {
-          content: '↓';
-          font-size: 16px;
-          height: 16px;
-          position: absolute;
-          bottom: 0;
-          transform: rotate(45deg);
-          opacity: 0.8;
-        }
         .fg0 { color: #1c1c1c; } .bg0 { background: #1c1c1c; }
         .fg1 { color: #ff005b; } .bg1 { background: #ff005b; }
         .fg2 { color: #cee318; } .bg2 { background: #cee318; }
@@ -57,14 +44,24 @@
         .fg15 { color: #f3f3f3; } .bg15 { background: #f3f3f3; }
       </style>
       <rect width="100%" height="100%" y="0" rx="4.5" style="fill: #1c1c1c;" />
-      <svg x="0" y="10" width="720" height="118" viewBox="0 0 720 118">
-        <foreignObject width="720" height="118">
+      <svg x="0" y="10" width="720" height="298" viewBox="0 0 720 298">
+        <foreignObject width="720" height="298">
           <div xmlns="http://www.w3.org/1999/xhtml" class="container">
             <div class="input" data-exit-status="0"><pre><span class="prompt">$</span> git pull</pre></div>
-            <div class="output"><pre>Updating 606a5db..2ca6445
+            <div class="output"><pre>remote: Enumerating objects: 33, done.
+remote: Counting objects: 100% (29/29), done.
+remote: Compressing objects: 100% (4/4), done.
+remote: Total 23 (delta 16), reused 21 (delta 14), pack-reused 0
+Unpacking objects: 100% (23/23), 2.70 KiB | 4.00 KiB/s, done.
+From https://github.com/im-sampm/exercises
+   b31d89b..bb7cf1d  my-first-branch -&gt; origin/my-first-branch
+   4082a2b..e953098  main            -&gt; origin/main
+Updating b31d89b..bb7cf1d
 Fast-forward
- chapter2 | 3 <span class="fg2">+++</span>
- 1 file changed, 3 insertions(+)
+ .github/steps/-step.txt |   2 <span class="fg2">+</span><span class="fg1">-</span>
+ README.md               | 185 <span class="fg2">++++++++++++++++++++++++++++++++++++++++++++++++</span>
+ chapter2                |   3 <span class="fg2">+</span>
+ 3 files changed, 189 insertions(+), 1 deletion(-)
  create mode 100644 chapter2</pre></div>
           </div>
         </foreignObject>
