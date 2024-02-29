@@ -1,5 +1,5 @@
 <!-- Created with term-transcript v0.3.0 (https://github.com/slowli/term-transcript) -->
-<svg viewBox="0 0 720 102" width="720" height="102" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 720 372" width="720" height="372" xmlns="http://www.w3.org/2000/svg">
   <switch>
     <g requiredExtensions="http://www.w3.org/1999/xhtml">
       <style>
@@ -57,13 +57,27 @@
         .fg15 { color: #f3f3f3; } .bg15 { background: #f3f3f3; }
       </style>
       <rect width="100%" height="100%" y="0" rx="4.5" style="fill: #1c1c1c;" />
-      <svg x="0" y="10" width="720" height="82" viewBox="0 0 720 82">
-        <foreignObject width="720" height="82">
+      <svg x="0" y="10" width="720" height="352" viewBox="0 0 720 352">
+        <foreignObject width="720" height="352">
           <div xmlns="http://www.w3.org/1999/xhtml" class="container">
-            <div class="input" data-exit-status="0"><pre><span class="prompt">$</span> git revert HEAD --no-edit</pre></div>
-            <div class="output"><pre>[my-first-branch 209532f] Revert "Brainstorming"
- Date: Thu Feb 29 11:49:12 2024 +0000
- 1 file changed, 1 deletion(-)</pre></div>
+            <div class="input" data-exit-status="0"><pre><span class="prompt">$</span> git --no-pager log -n 3</pre></div>
+            <div class="output"><pre><span class="fg3">commit 1dd3dc0567b4ff7363ac6dfd9de18efdb4098371</span><span class="fg3"> (</span><span class="bold fg6">HEAD</span><span class="fg3"> -&gt; </span><span class="bold fg2">my-first-branch</span><span class="fg3">, </span><span class="bold fg1">origin<b class="hard-br"><br/></b>/my-first-branch</span><span class="fg3">)</span>
+Author: Sam Peddamatham &lt;sam.pm@infomagnus.com&gt;
+Date:   Thu Feb 29 12:08:07 2024 +0000
+
+    Added 'Section 1' to chapter2
+
+<span class="fg3">commit d3e262c275644e5262cd9faaf333656260ef15c4</span>
+Author: Sam Peddamatham &lt;sam.pm@infomagnus.com&gt;
+Date:   Thu Feb 29 12:08:03 2024 +0000
+
+    Added Chapter 2
+
+<span class="fg3">commit 606a5db164cde3a212329ac3fc20532cea1715ab</span>
+Author: github-actions[bot] &lt;github-actions[bot]@users.noreply.github.com&gt;
+Date:   Thu Feb 29 11:49:45 2024 +0000
+
+    Update to 2 in STEP and README.md</pre></div>
           </div>
         </foreignObject>
       </svg>

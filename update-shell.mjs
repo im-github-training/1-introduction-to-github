@@ -55,7 +55,7 @@ const processor = remark()
         console.log(`${svg_tool} ${commands} --pty`)
 
         // Execute the command and render the output as SVG
-        const cmd_output = execSync(`${svg_tool} ${commands} -I 500ms --pty`).toString().trim();
+        const cmd_output = execSync(`${svg_tool} ${commands} -I 1000ms -T 1000ms --pty`).toString().trim();
 
         const imagesDir = '../images';
         const imageFilename = `${basename}-shell-${counter++}.svg`;

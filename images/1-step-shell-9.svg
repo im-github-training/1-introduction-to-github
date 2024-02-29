@@ -63,14 +63,14 @@
             <div class="input" data-exit-status="0"><pre><span class="prompt">$</span> rm chapter1</pre></div>
             <div class="output"><pre></pre></div>
             <div class="input" data-exit-status="0"><pre><span class="prompt">$</span> ls -l</pre></div>
-            <div class="output"><pre>total 56
-drwxr-xr-x 1 node node  4096 Feb 29 11:39 images
--rw-r--r-- 1 node node  1059 Feb 29 11:39 LICENSE
--rw-r--r-- 1 node node   182 Feb 29 11:39 package.json
--rw-r--r-- 1 node node 38159 Feb 29 11:39 package-lock.json
--rw-r--r-- 1 node node  6201 Feb 29 11:39 README.md
-drwxr-xr-x 1 node node  4096 Feb 29 11:39 temp
--rw-r--r-- 1 node node  2435 Feb 29 11:39 update-shell.mjs</pre></div>
+            <div class="output"><pre>total 64
+drwxr-xr-x 1 node node  4096 Feb 29 11:48 images
+-rw-r--r-- 1 node node  1059 Feb 29 11:48 LICENSE
+-rw-r--r-- 1 node node   182 Feb 29 11:48 package.json
+-rw-r--r-- 1 node node 38159 Feb 29 11:48 package-lock.json
+-rw-r--r-- 1 node node 16246 Feb 29 11:48 README.md
+drwxr-xr-x 1 node node  4096 Feb 29 11:48 temp
+-rw-r--r-- 1 node node  2435 Feb 29 11:48 update-shell.mjs</pre></div>
             <div class="input" data-exit-status="0"><pre><span class="prompt">$</span> git status</pre></div>
             <div class="output"><pre>On branch my-first-branch
 Changes not staged for commit:

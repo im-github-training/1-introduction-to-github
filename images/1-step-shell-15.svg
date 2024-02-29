@@ -63,29 +63,29 @@
             <div class="input" data-exit-status="0"><pre><span class="prompt">$</span> echo &quot;Lorum ipsum&quot; &gt;&gt; chapter1</pre></div>
             <div class="output"><pre></pre></div>
             <div class="input" data-exit-status="0"><pre><span class="prompt">$</span> git commit -am &quot;Brainstorming&quot;</pre></div>
-            <div class="output"><pre>[my-first-branch 0e21753] Brainstorming
+            <div class="output"><pre>[my-first-branch 4481fc0] Brainstorming
  1 file changed, 1 insertion(+)</pre></div>
             <div class="input" data-exit-status="0"><pre><span class="prompt">$</span> cat chapter1</pre></div>
             <div class="output"><pre># Chapter 1
 Lorum ipsum</pre></div>
             <div class="input"><pre><span class="prompt">$</span> git log</pre></div>
-            <div class="output"><pre><span class="fg3">commit 0e217538d01817f837d840697d946e9d4c49160c</span><span class="fg3"> (</span><span class="bold fg6">HEAD</span><span class="fg3"> -&gt; </span><span class="bold fg2">my-first-branch</span><span class="fg3">)</span>
+            <div class="output"><pre><span class="fg3">commit 4481fc091594a19e5c52cb956163c0c2c874945f</span><span class="fg3"> (</span><span class="bold fg6">HEAD</span><span class="fg3"> -&gt; </span><span class="bold fg2">my-first-branch</span><span class="fg3">)</span>
 Author: Sam Peddamatham &lt;sam.pm@infomagnus.com&gt;
-Date:   Thu Feb 29 11:40:40 2024 +0000
+Date:   Thu Feb 29 11:49:06 2024 +0000
 
     Brainstorming
 
-<span class="fg3">commit 5dbf29f5263ab014804a736042d65be86cb21c9d</span>
+<span class="fg3">commit 635f4d3182821671d24527d79cd7ffed1d3c6afb</span>
 Author: Sam Peddamatham &lt;sam.pm@infomagnus.com&gt;
-Date:   Thu Feb 29 11:40:07 2024 +0000
+Date:   Thu Feb 29 11:48:33 2024 +0000
 
     Added Chapter 1
 
-<span class="fg3">commit e10de0835cd9685d1ac63471afb332fd0d03ab08</span><span class="fg3"> (</span><span class="bold fg1">origin/main</span><span class="fg3">, </span><span class="bold fg1">origin/HEAD</span><span class="fg3">, </span><span class="bold fg2">main</span><span class="fg3">)</span>
+<span class="fg3">commit c4241cc5e64559325acf1a7746ec21cd14909a3a</span><span class="fg3"> (</span><span class="bold fg1">origin/main</span><span class="fg3">, </span><span class="bold fg1">origin/HEAD</span><span class="fg3">, </span><span class="bold fg2">main</span><span class="fg3">)</span>
 Author: Sam Peddamatham &lt;sam.pm@infomagnus.com&gt;
-Date:   Thu Feb 29 11:31:29 2024 +0000
+Date:   Thu Feb 29 11:47:32 2024 +0000
 
-    Updated
+    Update
 </pre></div>
           </div>
         </foreignObject>

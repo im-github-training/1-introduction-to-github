@@ -60,10 +60,10 @@
       <svg x="0" y="10" width="720" height="82" viewBox="0 0 720 82">
         <foreignObject width="720" height="82">
           <div xmlns="http://www.w3.org/1999/xhtml" class="container">
-            <div class="input" data-exit-status="0"><pre><span class="prompt">$</span> git revert HEAD --no-edit</pre></div>
-            <div class="output"><pre>[my-first-branch 209532f] Revert "Brainstorming"
- Date: Thu Feb 29 11:49:12 2024 +0000
- 1 file changed, 1 deletion(-)</pre></div>
+            <div class="input" data-exit-status="0"><pre><span class="prompt">$</span> git push</pre></div>
+            <div class="output"><pre>Total 0 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/im-github-training/exercises.git
+   c4241cc..1dd3dc0  main -&gt; main</pre></div>
           </div>
         </foreignObject>
       </svg>

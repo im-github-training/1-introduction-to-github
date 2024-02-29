@@ -61,28 +61,28 @@
         <foreignObject width="720" height="440">
           <div xmlns="http://www.w3.org/1999/xhtml" class="container">
             <div class="input" data-exit-status="0"><pre><span class="prompt">$</span> git commit -m &quot;Added Chapter 1&quot; --amend</pre></div>
-            <div class="output"><pre>[my-first-branch 0f445c5] Added Chapter 1
- Date: Thu Feb 29 11:40:07 2024 +0000
+            <div class="output"><pre>[my-first-branch ba7bf1c] Added Chapter 1
+ Date: Thu Feb 29 11:48:33 2024 +0000
  1 file changed, 0 insertions(+), 0 deletions(-)
  create mode 100644 chapter1</pre></div>
             <div class="input"><pre><span class="prompt">$</span> git log</pre></div>
-            <div class="output"><pre><span class="fg3">commit 0f445c5c1bd655c4c827a67969002a6ea425fd63</span><span class="fg3"> (</span><span class="bold fg6">HEAD</span><span class="fg3"> -&gt; </span><span class="bold fg2">my-first-branch</span><span class="fg3">)</span>
+            <div class="output"><pre><span class="fg3">commit ba7bf1cfc55230dd568472fd016ccf9578b14e59</span><span class="fg3"> (</span><span class="bold fg6">HEAD</span><span class="fg3"> -&gt; </span><span class="bold fg2">my-first-branch</span><span class="fg3">)</span>
 Author: Sam Peddamatham &lt;sam.pm@infomagnus.com&gt;
-Date:   Thu Feb 29 11:40:07 2024 +0000
+Date:   Thu Feb 29 11:48:33 2024 +0000
 
     Added Chapter 1
 
-<span class="fg3">commit e10de0835cd9685d1ac63471afb332fd0d03ab08</span><span class="fg3"> (</span><span class="bold fg1">origin/main</span><span class="fg3">, </span><span class="bold fg1">origin/HEAD</span><span class="fg3">, </span><span class="bold fg2">main</span><span class="fg3">)</span>
+<span class="fg3">commit c4241cc5e64559325acf1a7746ec21cd14909a3a</span><span class="fg3"> (</span><span class="bold fg1">origin/main</span><span class="fg3">, </span><span class="bold fg1">origin/HEAD</span><span class="fg3">, </span><span class="bold fg2">main</span><span class="fg3">)</span>
 Author: Sam Peddamatham &lt;sam.pm@infomagnus.com&gt;
-Date:   Thu Feb 29 11:31:29 2024 +0000
-
-    Updated
-
-<span class="fg3">commit 5df5b49ac05cae64b354a7e62e9b04e55e5d29cb</span>
-Author: Sam Peddamatham &lt;sam.pm@infomagnus.com&gt;
-Date:   Thu Feb 29 11:00:42 2024 +0000
+Date:   Thu Feb 29 11:47:32 2024 +0000
 
     Update
+
+<span class="fg3">commit ea9fb4542378893e76fcfe7e93bcb1c5b4ea1aaa</span>
+Author: github-actions[bot] &lt;github-actions[bot]@users.noreply.github.com&gt;
+Date:   Thu Feb 29 11:42:43 2024 +0000
+
+    Update to 2 in STEP and README.md
 </pre></div>
           </div>
         </foreignObject>
