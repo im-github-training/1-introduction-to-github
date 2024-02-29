@@ -18,7 +18,7 @@ To get started, we'll need a local copy of this repository.  To do that:
 
 1. Click the "Code" button, and then click the "Copy url to clipboard" icon:
 
-<img src="../../images/image-9.png" width="70%">
+![](images/image-9.png)
 
 2. Open a terminal window and do a `git clone`:
 
