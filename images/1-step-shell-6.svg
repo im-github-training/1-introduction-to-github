@@ -60,8 +60,8 @@
       <svg x="0" y="10" width="720" height="82" viewBox="0 0 720 82">
         <foreignObject width="720" height="82">
           <div xmlns="http://www.w3.org/1999/xhtml" class="container">
-            <div class="input" data-exit-status="0"><pre><span class="prompt">$</span> git commit -m &quot;Added chapter1&quot;</pre></div>
-            <div class="output"><pre>[my-first-branch ca109be] Added chapter1
+            <div class="input"><pre><span class="prompt">$</span> git commit -m &quot;Added chapter1&quot;</pre></div>
+            <div class="output"><pre>[my-first-branch 6fdda88] Added chapter1
  1 file changed, 0 insertions(+), 0 deletions(-)
  create mode 100644 book/chapter1</pre></div>
           </div>

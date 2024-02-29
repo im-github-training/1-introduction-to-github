@@ -60,7 +60,7 @@
       <svg x="0" y="10" width="720" height="136" viewBox="0 0 720 136">
         <foreignObject width="720" height="136">
           <div xmlns="http://www.w3.org/1999/xhtml" class="container">
-            <div class="input" data-exit-status="0"><pre><span class="prompt">$</span> git status</pre></div>
+            <div class="input"><pre><span class="prompt">$</span> git status</pre></div>
             <div class="output"><pre>On branch my-first-branch
 Untracked files:
   (use "git add &lt;file&gt;..." to include in what will be committed)

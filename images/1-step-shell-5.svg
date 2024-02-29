@@ -60,7 +60,7 @@
       <svg x="0" y="10" width="720" height="100" viewBox="0 0 720 100">
         <foreignObject width="720" height="100">
           <div xmlns="http://www.w3.org/1999/xhtml" class="container">
-            <div class="input" data-exit-status="0"><pre><span class="prompt">$</span> git status</pre></div>
+            <div class="input"><pre><span class="prompt">$</span> git status</pre></div>
             <div class="output"><pre>On branch my-first-branch
 Changes to be committed:
   (use "git restore --staged &lt;file&gt;..." to unstage)

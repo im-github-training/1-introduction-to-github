@@ -45,8 +45,6 @@ const basename = path.basename(filename, '.md');
 // Read the Markdown text from the file
 const markdownText = fs.readFileSync(filename, 'utf8');
 
-const svg_tool = "term-transcript exec"
-
 const processor = remark()
   .use(remarkParse)
   .use(() => (tree) => {
@@ -59,28 +57,33 @@ const processor = remark()
                                    .filter(line => line.startsWith('$'))
                                    // Escape each line
                                    .map(line => line.replace(/'/g, "'\\''"))
-                                   // Add single quotes around each line
-                                   .map(line => `'${line.slice(2)}'`)
-                                   .join(' ')
+                                   // Remove the $ at the beginning of each line
+                                   .map(line => `${line.slice(2)}`)
 
 
-        console.log(commands)
+        let nodes = [];
+        // For each command, create a new SVG file
+        for (const command of commands) {
 
-        // Execute the command and render the output as SVG
-        const cmd_output = execSync(`${svg_tool} ${commands} -I 2s -T 1000ms --pty`, options).toString().trim();
+          console.log(command)
 
-        const imagesDir = 'images';
-        const imageFilename = `${basename}-shell-${counter++}.svg`;
-        fs.writeFileSync(path.join(imagesDir, imageFilename), cmd_output);
+          // term-script outputs raw SVG data to stdout
+          const cmd_output = execSync(`unbuffer ${command} | term-transcript capture '${command}'`, options).toString().trim();
 
-        // Replace the code node with the rendered image
-        parent.children.splice(index, 1, {
-          type: 'paragraph',
-          children: [{
+          // Write the captured output to an SVG file
+          fs.writeFileSync(path.join('images', `${basename}-shell-${counter++}.svg`), cmd_output);
+
+          nodes.push({
             type: 'image',
             url: path.join('/images', imageFilename),
-            alt: commands,
-          }]
+            alt: command,
+          })
+        }
+
+        // Insert the image node(s) after the current code node
+        parent.children.splice(index, 1, {
+          type: 'paragraph',
+          children: nodes
         });
       }
     });
