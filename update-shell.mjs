@@ -57,7 +57,7 @@ const processor = remark()
         // Execute the command and render the output as SVG
         const cmd_output = execSync(`${svg_tool} ${commands} -I 1000ms -T 1000ms --pty`).toString().trim();
 
-        const imagesDir = 'images';
+        const imagesDir = '../images';
         const imageFilename = `${basename}-shell-${counter++}.svg`;
         fs.writeFileSync(path.join(imagesDir, imageFilename), cmd_output);
 
@@ -78,5 +78,5 @@ const processor = remark()
 const result = processor.processSync(markdownText).toString();
 
 // Write result to file
-const outputPath = path.join('.github', 'steps', `${basename}-shell.md`);
+const outputPath = path.join('../.github', 'steps', `${basename}-shell.md`);
 fs.writeFileSync(outputPath, result);
