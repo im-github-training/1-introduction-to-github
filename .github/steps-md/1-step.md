@@ -16,11 +16,11 @@ To get started, we'll need a local copy of this repository.  To do that:
 
 1. Click the "Code" button, and then click the "Copy url to clipboard" icon:
 
-<!-- ![](/images/image-9.png) -->
+![](/images/image-9.png)
 
 2. Open a terminal window and do a `git clone`:
 
-<!-- ![](/images/image-10.png) -->
+![](/images/image-10.png)
 
 ## Understanding the Basics
 
@@ -50,6 +50,14 @@ $ git switch -c my-first-branch
 ```
 
 ### Our First Commit
+
+First, let's create a directory to work in:
+
+```shellSession
+$ mkdir book
+
+$ cd book
+```
 
 Now, let's create a file for Chapter 1 called `chapter1`.
 
