@@ -24,11 +24,8 @@ Ok, in the next series of exercises, we'll be using this repository to work on o
 
 Let's start by making sure the repository is ready for us to start working by typing `git status`.
 
-```shellSession
-> git status
-
-On branch main
-nothing to commit, working tree clean
+```replaceShell renderSVG
+git status
 ```
 
 Looks good!
