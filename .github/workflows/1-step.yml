@@ -25,7 +25,7 @@ jobs:
     steps:
       - name: Set step
         if: ${{ github.event_name == 'workflow_dispatch' }}
-        run: echo "STEP=$DEFAULT_STEP" >> $GITHUB_ENV; exit 1
+        run: echo "STEP=$DEFAULT_STEP" >> $GITHUB_ENV; 
 
       # Needed so we can read the step number from -step.txt
       - name: Checkout
