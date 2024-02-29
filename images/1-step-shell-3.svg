@@ -1,5 +1,5 @@
 <!-- Created with term-transcript v0.3.0 (https://github.com/slowli/term-transcript) -->
-<svg viewBox="0 0 720 20" width="720" height="20" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 720 210" width="720" height="210" xmlns="http://www.w3.org/2000/svg">
   <switch>
     <g requiredExtensions="http://www.w3.org/1999/xhtml">
       <style>
@@ -57,9 +57,19 @@
         .fg15 { color: #f3f3f3; } .bg15 { background: #f3f3f3; }
       </style>
       <rect width="100%" height="100%" y="0" rx="4.5" style="fill: #1c1c1c;" />
-      <svg x="0" y="10" width="720" height="0" viewBox="0 0 720 0">
-        <foreignObject width="720" height="0">
+      <svg x="0" y="10" width="720" height="190" viewBox="0 0 720 190">
+        <foreignObject width="720" height="190">
           <div xmlns="http://www.w3.org/1999/xhtml" class="container">
+            <div class="input" data-exit-status="0"><pre><span class="prompt">$</span> git status</pre></div>
+            <div class="output"><pre>On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add &lt;file&gt;..." to include in what will be committed)
+	<span class="fg1">chapter1</span>
+
+nothing added to commit but untracked files present (use "git add" to track)</pre></div>
           </div>
         </foreignObject>
       </svg>

@@ -32,7 +32,7 @@ const basename = path.basename(filename, '.md');
 // Read the Markdown text from the file
 const markdownText = fs.readFileSync(filename, 'utf8');
 
-const command = "term-transcript exec"
+const svg_tool = "term-transcript exec"
 
 const processor = remark()
   .use(remarkParse)
@@ -40,25 +40,34 @@ const processor = remark()
     let counter = 0;
 
     visit(tree, 'code', (node, index, parent) => {
-      if (node.lang === 'replaceShell') {
-        // Create command by joining command and node.value
+      if (node.lang === 'shellSession') {
+        const commands = node.value.split('\n')
+                                   // Filter out lines starting with $
+                                   .filter(line => line.startsWith('$'))
+                                   // Escape each line
+                                   .map(line => line.replace(/'/g, "'\\''"))
+                                   // Add single quotes around each line
+                                   .map(line => `'${line.slice(2)}'`)
+                                   .join(' ')
 
+
+        console.log(commands)
+        console.log(`${svg_tool} ${commands} --pty`)
 
         // Execute the command and render the output as SVG
-        const cmd_output = execSync(`${command} '${node.value}' --pty`).toString().trim();
-        // const cmd_output = execSync("ls -l").toString().trim();
+        const cmd_output = execSync(`${svg_tool} ${commands} -I 500ms --pty`).toString().trim();
 
         const imagesDir = '../images';
         const imageFilename = `${basename}-shell-${counter++}.svg`;
         fs.writeFileSync(path.join(imagesDir, imageFilename), cmd_output);
 
-        // Add a child node to the parent node with the SVG image
-        parent.children.splice(index+1, 0, {
+        // Replace the code node with the rendered image
+        parent.children.splice(index, 1, {
           type: 'paragraph',
           children: [{
             type: 'image',
-            url: path.join(imagesDir, imageFilename),
-            alt: '',
+            url: path.join('images', imageFilename),
+            alt: commands,
           }]
         });
       }
@@ -68,4 +77,5 @@ const processor = remark()
 
 const result = processor.processSync(markdownText).toString();
 
-console.log(result);
+// Write result to file
+fs.writeFileSync(`../${basename}-shell.md`, result);

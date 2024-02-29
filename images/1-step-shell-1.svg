@@ -1,5 +1,5 @@
 <!-- Created with term-transcript v0.3.0 (https://github.com/slowli/term-transcript) -->
-<svg viewBox="0 0 720 192" width="720" height="192" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 720 388" width="720" height="388" xmlns="http://www.w3.org/2000/svg">
   <switch>
     <g requiredExtensions="http://www.w3.org/1999/xhtml">
       <style>
@@ -57,18 +57,28 @@
         .fg15 { color: #f3f3f3; } .bg15 { background: #f3f3f3; }
       </style>
       <rect width="100%" height="100%" y="0" rx="4.5" style="fill: #1c1c1c;" />
-      <svg x="0" y="10" width="720" height="172" viewBox="0 0 720 172">
-        <foreignObject width="720" height="172">
+      <svg x="0" y="10" width="720" height="368" viewBox="0 0 720 368">
+        <foreignObject width="720" height="368">
           <div xmlns="http://www.w3.org/1999/xhtml" class="container">
-            <div class="input" data-exit-status="0"><pre><span class="prompt">$</span> ls -l --color&#x3D;always</pre></div>
-            <div class="output"><pre>total 48
-drwxrwxrwx 1 root root  4096 Feb 27 18:39 <span class="fg4 bg2">images</span>
--rwxrwxrwx 1 root root  1059 Feb 27 08:17 <span class="fg2">LICENSE</span>
-drwxr-xr-x 1 node node  4096 Feb 29 04:31 <span class="fg4">node_modules</span>
--rw-r--r-- 1 node node   118 Feb 29 04:31 package.json
--rw-r--r-- 1 node node 29590 Feb 29 04:31 package-lock.json
--rwxrwxrwx 1 root root  6201 Feb 29 01:59 <span class="fg2">README.md</span>
--rwxrwxrwx 1 root root   752 Feb 29 04:36 <span class="fg2">update-shell.mjs</span></pre></div>
+            <div class="input" data-exit-status="0"><pre><span class="prompt">$</span> ls -l ../</pre></div>
+            <div class="output"><pre>total 68
+-rw-r--r-- 1 node node  3356 Feb 29 08:30 1-step-shell.md
+drwxrwxrwx 1 root root  4096 Feb 29 08:01 images
+-rwxrwxrwx 1 root root  1059 Feb 27 08:17 LICENSE
+drwxr-xr-x 1 node node  4096 Feb 29 06:16 node_modules
+-rw-r--r-- 1 node node  3333 Feb 29 08:05 out.md
+-rw-r--r-- 1 node node   182 Feb 29 06:16 package.json
+-rw-r--r-- 1 node node 38159 Feb 29 06:16 package-lock.json
+-rwxrwxrwx 1 root root  6201 Feb 29 01:59 README.md
+drwxr-xr-x 1 node node  4096 Feb 29 08:33 temp
+-rw-r--r-- 1 node node  3742 Feb 29 04:36 test.svg
+-rwxrwxrwx 1 root root  2448 Feb 29 08:33 update-shell.mjs</pre></div>
+            <div class="input" data-exit-status="0"><pre><span class="prompt">$</span> git status</pre></div>
+            <div class="output"><pre>On branch master
+
+No commits yet
+
+nothing to commit (create/copy files and use "git add" to track)</pre></div>
           </div>
         </foreignObject>
       </svg>

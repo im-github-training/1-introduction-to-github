@@ -9,9 +9,8 @@
 <details>
   <summary>Click me</summary>
 
-  ```shellSession
-  git status
-  ```
+![](images/1-step-shell-0.svg)
+
 </details>
 
 ## Getting Started
@@ -32,61 +31,43 @@ Ok, in the next series of exercises, we'll be using this repository to work on o
 
 Let's start by making sure the repository is ready for us to start working by typing `git status`.
 
-```shellSession
-$ ls -l ../
-
-$ git status
-```
+!['ls -l ../' 'git status'](images/1-step-shell-1.svg)
 
 Looks good!
 
 Now let's create a file for our very first chapter.
 
-```shellSession
-$ echo "Chapter 1" > chapter1
-```
+!['echo "Chapter 1" > chapter1'](images/1-step-shell-2.svg)
 
 Let's see if Git noticed this new file by typing `git status`:
 
-```shellSession
-$ git status
-```
+!['git status'](images/1-step-shell-3.svg)
 
 Cool, so Git saw that we added this file but it's not yet tracking the file.
 
 Luckily, Git tells us exactly what we need to do next, `git add chapter1`:
 
-```shellSession
-$ git add chapter1
-```
+!['git add chapter1'](images/1-step-shell-4.svg)
 
 Let's see how things look now:
 
-```shellSession
-$ git status
-```
+!['git status'](images/1-step-shell-5.svg)
 
 Alright, so it looks like our `chapter1` file is staged and ready to be committed!
 
 Let's go ahead and do that with `git commit -m "Added chapter1"`:
 
-```shellSession
-$ git commit -m "Added chapter1"
-```
+!['git commit -m "Added chapter1"'](images/1-step-shell-6.svg)
 
 And, of course, a quick `git status`:
 
-```shellSession
-$ git status
-```
+!['git status'](images/1-step-shell-7.svg)
 
 Nice, looks like the file was moved from the staging area to the repository!
 
 Let's see what `git log` has to say:
 
-```shellSession
-$ git log
-```
+!['git log'](images/1-step-shell-8.svg)
 
 Perfect!
 
@@ -98,77 +79,47 @@ Let's see how Git reacts if we accidentally delete `chapter1`.
 
 First things first, let's double-check and make sure `chapter1`'s still there:
 
-```shellSession
-$ ls -l
-```
+!['ls -l'](images/1-step-shell-9.svg)
 
-Yup, don't know what we were expecting...  
+Yup, don't know what we were expecting...
 
 Now, let's delete `chapter1` and see what Git has to say with a lil `git status`:
 
-```shellSession
-$ rm chapter1
+!['rm chapter1' 'git status'](images/1-step-shell-10.svg)
 
-$ git status
-```
+Ok, somewhere in that wall of text, Git's telling us that `chapter1` has indeed been removed from the *working directory*.
 
-Ok, somewhere in that wall of text, Git's telling us that `chapter1` has indeed been removed from the _working directory_.
+And, once again, Git helpfully tells us what to type to restore the file:
 
-And, once again, Git helpfully tells us what to type to restore the file: 
-
-```shellSession
-$ git restore chapter1
-```
+!['git restore chapter1'](images/1-step-shell-11.svg)
 
 Double-checking with an `ls -l` shows us that `chapter1` has been
 
-```shellSession
-$ ls -l
-```
+!['ls -l'](images/1-step-shell-12.svg)
 
 ## Trying out git diff
 
-```shellSession
-$ echo "Section 1" >> chapter1
-```
+!['echo "Section 1" >> chapter1'](images/1-step-shell-13.svg)
 
-```shellSession
-$ git diff
-```
+!['git diff'](images/1-step-shell-14.svg)
 
 ## Step: Amend a commit
 
-```shellSession
-$ git commit -am "Updated chapter1"
-```
+!['git commit -am "Updated chapter1"'](images/1-step-shell-15.svg)
 
-```shellSession
-$ git log
-```
+!['git log'](images/1-step-shell-16.svg)
 
-```shellSession
-$ git commit --amend -m "Added 'Section 1' to chapter1"
-```
+!['git commit --amend -m "Added '\\''Section 1'\\'' to chapter1"'](images/1-step-shell-17.svg)
 
-
-```shellSession
-$ git log
-```
+!['git log'](images/1-step-shell-18.svg)
 
 ## Step: Revert a commit
 
-```shellSession
-git revert <commit id>
-git log
-  
-git reset <commit id>
-```
+![](images/1-step-shell-19.svg)
 
 ## Step: Create a branch
 
-```shellSession
-$ git switch -c my-first-branch
-```
+!['git switch -c my-first-branch'](images/1-step-shell-20.svg)
 
 ## Step: Push
 

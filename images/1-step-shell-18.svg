@@ -1,5 +1,5 @@
 <!-- Created with term-transcript v0.3.0 (https://github.com/slowli/term-transcript) -->
-<svg viewBox="0 0 720 20" width="720" height="20" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 720 246" width="720" height="246" xmlns="http://www.w3.org/2000/svg">
   <switch>
     <g requiredExtensions="http://www.w3.org/1999/xhtml">
       <style>
@@ -57,9 +57,21 @@
         .fg15 { color: #f3f3f3; } .bg15 { background: #f3f3f3; }
       </style>
       <rect width="100%" height="100%" y="0" rx="4.5" style="fill: #1c1c1c;" />
-      <svg x="0" y="10" width="720" height="0" viewBox="0 0 720 0">
-        <foreignObject width="720" height="0">
+      <svg x="0" y="10" width="720" height="226" viewBox="0 0 720 226">
+        <foreignObject width="720" height="226">
           <div xmlns="http://www.w3.org/1999/xhtml" class="container">
+            <div class="input" data-exit-status="0"><pre><span class="prompt">$</span> git log</pre></div>
+            <div class="output"><pre><span class="fg3">commit 6d3d4beb00bb77629309548a0fdd1bc13c7bbc04</span><span class="fg3"> (</span><span class="bold fg6">HEAD</span><span class="fg3"> -&gt; </span><span class="bold fg2">master</span><span class="fg3">)</span>
+Author: Sam Peddamatham &lt;sam.pm@infomagnus.com&gt;
+Date:   Thu Feb 29 08:34:31 2024 +0000
+
+    Added 'Section 1' to chapter1
+
+<span class="fg3">commit 9eb81391fd84d913db022054018bdc75a4d2c314</span>
+Author: Sam Peddamatham &lt;sam.pm@infomagnus.com&gt;
+Date:   Thu Feb 29 08:34:08 2024 +0000
+
+    Added chapter1</pre></div>
           </div>
         </foreignObject>
       </svg>

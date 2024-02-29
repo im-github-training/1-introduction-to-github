@@ -1,5 +1,5 @@
 <!-- Created with term-transcript v0.3.0 (https://github.com/slowli/term-transcript) -->
-<svg viewBox="0 0 720 20" width="720" height="20" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 720 174" width="720" height="174" xmlns="http://www.w3.org/2000/svg">
   <switch>
     <g requiredExtensions="http://www.w3.org/1999/xhtml">
       <style>
@@ -57,9 +57,17 @@
         .fg15 { color: #f3f3f3; } .bg15 { background: #f3f3f3; }
       </style>
       <rect width="100%" height="100%" y="0" rx="4.5" style="fill: #1c1c1c;" />
-      <svg x="0" y="10" width="720" height="0" viewBox="0 0 720 0">
-        <foreignObject width="720" height="0">
+      <svg x="0" y="10" width="720" height="154" viewBox="0 0 720 154">
+        <foreignObject width="720" height="154">
           <div xmlns="http://www.w3.org/1999/xhtml" class="container">
+            <div class="input" data-exit-status="0"><pre><span class="prompt">$</span> git diff</pre></div>
+            <div class="output"><pre><span class="bold">diff --git a/chapter1 b/chapter1</span>
+<span class="bold">index 70b252c..211497d 100644</span>
+<span class="bold">--- a/chapter1</span>
+<span class="bold">+++ b/chapter1</span>
+<span class="fg6">@@ -1 +1,2 @@</span>
+ Chapter 1
+<span class="fg2">+</span><span class="fg2">Section 1</span></pre></div>
           </div>
         </foreignObject>
       </svg>
