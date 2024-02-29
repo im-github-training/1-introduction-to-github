@@ -48,7 +48,6 @@ jobs:
         run: exit 1
 
   main:
-    needs: check_condition
     runs-on: ubuntu-latest
     if: ${{ success() }}
     steps:
