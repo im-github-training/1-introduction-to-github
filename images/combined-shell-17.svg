@@ -60,8 +60,8 @@
       <svg x="0" y="10" width="720" height="118" viewBox="0 0 720 118">
         <foreignObject width="720" height="118">
           <div xmlns="http://www.w3.org/1999/xhtml" class="container">
-            <div class="input"><pre><span class="prompt">$</span> git commit -m &quot;Added ToC, About Author, and Index&quot;</pre></div>
-            <div class="output"><pre>[my-book de721bb] Added ToC, About Author, and Index
+            <div class="input"><pre><span class="prompt">$</span> git commit -m &quot;Added stuff&quot;</pre></div>
+            <div class="output"><pre>[my-book 96c136c] Added stuff
  3 files changed, 0 insertions(+), 0 deletions(-)
  create mode 100644 book/about-the-author
  create mode 100644 book/index
