@@ -2,6 +2,8 @@
 
 In the next series of exercises, we will be using this repository to work on a New York Times bestseller.
 
+TODO: Mention part of larger training docs
+
 ## Getting Started
 
 To get started, we'll need a local copy of this repository.  To do that:
@@ -15,6 +17,9 @@ To get started, we'll need a local copy of this repository.  To do that:
 ![](/images/image-10.png)
 
 ## Understanding the Basics
+
+- Git config user
+- 
 
 To begin, let's make sure everything is in order with our repository.
 
@@ -124,7 +129,7 @@ $ git commit -m "Added chapter1"
 
 !['git commit -m "Added chapter1"'](/images/1-step-shell-6.svg)
 
-
+> note: we can type git commit and explain '-m flag
 
 Let's see what `git status` says now that the file's been committed:
 
@@ -158,7 +163,7 @@ Perfect!
 
 #### Restoring files
 
-One of the great things about Git is that once a file has been added to a repository, it's *almost* **impossible** to lose it.  We'll prove this out in later exercises, but let's start simple and delete `chapter`.
+One of the great things about Git is that once a file has been added to a repository, it's *almost* **impossible** to lose it.  We'll prove this out in later exercises, but let's start simple and delete `chapter1`.
 
 <!--
 ```shellSession
