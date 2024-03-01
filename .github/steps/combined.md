@@ -36,11 +36,11 @@ By the end of this tutorial, you will have:
 * Restored files
 * Amended commits
 
-- [Understand the basics of Git](#understanding-the-basics)
-- [Create a branch](#our-first-branch)
-- [Create a commit](#our-first-commit)
-- [Restore files](#fixing-things-part-1)
-- [Amend commits](#fixing-things-part-1)
+* [Understand the basics of Git](#understanding-the-basics)
+* [Create a branch](#our-first-branch)
+* [Create a commit](#our-first-commit)
+* [Restore files](#fixing-things-part-1)
+* [Amend commits](#fixing-things-part-1)
 
 ### Getting Started
 
@@ -69,10 +69,6 @@ $ git status
  -->
 
 !['git status'](/images/combined-shell-0.svg)
-
-
-
-
 
 Looks good!
 
@@ -108,10 +104,6 @@ $ git branch
 
 !['git branch'](/images/combined-shell-1.svg)
 
-
-
-
-
 Ok, it looks like there's only one branch, `main`, and the `*` in front of it means that we're currently working in the `main` branch.
 
 #### Creating a branch
@@ -126,10 +118,6 @@ $ git branch my-book
 
 !['git branch my-book'](/images/combined-shell-2.svg)
 
-
-
-
-
 Checking our `git branch`...
 
 <!--
@@ -139,10 +127,6 @@ $ git branch
 -->
 
 !['git branch'](/images/combined-shell-3.svg)
-
-
-
-
 
 Interesting, so we can see that `my-book` was created, but the `*` is still in front of `main`.
 
@@ -158,10 +142,6 @@ $ git switch my-book
 
 !['git switch my-book'](/images/combined-shell-4.svg)
 
-
-
-
-
 And just to double-check `git branch`:
 
 <!--
@@ -171,10 +151,6 @@ $ git branch
 -->
 
 !['git branch'](/images/combined-shell-5.svg)
-
-
-
-
 
 That feels like a lot of work just to start working on a new branch, luckily, `git switch` provides the `--create` or `-c` flag, which lets you create and switch all in one go.
 
@@ -188,10 +164,6 @@ $ git switch -c throwaway
 
 !['git switch -c throwaway'](/images/combined-shell-6.svg)
 
-
-
-
-
 And...
 
 <!--
@@ -201,10 +173,6 @@ $ git branch
 -->
 
 !['git branch'](/images/combined-shell-7.svg)
-
-
-
-
 
 Perfect!
 
@@ -220,10 +188,6 @@ $ git branch -d throwaway
 
 !['git branch -d throwaway'](/images/combined-shell-8.svg)
 
-
-
-
-
 Ah, so we cannot delete a branch that is currently in use or "checked out".
 
 So let's switch back to `my-book`...
@@ -236,10 +200,6 @@ $ git switch my-book
 
 !['git switch my-book'](/images/combined-shell-9.svg)
 
-
-
-
-
 ... and try again...
 
 <!--
@@ -249,10 +209,6 @@ $ git branch -d throwaway
 -->
 
 !['git branch -d throwaway'](/images/combined-shell-10.svg)
-
-
-
-
 
 ... and...
 
@@ -264,10 +220,6 @@ $ git branch
 
 !['git branch'](/images/combined-shell-11.svg)
 
-
-
-
-
 and let's do a `git status` for good measure:
 
 <!--
@@ -277,10 +229,6 @@ $ git status
 -->
 
 !['git status'](/images/combined-shell-12.svg)
-
-
-
-
 
 *Magnifique.*
 
@@ -296,10 +244,6 @@ $ touch table-of-contents about-the-author index
 
 !['touch table-of-contents about-the-author index'](/images/combined-shell-13.svg)
 
-
-
-
-
 Let's see if Git noticed a change to our `working tree`:
 
 <!--
@@ -309,10 +253,6 @@ $ git status
 -->
 
 !['git status'](/images/combined-shell-14.svg)
-
-
-
-
 
 Interesting, Git noticed that we added the files, but is saying that they're *untracked*.
 
@@ -330,10 +270,6 @@ $ git add .
 
 !['git add .'](/images/combined-shell-15.svg)
 
-
-
-
-
 > We could have individually added the files by typing `git add table-of-contents about-the-author index`, but `git add` provides the convenient `git add .`, which stages any and all changes present in the working directory.
 
 Let's see how things look now:
@@ -346,10 +282,6 @@ $ git status
 
 !['git status'](/images/combined-shell-16.svg)
 
-
-
-
-
 Alright, it looks like our files are staged and ready to be committed!
 
 Let's go ahead and do that with `git commit -m "Added ToC, About Author, and Index"`:
@@ -361,10 +293,6 @@ $ git commit -m "Added stuff"
 -->
 
 !['git commit -m "Added ToC, About Author, and Index"'](/images/combined-shell-17.svg)
-
-
-
-
 
 > `-m` is the short form of `--message`, which allows us to specify short commit messages via the command-line.
 > Typing `git commit` brings up a text editor, which is useful for longform commit messages.
@@ -379,10 +307,6 @@ $ git status
 
 !['git status'](/images/combined-shell-18.svg)
 
-
-
-
-
 Nice, looks like the files were moved from the staging area to the repository!
 
 We can confirm that the commit is part of our repository history by doing a `git log`:
@@ -394,10 +318,6 @@ $ git log -n 1
 -->
 
 !['git log -n 1'](/images/combined-shell-19.svg)
-
-
-
-
 
 Perfect!
 
@@ -415,8 +335,6 @@ $ rm table-of-contents about-the-author index
 
 !['rm table-of-contents about-the-author index'](/images/combined-shell-20.svg)
 
-
-
 Making sure the files are deleted:
 
 <!--
@@ -427,8 +345,6 @@ $ ls -l
 
 !['ls -l'](/images/combined-shell-21.svg)
 
-
-
 Seeing what Git has to say:
 
 <!--
@@ -438,10 +354,6 @@ $ git status
 -->
 
 !['git status'](/images/combined-shell-22.svg)
-
-
-
-
 
 As expected, Git noticed the change to the *working directory*, namely, that we deleted our files.
 
@@ -457,8 +369,6 @@ $ git restore table-of-contents about-the-author index
 
 !['git restore table-of-contents about-the-author index'](/images/combined-shell-23.svg)
 
-
-
 Double-checking with an `ls -l`:
 
 <!--
@@ -468,8 +378,6 @@ $ ls -l
 -->
 
 !['ls -l'](/images/combined-shell-24.svg)
-
-
 
 Great!  But that was a lot of typing, let's try something...
 
@@ -523,10 +431,6 @@ $ git log -n 1
 
 !['git commit -m "Added Chapter 1" --amend'](/images/combined-shell-27.svg)!['git log -n 1'](/images/combined-shell-28.svg)
 
-
-
-
-
 Great!
 
 Now, let's make an update to `chapter1` and add it to the commit:
@@ -544,10 +448,6 @@ $ git commit --amend --no-edit
 
 !['echo "# Chapter 1" >> chapter1'](/images/combined-shell-29.svg)!['cat chapter1'](/images/combined-shell-30.svg)!['git add chapter1'](/images/combined-shell-31.svg)!['git commit --amend --no-edit'](/images/combined-shell-32.svg)
 
-
-
-
-
 And checking with `git log`, we can see the commit id has updated:
 
 <!--
@@ -557,10 +457,6 @@ $ git log -n 1
 -->
 
 !['git log -n 1'](/images/combined-shell-33.svg)
-
-
-
-
 
 > **Note:** Here we used the `--no-edit` flag, which allows us to skip retyping the commit message.
 
@@ -580,10 +476,6 @@ $ cat chapter1
 
 !['echo "Lorum ipsum" >> chapter1'](/images/combined-shell-34.svg)!['cat chapter1'](/images/combined-shell-35.svg)
 
-
-
-
-
 So, now `chapter1` has a new line, "Lorum ipsum" added to it.
 
 Let's go ahead and commit that:
@@ -595,10 +487,6 @@ $ git commit -am "Brainstorming"
 -->
 
 !['git commit -am "Brainstorming"'](/images/combined-shell-36.svg)
-
-
-
-
 
 > **Note:** Here we used the `-a` flag which automatically `git add`s all changes found in tracked files.
 
@@ -612,10 +500,6 @@ $ git log -n 2
 
 !['git log -n 2'](/images/combined-shell-37.svg)
 
-
-
-
-
 And now let's revert the commit:
 
 <!--
@@ -625,10 +509,6 @@ $ git revert HEAD --no-edit
 -->
 
 !['git revert HEAD --no-edit'](/images/combined-shell-38.svg)
-
-
-
-
 
 Once again checking with `git log`:
 
@@ -640,10 +520,6 @@ $ git log -n 2
 
 !['git log -n 2'](/images/combined-shell-39.svg)
 
-
-
-
-
 Yup, and now let's check the contents of `chapter1`:
 
 <!--
@@ -653,10 +529,6 @@ $ cat chapter1
 -->
 
 !['cat chapter1'](/images/combined-shell-40.svg)
-
-
-
-
 
 And there you go!
 
@@ -674,10 +546,6 @@ $ git push
 
 !['git push'](/images/combined-shell-41.svg)
 
-
-
-
-
 <!--
 ```shellSession
 $ git push --set-upstream origin my-first-branch
@@ -685,10 +553,6 @@ $ git push --set-upstream origin my-first-branch
 -->
 
 !['git push --set-upstream origin my-first-branch'](/images/combined-shell-42.svg)
-
-
-
-
 
 <!--
   <<< Author notes: Step 1 >>>
