@@ -1,6 +1,8 @@
 import { remark } from 'remark';
 import remarkParse from 'remark-parse';
 import remarkStringify from 'remark-stringify';
+import remarkRecommended from 'remark-preset-lint-recommended';
+import remarkListItemIndent from 'remark-lint-list-item-indent';
 import { visit } from 'unist-util-visit';
 import { execSync } from 'child_process';
 // import fs and path
@@ -64,6 +66,7 @@ const processor = remark()
             for (const command of commands) {
 
               console.log(command)
+              // console.log(`unbuffer ${command} | term-transcript capture '${command}'`)
 
               // term-script outputs raw SVG data to stdout
               const cmd_output = execSync(`unbuffer ${command} | term-transcript capture '${command}'`, options).toString().trim();
@@ -90,6 +93,8 @@ const processor = remark()
       }
     });
   })
+  .use(remarkRecommended)
+  .use(remarkListItemIndent, 'space')
   .use(remarkStringify);
 
 const result = processor.processSync(markdownText).toString();

@@ -61,11 +61,11 @@
         <foreignObject width="720" height="118">
           <div xmlns="http://www.w3.org/1999/xhtml" class="container">
             <div class="input"><pre><span class="prompt">$</span> git log -n 1</pre></div>
-            <div class="output"><pre><span class="fg3">commit 09fc4795601e1200ab7743ef5b39d2e4b92263ea</span><span class="fg3"> (</span><span class="bold fg6">HEAD</span><span class="fg3"> -&gt; </span><span class="bold fg2">my-book</span><span class="fg3">)</span>
+            <div class="output"><pre><span class="fg3">commit 55164e46e19dd5f99dcda044850fe40b375efb6f</span><span class="fg3"> (</span><span class="bold fg6">HEAD</span><span class="fg3"> -&gt; </span><span class="bold fg2">my-book</span><span class="fg3">)</span>
 Author: Sam Peddamatham &lt;sam.pm@infomagnus.com&gt;
-Date:   Fri Mar 1 09:04:41 2024 +0000
+Date:   Fri Mar 1 09:04:47 2024 +0000
 
-    Added stuff</pre></div>
+    ToC, About Author, and Index</pre></div>
           </div>
         </foreignObject>
       </svg>

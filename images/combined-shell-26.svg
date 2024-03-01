@@ -1,5 +1,5 @@
 <!-- Created with term-transcript v0.3.0 (https://github.com/slowli/term-transcript) -->
-<svg viewBox="0 0 720 66" width="720" height="66" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 720 372" width="720" height="372" xmlns="http://www.w3.org/2000/svg">
   <switch>
     <g requiredExtensions="http://www.w3.org/1999/xhtml">
       <style>
@@ -57,11 +57,28 @@
         .fg15 { color: #f3f3f3; } .bg15 { background: #f3f3f3; }
       </style>
       <rect width="100%" height="100%" y="0" rx="4.5" style="fill: #1c1c1c;" />
-      <svg x="0" y="10" width="720" height="46" viewBox="0 0 720 46">
-        <foreignObject width="720" height="46">
+      <svg x="0" y="10" width="720" height="352" viewBox="0 0 720 352">
+        <foreignObject width="720" height="352">
           <div xmlns="http://www.w3.org/1999/xhtml" class="container">
-            <div class="input"><pre><span class="prompt">$</span> rm *</pre></div>
-            <div class="output"><pre>rm: cannot remove '*': No such file or directory</pre></div>
+            <div class="input"><pre><span class="prompt">$</span> git checkout HEAD~3</pre></div>
+            <div class="output"><pre>Note: switching to 'HEAD~3'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c &lt;new-branch-name&gt;
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at b430090 Update</pre></div>
           </div>
         </foreignObject>
       </svg>
