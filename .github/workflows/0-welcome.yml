@@ -28,7 +28,7 @@ jobs:
         run: |
           current_step=0
 
-          if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then 
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
             echo "The workflow was triggered manually"
             echo "CURRENT_STEP=$current_step" >> $GITHUB_OUTPUT
           else
@@ -47,7 +47,7 @@ jobs:
     # Reference: https://docs.github.com/en/actions/learn-github-actions/contexts
     # Reference: https://docs.github.com/en/actions/learn-github-actions/expressions
     if: >-
-      ${{ !github.event.repository.is_template 
+      ${{ !github.event.repository.is_template
           && needs.get_current_step.outputs.current_step == 0 }}
 
     # We'll run Ubuntu for performance instead of Mac or Windows.

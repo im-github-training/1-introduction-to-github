@@ -1,5 +1,5 @@
 <!-- Created with term-transcript v0.3.0 (https://github.com/slowli/term-transcript) -->
-<svg viewBox="0 0 720 282" width="720" height="282" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 720 246" width="720" height="246" xmlns="http://www.w3.org/2000/svg">
   <switch>
     <g requiredExtensions="http://www.w3.org/1999/xhtml">
       <style>
@@ -57,23 +57,21 @@
         .fg15 { color: #f3f3f3; } .bg15 { background: #f3f3f3; }
       </style>
       <rect width="100%" height="100%" y="0" rx="4.5" style="fill: #1c1c1c;" />
-      <svg x="0" y="10" width="720" height="262" viewBox="0 0 720 262">
-        <foreignObject width="720" height="262">
+      <svg x="0" y="10" width="720" height="226" viewBox="0 0 720 226">
+        <foreignObject width="720" height="226">
           <div xmlns="http://www.w3.org/1999/xhtml" class="container">
             <div class="input"><pre><span class="prompt">$</span> git log -n 2</pre></div>
-            <div class="output"><pre><span class="fg3">commit 47333ce7a95c8cc0facbf03589ab3a7b7fc4feac</span><span class="fg3"> (</span><span class="bold fg6">HEAD</span><span class="fg3"> -&gt; </span><span class="bold fg2">my-book</span><span class="fg3">)</span>
+            <div class="output"><pre><span class="fg3">commit c5e2630e314e40ad5524a69a6209b1e36aab8d31</span><span class="fg3"> (</span><span class="bold fg6">HEAD</span><span class="fg3"> -&gt; </span><span class="bold fg2">my-book</span><span class="fg3">)</span>
 Author: Sam Peddamatham &lt;sam.pm@infomagnus.com&gt;
-Date:   Fri Mar 1 04:11:17 2024 +0000
+Date:   Fri Mar 1 04:33:53 2024 +0000
 
-    Revert "Brainstorming"
-    
-    This reverts commit 624e54e18e1f8de359ed2611e8a3cbeb70f6f84d.
+    Brainstorming
 
-<span class="fg3">commit 624e54e18e1f8de359ed2611e8a3cbeb70f6f84d</span>
+<span class="fg3">commit 6700c7661cea71abf1a2acd3e2fafb3b7cc0a7ca</span>
 Author: Sam Peddamatham &lt;sam.pm@infomagnus.com&gt;
-Date:   Fri Mar 1 04:11:15 2024 +0000
+Date:   Fri Mar 1 04:33:46 2024 +0000
 
-    Brainstorming</pre></div>
+    Added Chapter 1</pre></div>
           </div>
         </foreignObject>
       </svg>

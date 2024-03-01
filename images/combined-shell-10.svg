@@ -61,7 +61,7 @@
         <foreignObject width="720" height="46">
           <div xmlns="http://www.w3.org/1999/xhtml" class="container">
             <div class="input"><pre><span class="prompt">$</span> git branch -d throwaway</pre></div>
-            <div class="output"><pre>Deleted branch throwaway (was 1f39418).</pre></div>
+            <div class="output"><pre>Deleted branch throwaway (was a02c4bf).</pre></div>
           </div>
         </foreignObject>
       </svg>

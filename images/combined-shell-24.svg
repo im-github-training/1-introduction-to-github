@@ -62,9 +62,9 @@
           <div xmlns="http://www.w3.org/1999/xhtml" class="container">
             <div class="input"><pre><span class="prompt">$</span> ls -l</pre></div>
             <div class="output"><pre>total 0
--rw-r--r-- 1 node node 0 Mar  1 04:11 about-the-author
--rw-r--r-- 1 node node 0 Mar  1 04:11 index
--rw-r--r-- 1 node node 0 Mar  1 04:11 table-of-contents</pre></div>
+-rw-r--r-- 1 node node 0 Mar  1 04:33 about-the-author
+-rw-r--r-- 1 node node 0 Mar  1 04:33 index
+-rw-r--r-- 1 node node 0 Mar  1 04:33 table-of-contents</pre></div>
           </div>
         </foreignObject>
       </svg>

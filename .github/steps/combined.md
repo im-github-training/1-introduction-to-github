@@ -72,6 +72,8 @@ $ git status
 
 
 
+
+
 Looks good!
 
 Git is telling us the following things:
@@ -106,6 +108,10 @@ $ git branch
 
 !['git branch'](/images/combined-shell-1.svg)
 
+
+
+
+
 Ok, it looks like there's only one branch, `main`, and the `*` in front of it means that we're currently working in the `main` branch.
 
 #### Creating a branch
@@ -120,6 +126,10 @@ $ git branch my-book
 
 !['git branch my-book'](/images/combined-shell-2.svg)
 
+
+
+
+
 Checking our `git branch`...
 
 <!--
@@ -129,6 +139,10 @@ $ git branch
 -->
 
 !['git branch'](/images/combined-shell-3.svg)
+
+
+
+
 
 Interesting, so we can see that `my-book` was created, but the `*` is still in front of `main`.
 
@@ -144,6 +158,10 @@ $ git switch my-book
 
 !['git switch my-book'](/images/combined-shell-4.svg)
 
+
+
+
+
 And just to double-check `git branch`:
 
 <!--
@@ -153,6 +171,10 @@ $ git branch
 -->
 
 !['git branch'](/images/combined-shell-5.svg)
+
+
+
+
 
 That feels like a lot of work just to start working on a new branch, luckily, `git switch` provides the `--create` or `-c` flag, which lets you create and switch all in one go.
 
@@ -166,6 +188,10 @@ $ git switch -c throwaway
 
 !['git switch -c throwaway'](/images/combined-shell-6.svg)
 
+
+
+
+
 And...
 
 <!--
@@ -175,6 +201,10 @@ $ git branch
 -->
 
 !['git branch'](/images/combined-shell-7.svg)
+
+
+
+
 
 Perfect!
 
@@ -190,6 +220,10 @@ $ git branch -d throwaway
 
 !['git branch -d throwaway'](/images/combined-shell-8.svg)
 
+
+
+
+
 Ah, so we cannot delete a branch that is currently in use or "checked out".
 
 So let's switch back to `my-book`...
@@ -202,6 +236,10 @@ $ git switch my-book
 
 !['git switch my-book'](/images/combined-shell-9.svg)
 
+
+
+
+
 ... and try again...
 
 <!--
@@ -211,6 +249,10 @@ $ git branch -d throwaway
 -->
 
 !['git branch -d throwaway'](/images/combined-shell-10.svg)
+
+
+
+
 
 ... and...
 
@@ -222,6 +264,10 @@ $ git branch
 
 !['git branch'](/images/combined-shell-11.svg)
 
+
+
+
+
 and let's do a `git status` for good measure:
 
 <!--
@@ -231,6 +277,10 @@ $ git status
 -->
 
 !['git status'](/images/combined-shell-12.svg)
+
+
+
+
 
 *Magnifique.*
 
@@ -246,6 +296,10 @@ $ touch table-of-contents about-the-author index
 
 !['touch table-of-contents about-the-author index'](/images/combined-shell-13.svg)
 
+
+
+
+
 Let's see if Git noticed a change to our `working tree`:
 
 <!--
@@ -255,6 +309,8 @@ $ git status
 -->
 
 !['git status'](/images/combined-shell-14.svg)
+
+
 
 
 
@@ -274,6 +330,10 @@ $ git add .
 
 !['git add .'](/images/combined-shell-15.svg)
 
+
+
+
+
 > We could have individually added the files by typing `git add table-of-contents about-the-author index`, but `git add` provides the convenient `git add .`, which stages any and all changes present in the working directory.
 
 Let's see how things look now:
@@ -288,19 +348,26 @@ $ git status
 
 
 
+
+
 Alright, it looks like our files are staged and ready to be committed!
 
 Let's go ahead and do that with `git commit -m "Added ToC, About Author, and Index"`:
 
 <!--
 ```shellSession
-$ git commit -m "Added ToC, About Author, and Index"
+$ git commit -m "Added stuff"
 ```
 -->
 
 !['git commit -m "Added ToC, About Author, and Index"'](/images/combined-shell-17.svg)
 
-> `-m` is the short form of `--message`, which allows us to specify short commit messages via the command-line.  Typing `git commit` brings up a text editor, which is useful for longform commit messages.
+
+
+
+
+> `-m` is the short form of `--message`, which allows us to specify short commit messages via the command-line.
+> Typing `git commit` brings up a text editor, which is useful for longform commit messages.
 
 Let's see what `git status` says now that the files have been committed:
 
@@ -311,6 +378,8 @@ $ git status
 -->
 
 !['git status'](/images/combined-shell-18.svg)
+
+
 
 
 
@@ -326,6 +395,10 @@ $ git log -n 1
 
 !['git log -n 1'](/images/combined-shell-19.svg)
 
+
+
+
+
 Perfect!
 
 ### Fixing Things
@@ -340,6 +413,10 @@ $ rm table-of-contents about-the-author index
 ```
 -->
 
+!['rm table-of-contents about-the-author index'](/images/combined-shell-20.svg)
+
+
+
 Making sure the files are deleted:
 
 <!--
@@ -347,6 +424,10 @@ Making sure the files are deleted:
 $ ls -l
 ```
 -->
+
+!['ls -l'](/images/combined-shell-21.svg)
+
+
 
 Seeing what Git has to say:
 
@@ -356,7 +437,11 @@ $ git status
 ```
 -->
 
-!['rm chapter1'](/images/combined-shell-20.svg)!['ls -l'](/images/combined-shell-21.svg)!['git status'](/images/combined-shell-22.svg)
+!['git status'](/images/combined-shell-22.svg)
+
+
+
+
 
 As expected, Git noticed the change to the *working directory*, namely, that we deleted our files.
 
@@ -370,6 +455,10 @@ $ git restore table-of-contents about-the-author index
 ```
 -->
 
+!['git restore table-of-contents about-the-author index'](/images/combined-shell-23.svg)
+
+
+
 Double-checking with an `ls -l`:
 
 <!--
@@ -378,26 +467,47 @@ $ ls -l
 ```
 -->
 
-Great!  But that was a lot of typing, let's try something...  `git add` let's us do `git add .`, let's see if `git restore` lets us do the same:
+!['ls -l'](/images/combined-shell-24.svg)
+
+
+
+Great!  But that was a lot of typing, let's try something...
+
+`git add` let's us do `git add .`, let's see if `git restore` lets us do the same:
 
 <!--
 ```shellSession
-$ rm * && ls -l
+$ rm *
 ```
 -->
 
+Checking...
+
+<!--
+```shellSession
+$ rm *
+```
+-->
 
 And...
 
 <!--
 ```shellSession
-$ git restore . && ls -l
+$ git restore .
+```
+-->
+
+Yup...
+
+<!--
+```shellSession
+$ ls -l
 ```
 -->
 
 Cool!  While you're learning Git it's important to experiment.  You'll probably be using Git a lot, so it makes sense to get familiar as quickly as possible.
 
-#### Amending commits
+#### Amending a commit message
 
 Something that happens all the time is making a typo in a commit message or committing too early.  Let's see how to handle these situations.
 
@@ -405,13 +515,15 @@ First, let's update our commit message:
 
 <!--
 ```shellSession
-$ git commit -m "Added Chapter 1" --amend
+$ git commit -m "ToC, About Author, and Index" --amend
 
 $ git log -n 1
 ```
 -->
 
-!['git commit -m "Added Chapter 1" --amend'](/images/combined-shell-25.svg)!['git log -n 1'](/images/combined-shell-26.svg)
+!['git commit -m "Added Chapter 1" --amend'](/images/combined-shell-27.svg)!['git log -n 1'](/images/combined-shell-28.svg)
+
+
 
 
 
@@ -430,7 +542,9 @@ $ git commit --amend --no-edit
 ```
 -->
 
-!['echo "# Chapter 1" >> chapter1'](/images/combined-shell-27.svg)!['cat chapter1'](/images/combined-shell-28.svg)!['git add chapter1'](/images/combined-shell-29.svg)!['git commit --amend --no-edit'](/images/combined-shell-30.svg)
+!['echo "# Chapter 1" >> chapter1'](/images/combined-shell-29.svg)!['cat chapter1'](/images/combined-shell-30.svg)!['git add chapter1'](/images/combined-shell-31.svg)!['git commit --amend --no-edit'](/images/combined-shell-32.svg)
+
+
 
 
 
@@ -442,7 +556,9 @@ $ git log -n 1
 ```
 -->
 
-!['git log -n 1'](/images/combined-shell-31.svg)
+!['git log -n 1'](/images/combined-shell-33.svg)
+
+
 
 
 
@@ -462,7 +578,9 @@ $ cat chapter1
 ```
 -->
 
-!['echo "Lorum ipsum" >> chapter1'](/images/combined-shell-32.svg)!['cat chapter1'](/images/combined-shell-33.svg)
+!['echo "Lorum ipsum" >> chapter1'](/images/combined-shell-34.svg)!['cat chapter1'](/images/combined-shell-35.svg)
+
+
 
 
 
@@ -476,7 +594,9 @@ $ git commit -am "Brainstorming"
 ```
 -->
 
-!['git commit -am "Brainstorming"'](/images/combined-shell-34.svg)
+!['git commit -am "Brainstorming"'](/images/combined-shell-36.svg)
+
+
 
 
 
@@ -490,7 +610,9 @@ $ git log -n 2
 ```
 -->
 
-!['git log -n 2'](/images/combined-shell-35.svg)
+!['git log -n 2'](/images/combined-shell-37.svg)
+
+
 
 
 
@@ -502,7 +624,9 @@ $ git revert HEAD --no-edit
 ```
 -->
 
-!['git revert HEAD --no-edit'](/images/combined-shell-36.svg)
+!['git revert HEAD --no-edit'](/images/combined-shell-38.svg)
+
+
 
 
 
@@ -514,7 +638,9 @@ $ git log -n 2
 ```
 -->
 
-!['git log -n 2'](/images/combined-shell-37.svg)
+!['git log -n 2'](/images/combined-shell-39.svg)
+
+
 
 
 
@@ -526,7 +652,9 @@ $ cat chapter1
 ```
 -->
 
-!['cat chapter1'](/images/combined-shell-38.svg)
+!['cat chapter1'](/images/combined-shell-40.svg)
+
+
 
 
 
@@ -544,7 +672,9 @@ $ git push
 ```
 -->
 
-!['git push'](/images/combined-shell-39.svg)
+!['git push'](/images/combined-shell-41.svg)
+
+
 
 
 
@@ -554,7 +684,9 @@ $ git push --set-upstream origin my-first-branch
 ```
 -->
 
-!['git push --set-upstream origin my-first-branch'](/images/combined-shell-40.svg)
+!['git push --set-upstream origin my-first-branch'](/images/combined-shell-42.svg)
+
+
 
 
 

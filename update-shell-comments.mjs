@@ -36,7 +36,7 @@ const processor = remark()
     // Remove all existing image nodes from the tree
     // The below code removes all the images except the very last image. how do i fix this?
     visit(tree, 'image', (node, index, parent) => {
-      if (node.url.startsWith('/images/1-step')) {
+      if (node.url.startsWith('/images/combined')) {
         console.log("removing image: " + node.url)
         parent.children.splice(index, Infinity);
       }
