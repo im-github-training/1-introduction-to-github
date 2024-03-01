@@ -1,65 +1,14 @@
 ## Introduction
 
-Welcome to the InfoMagnus GitHub Training Exercises.
-
-This repository is part of the [InfoMagnus GitHub Training Guide](https://im-github-training.github.io/).
-
-<!-- Write an introductory paragraph for this turtorial -->
-
-In this tutorial, we'll cover the basics of Git and GitHub by working through a series of exercises.  We'll start with the basics of creating a repository, working with branches, and making commits.  From there, we'll cover more advanced topics such as merging, rebasing, and pull requests.
-
-### Prerequisites
-
-To complete this tutorial, you will need a basic understanding of the terminal (or command line).  If you're new to the terminal, we recommend checking out [Codecademy's Command Line Course](https://www.codecademy.com/learn/learn-the-command-line).
-
-You'll also need to have Git installed on your machine and a GitHub account.  If you need help with this, please see:
-
-* [Setting up Git]()
-* [Setting up GitHub]()
-
-### Recommended Reading
-
-We recommend reading the following sections of the [InfoMagnus GitHub Training Guide](https://im-github-training.github.io/):
-
-* [What is Git?](https://im-github-training.github.io/#/./docs/basic/git/what-is-git)
-* [What is GitHub?](https://im-github-training.github.io/#/./docs/basic/github/what-is-github)
-* [What is a Repository?](https://im-github-training.github.io/#/./docs/basic/git/repositories)
-* [What is a Branch?](https://im-github-training.github.io/#/./docs/basic/git/branches)
-* [What is a Commit?](https://im-github-training.github.io/#/./docs/basic/git/commits)
-
-### Goals
-
-By the end of this tutorial, you will have:
-
-* Created a new branch
-
-* Committed changes to a repository
-
-* Restored files
-
-* Amended commits
-
-* [Understand the basics of Git](#understanding-the-basics)
-
-* [Create a branch](#our-first-branch)
-
-* [Create a commit](#our-first-commit)
-
-* [Restore files](#fixing-things-part-1)
-
-* [Amend commits](#fixing-things-part-1)
-
 ### Getting Started
 
 To get started, we'll need a local copy of this repository.  To do that:
 
-1. Click the "Code" button, and then click the "Copy url to clipboard" icon:
+1. **Click the "Code" button, and then click the "Copy url to clipboard" icon:**
+  ![Copy Repo URL](/images/image-9.png)
 
-![](/images/image-9.png)
-
-2. Open a terminal window and do a `git clone`:
-
-![](/images/image-10.png)
+2. **Open a terminal window and do a `git clone`:**
+  ![Clone Repo](/images/image-10.png)
 
 In the next series of exercises, we will be using this repository to work on a New York Times bestseller.
 
