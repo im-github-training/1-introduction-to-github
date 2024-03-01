@@ -13,6 +13,7 @@ In this tutorial, we'll cover the basics of Git and GitHub by working through a 
 To complete this tutorial, you will need a basic understanding of the terminal (or command line).  If you're new to the terminal, we recommend checking out [Codecademy's Command Line Course](https://www.codecademy.com/learn/learn-the-command-line).
 
 You'll also need to have Git installed on your machine and a GitHub account.  If you need help with this, please see:
+
 * [Setting up Git]()
 * [Setting up GitHub]()
 
@@ -34,6 +35,7 @@ By the end of this tutorial, you will have:
 * Committed changes to a repository
 * Restored files
 * Amended commits
+
 - [Understand the basics of Git](#understanding-the-basics)
 - [Create a branch](#our-first-branch)
 - [Create a commit](#our-first-commit)
@@ -52,7 +54,6 @@ To get started, we'll need a local copy of this repository.  To do that:
 
 ![](/images/image-10.png)
 
-
 In the next series of exercises, we will be using this repository to work on a New York Times bestseller.
 
 ## Understanding the Basics
@@ -67,27 +68,29 @@ $ git status
 ```
  -->
 
-!['git status'](/images/1-step-shell-0.svg)
+!['git status'](/images/combined-shell-0.svg)
+
+
 
 Looks good!
 
 Git is telling us the following things:
 
 * we are on the `main` branch
-* that our _**staging area**_ is empty
-* and no changes have been detected in our _**working tree**_ (aka "working directory")
+* that our ***staging area*** is empty
+* and no changes have been detected in our ***working tree*** (aka "working directory")
 
 > If any of these terms are unfamiliar to you, please check out [What is a Repository?](https://im-github-training.github.io/#/./docs/basic/git/repositories)
-
 
 ### Our First Branch
 
 Let's set things up by creating something called a `branch`.
 
 A branch is basically a pointer to a specific commit.  Allow me to elaborate:
-- When you create a branch, Git creates a _pointer_ and points it at your current commit
-- As you make new commits, Git automatically moves this _branch pointer_ to the latest commit
-- In this way, a _branch pointer_ always represents the latest line of development in a _branch_
+
+* When you create a branch, Git creates a *pointer* and points it at your current commit
+* As you make new commits, Git automatically moves this *branch pointer* to the latest commit
+* In this way, a *branch pointer* always represents the latest line of development in a *branch*
 
 Branches are useful because they give you a place to experiment and try things out before you make changes to your `main` branch.
 
@@ -101,6 +104,8 @@ $ git branch
 ```
 -->
 
+!['git branch'](/images/combined-shell-1.svg)
+
 Ok, it looks like there's only one branch, `main`, and the `*` in front of it means that we're currently working in the `main` branch.
 
 #### Creating a branch
@@ -113,6 +118,8 @@ $ git branch my-book
 ```
 -->
 
+!['git branch my-book'](/images/combined-shell-2.svg)
+
 Checking our `git branch`...
 
 <!--
@@ -120,6 +127,8 @@ Checking our `git branch`...
 $ git branch
 ```
 -->
+
+!['git branch'](/images/combined-shell-3.svg)
 
 Interesting, so we can see that `my-book` was created, but the `*` is still in front of `main`.
 
@@ -133,6 +142,8 @@ $ git switch my-book
 ```
 -->
 
+!['git switch my-book'](/images/combined-shell-4.svg)
+
 And just to double-check `git branch`:
 
 <!--
@@ -140,6 +151,8 @@ And just to double-check `git branch`:
 $ git branch
 ```
 -->
+
+!['git branch'](/images/combined-shell-5.svg)
 
 That feels like a lot of work just to start working on a new branch, luckily, `git switch` provides the `--create` or `-c` flag, which lets you create and switch all in one go.
 
@@ -151,6 +164,8 @@ $ git switch -c throwaway
 ```
 -->
 
+!['git switch -c throwaway'](/images/combined-shell-6.svg)
+
 And...
 
 <!--
@@ -158,6 +173,8 @@ And...
 $ git branch
 ```
 -->
+
+!['git branch'](/images/combined-shell-7.svg)
 
 Perfect!
 
@@ -171,6 +188,8 @@ $ git branch -d throwaway
 ```
 -->
 
+!['git branch -d throwaway'](/images/combined-shell-8.svg)
+
 Ah, so we cannot delete a branch that is currently in use or "checked out".
 
 So let's switch back to `my-book`...
@@ -181,6 +200,8 @@ $ git switch my-book
 ```
 -->
 
+!['git switch my-book'](/images/combined-shell-9.svg)
+
 ... and try again...
 
 <!--
@@ -188,6 +209,8 @@ $ git switch my-book
 $ git branch -d throwaway
 ```
 -->
+
+!['git branch -d throwaway'](/images/combined-shell-10.svg)
 
 ... and...
 
@@ -197,6 +220,8 @@ $ git branch
 ```
 -->
 
+!['git branch'](/images/combined-shell-11.svg)
+
 and let's do a `git status` for good measure:
 
 <!--
@@ -205,8 +230,9 @@ $ git status
 ```
 -->
 
-_Magnifique._
+!['git status'](/images/combined-shell-12.svg)
 
+*Magnifique.*
 
 ### Our First Commit
 
@@ -218,6 +244,8 @@ $ touch table-of-contents about-the-author index
 ```
 -->
 
+!['touch table-of-contents about-the-author index'](/images/combined-shell-13.svg)
+
 Let's see if Git noticed a change to our `working tree`:
 
 <!--
@@ -226,7 +254,9 @@ $ git status
 ```
 -->
 
-!['git status'](/images/1-step-shell-3.svg)
+!['git status'](/images/combined-shell-14.svg)
+
+
 
 Interesting, Git noticed that we added the files, but is saying that they're *untracked*.
 
@@ -242,8 +272,9 @@ $ git add .
 ```
 -->
 
-> We could have individually added the files by typing `git add table-of-contents about-the-author index`, but `git add` provides the convenient `git add .`, which stages any and all changes present in the working directory.
+!['git add .'](/images/combined-shell-15.svg)
 
+> We could have individually added the files by typing `git add table-of-contents about-the-author index`, but `git add` provides the convenient `git add .`, which stages any and all changes present in the working directory.
 
 Let's see how things look now:
 
@@ -253,7 +284,9 @@ $ git status
 ```
 -->
 
-!['git status'](/images/1-step-shell-5.svg)
+!['git status'](/images/combined-shell-16.svg)
+
+
 
 Alright, it looks like our files are staged and ready to be committed!
 
@@ -265,6 +298,8 @@ $ git commit -m "Added ToC, About Author, and Index"
 ```
 -->
 
+!['git commit -m "Added ToC, About Author, and Index"'](/images/combined-shell-17.svg)
+
 > `-m` is the short form of `--message`, which allows us to specify short commit messages via the command-line.  Typing `git commit` brings up a text editor, which is useful for longform commit messages.
 
 Let's see what `git status` says now that the files have been committed:
@@ -275,7 +310,9 @@ $ git status
 ```
 -->
 
-!['git status'](/images/1-step-shell-7.svg)
+!['git status'](/images/combined-shell-18.svg)
+
+
 
 Nice, looks like the files were moved from the staging area to the repository!
 
@@ -287,7 +324,8 @@ $ git log -n 1
 ```
 -->
 
-!['git log -n 1'](/images/1-step-shell-8.svg)
+!['git log -n 1'](/images/combined-shell-19.svg)
+
 
 
 Perfect!
@@ -308,7 +346,7 @@ $ git status
 ```
 -->
 
-!['rm chapter1'](/images/1-step-shell-9.svg)!['ls -l'](/images/1-step-shell-10.svg)!['git status'](/images/1-step-shell-11.svg)
+!['rm chapter1'](/images/combined-shell-20.svg)!['ls -l'](/images/combined-shell-21.svg)!['git status'](/images/combined-shell-22.svg)
 
 
 
@@ -324,7 +362,7 @@ $ git restore chapter1
 ```
 -->
 
-!['git restore chapter1'](/images/1-step-shell-12.svg)
+!['git restore chapter1'](/images/combined-shell-23.svg)
 
 
 
@@ -336,7 +374,7 @@ $ ls -l
 ```
 -->
 
-!['ls -l'](/images/1-step-shell-13.svg)
+!['ls -l'](/images/combined-shell-24.svg)
 
 
 
@@ -354,7 +392,7 @@ $ git log -n 1
 ```
 -->
 
-!['git commit -m "Added Chapter 1" --amend'](/images/1-step-shell-14.svg)!['git log -n 1'](/images/1-step-shell-15.svg)
+!['git commit -m "Added Chapter 1" --amend'](/images/combined-shell-25.svg)!['git log -n 1'](/images/combined-shell-26.svg)
 
 
 
@@ -373,7 +411,7 @@ $ git commit --amend --no-edit
 ```
 -->
 
-!['echo "# Chapter 1" >> chapter1'](/images/1-step-shell-16.svg)!['cat chapter1'](/images/1-step-shell-17.svg)!['git add chapter1'](/images/1-step-shell-18.svg)!['git commit --amend --no-edit'](/images/1-step-shell-19.svg)
+!['echo "# Chapter 1" >> chapter1'](/images/combined-shell-27.svg)!['cat chapter1'](/images/combined-shell-28.svg)!['git add chapter1'](/images/combined-shell-29.svg)!['git commit --amend --no-edit'](/images/combined-shell-30.svg)
 
 
 
@@ -385,7 +423,7 @@ $ git log -n 1
 ```
 -->
 
-!['git log -n 1'](/images/1-step-shell-20.svg)
+!['git log -n 1'](/images/combined-shell-31.svg)
 
 
 
@@ -405,7 +443,7 @@ $ cat chapter1
 ```
 -->
 
-!['echo "Lorum ipsum" >> chapter1'](/images/1-step-shell-21.svg)!['cat chapter1'](/images/1-step-shell-22.svg)
+!['echo "Lorum ipsum" >> chapter1'](/images/combined-shell-32.svg)!['cat chapter1'](/images/combined-shell-33.svg)
 
 
 
@@ -419,7 +457,7 @@ $ git commit -am "Brainstorming"
 ```
 -->
 
-!['git commit -am "Brainstorming"'](/images/1-step-shell-23.svg)
+!['git commit -am "Brainstorming"'](/images/combined-shell-34.svg)
 
 
 
@@ -433,7 +471,7 @@ $ git log -n 2
 ```
 -->
 
-!['git log -n 2'](/images/1-step-shell-24.svg)
+!['git log -n 2'](/images/combined-shell-35.svg)
 
 
 
@@ -445,7 +483,7 @@ $ git revert HEAD --no-edit
 ```
 -->
 
-!['git revert HEAD --no-edit'](/images/1-step-shell-25.svg)
+!['git revert HEAD --no-edit'](/images/combined-shell-36.svg)
 
 
 
@@ -457,7 +495,7 @@ $ git log -n 2
 ```
 -->
 
-!['git log -n 2'](/images/1-step-shell-26.svg)
+!['git log -n 2'](/images/combined-shell-37.svg)
 
 
 
@@ -469,7 +507,7 @@ $ cat chapter1
 ```
 -->
 
-!['cat chapter1'](/images/1-step-shell-27.svg)
+!['cat chapter1'](/images/combined-shell-38.svg)
 
 
 
@@ -487,7 +525,7 @@ $ git push
 ```
 -->
 
-!['git push'](/images/1-step-shell-28.svg)
+!['git push'](/images/combined-shell-39.svg)
 
 
 
@@ -497,7 +535,9 @@ $ git push --set-upstream origin my-first-branch
 ```
 -->
 
-!['git push --set-upstream origin my-first-branch'](/images/1-step-shell-29.svg)
+!['git push --set-upstream origin my-first-branch'](/images/combined-shell-40.svg)
+
+
 
 <!--
   <<< Author notes: Step 1 >>>
