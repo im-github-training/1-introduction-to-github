@@ -4,6 +4,42 @@ Welcome to the InfoMagnus GitHub Training Exercises.
 
 This repository is part of the [InfoMagnus GitHub Training Guide](https://im-github-training.github.io/).
 
+<!-- Write an introductory paragraph for this turtorial -->
+
+In this tutorial, we'll cover the basics of Git and GitHub by working through a series of exercises.  We'll start with the basics of creating a repository, working with branches, and making commits.  From there, we'll cover more advanced topics such as merging, rebasing, and pull requests.
+
+### Prerequisites
+
+To complete this tutorial, you will need a basic understanding of the terminal (or command line).  If you're new to the terminal, we recommend checking out [Codecademy's Command Line Course](https://www.codecademy.com/learn/learn-the-command-line).
+
+You'll also need to have Git installed on your machine and a GitHub account.  If you need help with this, please see:
+* [Setting up Git]()
+* [Setting up GitHub]()
+
+### Recommended Reading
+
+We recommend reading the following sections of the [InfoMagnus GitHub Training Guide](https://im-github-training.github.io/):
+
+* [What is Git?](https://im-github-training.github.io/#/./docs/basic/git/what-is-git)
+* [What is GitHub?](https://im-github-training.github.io/#/./docs/basic/github/what-is-github)
+* [What is a Repository?](https://im-github-training.github.io/#/./docs/basic/git/repositories)
+* [What is a Branch?](https://im-github-training.github.io/#/./docs/basic/git/branches)
+* [What is a Commit?](https://im-github-training.github.io/#/./docs/basic/git/commits)
+
+### Goals
+
+By the end of this tutorial, you will have:
+
+* Created a new branch
+* Committed changes to a repository
+* Restored files
+* Amended commits
+- [Understand the basics of Git](#understanding-the-basics)
+- [Create a branch](#our-first-branch)
+- [Create a commit](#our-first-commit)
+- [Restore files](#fixing-things-part-1)
+- [Amend commits](#fixing-things-part-1)
+
 ### Getting Started
 
 To get started, we'll need a local copy of this repository.  To do that:
@@ -48,27 +84,122 @@ Git is telling us the following things:
 
 Let's set things up by creating something called a `branch`.
 
-A branch is basically a bookmark to a specific commit.  What's neat about them is that they give you a place to experiment and try things out before you make changes to your `main` branch.
+A branch is basically a pointer to a specific commit.  Allow me to elaborate:
+- When you create a branch, Git creates a _pointer_ and points it at your current commit
+- As you make new commits, Git automatically moves this _branch pointer_ to the latest commit
+- In this way, a _branch pointer_ always represents the latest line of development in a _branch_
 
-To create a branch, we use `git branch <branchname>`:
+Branches are useful because they give you a place to experiment and try things out before you make changes to your `main` branch.
+
+#### Listing all branches
+
+First, let's see what branches already exist, so we can pick a unique name:
 
 <!--
 ```shellSession
 $ git branch
 ```
- -->
+-->
 
+Ok, it looks like there's only one branch, `main`, and the `*` in front of it means that we're currently working in the `main` branch.
 
+#### Creating a branch
+
+Now let's actually create a branch, with `git branch <branchname>`:
 
 <!--
 ```shellSession
-$ git switch -c my-first-branch
+$ git branch my-book
 ```
- -->
+-->
 
-!['git switch -c my-first-branch'](/images/1-step-shell-1.svg)
+Checking our `git branch`...
 
+<!--
+```shellSession
+$ git branch
+```
+-->
 
+Interesting, so we can see that `my-book` was created, but the `*` is still in front of `main`.
+
+This means that we're still in the `main` branch.
+
+To switch over to the `my-book` branch we need to do a `git switch`:
+
+<!--
+```shellSession
+$ git switch my-book
+```
+-->
+
+And just to double-check `git branch`:
+
+<!--
+```shellSession
+$ git branch
+```
+-->
+
+That feels like a lot of work just to start working on a new branch, luckily, `git switch` provides the `--create` or `-c` flag, which lets you create and switch all in one go.
+
+Let's give it a shot and create a throwaway branch:
+
+<!--
+```shellSession
+$ git switch -c throwaway
+```
+-->
+
+And...
+
+<!--
+```shellSession
+$ git branch
+```
+-->
+
+Perfect!
+
+#### Deleting a branch
+
+Now let's get rid of the throwaway branch using `git branch`'s `--delete` or `-d` flag.
+
+<!--
+```shellSession
+$ git branch -d throwaway
+```
+-->
+
+Ah, so we cannot delete a branch that is currently in use or "checked out".
+
+So let's switch back to `my-book`...
+
+<!--
+```shellSession
+$ git switch my-book
+```
+-->
+
+... and try again...
+
+<!--
+```shellSession
+$ git branch -d throwaway
+```
+-->
+
+... and...
+
+<!--
+```shellSession
+$ git branch
+```
+-->
+
+_Magnifique._
+
+---
 
 ### Our First Commit
 
