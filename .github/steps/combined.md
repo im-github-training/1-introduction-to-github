@@ -326,31 +326,39 @@ $ git log -n 1
 
 !['git log -n 1'](/images/combined-shell-19.svg)
 
-
-
 Perfect!
 
-### Fixing Things (Part 1)
+### Fixing Things
 
 #### Restoring files
 
-One of the great things about Git is that once a file has been added to a repository, it's *almost* **impossible** to lose it.  We'll prove this out in later exercises, but let's start simple and delete `chapter1`.
+One of the great things about Git is that once a file has been added to a repository, it's *almost* **impossible** to lose it.  We'll prove this out in later exercises, but let's start simple and `rm` some files:
 
 <!--
 ```shellSession
-$ rm chapter1
+$ rm table-of-contents about-the-author index
+```
+-->
 
+Making sure the files are deleted:
+
+<!--
+```shellSession
 $ ls -l
+```
+-->
 
+Seeing what Git has to say:
+
+<!--
+```shellSession
 $ git status
 ```
 -->
 
 !['rm chapter1'](/images/combined-shell-20.svg)!['ls -l'](/images/combined-shell-21.svg)!['git status'](/images/combined-shell-22.svg)
 
-
-
-As expected, Git noticed the change to the *working directory*, namely, that `chapter1` was deleted.
+As expected, Git noticed the change to the *working directory*, namely, that we deleted our files.
 
 Helpfully, Git also tells us what command restores the file, `git restore`.
 
@@ -358,15 +366,11 @@ Let's give it a try:
 
 <!--
 ```shellSession
-$ git restore chapter1
+$ git restore table-of-contents about-the-author index
 ```
 -->
 
-!['git restore chapter1'](/images/combined-shell-23.svg)
-
-
-
-Double-checking with an `ls -l` shows us that `chapter1` has been
+Double-checking with an `ls -l`:
 
 <!--
 ```shellSession
@@ -374,9 +378,24 @@ $ ls -l
 ```
 -->
 
-!['ls -l'](/images/combined-shell-24.svg)
+Great!  But that was a lot of typing, let's try something...  `git add` let's us do `git add .`, let's see if `git restore` lets us do the same:
+
+<!--
+```shellSession
+$ rm * && ls -l
+```
+-->
 
 
+And...
+
+<!--
+```shellSession
+$ git restore . && ls -l
+```
+-->
+
+Cool!  While you're learning Git it's important to experiment.  You'll probably be using Git a lot, so it makes sense to get familiar as quickly as possible.
 
 #### Amending commits
 
