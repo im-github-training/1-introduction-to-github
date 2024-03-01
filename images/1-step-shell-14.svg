@@ -61,8 +61,8 @@
         <foreignObject width="720" height="82">
           <div xmlns="http://www.w3.org/1999/xhtml" class="container">
             <div class="input"><pre><span class="prompt">$</span> git commit -m &quot;Added Chapter 1&quot; --amend</pre></div>
-            <div class="output"><pre>[my-first-branch 08b7aa2] Added Chapter 1
- Date: Thu Feb 29 23:11:42 2024 +0000
+            <div class="output"><pre>[my-first-branch 394aa9c] Added Chapter 1
+ Date: Fri Mar 1 00:05:00 2024 +0000
  1 file changed, 1 deletion(-)</pre></div>
           </div>
         </foreignObject>

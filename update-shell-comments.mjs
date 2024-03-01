@@ -7,26 +7,10 @@ import { execSync } from 'child_process';
 import fs from 'fs';
 import path from 'path';
 
-// const markdownText = `
-// # My Document
-
-// Here's the output of a command:
-
-// \`\`\`shell
-// ls -l --color=always
-// \`\`\`
-
-// \`\`\`shell
-// ls -l ../ --color=always
-// \`\`\`
-
-// `;
 
 // Get the file name from the command-line arguments
 const filename = process.argv[2];
-
 const workingDir = process.argv[3];
-
 const offset = process.argv[4];
 
 // Create working directory if it doesn't exist
@@ -41,7 +25,6 @@ const options = {
 // Get basename of the file
 const basename = path.basename(filename, '.md');
 
-
 // Read the Markdown text from the file
 const markdownText = fs.readFileSync(filename, 'utf8');
 
@@ -49,6 +32,15 @@ const processor = remark()
   .use(remarkParse)
   .use(() => (tree) => {
     let counter = offset;
+
+    // Remove all existing image nodes from the tree
+    // The below code removes all the images except the very last image. how do i fix this?
+    visit(tree, 'image', (node, index, parent) => {
+      if (node.url.startsWith('/images/1-step')) {
+        console.log("removing image: " + node.url)
+        parent.children.splice(index, Infinity);
+      }
+    });
 
     visit(tree, 'html', (node, index, parent) => {
       if (node.value.startsWith('<!--') && node.value.endsWith('-->')) {
@@ -103,5 +95,5 @@ const processor = remark()
 const result = processor.processSync(markdownText).toString();
 
 // Write result to file
-const outputPath = path.join('.github', 'steps', `${basename}-shell.md`);
+const outputPath = path.join('.github', 'steps', `${basename}.md`);
 fs.writeFileSync(outputPath, result);

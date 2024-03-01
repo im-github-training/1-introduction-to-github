@@ -1,5 +1,5 @@
 <!-- Created with term-transcript v0.3.0 (https://github.com/slowli/term-transcript) -->
-<svg viewBox="0 0 720 84" width="720" height="84" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 720 102" width="720" height="102" xmlns="http://www.w3.org/2000/svg">
   <switch>
     <g requiredExtensions="http://www.w3.org/1999/xhtml">
       <style>
@@ -57,11 +57,12 @@
         .fg15 { color: #f3f3f3; } .bg15 { background: #f3f3f3; }
       </style>
       <rect width="100%" height="100%" y="0" rx="4.5" style="fill: #1c1c1c;" />
-      <svg x="0" y="10" width="720" height="64" viewBox="0 0 720 64">
-        <foreignObject width="720" height="64">
+      <svg x="0" y="10" width="720" height="82" viewBox="0 0 720 82">
+        <foreignObject width="720" height="82">
           <div xmlns="http://www.w3.org/1999/xhtml" class="container">
             <div class="input"><pre><span class="prompt">$</span> cat chapter1</pre></div>
             <div class="output"><pre># Chapter 1
+# Chapter 1
 # Chapter 1</pre></div>
           </div>
         </foreignObject>

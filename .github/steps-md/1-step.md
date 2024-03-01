@@ -20,9 +20,13 @@ To begin, let's make sure everything is in order with our repository.
 
 To do this, we use the `git status` command which (unsurprisingly) prints out the current status of your repository.
 
+<!--
 ```shellSession
 $ git status
 ```
+ -->
+
+![git status](/images/1-step-shell-0.svg)
 
 Looks good!
 
@@ -37,9 +41,11 @@ Let's set things up by creating something called a `branch`.
 
 A branch is basically a named pointer to the current commit.  What's neat about them is that they give you a place to experiment and try things out before you make changes to your `main` branch.
 
+<!--
 ```shellSession
 $ git switch -c my-first-branch
 ```
+ -->
 
 ### Our First Commit
 
@@ -47,15 +53,19 @@ Now, let's create a file for Chapter 1 called `chapter1`.
 
 We can do this with a simple `touch chapter`:
 
+<!--
 ```shellSession
 $ touch chapter1
 ```
+ -->
 
 Let's see if Git noticed this change to our `working tree` by typing `git status`:
 
+<!--
 ```shellSession
 $ git status
 ```
+-->
 
 Great, Git noticed that we added the file, but is saying it's _untracked_.
 
@@ -65,37 +75,52 @@ Great, Git noticed that we added the file, but is saying it's _untracked_.
 
 Let's go ahead and start tracking the file with a `git add chapter1`:
 
+
+<!--
 ```shellSession
 $ git add chapter1
 ```
+-->
 
 Let's see how things look now:
 
+
+<!--
 ```shellSession
 $ git status
 ```
+-->
 
 Alright, it looks like `chapter1` file is staged and ready to be committed!
 
 Let's go ahead and do that with `git commit -m "Added chapter1"`:
 
+
+<!--
 ```shellSession
 $ git commit -m "Added chapter1"
 ```
+-->
 
 Let's see what `git status` says now that the file's been committed:
 
+
+<!--
 ```shellSession
 $ git status
 ```
+-->
 
 Nice, looks like the file was moved from the staging area to the repository!
 
 We can confirm the commit is part of our repository history by doing a `git log`:
 
+
+<!--
 ```shellSession
 $ git log -n 1
 ```
+-->
 
 Perfect!
 
@@ -105,6 +130,8 @@ Perfect!
 
 One of the great things about Git is that once a file has been added to a repository, it's _almost_ **impossible** to lose it.  We'll prove this out in later exercises, but let's start simple and delete `chapter`.
 
+
+<!--
 ```shellSession
 $ rm chapter1
 
@@ -112,6 +139,7 @@ $ ls -l
 
 $ git status
 ```
+-->
 
 As expected, Git noticed the change to the _working directory_, namely, that `chapter1` was deleted.
 
@@ -119,15 +147,21 @@ Helpfully, Git also tells us what command restores the file, `git restore`.
 
 Let's give it a try:
 
+
+<!--
 ```shellSession
 $ git restore chapter1
 ```
+-->
 
 Double-checking with an `ls -l` shows us that `chapter1` has been
 
+
+<!--
 ```shellSession
 $ ls -l
 ```
+-->
 
 #### Amending commits
 
@@ -135,16 +169,21 @@ Something that happens all the time is making a typo in a commit message or comm
 
 First, let's update our commit message:
 
+
+<!--
 ```shellSession
 $ git commit -m "Added Chapter 1" --amend
 
 $ git log -n 1
 ```
+-->
 
 Great!
 
 Now, let's make an update to `chapter1` and add it to the commit:
 
+
+<!--
 ```shellSession
 $ echo "# Chapter 1" >> chapter1
 
@@ -153,12 +192,16 @@ $ cat chapter1
 $ git add chapter1
 $ git commit --amend --no-edit
 ```
+-->
 
 And checking with `git log`, we can see the commit id has updated:
 
+
+<!--
 ```shellSession
 $ git log -n 1
 ```
+-->
 
 > **Note:** Here we used the `--no-edit` flag, which allows us to skip retyping the commit message.
 
@@ -170,45 +213,63 @@ Occasionally, we'll need to "undo" a commit, and one way of doing that is with `
 
 First, let's create a commit that we can revert.
 
+
+<!--
 ```shellSession
 $ echo "Lorum ipsum" >> chapter1
 
 $ cat chapter1
 ```
+-->
 
 So, now `chapter1` has a new line, "Lorum ipsum" added to it.
 
 Let's go ahead and commit that:
 
+
+<!--
 ```shellSession
 $ git commit -am "Brainstorming"
 ```
+-->
 
 > **Note:** Here we used the `-a` flag which automatically `git add`s all changes found in tracked files.
 
 Let's check with `git log` to confirm the new commit's there:
 
+
+<!--
 ```shellSession
 $ git log -n 2
 ```
+-->
 
 And now let's revert the commit:
 
+
+<!--
 ```shellSession
 $ git revert HEAD --no-edit
 ```
+-->
 
 Once again checking with `git log`:
 
+
+<!--
 ```shellSession
 $ git log -n 2
 ```
+-->
 
 Yup, and now let's check the contents of `chapter1`:
 
+
+<!--
 ```shellSession
 $ cat chapter1
 ```
+-->
 
 And there you go!
 
@@ -218,11 +279,17 @@ But what's with the `HEAD` thing?  We'll get to that soon...
 
 Now let's push today's work back to GitHub.
 
+
+<!--
 ```shellSession
 $ git push
 ```
+-->
 
 
+
+<!--
 ```shellSession
 $ git push --set-upstream origin my-first-branch
 ```
+-->

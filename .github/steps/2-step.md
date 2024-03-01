@@ -7,108 +7,60 @@
 -->
 
 In this chapter we will be learning about:
-- `git rebase`
-- `git reset`
-- `git merge`
-- `git cherry-pick`
+
+* `git rebase`
+* `git reset`
+* `git merge`
+* `git cherry-pick`
 
 ## Advanced Topics
 
 ### Tidying Up Your History
 
-Where we left off last we'd just created a branch called `my-first-branch` and pushed it to `remote`.
+Where we left off last we'd just created a branch called `my-first-branch` and pushed it to GitHub.
 
 To help speed things up, I've gone ahead and created `chapter2` for you.
 
 Let's do a `git pull` and to grab my changes:
 
-```
-total 0^M
-drwxr-xr-x 1 me me 4096 Jan 19 15:13 ^[[0m^[[01;34mgithub-provisioner^[[0m^M
-drwxr-xr-x 1 me me 4096 Feb 28 19:02 ^[[01;34mtestrepo^[[0m^M
+<!-- ```shell
+$ git pull
+``` -->
 
-Script done on 2024-02-28 19:02:41-08:00 [COMMAND_EXIT_CODE="0"]
-```
-
-```shellSession
-> git pull
-
-remote: Enumerating objects: 24, done.
-remote: Counting objects: 100% (24/24), done.
-remote: Compressing objects: 100% (5/5), done.
-remote: Total 19 (delta 10), reused 18 (delta 9), pack-reused 0
-Unpacking objects: 100% (19/19), 1.78 KiB | 130.00 KiB/s, done.
-From https://github.com/im-sampm/1-introduction-to-github
-   b6dfe21..0cb845c  my-first-branch -> origin/my-first-branch
-   b6dfe21..2c68930  main            -> origin/main
-Updating b6dfe21..0cb845c
-Fast-forward
- .github/steps/-step.txt |  2 +-
- README.md               | 33 ++++++++++++++++++++-------------
- chapter2                |  3 +++
- 3 files changed, 24 insertions(+), 14 deletions(-)
- create mode 100644 chapter2
-```
+!['git pull'](/images/2-step-shell-0.svg)
 
 And let's take a look at what we've got:
 
-```shellSession
-> git log
+<!-- ```shell
+$ git log -n 8
+``` -->
 
-commit 0cb845ca23430b9f6ec4012ffd84361042ec7bdb (HEAD -> my-first-branch, origin/my-first-branch)
-Author: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
-Date:   Tue Feb 27 10:08:22 2024 +0000
+!['git log -n 8'](/images/2-step-shell-1.svg)
 
-    fix
-
-commit ca165f1dbc117c227ff5ce45cd393051a82fbe49
-Author: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
-Date:   Tue Feb 27 10:08:22 2024 +0000
-
-    Added 'Section 1' to chapter2
-
-commit bf122733f1da8477332770586f9720bf60350e51
-Author: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
-Date:   Tue Feb 27 10:08:22 2024 +0000
-
-    FIxed tyypo
-
-commit da0a6cf54a4c3f711a23a656e540924aeb7e1c85
-Author: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
-Date:   Tue Feb 27 10:08:22 2024 +0000
-
-    Added chaptor2
-
-commit f14cf2ab6d1f8565c1b58671e545af36c72e7f52
-Author: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
-Date:   Tue Feb 27 10:08:21 2024 +0000
-
-    Update to 2 in STEP and README.md
-
-...
-```
-
-_Yeesh..._ admittedly not my best work... but you were waiting... so I was in a hurry...
+*Yeesh...* admittedly not my best work... but I was in a hurry!
 
 Luckily we can easily clean this up with a quick `git rebase --interactive`.
 
-First, we need to tell `git rebase --interactive` how many commits we want to... uh... _rebase_.
+First, we need to tell `git rebase --interactive` how many commits we want to... uh... *rebase*.
 
-From the `git log` output, we can rebase everything up until the commit that starts with `f14cf2a` (of course, the commit id will be different in _your_ repo).
+From the `git log` output, we can rebase everything up until the commit that starts with `1d386eb` (of course, the commit id will be different in *your* repo).
 
-```shellSession
-git rebase --interactive f14cf2a
+```shell
+$ git rebase --interactive HEAD~7
 ```
 
 Which opens an editor window containing the following:
 
-```shellSession
-pick da0a6cf Added chaptor2
-pick bf12273 FIxed tyypo
-pick ca165f1 Added 'Section 1' to chapter2
-pick 0cb845c fix
+```shell
+pick a445d3e Added chaptor2
+pick 630daf2 FIxed tyypo
+pick 8b7ca0e bugfix # empty
+pick e252de9 bugfix # empty
+pick 9c8c02c Added 'Section 1' to chapter2
+pick 3ae5885 fix
+pick f66977a fiix # empty
 
-# Rebase f14cf2a..0cb845c onto f14cf2a (4 commands)
+# Rebase 1d386eb..f66977a onto 1d386eb (7 commands)
 #
 # Commands:
 # p, pick <commit> = use commit
@@ -125,9 +77,12 @@ pick 0cb845c fix
 # l, label <label> = label current HEAD with a name
 # t, reset <label> = reset HEAD to a label
 # m, merge [-C <commit> | -c <commit>] <label> [# <oneline>]
-# .       create a merge commit using the original merge commit's
-# .       message (or the oneline, if no original merge commit was
-# .       specified); use -c <commit> to reword the commit message
+#         create a merge commit using the original merge commit's
+#         message (or the oneline, if no original merge commit was
+#         specified); use -c <commit> to reword the commit message
+# u, update-ref <ref> = track a placeholder for the <ref> to be updated
+#                       to this position in the new commits. The <ref> is
+#                       updated at the end of the rebase
 #
 # These lines can be re-ordered; they are executed from top to bottom.
 #
@@ -137,381 +92,102 @@ pick 0cb845c fix
 #
 ```
 
-Ever so handy (and borderline on oversharing), Git once again helpfully tells us everything we need to know.
+Once again, Git helpfully tells us everything we need to know.
 
-
-```shellSession
-reword da0a6cf Added chapter2
-squash bf12273 Fixed typo
-reword ca165f1 Added 'Section 1' to chapter2
-squash 0cb845c Fixed typo
+```shell
+reword 2a48bfb Added chaptor2
+squash bb1735f FIxed tyypo
+squash 2b12579 bugfix # empty
+squash bb7102d bugfix # empty
+pick 47e5455 Added 'Section 1' to chapter2
+squash ecf8347 fix
+squash  2ca6445 fiix # empty
 ```
 
-Of course, we could have also used the shortform:
+After we hit save, Git will walk us through the changes we asked for, allowing us to edit our commit messages along the way.
 
-```shellSession
-r da0a6cf Added chapter2
-s bf12273 Fixed typo
-r ca165f1 Added 'Section 1' to chapter2
-s 0cb845c Fixed typo
-```
-
-After we hit save, Git will now walk us through the changes we asked for.
-
-First, Git gives us the option to edit the entire commit message for `da0a6cf`:
-
-```shellSession
-Added chapter2
-
-# Please enter the commit message for your changes. Lines starting
-# with '#' will be ignored, and an empty message aborts the commit.
-#
-# Author:    github-actions[bot] <github-actions[bot]@users.noreply.github.com>
-# Date:      Tue Feb 27 10:08:22 2024 +0000
-#
-# interactive rebase in progress; onto f14cf2a
-# Last command done (1 command done):
-#    reword da0a6cf Added chapter2
-# Next commands to do (3 remaining commands):
-#    squash bf12273 Fixed typo
-#    reword ca165f1 Added 'Section 1' to chapter2
-# You are currently editing a commit while rebasing branch 'my-first-branch' on 'f14cf2a'.
-#
-# Changes to be committed:
-#       new file:   chapter2
-#
-```
-
-Next, it lets us:
-
-```shellSession
-# This is a combination of 2 commits.
-# This is the 1st commit message:
-
-Added chapter2
-
-# This is the commit message #2:
-
-Fixed typo
-
-# Please enter the commit message for your changes. Lines starting
-# with '#' will be ignored, and an empty message aborts the commit.
-#
-# Author:    github-actions[bot] <github-actions[bot]@users.noreply.github.com>
-# Date:      Tue Feb 27 10:08:22 2024 +0000
-#
-# interactive rebase in progress; onto f14cf2a
-# Last commands done (2 commands done):
-#    reword da0a6cf Added chapter2
-#    squash bf12273 Fixed typo
-# Next commands to do (2 remaining commands):
-#    reword ca165f1 Added 'Section 1' to chapter2
-#    squash 0cb845c Fixed typo
-# You are currently rebasing branch 'my-first-branch' on 'f14cf2a'.
-#
-# Changes to be committed:
-#       new file:   chapter2
-#
-```
-
-Since I only want to keep the 1st commit message, I'll comment out commit message #2:
-
-```shellSession
-# This is a combination of 2 commits.
-# This is the 1st commit message:
-
-Added chapter2
-
-# This is the commit message #2:
-
-#Fixed typo
-```
-
-```shellSession
-Added 'Section 1' to chapter2
-
-# Please enter the commit message for your changes. Lines starting
-# with '#' will be ignored, and an empty message aborts the commit.
-#
-# Author:    github-actions[bot] <github-actions[bot]@users.noreply.github.com>
-# Date:      Tue Feb 27 10:08:22 2024 +0000
-#
-# interactive rebase in progress; onto f14cf2a
-# Last commands done (3 commands done):
-#    squash bf12273 Fixed typo
-#    reword ca165f1 Added 'Section 1' to chapter2
-# Next command to do (1 remaining command):
-#    squash 0cb845c Fixed typo
-# You are currently editing a commit while rebasing branch 'my-first-branch' on 'f14cf2a'.
-#
-# Changes to be committed:
-#       modified:   chapter2
-#
-```
-
-```shellSession
-# This is a combination of 2 commits.
-# This is the 1st commit message:
-
-Added 'Section 1' to chapter2
-
-# This is the commit message #2:
-
-#Fixed typo
-
-# Please enter the commit message for your changes. Lines starting
-# with '#' will be ignored, and an empty message aborts the commit.
-#
-# Author:    github-actions[bot] <github-actions[bot]@users.noreply.github.com>
-# Date:      Tue Feb 27 10:08:22 2024 +0000
-#
-# interactive rebase in progress; onto f14cf2a
-# Last commands done (4 commands done):
-#    reword ca165f1 Added 'Section 1' to chapter2
-#    squash 0cb845c Fixed typo
-# No commands remaining.
-# You are currently rebasing branch 'my-first-branch' on 'f14cf2a'.
-#
-# Changes to be committed:
-#       modified:   chapter2
-#
-```
-
-This takes us back to the commandline:
-
-```shellSession
-> git rebase --interactive f14cf2a
-
-[detached HEAD 0f9dc5a] Added chapter2
- Author: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
- Date: Tue Feb 27 10:08:22 2024 +0000
+```shell
+$ git rebase -i 606a5db1
+[detached HEAD f0517f6] Added Chapter 2
+ Date: Thu Feb 29 12:08:03 2024 +0000
  1 file changed, 1 insertion(+)
  create mode 100644 chapter2
-[detached HEAD ac5a0ea] Added chapter2
- Author: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
- Date: Tue Feb 27 10:08:22 2024 +0000
+[detached HEAD 004fb28] Added Chapter 2
+ Date: Thu Feb 29 12:08:03 2024 +0000
  1 file changed, 1 insertion(+)
  create mode 100644 chapter2
-[detached HEAD 3c350c8] Added 'Section 1' to chapter2
- Author: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
- Date: Tue Feb 27 10:08:22 2024 +0000
- 1 file changed, 1 insertion(+)
-[detached HEAD a692dae] Added 'Section 1' to chapter2
- Author: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
- Date: Tue Feb 27 10:08:22 2024 +0000
+[detached HEAD 9e90441] Added 'Section 1' to chapter2
+ Date: Thu Feb 29 12:08:07 2024 +0000
  1 file changed, 2 insertions(+)
 Successfully rebased and updated refs/heads/my-first-branch.
 ```
 
 And checking with a `git log`:
 
-```shellSession
-commit a692daeb7209b1da66914523fcd82c955733a057 (HEAD -> my-first-branch)
-Author: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
-Date:   Tue Feb 27 10:08:22 2024 +0000
-
-    Added 'Section 1' to chapter2
-
-commit ac5a0ea3b8a61616334742ae3d89e9e93c05bfe3
-Author: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
-Date:   Tue Feb 27 10:08:22 2024 +0000
-
-    Added chapter2
-
-commit f14cf2ab6d1f8565c1b58671e545af36c72e7f52
-Author: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
-Date:   Tue Feb 27 10:08:21 2024 +0000
-
-    Update to 2 in STEP and README.md
-...
-```
+!['git log -n 3'](/images/2-step-shell-2.svg)
 
 🤌🤌🤌
 
-### Making changes to old commits
+Now we have to push our changes back to GitHub
 
+!['git push'](/images/2-step-shell-3.svg)
 
+!['git push --force'](/images/2-step-shell-4.svg)
 
-### Merging
+### Merging Back to Main
 
 Now we're ready to merge `chapter2` back into our `main` branch.
 
 Let's switch over the the `main` branch:
 
-```shellSession
-> git switch main
-Switched to branch 'main'
-Your branch is behind 'origin/main' by 1 commit, and can be fast-forwarded.
-  (use "git pull" to update your local branch)
-```
+!['git switch main'](/images/2-step-shell-5.svg)
 
 Hrm... what's this?  It looks like our `local` repository somehow got out of sync with the `remote` repository...
 
 Let's not worry about this for now, and just do what Git tells us, which is a `git pull`:
 
-```shellSession
-> git pull
+!['git pull'](/images/2-step-shell-6.svg)
 
-Updating b6dfe21..2c68930
-Fast-forward
- .github/steps/-step.txt |  2 +-
- README.md               | 33 ++++++++++++++++++++-------------
- 2 files changed, 21 insertions(+), 14 deletions(-)
-```
+Ok, now let's merge our changes back to the `main` branch with:
 
-Ok, now let's do a `git merge my-first-branch`, which brings up a:
-
-```shellSession
-Merge branch 'my-first-branch'
-# Please enter a commit message to explain why this merge is necessary,
-# especially if it merges an updated upstream into a topic branch.
-#
-# Lines starting with '#' will be ignored, and an empty message aborts
-# the commit.
-```
-
-```shellSession
-> git merge my-first-branch
-
-Merge made by the 'ort' strategy.
- chapter2 | 3 +++
- 1 file changed, 3 insertions(+)
- create mode 100644 chapter2
-```
+!['git merge --no-ff -m "Merging my-first-branch" my-first-branch'](/images/2-step-shell-7.svg)
 
 And checking with `git log`:
 
-```shellSession
-commit f188587c25237d93e114779eb6c903fa044733c5 (HEAD -> main)
-Merge: 2c68930 a692dae
-Author: Sam Peddamatham <sam.pm@infomagnus.com>
-Date:   Tue Feb 27 02:42:29 2024 -0800
+!['git log -n 5'](/images/2-step-shell-8.svg)
 
-    Merge branch 'my-first-branch'
+Nice... but it feels a bit flat, let's try:
 
-commit a692daeb7209b1da66914523fcd82c955733a057 (my-first-branch)
-Author: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
-Date:   Tue Feb 27 10:08:22 2024 +0000
-
-    Added 'Section 1' to chapter2
-
-commit ac5a0ea3b8a61616334742ae3d89e9e93c05bfe3
-Author: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
-Date:   Tue Feb 27 10:08:22 2024 +0000
-
-    Added chapter2
-
-commit f14cf2ab6d1f8565c1b58671e545af36c72e7f52
-Author: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
-Date:   Tue Feb 27 10:08:21 2024 +0000
-
-    Update to 2 in STEP and README.md
-
-commit 2c6893074403cad79fbd5be8417fd12966954ef5 (origin/main, origin/HEAD)
-Author: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
-Date:   Tue Feb 27 10:08:21 2024 +0000
-
-    Update to 2 in STEP and README.md
-```
-
-Nice... but it feels a bit flat, let's try `git log --oneline --graph --decorate`:
-
-```shellSession
-*   f188587 (HEAD -> main) Merge branch 'my-first-branch'
-|\
-| * a692dae (my-first-branch) Added 'Section 1' to chapter2
-| * ac5a0ea Added chapter2
-| * f14cf2a Update to 2 in STEP and README.md
-* | 2c68930 (origin/main, origin/HEAD) Update to 2 in STEP and README.md
-|/
-* b6dfe21 Update to 1 in STEP and README.md
-...
-```
+!['git log --oneline --graph --decorate -n 10'](/images/2-step-shell-9.svg)
 
 On second thought, we probably don't want that branch crudding up our repo until the end of time.  Let's bring in our changes using `git rebase` instead.
 
-First, we have to undo our changes.  Sure, we could use `git revert`, but that won't truly get rid of that abomination.
+First, we have to undo our changes.  Sure, we could use `git revert`, but that leaves a history of the branch.
 
-We'll have to use `git reset` to reset main back to before the merge, which, from the `git log` output above, is commit `2c68930`:
+We'll have to use `git reset` to reset main back to before the merge, which, from the `git log` output above, is commit `606a5db`:
 
-`git reset 2c68930`
+!['git reset HEAD~ --hard'](/images/2-step-shell-10.svg)
 
 Now, let's bring in the changes from `my-first-branch` using the following:
 
-```shellSession
-> git rebase my-first-branch
+!['git rebase my-first-branch'](/images/2-step-shell-11.svg)
 
-warning: skipped previously applied commit 2c68930
-hint: use --reapply-cherry-picks to include skipped commits
-hint: Disable this message with "git config advice.skippedCherryPicks false"
-Successfully rebased and updated refs/heads/main.
-```
+And another `git log`:
 
-And another `git log --oneline --graph --decorate`:
-
-```shellSession
-* a692dae (HEAD -> main, my-first-branch) Added 'Section 1' to chapter2
-* ac5a0ea Added chapter2
-* f14cf2a Update to 2 in STEP and README.md
-* b6dfe21 Update to 1 in STEP and README.md
-* 9938f44 Updated
-...
-```
+!['git log --oneline --graph --decorate -n 10'](/images/2-step-shell-12.svg)
 
 Nice!
 
 Now we can get rid of the `my-first-branch` branch with a `git branch -d my-first-branch`:
 
-```shellSession
-> git branch -d my-first-branch
-
-warning: not deleting branch 'my-first-branch' that is not yet merged to
-         'refs/remotes/origin/my-first-branch', even though it is merged to HEAD.
-error: The branch 'my-first-branch' is not fully merged.
-If you are sure you want to delete it, run 'git branch -D my-first-branch'.
-```
+!['git branch -d my-first-branch'](/images/2-step-shell-13.svg)
 
 Er... I meant a `git branch -D my-first-branch`!
 
-```shellSession
-> git branch -D my-first-branch
-Deleted branch my-first-branch (was a692dae).
-```
+!['git branch -D my-first-branch'](/images/2-step-shell-14.svg)
 
-Thankyouverymuch.
+!['git push'](/images/2-step-shell-15.svg)
 
-```shellSession
-> git push
+!['git pull'](/images/2-step-shell-16.svg)
 
-To https://github.com/im-sampm/1-introduction-to-github.git
- ! [rejected]        main -> main (fetch first)
-error: failed to push some refs to 'https://github.com/im-sampm/1-introduction-to-github.git'
-hint: Updates were rejected because the remote contains work that you do
-hint: not have locally. This is usually caused by another repository pushing
-hint: to the same ref. You may want to first integrate the remote changes
-hint: (e.g., 'git pull ...') before pushing again.
-hint: See the 'Note about fast-forwards' in 'git push --help' for details.
-
-> git pull
-remote: Enumerating objects: 24, done.
-remote: Counting objects: 100% (24/24), done.
-remote: Compressing objects: 100% (6/6), done.
-remote: Total 19 (delta 9), reused 18 (delta 8), pack-reused 0
-Unpacking objects: 100% (19/19), 5.71 KiB | 389.00 KiB/s, done.
-From https://github.com/im-sampm/1-introduction-to-github
-   51b9013..e3bedc1  main            -> origin/main
-   51b9013..c866aae  my-first-branch -> origin/my-first-branch
-Updating 51b9013..e3bedc1
-Fast-forward
- .github/steps/-step.txt |   2 +-
- README.md               | 506 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++--------------------------
- 2 files changed, 353 insertions(+), 155 deletions(-)
-
-> git push
-Everything up-to-date
-
-> git branch
--branch
-To https://github.com/im-sampm/1-introduction-to-github.git
- - [deleted]         my-first-branch
-```
+!['git push'](/images/2-step-shell-17.svg)
