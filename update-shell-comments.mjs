@@ -36,7 +36,6 @@ const processor = remark()
     let counter = offset;
 
     // Remove all existing image nodes from the tree
-    // The below code removes all the images except the very last image. how do i fix this?
     visit(tree, 'image', (node, index, parent) => {
       if (node.url.startsWith('/images/combined')) {
         console.log("removing image: " + node.url)
@@ -44,15 +43,39 @@ const processor = remark()
       }
     });
 
-    visit(tree, 'html', (node, index, parent) => {
-      if (node.value.startsWith('<!--') && node.value.endsWith('-->')) {
-        // Extract the comment content
-        const commentContent = node.value.slice(4, -3).trim();
+    // Process all HTML comments in the tree
+    visit(tree, 'html', (comment_node, index, parent) => {
 
-        const foo = remark().parse(commentContent);
-        for (const f of foo.children) {
-          if (f.lang === 'shellSession') {
-            const commands = f.value.split('\n')
+      if (comment_node.value.startsWith('<!--') && comment_node.value.endsWith('-->')) {
+
+        // An example Comment node
+        //   <!--
+        //   ```shellSession
+        //   # Code block 1
+        //   $ echo "hello"
+        //   $ echo "hello"
+        //   ```
+        //
+        //   ```shellSession
+        //   # Code block 2
+        //   $ echo "hello"
+        //   $ echo "hello"
+        //   ```
+        //   -->
+
+        // Remove the leading and trailing comment markers
+        const raw_comment_node = comment_node.value.slice(4, -3).trim();
+
+        // Parse the comment node as Markdown
+        const parsed_comment_node = remark().parse(raw_comment_node);
+
+        // For each code block in the comment node...
+        for (const cb_node of parsed_comment_node.children) {
+
+          // We use the shellSession tag to identify shell commands
+          if (cb_node.lang === 'shellSession') {
+
+            const commands = cb_node.value.split('\n')
               // Filter out lines starting with $
               .filter(line => line.startsWith('$'))
               // Escape each line
@@ -60,13 +83,12 @@ const processor = remark()
               // Remove the $ at the beginning of each line
               .map(line => `${line.slice(2)}`)
 
+            let image_nodes = [];
 
-            let nodes = [];
-            // For each command, create a new SVG file
+            // For each command in the code block...
             for (const command of commands) {
 
               console.log(command)
-              // console.log(`unbuffer ${command} | term-transcript capture '${command}'`)
 
               // term-script outputs raw SVG data to stdout
               const cmd_output = execSync(`unbuffer ${command} | term-transcript capture '${command}'`, options).toString().trim();
@@ -74,11 +96,11 @@ const processor = remark()
               const imageFilename = `${basename}-shell-${counter++}.svg`;
 
               // Write the captured output to an SVG file
-              fs.writeFileSync(path.join('images', imageFilename), cmd_output);
+              fs.writeFileSync(path.join('images/shell', imageFilename), cmd_output);
 
-              nodes.push({
+              image_nodes.push({
                 type: 'image',
-                url: path.join('/images', imageFilename),
+                url: path.join('/images/shell', imageFilename),
                 alt: `'${command}'`,
               })
             }
@@ -86,7 +108,7 @@ const processor = remark()
             // Insert the image node(s) after the current code node
             parent.children.splice(index + 1, 0, {
               type: 'paragraph',
-              children: nodes
+              children: image_nodes
             });
           }
         }
