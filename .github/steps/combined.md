@@ -197,27 +197,28 @@ $ git branch
 ```
 -->
 
-_Magnifique._
-
----
-
-### Our First Commit
-
-Now, let's create a file for Chapter 1 called `chapter1`.
-
-We can do this with a simple `touch chapter`:
+and let's do a `git status` for good measure:
 
 <!--
 ```shellSession
-$ touch chapter1
+$ git status
 ```
- -->
+-->
 
-!['touch chapter1'](/images/1-step-shell-2.svg)
+_Magnifique._
 
 
+### Our First Commit
 
-Let's see if Git noticed this change to our `working tree` by typing `git status`:
+Now that we've got a branch to work in, let's create some structure by adding the following:
+
+<!--
+```shellSession
+$ touch table-of-contents about-the-author index
+```
+-->
+
+Let's see if Git noticed a change to our `working tree`:
 
 <!--
 ```shellSession
@@ -227,24 +228,21 @@ $ git status
 
 !['git status'](/images/1-step-shell-3.svg)
 
-
-
-Great, Git noticed that we added the file, but is saying it's *untracked*.
+Interesting, Git noticed that we added the files, but is saying that they're *untracked*.
 
 > The way Git works is that you have to *explicitly* tell it to start tracking files by using the `git add` command.  Until you do that, Git considers the file *untracked*.
 >
 > Once a file has been added via `git add`, it becomes a "tracked" file and Git will start monitoring it for changes. If you modify a tracked file, Git will recognize that it has been modified and will mark it as "modified" but not yet "staged" for the next commit.
 
-Let's go ahead and start tracking the file with a `git add chapter1`:
+Let's go ahead and start tracking the files with a `git add`:
 
 <!--
 ```shellSession
-$ git add chapter1
+$ git add .
 ```
 -->
 
-!['git add chapter1'](/images/1-step-shell-4.svg)
-
+> We could have individually added the files by typing `git add table-of-contents about-the-author index`, but `git add` provides the convenient `git add .`, which stages any and all changes present in the working directory.
 
 
 Let's see how things look now:
@@ -257,23 +255,19 @@ $ git status
 
 !['git status'](/images/1-step-shell-5.svg)
 
+Alright, it looks like our files are staged and ready to be committed!
 
-
-Alright, it looks like `chapter1` file is staged and ready to be committed!
-
-Let's go ahead and do that with `git commit -m "Added chapter1"`:
+Let's go ahead and do that with `git commit -m "Added ToC, About Author, and Index"`:
 
 <!--
 ```shellSession
-$ git commit -m "Added chapter1"
+$ git commit -m "Added ToC, About Author, and Index"
 ```
 -->
 
-!['git commit -m "Added chapter1"'](/images/1-step-shell-6.svg)
+> `-m` is the short form of `--message`, which allows us to specify short commit messages via the command-line.  Typing `git commit` brings up a text editor, which is useful for longform commit messages.
 
-> note: we can type git commit and explain '-m flag
-
-Let's see what `git status` says now that the file's been committed:
+Let's see what `git status` says now that the files have been committed:
 
 <!--
 ```shellSession
@@ -283,11 +277,9 @@ $ git status
 
 !['git status'](/images/1-step-shell-7.svg)
 
+Nice, looks like the files were moved from the staging area to the repository!
 
-
-Nice, looks like the file was moved from the staging area to the repository!
-
-We can confirm the commit is part of our repository history by doing a `git log`:
+We can confirm that the commit is part of our repository history by doing a `git log`:
 
 <!--
 ```shellSession
@@ -296,7 +288,6 @@ $ git log -n 1
 -->
 
 !['git log -n 1'](/images/1-step-shell-8.svg)
-
 
 
 Perfect!
@@ -524,265 +515,3 @@ In this chapter we will be learning about:
 * `git cherry-pick`
 
 ## Advanced Topics
-
-### Tidying Up Your History
-
-Where we left off last we'd just created a branch called `my-first-branch` and pushed it to GitHub.
-
-To help speed things up, I've gone ahead and created `chapter2` for you.
-
-Let's do a `git pull` and to grab my changes:
-
-<!-- ```shell
-$ git pull
-``` -->
-
-!['git pull'](/images/2-step-shell-0.svg)
-
-And let's take a look at what we've got:
-
-<!-- ```shell
-$ git log -n 8
-``` -->
-
-!['git log -n 8'](/images/2-step-shell-1.svg)
-
-*Yeesh...* admittedly not my best work... but I was in a hurry!
-
-Luckily we can easily clean this up with a quick `git rebase --interactive`.
-
-First, we need to tell `git rebase --interactive` how many commits we want to... uh... *rebase*.
-
-From the `git log` output, we can rebase everything up until the commit that starts with `1d386eb` (of course, the commit id will be different in *your* repo).
-
-```shell
-$ git rebase --interactive HEAD~7
-```
-
-Which opens an editor window containing the following:
-
-```shell
-pick a445d3e Added chaptor2
-pick 630daf2 FIxed tyypo
-pick 8b7ca0e bugfix # empty
-pick e252de9 bugfix # empty
-pick 9c8c02c Added 'Section 1' to chapter2
-pick 3ae5885 fix
-pick f66977a fiix # empty
-
-# Rebase 1d386eb..f66977a onto 1d386eb (7 commands)
-#
-# Commands:
-# p, pick <commit> = use commit
-# r, reword <commit> = use commit, but edit the commit message
-# e, edit <commit> = use commit, but stop for amending
-# s, squash <commit> = use commit, but meld into previous commit
-# f, fixup [-C | -c] <commit> = like "squash" but keep only the previous
-#                    commit's log message, unless -C is used, in which case
-#                    keep only this commit's message; -c is same as -C but
-#                    opens the editor
-# x, exec <command> = run command (the rest of the line) using shell
-# b, break = stop here (continue rebase later with 'git rebase --continue')
-# d, drop <commit> = remove commit
-# l, label <label> = label current HEAD with a name
-# t, reset <label> = reset HEAD to a label
-# m, merge [-C <commit> | -c <commit>] <label> [# <oneline>]
-#         create a merge commit using the original merge commit's
-#         message (or the oneline, if no original merge commit was
-#         specified); use -c <commit> to reword the commit message
-# u, update-ref <ref> = track a placeholder for the <ref> to be updated
-#                       to this position in the new commits. The <ref> is
-#                       updated at the end of the rebase
-#
-# These lines can be re-ordered; they are executed from top to bottom.
-#
-# If you remove a line here THAT COMMIT WILL BE LOST.
-#
-# However, if you remove everything, the rebase will be aborted.
-#
-```
-
-Once again, Git helpfully tells us everything we need to know.
-
-```shell
-reword 2a48bfb Added chaptor2
-squash bb1735f FIxed tyypo
-squash 2b12579 bugfix # empty
-squash bb7102d bugfix # empty
-pick 47e5455 Added 'Section 1' to chapter2
-squash ecf8347 fix
-squash  2ca6445 fiix # empty
-```
-
-After we hit save, Git will walk us through the changes we asked for, allowing us to edit our commit messages along the way.
-
-```shell
-$ git rebase -i 606a5db1
-[detached HEAD f0517f6] Added Chapter 2
- Date: Thu Feb 29 12:08:03 2024 +0000
- 1 file changed, 1 insertion(+)
- create mode 100644 chapter2
-[detached HEAD 004fb28] Added Chapter 2
- Date: Thu Feb 29 12:08:03 2024 +0000
- 1 file changed, 1 insertion(+)
- create mode 100644 chapter2
-[detached HEAD 9e90441] Added 'Section 1' to chapter2
- Date: Thu Feb 29 12:08:07 2024 +0000
- 1 file changed, 2 insertions(+)
-Successfully rebased and updated refs/heads/my-first-branch.
-```
-
-And checking with a `git log`:
-
-<!--
-```shellSession
-$ git log -n 3
-```
--->
-
-!['git log -n 3'](/images/2-step-shell-2.svg)
-
-🤌🤌🤌
-
-Now we have to push our changes back to GitHub
-
-<!--
-```shellSession
-$ git push
-```
--->
-
-!['git push'](/images/2-step-shell-3.svg)
-
-<!--
-```shellSession
-$ git push --force
-```
--->
-
-!['git push --force'](/images/2-step-shell-4.svg)
-
-### Merging Back to Main
-
-Now we're ready to merge `chapter2` back into our `main` branch.
-
-Let's switch over the the `main` branch:
-
-<!--
-```shellSession
-$ git switch main
-```
--->
-
-!['git switch main'](/images/2-step-shell-5.svg)
-
-Hrm... what's this?  It looks like our `local` repository somehow got out of sync with the `remote` repository...
-
-Let's not worry about this for now, and just do what Git tells us, which is a `git pull`:
-
-<!--
-```shellSession
-$ git pull
-```
--->
-
-!['git pull'](/images/2-step-shell-6.svg)
-
-Ok, now let's merge our changes back to the `main` branch with:
-
-<!--
-```shellSession
-$ git merge --no-ff -m "Merging my-first-branch" my-first-branch
-```
--->
-
-!['git merge --no-ff -m "Merging my-first-branch" my-first-branch'](/images/2-step-shell-7.svg)
-
-And checking with `git log`:
-
-<!--
-```shellSession
-$ git log -n 5
-```
--->
-
-!['git log -n 5'](/images/2-step-shell-8.svg)
-
-Nice... but it feels a bit flat, let's try:
-
-<!--
-```shellSession
-$ git log --oneline --graph --decorate -n 10
-```
--->
-
-!['git log --oneline --graph --decorate -n 10'](/images/2-step-shell-9.svg)
-
-On second thought, we probably don't want that branch crudding up our repo until the end of time.  Let's bring in our changes using `git rebase` instead.
-
-First, we have to undo our changes.  Sure, we could use `git revert`, but that leaves a history of the branch.
-
-We'll have to use `git reset` to reset main back to before the merge, which, from the `git log` output above, is commit `606a5db`:
-
-<!--
-```shellSession
-$ git reset HEAD~ --hard
-```
--->
-
-!['git reset HEAD~ --hard'](/images/2-step-shell-10.svg)
-
-Now, let's bring in the changes from `my-first-branch` using the following:
-
-<!--
-```shellSession
-$ git rebase my-first-branch
-```
--->
-
-!['git rebase my-first-branch'](/images/2-step-shell-11.svg)
-
-And another `git log`:
-
-<!--
-```shellSession
-$ git log --oneline --graph --decorate -n 10
-```
--->
-
-!['git log --oneline --graph --decorate -n 10'](/images/2-step-shell-12.svg)
-
-Nice!
-
-Now we can get rid of the `my-first-branch` branch with a `git branch -d my-first-branch`:
-
-<!--
-```shellSession
-$ git branch -d my-first-branch
-```
-
-Er... I meant a `git branch -D my-first-branch`!
-
-
-<!--
-```shellSession
-$ git branch -D my-first-branch
-```
-
-
-<!--
-```shellSession
-$ git push
-```
-
-
-<!--
-```shellSession
-$ git pull
-```
-
-
-<!--
-```shellSession
-$ git push
-```
