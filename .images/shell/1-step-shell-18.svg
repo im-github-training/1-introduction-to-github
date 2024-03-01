@@ -61,7 +61,7 @@
         <foreignObject width="720" height="64">
           <div xmlns="http://www.w3.org/1999/xhtml" class="container">
             <div class="input"><pre><span class="prompt">$</span> git status</pre></div>
-            <div class="output"><pre>On branch my-book
+            <div class="output"><pre>On branch feature
 nothing to commit, working tree clean</pre></div>
           </div>
         </foreignObject>

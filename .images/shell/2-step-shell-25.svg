@@ -61,35 +61,35 @@
         <foreignObject width="720" height="586">
           <div xmlns="http://www.w3.org/1999/xhtml" class="container">
             <div class="input"><pre><span class="prompt">$</span> git log -n 5</pre></div>
-            <div class="output"><pre><span class="fg3">commit a31c4c0e88683b8e8d8324bb49be047570efbdeb</span><span class="fg3"> (</span><span class="bold fg6">HEAD</span><span class="fg3"> -&gt; </span><span class="bold fg2">lesson/2</span><span class="fg3">)</span>
+            <div class="output"><pre><span class="fg3">commit eb6cc11bcdbe0ae8e8b02999592931fa63bcc3da</span><span class="fg3"> (</span><span class="bold fg6">HEAD</span><span class="fg3"> -&gt; </span><span class="bold fg2">lesson/2</span><span class="fg3">)</span>
 Author: Sam Peddamatham &lt;sam.pm@infomagnus.com&gt;
-Date:   Fri Mar 1 13:20:19 2024 +0000
+Date:   Fri Mar 1 16:01:24 2024 +0000
 
     Revert "Added feature 2"
     
-    This reverts commit a608d908b7dfdcf11240510fef50763ec5ed7eaa.
+    This reverts commit 04e62a0e6496cbdc126f139cdc0a3df42ffa7b97.
 
-<span class="fg3">commit 4d3fecb28136a87759923c80c86207161c6c40db</span>
+<span class="fg3">commit 5c58dc2e026bc52c375c7274f4fd84a120924e45</span>
 Author: Sam Peddamatham &lt;sam.pm@infomagnus.com&gt;
-Date:   Fri Mar 1 13:20:18 2024 +0000
+Date:   Fri Mar 1 16:01:23 2024 +0000
 
     Added feature 3
 
-<span class="fg3">commit a608d908b7dfdcf11240510fef50763ec5ed7eaa</span>
+<span class="fg3">commit 04e62a0e6496cbdc126f139cdc0a3df42ffa7b97</span>
 Author: Sam Peddamatham &lt;sam.pm@infomagnus.com&gt;
-Date:   Fri Mar 1 13:20:16 2024 +0000
+Date:   Fri Mar 1 16:01:21 2024 +0000
 
     Added feature 2
 
-<span class="fg3">commit 7fc067f0b860c4c74200b45e329aa40306f795b7</span>
+<span class="fg3">commit 35e6e88e9524c07c1b2ddbcaa397bbf5cbd8e182</span>
 Author: Sam Peddamatham &lt;sam.pm@infomagnus.com&gt;
-Date:   Fri Mar 1 13:20:15 2024 +0000
+Date:   Fri Mar 1 16:01:20 2024 +0000
 
     Added feature 1
 
-<span class="fg3">commit 2a72f2450da762edb9ccb52dcafa802ad3178729</span>
+<span class="fg3">commit 8dcc1de35988be3e25534500acb5133a747196dd</span>
 Author: Sam Peddamatham &lt;sam.pm@infomagnus.com&gt;
-Date:   Fri Mar 1 13:20:13 2024 +0000
+Date:   Fri Mar 1 16:01:18 2024 +0000
 
     Cleanup</pre></div>
           </div>

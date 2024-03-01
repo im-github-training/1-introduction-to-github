@@ -61,8 +61,8 @@
         <foreignObject width="720" height="82">
           <div xmlns="http://www.w3.org/1999/xhtml" class="container">
             <div class="input"><pre><span class="prompt">$</span> git branch</pre></div>
-            <div class="output"><pre>  main
-  my-book
+            <div class="output"><pre>  feature
+  main
 * <span class="fg2">throwaway</span></pre></div>
           </div>
         </foreignObject>

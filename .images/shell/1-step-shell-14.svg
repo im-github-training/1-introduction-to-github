@@ -61,7 +61,7 @@
         <foreignObject width="720" height="136">
           <div xmlns="http://www.w3.org/1999/xhtml" class="container">
             <div class="input"><pre><span class="prompt">$</span> git status</pre></div>
-            <div class="output"><pre>On branch my-book
+            <div class="output"><pre>On branch feature
 Untracked files:
   (use "git add &lt;file&gt;..." to include in what will be committed)
 	<span class="fg1">./</span>

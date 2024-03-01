@@ -61,7 +61,7 @@
         <foreignObject width="720" height="118">
           <div xmlns="http://www.w3.org/1999/xhtml" class="container">
             <div class="input"><pre><span class="prompt">$</span> rm file* &amp;&amp; git commit -am &quot;Cleanup&quot;</pre></div>
-            <div class="output"><pre>[lesson/2 2a72f24] Cleanup
+            <div class="output"><pre>[lesson/2 8dcc1de] Cleanup
  3 files changed, 0 insertions(+), 0 deletions(-)
  delete mode 100644 book/file1
  delete mode 100644 book/file2

@@ -158,7 +158,7 @@ $ git switch -
 ```
 -->
 
-!['git switch feature'](/.images/shell/1-step-shell-9.svg)
+!['git switch -'](/.images/shell/1-step-shell-9.svg)
 
 Trying the delete again:
 
@@ -587,7 +587,7 @@ $ git push
 ```
 -->
 
-!['git push'](/.images/shell/1-step-shell-62.svg)
+!['git push'](/.images/shell/1-step-shell-39.svg)
 
 <!--
 ```shellSession
@@ -595,4 +595,4 @@ $ git push --set-upstream origin feature
 ```
 -->
 
-!['git push --set-upstream origin my-first-branch'](/.images/shell/1-step-shell-63.svg)
+!['git push --set-upstream origin feature'](/.images/shell/1-step-shell-40.svg)

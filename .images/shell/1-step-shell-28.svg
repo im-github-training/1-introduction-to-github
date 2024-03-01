@@ -61,7 +61,7 @@
         <foreignObject width="720" height="82">
           <div xmlns="http://www.w3.org/1999/xhtml" class="container">
             <div class="input"><pre><span class="prompt">$</span> touch detached-test &amp;&amp; git add detached-test &amp;&amp; git commit -m &quot;Testing detached HEAD&quot;</pre></div>
-            <div class="output"><pre>[detached HEAD 5a9a366] Testing detached HEAD
+            <div class="output"><pre>[detached HEAD b1df328] Testing detached HEAD
  1 file changed, 0 insertions(+), 0 deletions(-)
  create mode 100644 book/detached-test</pre></div>
           </div>

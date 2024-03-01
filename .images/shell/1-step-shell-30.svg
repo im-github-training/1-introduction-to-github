@@ -1,5 +1,5 @@
 <!-- Created with term-transcript v0.3.0 (https://github.com/slowli/term-transcript) -->
-<svg viewBox="0 0 720 264" width="720" height="264" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 720 246" width="720" height="246" xmlns="http://www.w3.org/2000/svg">
   <switch>
     <g requiredExtensions="http://www.w3.org/1999/xhtml">
       <style>
@@ -57,22 +57,21 @@
         .fg15 { color: #f3f3f3; } .bg15 { background: #f3f3f3; }
       </style>
       <rect width="100%" height="100%" y="0" rx="4.5" style="fill: #1c1c1c;" />
-      <svg x="0" y="10" width="720" height="244" viewBox="0 0 720 244">
-        <foreignObject width="720" height="244">
+      <svg x="0" y="10" width="720" height="226" viewBox="0 0 720 226">
+        <foreignObject width="720" height="226">
           <div xmlns="http://www.w3.org/1999/xhtml" class="container">
             <div class="input"><pre><span class="prompt">$</span> git switch -</pre></div>
-            <div class="output"><pre>Updating files: 100% (194/194), done.
-Warning: you are leaving 1 commit behind, not connected to
+            <div class="output"><pre>Warning: you are leaving 1 commit behind, not connected to
 any of your branches:
 
-  5a9a366 Testing detached HEAD
+  b1df328 Testing detached HEAD
 
 If you want to keep it by creating a new branch, this may be a good time
 to do so with:
 
- git branch &lt;new-branch-name&gt; 5a9a366
+ git branch &lt;new-branch-name&gt; b1df328
 
-Switched to branch 'my-book'</pre></div>
+Switched to branch 'feature'</pre></div>
           </div>
         </foreignObject>
       </svg>

@@ -90,8 +90,8 @@
 │   ├── HEAD
 │   └── refs
 │       ├── heads
-│       │   ├── main
-│       │   └── my-book
+│       │   ├── feature
+│       │   └── main
 │       └── remotes
 │           ├── origin
 │           │   └── HEAD
@@ -100,8 +100,8 @@
 ├── packed-refs
 └── refs
     ├── heads
-    │   ├── main
-    │   └── my-book
+    │   ├── feature
+    │   └── main
     ├── remotes
     │   ├── origin
     │   │   └── HEAD

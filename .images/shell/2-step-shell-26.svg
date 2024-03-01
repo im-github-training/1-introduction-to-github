@@ -61,7 +61,7 @@
         <foreignObject width="720" height="46">
           <div xmlns="http://www.w3.org/1999/xhtml" class="container">
             <div class="input"><pre><span class="prompt">$</span> git commit -m &quot;Bug fiix&quot; --allow-empty</pre></div>
-            <div class="output"><pre>[lesson/2 0de7f69] Bug fiix</pre></div>
+            <div class="output"><pre>[lesson/2 e9a910f] Bug fiix</pre></div>
           </div>
         </foreignObject>
       </svg>

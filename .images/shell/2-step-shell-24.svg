@@ -1,5 +1,5 @@
 <!-- Created with term-transcript v0.3.0 (https://github.com/slowli/term-transcript) -->
-<svg viewBox="0 0 720 102" width="720" height="102" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 720 120" width="720" height="120" xmlns="http://www.w3.org/2000/svg">
   <switch>
     <g requiredExtensions="http://www.w3.org/1999/xhtml">
       <style>
@@ -57,13 +57,14 @@
         .fg15 { color: #f3f3f3; } .bg15 { background: #f3f3f3; }
       </style>
       <rect width="100%" height="100%" y="0" rx="4.5" style="fill: #1c1c1c;" />
-      <svg x="0" y="10" width="720" height="82" viewBox="0 0 720 82">
-        <foreignObject width="720" height="82">
+      <svg x="0" y="10" width="720" height="100" viewBox="0 0 720 100">
+        <foreignObject width="720" height="100">
           <div xmlns="http://www.w3.org/1999/xhtml" class="container">
             <div class="input"><pre><span class="prompt">$</span> ls -l</pre></div>
             <div class="output"><pre>total 0
--rw-r--r-- 1 node node 5 Mar  1 13:20 file1
--rw-r--r-- 1 node node 5 Mar  1 13:20 file3</pre></div>
+-rw-r--r-- 1 node node 5 Mar  1 16:01 file1
+-rw-r--r-- 1 node node 5 Mar  1 16:01 file3
+-rw-r--r-- 1 node node 0 Mar  1 16:00 head-test</pre></div>
           </div>
         </foreignObject>
       </svg>

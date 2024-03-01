@@ -14,6 +14,8 @@ $ git switch -c lesson/2
 
 !['git switch -c lesson/2'](/.images/shell/2-step-shell-0.svg)
 
+
+
 ### Handling common scenarios
 
 #### Restoring files
@@ -32,6 +34,8 @@ $ touch file1 file2 file3
 
 !['touch file1 file2 file3'](/.images/shell/2-step-shell-1.svg)
 
+
+
 <!--
 ```shellSession
 $ git add file*
@@ -40,6 +44,8 @@ $ git add file*
 
 !['git add file\*'](/.images/shell/2-step-shell-2.svg)
 
+
+
 <!--
 ```shellSession
 $ git commit -m "Added some files"
@@ -47,6 +53,8 @@ $ git commit -m "Added some files"
 -->
 
 !['git commit -m "Added some files"'](/.images/shell/2-step-shell-3.svg)
+
+
 
 Now let's delete them:
 
@@ -58,6 +66,8 @@ $ rm file*
 
 !['rm file\*'](/.images/shell/2-step-shell-4.svg)
 
+
+
 And making sure the files are deleted:
 
 <!--
@@ -68,6 +78,8 @@ $ ls -l
 
 !['ls -l'](/.images/shell/2-step-shell-5.svg)
 
+
+
 Let's see what Git has to say:
 
 <!--
@@ -77,6 +89,8 @@ $ git status
 -->
 
 !['git status'](/.images/shell/2-step-shell-6.svg)
+
+
 
 As expected, Git noticed the change to the *working directory*, namely, that we deleted our files.
 
@@ -92,6 +106,8 @@ $ git restore file1 file2 file3
 
 !['git restore file1 file2 file3'](/.images/shell/2-step-shell-7.svg)
 
+
+
 Double-checking with an `ls -l`:
 
 <!--
@@ -101,6 +117,8 @@ $ ls -l
 -->
 
 !['ls -l'](/.images/shell/2-step-shell-8.svg)
+
+
 
 Great!  But that was a lot of typing, let's try something...
 
@@ -114,6 +132,8 @@ $ rm file1 file2 file3
 
 !['rm file1 file2 file3'](/.images/shell/2-step-shell-9.svg)
 
+
+
 Checking...
 
 <!--
@@ -123,6 +143,8 @@ $ ls -l
 -->
 
 !['ls -l'](/.images/shell/2-step-shell-10.svg)
+
+
 
 And...
 
@@ -134,6 +156,8 @@ $ git restore .
 
 !['git restore .'](/.images/shell/2-step-shell-11.svg)
 
+
+
 Yup...
 
 <!--
@@ -143,6 +167,8 @@ $ ls -l
 -->
 
 !['ls -l'](/.images/shell/2-step-shell-12.svg)
+
+
 
 Cool!
 
@@ -162,6 +188,8 @@ $ rm file* && git commit -am "Cleanup"
 
 !['rm file\* && git commit -am "Cleanup"'](/.images/shell/2-step-shell-13.svg)
 
+
+
 Next, let's create three commits, two good and one "bad":
 
 <!--
@@ -173,6 +201,8 @@ $ git commit -m "Added feature 1"
 -->
 
 !['echo "good" > file1'](/.images/shell/2-step-shell-14.svg)!['git add file1'](/.images/shell/2-step-shell-15.svg)!['git commit -m "Added feature 1"'](/.images/shell/2-step-shell-16.svg)
+
+
 
 The "bad" file:
 
@@ -186,6 +216,8 @@ $ git commit -m "Added feature 2"
 
 !['echo "bad" > file2'](/.images/shell/2-step-shell-17.svg)!['git add file2'](/.images/shell/2-step-shell-18.svg)!['git commit -m "Added feature 2"'](/.images/shell/2-step-shell-19.svg)
 
+
+
 A "good" file:
 
 <!--
@@ -198,6 +230,8 @@ $ git commit -m "Added feature 3"
 
 !['echo "good" > file3'](/.images/shell/2-step-shell-20.svg)!['git add file3'](/.images/shell/2-step-shell-21.svg)!['git commit -m "Added feature 3"'](/.images/shell/2-step-shell-22.svg)
 
+
+
 Now let's get rid of the "bad" commit, the one that was *one* commit ago:
 
 <!--
@@ -207,6 +241,8 @@ $ git revert HEAD~1 --no-edit
 -->
 
 !['git revert HEAD~1 --no-edit'](/.images/shell/2-step-shell-23.svg)
+
+
 
 Let's see what that did:
 
@@ -218,6 +254,8 @@ $ ls -l
 
 !['ls -l'](/.images/shell/2-step-shell-24.svg)
 
+
+
 Cool, `file2` is missing, as we'd expect.  Let's check the log:
 
 <!--
@@ -227,6 +265,8 @@ $ git log -n 5
 -->
 
 !['git log -n 5'](/.images/shell/2-step-shell-25.svg)
+
+
 
 Interesting, so the old commit is still in the history, but we have a new "revert" commit...
 
@@ -248,6 +288,8 @@ $ git commit -m "Bug fiix" --allow-empty
 
 !['git commit -m "Bug fiix" --allow-empty'](/.images/shell/2-step-shell-26.svg)
 
+
+
 > Git normally doesn't allow empty commits, unless you use the `--allow-empty` flag.
 
 <!--
@@ -257,6 +299,8 @@ $ git log -n 2
 -->
 
 !['git log -n 2'](/.images/shell/2-step-shell-27.svg)
+
+
 
 Now that's a beaut.  Let's fix it with a `git commit --amend`:
 
@@ -268,6 +312,8 @@ $ git commit -m "Fixed scrollbar bug" --amend
 
 !['git commit -m "Fixed scrollbar bug" --amend'](/.images/shell/2-step-shell-28.svg)
 
+
+
 And checking `git log`:
 
 <!--
@@ -278,7 +324,24 @@ $ git log -n 2
 
 !['git log -n 2'](/.images/shell/2-step-shell-29.svg)
 
+
+
 That was easy enough!
+
+## Understanding rebase
+
+### Insert rebase tutorial
+
+Here is a step-by-step guide on how to use `git rebase`:
+
+1. Start by checking out the branch you want to rebase onto.
+2. Run the command `git rebase <branch>` to start the rebase process.
+3. Resolve any conflicts that may arise during the rebase.
+4. Once the rebase is complete, push the changes to the remote repository using `git push`.
+
+That's it! You have successfully performed a rebase.
+
+### Example 2
 
 ## Wrapping Things Up
 
@@ -292,6 +355,8 @@ $ git push
 
 !['git push'](/.images/shell/2-step-shell-30.svg)
 
+
+
 <!--
 ```shellSession
 $ git push --set-upstream origin my-first-branch
@@ -299,6 +364,8 @@ $ git push --set-upstream origin my-first-branch
 -->
 
 !['git push --set-upstream origin my-first-branch'](/.images/shell/2-step-shell-31.svg)
+
+
 
 <!--
   <<< Author notes: Step 1 >>>

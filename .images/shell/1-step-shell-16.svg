@@ -61,12 +61,12 @@
         <foreignObject width="720" height="136">
           <div xmlns="http://www.w3.org/1999/xhtml" class="container">
             <div class="input"><pre><span class="prompt">$</span> git status</pre></div>
-            <div class="output"><pre>On branch my-book
+            <div class="output"><pre>On branch feature
 Changes to be committed:
   (use "git restore --staged &lt;file&gt;..." to unstage)
-	<span class="fg2">new file:   about-the-author</span>
-	<span class="fg2">new file:   index</span>
-	<span class="fg2">new file:   table-of-contents</span>
+	<span class="fg2">new file:   file1</span>
+	<span class="fg2">new file:   file2</span>
+	<span class="fg2">new file:   file3</span>
 </pre></div>
           </div>
         </foreignObject>

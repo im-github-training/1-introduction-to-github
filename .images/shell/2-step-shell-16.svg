@@ -61,7 +61,7 @@
         <foreignObject width="720" height="82">
           <div xmlns="http://www.w3.org/1999/xhtml" class="container">
             <div class="input"><pre><span class="prompt">$</span> git commit -m &quot;Added feature 1&quot;</pre></div>
-            <div class="output"><pre>[lesson/2 7fc067f] Added feature 1
+            <div class="output"><pre>[lesson/2 35e6e88] Added feature 1
  1 file changed, 1 insertion(+)
  create mode 100644 book/file1</pre></div>
           </div>

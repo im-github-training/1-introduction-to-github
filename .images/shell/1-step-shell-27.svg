@@ -61,16 +61,16 @@
         <foreignObject width="720" height="208">
           <div xmlns="http://www.w3.org/1999/xhtml" class="container">
             <div class="input"><pre><span class="prompt">$</span> git log --oneline --decorate --all --graph -n 10</pre></div>
-            <div class="output"><pre>* <span class="fg3">8ef84fe</span><span class="fg3"> (</span><span class="bold fg2">my-book</span><span class="fg3">)</span> Learning about HEAD
-* <span class="fg3">58503bf</span> Added stuff
-* <span class="fg3">7f45673</span><span class="fg3"> (</span><span class="bold fg1">upstream/main</span><span class="fg3">, </span><span class="bold fg1">origin/main</span><span class="fg3">, </span><span class="bold fg1">origin/HEAD</span><span class="fg3">, </span><span class="bold fg2">main</span><span class="fg3">)</span> More changes
-* <span class="fg3">288fca1</span><span class="fg3"> (</span><span class="bold fg6">HEAD</span><span class="fg3">)</span> Major refactor
+            <div class="output"><pre>* <span class="fg3">368e75e</span><span class="fg3"> (</span><span class="bold fg2">feature</span><span class="fg3">)</span> Learning about HEAD
+* <span class="fg3">9fb55f8</span> Added stuff
+* <span class="fg3">3df0f76</span><span class="fg3"> (</span><span class="bold fg1">upstream/main</span><span class="fg3">, </span><span class="bold fg1">origin/main</span><span class="fg3">, </span><span class="bold fg1">origin/HEAD</span><span class="fg3">, </span><span class="bold fg2">main</span><span class="fg3">)</span> Update
+* <span class="fg3">b177b73</span><span class="fg3"> (</span><span class="bold fg6">HEAD</span><span class="fg3">)</span> Update
+* <span class="fg3">7f45673</span> More changes
+* <span class="fg3">288fca1</span> Major refactor
 * <span class="fg3">6fb7939</span> Update
 * <span class="fg3">d2cfdef</span> Restored README
 * <span class="fg3">e05eaeb</span> Updated
-* <span class="fg3">5fd75db</span> Update
-* <span class="fg3">b430090</span> Update
-* <span class="fg3">cdfce3c</span> Update</pre></div>
+* <span class="fg3">5fd75db</span> Update</pre></div>
           </div>
         </foreignObject>
       </svg>
