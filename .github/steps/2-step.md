@@ -1,3 +1,305 @@
+## Lesson 2
+
+### Welcome Back
+
+If you're seeing this, it means you passed Lesson 1, great job!
+
+Let's start by creating a branch for today's work!
+
+<!--
+```shellSession
+$ git switch -c lesson/2
+```
+-->
+
+!['git switch -c lesson/2'](/.images/shell/2-step-shell-0.svg)
+
+### Handling common scenarios
+
+#### Restoring files
+
+As we demostrated in Lesson 1, once a file has been added to a repository, it's *almost* **impossible** to lose.  Luckily, most scenarios won't have us pulling up `git reflog`.
+
+One common scenario is accidentally deleting a file, here's what to do if that happens to you.
+
+Let's start by creating some files to accidentally delete:
+
+<!--
+```shellSession
+$ touch file1 file2 file3
+```
+-->
+
+!['touch file1 file2 file3'](/.images/shell/2-step-shell-1.svg)
+
+<!--
+```shellSession
+$ git add file*
+```
+-->
+
+!['git add file\*'](/.images/shell/2-step-shell-2.svg)
+
+<!--
+```shellSession
+$ git commit -m "Added some files"
+```
+-->
+
+!['git commit -m "Added some files"'](/.images/shell/2-step-shell-3.svg)
+
+Now let's delete them:
+
+<!--
+```shellSession
+$ rm file*
+```
+-->
+
+!['rm file\*'](/.images/shell/2-step-shell-4.svg)
+
+And making sure the files are deleted:
+
+<!--
+```shellSession
+$ ls -l
+```
+-->
+
+!['ls -l'](/.images/shell/2-step-shell-5.svg)
+
+Let's see what Git has to say:
+
+<!--
+```shellSession
+$ git status
+```
+-->
+
+!['git status'](/.images/shell/2-step-shell-6.svg)
+
+As expected, Git noticed the change to the *working directory*, namely, that we deleted our files.
+
+Helpfully, Git also tells us what command restores the file, `git restore`.
+
+Let's give it a try:
+
+<!--
+```shellSession
+$ git restore file1 file2 file3
+```
+-->
+
+!['git restore file1 file2 file3'](/.images/shell/2-step-shell-7.svg)
+
+Double-checking with an `ls -l`:
+
+<!--
+```shellSession
+$ ls -l
+```
+-->
+
+!['ls -l'](/.images/shell/2-step-shell-8.svg)
+
+Great!  But that was a lot of typing, let's try something...
+
+`git add` let's us do `git add .`, let's see if `git restore` lets us do the same:
+
+<!--
+```shellSession
+$ rm file1 file2 file3
+```
+-->
+
+!['rm file1 file2 file3'](/.images/shell/2-step-shell-9.svg)
+
+Checking...
+
+<!--
+```shellSession
+$ ls -l
+```
+-->
+
+!['ls -l'](/.images/shell/2-step-shell-10.svg)
+
+And...
+
+<!--
+```shellSession
+$ git restore .
+```
+-->
+
+!['git restore .'](/.images/shell/2-step-shell-11.svg)
+
+Yup...
+
+<!--
+```shellSession
+$ ls -l
+```
+-->
+
+!['ls -l'](/.images/shell/2-step-shell-12.svg)
+
+Cool!
+
+> While you're learning Git it's important to experiment.  You'll probably be using Git a lot, so it makes sense to get familiar as quickly as possible.
+
+#### Reverting a commit
+
+Occasionally, we'll need to "undo" a commit, and one way of doing that is with `git revert`
+
+First, let's clean up the directory:
+
+<!--
+```shellSession
+$ rm file* && git commit -am "Cleanup"
+```
+-->
+
+!['rm file\* && git commit -am "Cleanup"'](/.images/shell/2-step-shell-13.svg)
+
+Next, let's create three commits, two good and one "bad":
+
+<!--
+```shellSession
+$ echo "good" > file1
+$ git add file1
+$ git commit -m "Added feature 1"
+```
+-->
+
+!['echo "good" > file1'](/.images/shell/2-step-shell-14.svg)!['git add file1'](/.images/shell/2-step-shell-15.svg)!['git commit -m "Added feature 1"'](/.images/shell/2-step-shell-16.svg)
+
+The "bad" file:
+
+<!--
+```shellSession
+$ echo "bad" > file2
+$ git add file2
+$ git commit -m "Added feature 2"
+```
+-->
+
+!['echo "bad" > file2'](/.images/shell/2-step-shell-17.svg)!['git add file2'](/.images/shell/2-step-shell-18.svg)!['git commit -m "Added feature 2"'](/.images/shell/2-step-shell-19.svg)
+
+A "good" file:
+
+<!--
+```shellSession
+$ echo "good" > file3
+$ git add file3
+$ git commit -m "Added feature 3"
+```
+-->
+
+!['echo "good" > file3'](/.images/shell/2-step-shell-20.svg)!['git add file3'](/.images/shell/2-step-shell-21.svg)!['git commit -m "Added feature 3"'](/.images/shell/2-step-shell-22.svg)
+
+Now let's get rid of the "bad" commit, the one that was *one* commit ago:
+
+<!--
+```shellSession
+$ git revert HEAD~1 --no-edit
+```
+-->
+
+!['git revert HEAD~1 --no-edit'](/.images/shell/2-step-shell-23.svg)
+
+Let's see what that did:
+
+<!--
+```shellSession
+$ ls -l
+```
+-->
+
+!['ls -l'](/.images/shell/2-step-shell-24.svg)
+
+Cool, `file2` is missing, as we'd expect.  Let's check the log:
+
+<!--
+```shellSession
+$ git log -n 5
+```
+-->
+
+!['git log -n 5'](/.images/shell/2-step-shell-25.svg)
+
+Interesting, so the old commit is still in the history, but we have a new "revert" commit...
+
+To *really* get rid of a commit, we'll need to use `git rebase -i`, which we'll get to later.
+
+The benefit of `git revert` over `git rebase` is that it is a non-destructive change.  This is especially useful when working on a shared codebase.  More on this soon.t
+
+#### Amending a commit
+
+Another common scenario is making a typo in a commit message or committing too early.  Let's see how to handle both of these situations.
+
+First, let's create a commit message with a typo:
+
+<!--
+```shellSession
+$ git commit -m "Bug fiix" --allow-empty
+```
+-->
+
+!['git commit -m "Bug fiix" --allow-empty'](/.images/shell/2-step-shell-26.svg)
+
+> Git normally doesn't allow empty commits, unless you use the `--allow-empty` flag.
+
+<!--
+```shellSession
+$ git log -n 2
+```
+-->
+
+!['git log -n 2'](/.images/shell/2-step-shell-27.svg)
+
+Now that's a beaut.  Let's fix it with a `git commit --amend`:
+
+<!--
+```shellSession
+$ git commit -m "Fixed scrollbar bug" --amend
+```
+-->
+
+!['git commit -m "Fixed scrollbar bug" --amend'](/.images/shell/2-step-shell-28.svg)
+
+And checking `git log`:
+
+<!--
+```shellSession
+$ git log -n 2
+```
+-->
+
+!['git log -n 2'](/.images/shell/2-step-shell-29.svg)
+
+That was easy enough!
+
+## Wrapping Things Up
+
+Now let's push today's work back to GitHub.
+
+<!--
+```shellSession
+$ git push
+```
+-->
+
+!['git push'](/.images/shell/2-step-shell-30.svg)
+
+<!--
+```shellSession
+$ git push --set-upstream origin my-first-branch
+```
+-->
+
+!['git push --set-upstream origin my-first-branch'](/.images/shell/2-step-shell-31.svg)
+
 <!--
   <<< Author notes: Step 1 >>>
   Choose 3-5 steps for your course.
@@ -14,265 +316,3 @@ In this chapter we will be learning about:
 * `git cherry-pick`
 
 ## Advanced Topics
-
-### Tidying Up Your History
-
-Where we left off last we'd just created a branch called `my-first-branch` and pushed it to GitHub.
-
-To help speed things up, I've gone ahead and created `chapter2` for you.
-
-Let's do a `git pull` and to grab my changes:
-
-<!-- ```shell
-$ git pull
-``` -->
-
-!['git pull'](/images/2-step-shell-0.svg)
-
-And let's take a look at what we've got:
-
-<!-- ```shell
-$ git log -n 8
-``` -->
-
-!['git log -n 8'](/images/2-step-shell-1.svg)
-
-*Yeesh...* admittedly not my best work... but I was in a hurry!
-
-Luckily we can easily clean this up with a quick `git rebase --interactive`.
-
-First, we need to tell `git rebase --interactive` how many commits we want to... uh... *rebase*.
-
-From the `git log` output, we can rebase everything up until the commit that starts with `1d386eb` (of course, the commit id will be different in *your* repo).
-
-```shell
-$ git rebase --interactive HEAD~7
-```
-
-Which opens an editor window containing the following:
-
-```shell
-pick a445d3e Added chaptor2
-pick 630daf2 FIxed tyypo
-pick 8b7ca0e bugfix # empty
-pick e252de9 bugfix # empty
-pick 9c8c02c Added 'Section 1' to chapter2
-pick 3ae5885 fix
-pick f66977a fiix # empty
-
-# Rebase 1d386eb..f66977a onto 1d386eb (7 commands)
-#
-# Commands:
-# p, pick <commit> = use commit
-# r, reword <commit> = use commit, but edit the commit message
-# e, edit <commit> = use commit, but stop for amending
-# s, squash <commit> = use commit, but meld into previous commit
-# f, fixup [-C | -c] <commit> = like "squash" but keep only the previous
-#                    commit's log message, unless -C is used, in which case
-#                    keep only this commit's message; -c is same as -C but
-#                    opens the editor
-# x, exec <command> = run command (the rest of the line) using shell
-# b, break = stop here (continue rebase later with 'git rebase --continue')
-# d, drop <commit> = remove commit
-# l, label <label> = label current HEAD with a name
-# t, reset <label> = reset HEAD to a label
-# m, merge [-C <commit> | -c <commit>] <label> [# <oneline>]
-#         create a merge commit using the original merge commit's
-#         message (or the oneline, if no original merge commit was
-#         specified); use -c <commit> to reword the commit message
-# u, update-ref <ref> = track a placeholder for the <ref> to be updated
-#                       to this position in the new commits. The <ref> is
-#                       updated at the end of the rebase
-#
-# These lines can be re-ordered; they are executed from top to bottom.
-#
-# If you remove a line here THAT COMMIT WILL BE LOST.
-#
-# However, if you remove everything, the rebase will be aborted.
-#
-```
-
-Once again, Git helpfully tells us everything we need to know.
-
-```shell
-reword 2a48bfb Added chaptor2
-squash bb1735f FIxed tyypo
-squash 2b12579 bugfix # empty
-squash bb7102d bugfix # empty
-pick 47e5455 Added 'Section 1' to chapter2
-squash ecf8347 fix
-squash  2ca6445 fiix # empty
-```
-
-After we hit save, Git will walk us through the changes we asked for, allowing us to edit our commit messages along the way.
-
-```shell
-$ git rebase -i 606a5db1
-[detached HEAD f0517f6] Added Chapter 2
- Date: Thu Feb 29 12:08:03 2024 +0000
- 1 file changed, 1 insertion(+)
- create mode 100644 chapter2
-[detached HEAD 004fb28] Added Chapter 2
- Date: Thu Feb 29 12:08:03 2024 +0000
- 1 file changed, 1 insertion(+)
- create mode 100644 chapter2
-[detached HEAD 9e90441] Added 'Section 1' to chapter2
- Date: Thu Feb 29 12:08:07 2024 +0000
- 1 file changed, 2 insertions(+)
-Successfully rebased and updated refs/heads/my-first-branch.
-```
-
-And checking with a `git log`:
-
-<!--
-```shellSession
-$ git log -n 3
-```
--->
-
-!['git log -n 3'](/images/2-step-shell-2.svg)
-
-🤌🤌🤌
-
-Now we have to push our changes back to GitHub
-
-<!--
-```shellSession
-$ git push
-```
--->
-
-!['git push'](/images/2-step-shell-3.svg)
-
-<!--
-```shellSession
-$ git push --force
-```
--->
-
-!['git push --force'](/images/2-step-shell-4.svg)
-
-### Merging Back to Main
-
-Now we're ready to merge `chapter2` back into our `main` branch.
-
-Let's switch over the the `main` branch:
-
-<!--
-```shellSession
-$ git switch main
-```
--->
-
-!['git switch main'](/images/2-step-shell-5.svg)
-
-Hrm... what's this?  It looks like our `local` repository somehow got out of sync with the `remote` repository...
-
-Let's not worry about this for now, and just do what Git tells us, which is a `git pull`:
-
-<!--
-```shellSession
-$ git pull
-```
--->
-
-!['git pull'](/images/2-step-shell-6.svg)
-
-Ok, now let's merge our changes back to the `main` branch with:
-
-<!--
-```shellSession
-$ git merge --no-ff -m "Merging my-first-branch" my-first-branch
-```
--->
-
-!['git merge --no-ff -m "Merging my-first-branch" my-first-branch'](/images/2-step-shell-7.svg)
-
-And checking with `git log`:
-
-<!--
-```shellSession
-$ git log -n 5
-```
--->
-
-!['git log -n 5'](/images/2-step-shell-8.svg)
-
-Nice... but it feels a bit flat, let's try:
-
-<!--
-```shellSession
-$ git log --oneline --graph --decorate -n 10
-```
--->
-
-!['git log --oneline --graph --decorate -n 10'](/images/2-step-shell-9.svg)
-
-On second thought, we probably don't want that branch crudding up our repo until the end of time.  Let's bring in our changes using `git rebase` instead.
-
-First, we have to undo our changes.  Sure, we could use `git revert`, but that leaves a history of the branch.
-
-We'll have to use `git reset` to reset main back to before the merge, which, from the `git log` output above, is commit `606a5db`:
-
-<!--
-```shellSession
-$ git reset HEAD~ --hard
-```
--->
-
-!['git reset HEAD~ --hard'](/images/2-step-shell-10.svg)
-
-Now, let's bring in the changes from `my-first-branch` using the following:
-
-<!--
-```shellSession
-$ git rebase my-first-branch
-```
--->
-
-!['git rebase my-first-branch'](/images/2-step-shell-11.svg)
-
-And another `git log`:
-
-<!--
-```shellSession
-$ git log --oneline --graph --decorate -n 10
-```
--->
-
-!['git log --oneline --graph --decorate -n 10'](/images/2-step-shell-12.svg)
-
-Nice!
-
-Now we can get rid of the `my-first-branch` branch with a `git branch -d my-first-branch`:
-
-<!--
-```shellSession
-$ git branch -d my-first-branch
-```
-
-Er... I meant a `git branch -D my-first-branch`!
-
-
-<!--
-```shellSession
-$ git branch -D my-first-branch
-```
-
-
-<!--
-```shellSession
-$ git push
-```
-
-
-<!--
-```shellSession
-$ git pull
-```
-
-
-<!--
-```shellSession
-$ git push
-```

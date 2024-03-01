@@ -37,7 +37,7 @@ const processor = remark()
 
     // Remove all existing image nodes from the tree
     visit(tree, 'image', (node, index, parent) => {
-      if (node.url.startsWith('/images/shell')) {
+      if (node.url.startsWith('/.images/shell')) {
         console.log("Removing image node: " + node.url)
         parent.children.splice(index, Infinity);
       }

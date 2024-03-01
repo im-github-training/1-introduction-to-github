@@ -1,4 +1,4 @@
-## Introduction
+## Lesson 1
 
 ### Getting Started
 
@@ -202,7 +202,7 @@ $ touch file1 file2 file3
 ```
 -->
 
-!['touch table-of-contents about-the-author index'](/.images/shell/1-step-shell-13.svg)
+!['touch file1 file2 file3'](/.images/shell/1-step-shell-13.svg)
 
 Let's see if Git noticed this change to our ***working tree***:
 
@@ -573,232 +573,13 @@ $ git log --oneline --graph --decorate --all -n 10
 
 ***TADA!***
 
-### Handling common scenarios
-
-#### Restoring files
-
-One of the great things about Git is that once a file has been added to a repository, it's *almost* **impossible** to lose it.  We'll prove this out in later exercises, but let's start simple and `rm` some files:
-
-<!--
-```shellSession
-$ rm table-of-contents about-the-author index
-```
--->
-
-!['rm table-of-contents about-the-author index'](/.images/shell/1-step-shell-39.svg)
-
-Making sure the files are deleted:
-
-<!--
-```shellSession
-$ ls -l
-```
--->
-
-!['ls -l'](/.images/shell/1-step-shell-40.svg)
-
-Seeing what Git has to say:
-
-<!--
-```shellSession
-$ git status
-```
--->
-
-!['git status'](/.images/shell/1-step-shell-41.svg)
-
-As expected, Git noticed the change to the *working directory*, namely, that we deleted our files.
-
-Helpfully, Git also tells us what command restores the file, `git restore`.
-
-Let's give it a try:
-
-<!--
-```shellSession
-$ git restore table-of-contents about-the-author index
-```
--->
-
-!['git restore table-of-contents about-the-author index'](/.images/shell/1-step-shell-42.svg)
-
-Double-checking with an `ls -l`:
-
-<!--
-```shellSession
-$ ls -l
-```
--->
-
-!['ls -l'](/.images/shell/1-step-shell-43.svg)
-
-Great!  But that was a lot of typing, let's try something...
-
-`git add` let's us do `git add .`, let's see if `git restore` lets us do the same:
-
-<!--
-```shellSession
-$ rm table-of-contents about-the-author index
-```
--->
-
-!['rm table-of-contents about-the-author index'](/.images/shell/1-step-shell-44.svg)
-
-Checking...
-
-<!--
-```shellSession
-$ ls -l
-```
--->
-
-!['ls -l'](/.images/shell/1-step-shell-45.svg)
-
-And...
-
-<!--
-```shellSession
-$ git restore .
-```
--->
-
-!['git restore .'](/.images/shell/1-step-shell-46.svg)
-
-Yup...
-
-<!--
-```shellSession
-$ ls -l
-```
--->
-
-!['ls -l'](/.images/shell/1-step-shell-47.svg)
-
-Cool!
-
-> While you're learning Git it's important to experiment.  You'll probably be using Git a lot, so it makes sense to get familiar as quickly as possible.
-
-#### Amending a commit message
-
-Something that happens all the time is making a typo in a commit message or committing too early.  Let's see how to handle these situations.
-
-First, let's update our commit message:
-
-<!--
-```shellSession
-$ git commit -m "ToC, About Author, and Index" --amend
-
-$ git log -n 1
-```
--->
-
-!['git commit -m "ToC, About Author, and Index" --amend'](/.images/shell/1-step-shell-48.svg)!['git log -n 1'](/.images/shell/1-step-shell-49.svg)
-
-Great!
-
-Now, let's make an update to `chapter1` and add it to the commit:
-
-<!--
-```shellSession
-$ echo "# Chapter 1" >> chapter1
-
-$ cat chapter1
-
-$ git add chapter1
-$ git commit --amend --no-edit
-```
--->
-
-!['echo "# Chapter 1" >> chapter1'](/.images/shell/1-step-shell-50.svg)!['cat chapter1'](/.images/shell/1-step-shell-51.svg)!['git add chapter1'](/.images/shell/1-step-shell-52.svg)!['git commit --amend --no-edit'](/.images/shell/1-step-shell-53.svg)
-
-And checking with `git log`, we can see the commit id has updated:
-
-<!--
-```shellSession
-$ git log -n 1
-```
--->
-
-!['git log -n 1'](/.images/shell/1-step-shell-54.svg)
-
-> **Note:** Here we used the `--no-edit` flag, which allows us to skip retyping the commit message.
-
-#### Reverting a commit
-
-Occasionally, we'll need to "undo" a commit, and one way of doing that is with `git revert`
-
-First, let's create a commit that we can revert.
-
-<!--
-```shellSession
-$ echo "Lorum ipsum" >> chapter1
-
-$ cat chapter1
-```
--->
-
-!['echo "Lorum ipsum" >> chapter1'](/.images/shell/1-step-shell-55.svg)!['cat chapter1'](/.images/shell/1-step-shell-56.svg)
-
-So, now `chapter1` has a new line, "Lorum ipsum" added to it.
-
-Let's go ahead and commit that:
-
-<!--
-```shellSession
-$ git commit -am "Brainstorming"
-```
--->
-
-!['git commit -am "Brainstorming"'](/.images/shell/1-step-shell-57.svg)
-
-> **Note:** Here we used the `-a` flag which automatically `git add`s all changes found in tracked files.
-
-Let's check with `git log` to confirm the new commit's there:
-
-<!--
-```shellSession
-$ git log -n 2
-```
--->
-
-!['git log -n 2'](/.images/shell/1-step-shell-58.svg)
-
-And now let's revert the commit:
-
-<!--
-```shellSession
-$ git revert HEAD --no-edit
-```
--->
-
-!['git revert HEAD --no-edit'](/.images/shell/1-step-shell-59.svg)
-
-Once again checking with `git log`:
-
-<!--
-```shellSession
-$ git log -n 2
-```
--->
-
-!['git log -n 2'](/.images/shell/1-step-shell-60.svg)
-
-Yup, and now let's check the contents of `chapter1`:
-
-<!--
-```shellSession
-$ cat chapter1
-```
--->
-
-!['cat chapter1'](/.images/shell/1-step-shell-61.svg)
-
-And there you go!
-
-But what's with the `HEAD` thing?  We'll get to that soon...
-
 ## Wrapping Things Up
 
-Now let's push today's work back to GitHub.
+Phew, that was a whirlwind tour of Git, let's end things on a high-note.
+
+Once you're ready, push your changes back to GitHub.
+
+We'll grade your work and update your repo's `README.md` with instructions for Lesson 2.
 
 <!--
 ```shellSession
@@ -810,25 +591,8 @@ $ git push
 
 <!--
 ```shellSession
-$ git push --set-upstream origin my-first-branch
+$ git push --set-upstream origin feature
 ```
 -->
 
 !['git push --set-upstream origin my-first-branch'](/.images/shell/1-step-shell-63.svg)
-
-<!--
-  <<< Author notes: Step 1 >>>
-  Choose 3-5 steps for your course.
-  The first step is always the hardest, so pick something easy!
-  Link to docs.github.com for further explanations.
-  Encourage users to open new tabs for steps!
--->
-
-In this chapter we will be learning about:
-
-* `git rebase`
-* `git reset`
-* `git merge`
-* `git cherry-pick`
-
-## Advanced Topics
