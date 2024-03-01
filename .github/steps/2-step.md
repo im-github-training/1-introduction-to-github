@@ -124,13 +124,31 @@ Successfully rebased and updated refs/heads/my-first-branch.
 
 And checking with a `git log`:
 
+<!--
+```shellSession
+$ git log -n 3
+```
+-->
+
 !['git log -n 3'](/images/2-step-shell-2.svg)
 
 🤌🤌🤌
 
 Now we have to push our changes back to GitHub
 
+<!--
+```shellSession
+$ git push
+```
+-->
+
 !['git push'](/images/2-step-shell-3.svg)
+
+<!--
+```shellSession
+$ git push --force
+```
+-->
 
 !['git push --force'](/images/2-step-shell-4.svg)
 
@@ -140,23 +158,53 @@ Now we're ready to merge `chapter2` back into our `main` branch.
 
 Let's switch over the the `main` branch:
 
+<!--
+```shellSession
+$ git switch main
+```
+-->
+
 !['git switch main'](/images/2-step-shell-5.svg)
 
 Hrm... what's this?  It looks like our `local` repository somehow got out of sync with the `remote` repository...
 
 Let's not worry about this for now, and just do what Git tells us, which is a `git pull`:
 
+<!--
+```shellSession
+$ git pull
+```
+-->
+
 !['git pull'](/images/2-step-shell-6.svg)
 
 Ok, now let's merge our changes back to the `main` branch with:
+
+<!--
+```shellSession
+$ git merge --no-ff -m "Merging my-first-branch" my-first-branch
+```
+-->
 
 !['git merge --no-ff -m "Merging my-first-branch" my-first-branch'](/images/2-step-shell-7.svg)
 
 And checking with `git log`:
 
+<!--
+```shellSession
+$ git log -n 5
+```
+-->
+
 !['git log -n 5'](/images/2-step-shell-8.svg)
 
 Nice... but it feels a bit flat, let's try:
+
+<!--
+```shellSession
+$ git log --oneline --graph --decorate -n 10
+```
+-->
 
 !['git log --oneline --graph --decorate -n 10'](/images/2-step-shell-9.svg)
 
@@ -166,13 +214,31 @@ First, we have to undo our changes.  Sure, we could use `git revert`, but that l
 
 We'll have to use `git reset` to reset main back to before the merge, which, from the `git log` output above, is commit `606a5db`:
 
+<!--
+```shellSession
+$ git reset HEAD~ --hard
+```
+-->
+
 !['git reset HEAD~ --hard'](/images/2-step-shell-10.svg)
 
 Now, let's bring in the changes from `my-first-branch` using the following:
 
+<!--
+```shellSession
+$ git rebase my-first-branch
+```
+-->
+
 !['git rebase my-first-branch'](/images/2-step-shell-11.svg)
 
 And another `git log`:
+
+<!--
+```shellSession
+$ git log --oneline --graph --decorate -n 10
+```
+-->
 
 !['git log --oneline --graph --decorate -n 10'](/images/2-step-shell-12.svg)
 
@@ -180,14 +246,33 @@ Nice!
 
 Now we can get rid of the `my-first-branch` branch with a `git branch -d my-first-branch`:
 
-!['git branch -d my-first-branch'](/images/2-step-shell-13.svg)
+<!--
+```shellSession
+$ git branch -d my-first-branch
+```
 
 Er... I meant a `git branch -D my-first-branch`!
 
-!['git branch -D my-first-branch'](/images/2-step-shell-14.svg)
 
-!['git push'](/images/2-step-shell-15.svg)
+<!--
+```shellSession
+$ git branch -D my-first-branch
+```
 
-!['git pull'](/images/2-step-shell-16.svg)
 
-!['git push'](/images/2-step-shell-17.svg)
+<!--
+```shellSession
+$ git push
+```
+
+
+<!--
+```shellSession
+$ git pull
+```
+
+
+<!--
+```shellSession
+$ git push
+```

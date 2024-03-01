@@ -52,6 +52,8 @@ $ git switch -c my-first-branch
 
 !['git switch -c my-first-branch'](/images/1-step-shell-1.svg)
 
+
+
 ### Our First Commit
 
 Now, let's create a file for Chapter 1 called `chapter1`.
@@ -66,6 +68,8 @@ $ touch chapter1
 
 !['touch chapter1'](/images/1-step-shell-2.svg)
 
+
+
 Let's see if Git noticed this change to our `working tree` by typing `git status`:
 
 <!--
@@ -75,6 +79,8 @@ $ git status
 -->
 
 !['git status'](/images/1-step-shell-3.svg)
+
+
 
 Great, Git noticed that we added the file, but is saying it's *untracked*.
 
@@ -92,6 +98,8 @@ $ git add chapter1
 
 !['git add chapter1'](/images/1-step-shell-4.svg)
 
+
+
 Let's see how things look now:
 
 <!--
@@ -101,6 +109,8 @@ $ git status
 -->
 
 !['git status'](/images/1-step-shell-5.svg)
+
+
 
 Alright, it looks like `chapter1` file is staged and ready to be committed!
 
@@ -114,6 +124,8 @@ $ git commit -m "Added chapter1"
 
 !['git commit -m "Added chapter1"'](/images/1-step-shell-6.svg)
 
+
+
 Let's see what `git status` says now that the file's been committed:
 
 <!--
@@ -123,6 +135,8 @@ $ git status
 -->
 
 !['git status'](/images/1-step-shell-7.svg)
+
+
 
 Nice, looks like the file was moved from the staging area to the repository!
 
@@ -135,6 +149,8 @@ $ git log -n 1
 -->
 
 !['git log -n 1'](/images/1-step-shell-8.svg)
+
+
 
 Perfect!
 
@@ -156,6 +172,8 @@ $ git status
 
 !['rm chapter1'](/images/1-step-shell-9.svg)!['ls -l'](/images/1-step-shell-10.svg)!['git status'](/images/1-step-shell-11.svg)
 
+
+
 As expected, Git noticed the change to the *working directory*, namely, that `chapter1` was deleted.
 
 Helpfully, Git also tells us what command restores the file, `git restore`.
@@ -170,6 +188,8 @@ $ git restore chapter1
 
 !['git restore chapter1'](/images/1-step-shell-12.svg)
 
+
+
 Double-checking with an `ls -l` shows us that `chapter1` has been
 
 <!--
@@ -179,6 +199,8 @@ $ ls -l
 -->
 
 !['ls -l'](/images/1-step-shell-13.svg)
+
+
 
 #### Amending commits
 
@@ -195,6 +217,8 @@ $ git log -n 1
 -->
 
 !['git commit -m "Added Chapter 1" --amend'](/images/1-step-shell-14.svg)!['git log -n 1'](/images/1-step-shell-15.svg)
+
+
 
 Great!
 
@@ -213,6 +237,8 @@ $ git commit --amend --no-edit
 
 !['echo "# Chapter 1" >> chapter1'](/images/1-step-shell-16.svg)!['cat chapter1'](/images/1-step-shell-17.svg)!['git add chapter1'](/images/1-step-shell-18.svg)!['git commit --amend --no-edit'](/images/1-step-shell-19.svg)
 
+
+
 And checking with `git log`, we can see the commit id has updated:
 
 <!--
@@ -222,6 +248,8 @@ $ git log -n 1
 -->
 
 !['git log -n 1'](/images/1-step-shell-20.svg)
+
+
 
 > **Note:** Here we used the `--no-edit` flag, which allows us to skip retyping the commit message.
 
@@ -241,6 +269,8 @@ $ cat chapter1
 
 !['echo "Lorum ipsum" >> chapter1'](/images/1-step-shell-21.svg)!['cat chapter1'](/images/1-step-shell-22.svg)
 
+
+
 So, now `chapter1` has a new line, "Lorum ipsum" added to it.
 
 Let's go ahead and commit that:
@@ -252,6 +282,8 @@ $ git commit -am "Brainstorming"
 -->
 
 !['git commit -am "Brainstorming"'](/images/1-step-shell-23.svg)
+
+
 
 > **Note:** Here we used the `-a` flag which automatically `git add`s all changes found in tracked files.
 
@@ -265,6 +297,8 @@ $ git log -n 2
 
 !['git log -n 2'](/images/1-step-shell-24.svg)
 
+
+
 And now let's revert the commit:
 
 <!--
@@ -274,6 +308,8 @@ $ git revert HEAD --no-edit
 -->
 
 !['git revert HEAD --no-edit'](/images/1-step-shell-25.svg)
+
+
 
 Once again checking with `git log`:
 
@@ -285,6 +321,8 @@ $ git log -n 2
 
 !['git log -n 2'](/images/1-step-shell-26.svg)
 
+
+
 Yup, and now let's check the contents of `chapter1`:
 
 <!--
@@ -294,6 +332,8 @@ $ cat chapter1
 -->
 
 !['cat chapter1'](/images/1-step-shell-27.svg)
+
+
 
 And there you go!
 
@@ -311,6 +351,8 @@ $ git push
 
 !['git push'](/images/1-step-shell-28.svg)
 
+
+
 <!--
 ```shellSession
 $ git push --set-upstream origin my-first-branch
@@ -318,3 +360,4 @@ $ git push --set-upstream origin my-first-branch
 -->
 
 !['git push --set-upstream origin my-first-branch'](/images/1-step-shell-29.svg)
+

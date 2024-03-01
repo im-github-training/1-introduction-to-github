@@ -1,5 +1,5 @@
 <!-- Created with term-transcript v0.3.0 (https://github.com/slowli/term-transcript) -->
-<svg viewBox="0 0 720 174" width="720" height="174" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 720 300" width="720" height="300" xmlns="http://www.w3.org/2000/svg">
   <switch>
     <g requiredExtensions="http://www.w3.org/1999/xhtml">
       <style>
@@ -57,17 +57,24 @@
         .fg15 { color: #f3f3f3; } .bg15 { background: #f3f3f3; }
       </style>
       <rect width="100%" height="100%" y="0" rx="4.5" style="fill: #1c1c1c;" />
-      <svg x="0" y="10" width="720" height="154" viewBox="0 0 720 154">
-        <foreignObject width="720" height="154">
+      <svg x="0" y="10" width="720" height="280" viewBox="0 0 720 280">
+        <foreignObject width="720" height="280">
           <div xmlns="http://www.w3.org/1999/xhtml" class="container">
             <div class="input"><pre><span class="prompt">$</span> git push --set-upstream origin my-first-branch</pre></div>
-            <div class="output"><pre>To https://github.com/im-sampm/exercises.git
- <span class="fg1">! [rejected]       </span> my-first-branch -&gt; my-first-branch (non-fast-forward)
-<span class="fg1">error: failed to push some refs to 'https://github.com/im-sampm/exercises.git'
-</span><span class="fg3">hint: Updates were rejected because the tip of your current branch is behind</span>
-<span class="fg3">hint: its remote counterpart. If you want to integrate the remote changes,</span>
-<span class="fg3">hint: use 'git pull' before pushing again.</span>
-<span class="fg3">hint: See the 'Note about fast-forwards' in 'git push --help' for details.</span></pre></div>
+            <div class="output"><pre>Enumerating objects: 10, done.
+Counting objects: 100% (10/10), done.
+Delta compression using up to 6 threads
+Compressing objects: 100% (5/5), done.
+Writing objects: 100% (9/9), 764 bytes | 15.00 KiB/s, done.
+Total 9 (delta 3), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (3/3), completed with 1 local object.
+remote: 
+remote: Create a pull request for 'my-first-branch' on GitHub by visiting:
+remote:      https://github.com/im-sampm/exercises/pull/new/my-first-branch
+remote: 
+To https://github.com/im-sampm/exercises.git
+ * [new branch]      my-first-branch -&gt; my-first-branch
+branch 'my-first-branch' set up to track 'origin/my-first-branch'.</pre></div>
           </div>
         </foreignObject>
       </svg>

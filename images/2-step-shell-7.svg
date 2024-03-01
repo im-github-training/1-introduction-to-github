@@ -60,7 +60,7 @@
       <svg x="0" y="10" width="720" height="136" viewBox="0 0 720 136">
         <foreignObject width="720" height="136">
           <div xmlns="http://www.w3.org/1999/xhtml" class="container">
-            <div class="input" data-exit-status="0"><pre><span class="prompt">$</span> git merge --no-ff -m &quot;Merging my-first-branch&quot; my-first-branch</pre></div>
+            <div class="input"><pre><span class="prompt">$</span> git merge --no-ff -m &quot;Merging my-first-branch&quot; my-first-branch</pre></div>
             <div class="output"><pre>Merge made by the 'ort' strategy.
  book/chapter1 | 1 <span class="fg2">+</span>
  chapter2      | 3 <span class="fg2">+++</span>

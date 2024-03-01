@@ -60,17 +60,17 @@
       <svg x="0" y="10" width="720" height="226" viewBox="0 0 720 226">
         <foreignObject width="720" height="226">
           <div xmlns="http://www.w3.org/1999/xhtml" class="container">
-            <div class="input" data-exit-status="0"><pre><span class="prompt">$</span> git log --oneline --graph --decorate -n 10</pre></div>
-            <div class="output"><pre>* <span class="fg3">5ddcaf9</span><span class="fg3"> (</span><span class="bold fg6">HEAD</span><span class="fg3"> -&gt; </span><span class="bold fg2">main</span><span class="fg3">, </span><span class="bold fg1">origin/my-first-branch</span><span class="fg3">, </span><span class="bold fg2">my-first-branch</span><span class="fg3">)</span> Added 'Section<b class="hard-br"><br/></b> 1' to chapter2
-* <span class="fg3">b2cc61d</span> Added Chapter 2
-* <span class="fg3">09d12a2</span> Update to 2 in STEP and README.md
-* <span class="fg3">b31d89b</span> Revert "Brainstorming"
-* <span class="fg3">3323718</span> Brainstorming
-* <span class="fg3">a838485</span> Added Chapter 1
-* <span class="fg3">4082a2b</span><span class="fg3"> (</span><span class="bold fg1">upstream/main</span><span class="fg3">)</span> Update
-* <span class="fg3">6eb2b9e</span> Update
-* <span class="fg3">e0238a8</span> Update
-* <span class="fg3">386d6ab</span> Update</pre></div>
+            <div class="input"><pre><span class="prompt">$</span> git log --oneline --graph --decorate -n 10</pre></div>
+            <div class="output"><pre>* <span class="fg3">e55a084</span><span class="fg3"> (</span><span class="bold fg6">HEAD</span><span class="fg3"> -&gt; </span><span class="bold fg2">main</span><span class="fg3">, </span><span class="bold fg1">origin/my-first-branch</span><span class="fg3">, </span><span class="bold fg2">my-first-branch</span><span class="fg3">)</span> Added 'Section<b class="hard-br"><br/></b> 1' to Chapter 2
+* <span class="fg3">2b8da3b</span> Added Chapter 2
+* <span class="fg3">b0a33ea</span> Update to 2 in STEP and README.md
+* <span class="fg3">ff764c6</span> Revert "Brainstorming"
+* <span class="fg3">4248fb7</span> Brainstorming
+* <span class="fg3">6e8e991</span> Added Chapter 1
+* <span class="fg3">83986bd</span><span class="fg3"> (</span><span class="bold fg1">upstream/main</span><span class="fg3">)</span> Update
+* <span class="fg3">f8f494d</span> Update
+* <span class="fg3">769736b</span> Update
+* <span class="fg3">4082a2b</span> Update</pre></div>
           </div>
         </foreignObject>
       </svg>

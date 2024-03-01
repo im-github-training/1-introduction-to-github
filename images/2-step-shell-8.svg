@@ -60,35 +60,35 @@
       <svg x="0" y="10" width="720" height="586" viewBox="0 0 720 586">
         <foreignObject width="720" height="586">
           <div xmlns="http://www.w3.org/1999/xhtml" class="container">
-            <div class="input" data-exit-status="0"><pre><span class="prompt">$</span> git log -n 5</pre></div>
-            <div class="output"><pre><span class="fg3">commit 0b3798cb5c8fbf8d89bff3216d85a6ffd870febf</span><span class="fg3"> (</span><span class="bold fg6">HEAD</span><span class="fg3"> -&gt; </span><span class="bold fg2">main</span><span class="fg3">)</span>
-Merge: e953098 5ddcaf9
+            <div class="input"><pre><span class="prompt">$</span> git log -n 5</pre></div>
+            <div class="output"><pre><span class="fg3">commit 6cc7802b8f2f8c1a6ccc01c34cc58197a712b275</span><span class="fg3"> (</span><span class="bold fg6">HEAD</span><span class="fg3"> -&gt; </span><span class="bold fg2">main</span><span class="fg3">)</span>
+Merge: 937bb47 e55a084
 Author: Sam Peddamatham &lt;sam.pm@infomagnus.com&gt;
-Date:   Thu Feb 29 17:09:38 2024 +0000
+Date:   Fri Mar 1 00:55:05 2024 +0000
 
     Merging my-first-branch
 
-<span class="fg3">commit 5ddcaf9fffaebf50c455228b38fe74ddbc2b43f8</span><span class="fg3"> (</span><span class="bold fg1">origin/my-first-branch</span><span class="fg3">, </span><span class="bold fg2">my-firs<b class="hard-br"><br/></b>t-branch</span><span class="fg3">)</span>
+<span class="fg3">commit e55a0846a2f7e859abc3cd27ba7f0bbfa63449d6</span><span class="fg3"> (</span><span class="bold fg1">origin/my-first-branch</span><span class="fg3">, </span><span class="bold fg2">my-firs<b class="hard-br"><br/></b>t-branch</span><span class="fg3">)</span>
 Author: github-actions[bot] &lt;github-actions[bot]@users.noreply.github.com&gt;
-Date:   Thu Feb 29 17:07:40 2024 +0000
+Date:   Fri Mar 1 00:50:34 2024 +0000
 
-    Added 'Section 1' to chapter2
+    Added 'Section 1' to Chapter 2
 
-<span class="fg3">commit b2cc61d05f8a7131f8d94757757f1e66d9b277d6</span>
+<span class="fg3">commit 2b8da3b78d57f1241da912a53da5dc394acde81e</span>
 Author: github-actions[bot] &lt;github-actions[bot]@users.noreply.github.com&gt;
-Date:   Thu Feb 29 17:07:40 2024 +0000
+Date:   Fri Mar 1 00:50:34 2024 +0000
 
     Added Chapter 2
 
-<span class="fg3">commit e9530984edbf668fbc43937f6fdde8adb7189bad</span><span class="fg3"> (</span><span class="bold fg1">origin/main</span><span class="fg3">, </span><span class="bold fg1">origin/HEAD</span><span class="fg3">)</span>
+<span class="fg3">commit b0a33eaa38022f67013595fd0227694940f422db</span>
 Author: github-actions[bot] &lt;github-actions[bot]@users.noreply.github.com&gt;
-Date:   Thu Feb 29 17:07:39 2024 +0000
+Date:   Fri Mar 1 00:50:33 2024 +0000
 
     Update to 2 in STEP and README.md
 
-<span class="fg3">commit 09d12a24b67823ecb26f45a6afdd476a98526a89</span>
+<span class="fg3">commit 937bb4782d9bb477b8454f02f2c425104b327200</span><span class="fg3"> (</span><span class="bold fg1">origin/main</span><span class="fg3">, </span><span class="bold fg1">origin/HEAD</span><span class="fg3">)</span>
 Author: github-actions[bot] &lt;github-actions[bot]@users.noreply.github.com&gt;
-Date:   Thu Feb 29 17:07:39 2024 +0000
+Date:   Fri Mar 1 00:50:33 2024 +0000
 
     Update to 2 in STEP and README.md</pre></div>
           </div>

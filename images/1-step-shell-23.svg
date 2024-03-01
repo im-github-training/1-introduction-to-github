@@ -61,7 +61,7 @@
         <foreignObject width="720" height="64">
           <div xmlns="http://www.w3.org/1999/xhtml" class="container">
             <div class="input"><pre><span class="prompt">$</span> git commit -am &quot;Brainstorming&quot;</pre></div>
-            <div class="output"><pre>[my-first-branch a6c6702] Brainstorming
+            <div class="output"><pre>[my-first-branch 4248fb7] Brainstorming
  1 file changed, 1 insertion(+)</pre></div>
           </div>
         </foreignObject>

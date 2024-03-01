@@ -22,12 +22,6 @@
         }
         .input-hidden { display: none; }
         .output { margin-bottom: 6px; }
-        .input-failure {
-          border-left: 2px solid #ff005b;
-          border-right: 2px solid #ff005b;
-          background: rgba(255, 0, 65, 0.15);
-        }
-
         .bold,.prompt { font-weight: bold; }
         .italic { font-style: italic; }
         .underline { text-decoration: underline; }
@@ -66,7 +60,7 @@
       <svg x="0" y="10" width="720" height="154" viewBox="0 0 720 154">
         <foreignObject width="720" height="154">
           <div xmlns="http://www.w3.org/1999/xhtml" class="container">
-            <div class="input input-failure" data-exit-status="1" title="This command exited with non-zero code"><pre><span class="prompt">$</span> git push</pre></div>
+            <div class="input"><pre><span class="prompt">$</span> git push</pre></div>
             <div class="output"><pre>To https://github.com/im-sampm/exercises.git
  <span class="fg1">! [rejected]       </span> my-first-branch -&gt; my-first-branch (non-fast-forward)
 <span class="fg1">error: failed to push some refs to 'https://github.com/im-sampm/exercises.git'

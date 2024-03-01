@@ -60,16 +60,16 @@
       <svg x="0" y="10" width="720" height="190" viewBox="0 0 720 190">
         <foreignObject width="720" height="190">
           <div xmlns="http://www.w3.org/1999/xhtml" class="container">
-            <div class="input" data-exit-status="0"><pre><span class="prompt">$</span> git push --force</pre></div>
-            <div class="output"><pre>Enumerating objects: 7, done.
-Counting objects: 100% (7/7), done.
+            <div class="input"><pre><span class="prompt">$</span> git push --force</pre></div>
+            <div class="output"><pre>Enumerating objects: 8, done.
+Counting objects: 100% (8/8), done.
 Delta compression using up to 6 threads
 Compressing objects: 100% (4/4), done.
-Writing objects: 100% (6/6), 654 bytes | 15.00 KiB/s, done.
+Writing objects: 100% (6/6), 654 bytes | 19.00 KiB/s, done.
 Total 6 (delta 2), reused 0 (delta 0), pack-reused 0
 remote: Resolving deltas: 100% (2/2), completed with 1 local object.
 To https://github.com/im-sampm/exercises.git
- + bb7cf1d...5ddcaf9 my-first-branch -&gt; my-first-branch (forced update)</pre></div>
+ + 90db274...e55a084 my-first-branch -&gt; my-first-branch (forced update)</pre></div>
           </div>
         </foreignObject>
       </svg>

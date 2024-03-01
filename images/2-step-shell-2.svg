@@ -60,22 +60,22 @@
       <svg x="0" y="10" width="720" height="334" viewBox="0 0 720 334">
         <foreignObject width="720" height="334">
           <div xmlns="http://www.w3.org/1999/xhtml" class="container">
-            <div class="input" data-exit-status="0"><pre><span class="prompt">$</span> git log -n 3</pre></div>
-            <div class="output"><pre><span class="fg3">commit 5ddcaf9fffaebf50c455228b38fe74ddbc2b43f8</span><span class="fg3"> (</span><span class="bold fg6">HEAD</span><span class="fg3"> -&gt; </span><span class="bold fg2">my-first-branch</span><span class="fg3">)</span>
+            <div class="input"><pre><span class="prompt">$</span> git log -n 3</pre></div>
+            <div class="output"><pre><span class="fg3">commit e55a0846a2f7e859abc3cd27ba7f0bbfa63449d6</span><span class="fg3"> (</span><span class="bold fg6">HEAD</span><span class="fg3"> -&gt; </span><span class="bold fg2">my-first-branch</span><span class="fg3">)</span>
 Author: github-actions[bot] &lt;github-actions[bot]@users.noreply.github.com&gt;
-Date:   Thu Feb 29 17:07:40 2024 +0000
+Date:   Fri Mar 1 00:50:34 2024 +0000
 
-    Added 'Section 1' to chapter2
+    Added 'Section 1' to Chapter 2
 
-<span class="fg3">commit b2cc61d05f8a7131f8d94757757f1e66d9b277d6</span>
+<span class="fg3">commit 2b8da3b78d57f1241da912a53da5dc394acde81e</span>
 Author: github-actions[bot] &lt;github-actions[bot]@users.noreply.github.com&gt;
-Date:   Thu Feb 29 17:07:40 2024 +0000
+Date:   Fri Mar 1 00:50:34 2024 +0000
 
     Added Chapter 2
 
-<span class="fg3">commit 09d12a24b67823ecb26f45a6afdd476a98526a89</span>
+<span class="fg3">commit b0a33eaa38022f67013595fd0227694940f422db</span>
 Author: github-actions[bot] &lt;github-actions[bot]@users.noreply.github.com&gt;
-Date:   Thu Feb 29 17:07:39 2024 +0000
+Date:   Fri Mar 1 00:50:33 2024 +0000
 
     Update to 2 in STEP and README.md</pre></div>
           </div>

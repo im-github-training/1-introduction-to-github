@@ -6,7 +6,7 @@ gh repo fork https://github.com/im-github-training/exercises.git --clone --defau
 
 read -p "Go to your repo and enable Actions, then press enter to continue"
 
-node update-shell.mjs .github/steps-md/1-step.md exercises/book 0
+node update-shell-comments.mjs .github/steps/1-step.md exercises/book 0
 
 read -p "Wait until the step 2 workflow completes, then press enter to continue"
 
@@ -22,4 +22,4 @@ read -p "Finish rebasing, then press enter to continue"
 
 cd ..
 
-node update-shell.mjs .github/steps-md/2-step.md exercises/book 2
+node update-shell-comments.mjs .github/steps/2-step.md exercises/book 2

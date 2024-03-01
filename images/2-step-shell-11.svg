@@ -60,8 +60,8 @@
       <svg x="0" y="10" width="720" height="100" viewBox="0 0 720 100">
         <foreignObject width="720" height="100">
           <div xmlns="http://www.w3.org/1999/xhtml" class="container">
-            <div class="input" data-exit-status="0"><pre><span class="prompt">$</span> git rebase my-first-branch</pre></div>
-            <div class="output"><pre>warning: skipped previously applied commit e953098
+            <div class="input"><pre><span class="prompt">$</span> git rebase my-first-branch</pre></div>
+            <div class="output"><pre>warning: skipped previously applied commit 937bb47
 <span class="fg3">hint: use --reapply-cherry-picks to include skipped commits</span>
 <span class="fg3">hint: Disable this message with "git config advice.skippedCherryPicks false"</span>
 Successfully rebased and updated refs/heads/main.</pre></div>
