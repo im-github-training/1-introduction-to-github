@@ -61,16 +61,16 @@
         <foreignObject width="720" height="244">
           <div xmlns="http://www.w3.org/1999/xhtml" class="container">
             <div class="input"><pre><span class="prompt">$</span> git switch -</pre></div>
-            <div class="output"><pre>Updating files: 100% (190/190), done.
+            <div class="output"><pre>Updating files: 100% (194/194), done.
 Warning: you are leaving 1 commit behind, not connected to
 any of your branches:
 
-  6092fab Testing detached HEAD
+  5a9a366 Testing detached HEAD
 
 If you want to keep it by creating a new branch, this may be a good time
 to do so with:
 
- git branch &lt;new-branch-name&gt; 6092fab
+ git branch &lt;new-branch-name&gt; 5a9a366
 
 Switched to branch 'my-book'</pre></div>
           </div>

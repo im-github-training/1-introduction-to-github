@@ -61,7 +61,7 @@
         <foreignObject width="720" height="370">
           <div xmlns="http://www.w3.org/1999/xhtml" class="container">
             <div class="input"><pre><span class="prompt">$</span> git checkout HEAD~3</pre></div>
-            <div class="output"><pre>Updating files: 100% (189/189), done.
+            <div class="output"><pre>Updating files: 100% (193/193), done.
 Note: switching to 'HEAD~3'.
 
 You are in 'detached HEAD' state. You can look around, make experimental
@@ -79,7 +79,7 @@ Or undo this operation with:
 
 Turn off this advice by setting config variable advice.detachedHead to false
 
-HEAD is now at 6fb7939 Update</pre></div>
+HEAD is now at 288fca1 Major refactor</pre></div>
           </div>
         </foreignObject>
       </svg>

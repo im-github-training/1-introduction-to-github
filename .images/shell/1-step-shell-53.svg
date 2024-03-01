@@ -61,8 +61,8 @@
         <foreignObject width="720" height="118">
           <div xmlns="http://www.w3.org/1999/xhtml" class="container">
             <div class="input"><pre><span class="prompt">$</span> git commit --amend --no-edit</pre></div>
-            <div class="output"><pre>[my-book 35ea530] ToC, About Author, and Index
- Date: Fri Mar 1 10:04:52 2024 +0000
+            <div class="output"><pre>[my-book 8183e9b] ToC, About Author, and Index
+ Date: Fri Mar 1 10:08:31 2024 +0000
  2 files changed, 1 insertion(+)
  create mode 100644 book/chapter1
  create mode 100644 book/head-test</pre></div>

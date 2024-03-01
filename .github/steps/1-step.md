@@ -24,7 +24,7 @@ $ git status
 ```
  -->
 
-!['git status'](/images/shell/1-step-shell-0.svg)
+!['git status'](/.images/shell/1-step-shell-0.svg)
 
 
 
@@ -60,7 +60,7 @@ $ git branch
 ```
 -->
 
-!['git branch'](/images/shell/1-step-shell-1.svg)
+!['git branch'](/.images/shell/1-step-shell-1.svg)
 
 
 
@@ -76,7 +76,7 @@ $ git branch my-book
 ```
 -->
 
-!['git branch my-book'](/images/shell/1-step-shell-2.svg)
+!['git branch my-book'](/.images/shell/1-step-shell-2.svg)
 
 
 
@@ -88,7 +88,7 @@ $ git branch
 ```
 -->
 
-!['git branch'](/images/shell/1-step-shell-3.svg)
+!['git branch'](/.images/shell/1-step-shell-3.svg)
 
 
 
@@ -104,7 +104,7 @@ $ git switch my-book
 ```
 -->
 
-!['git switch my-book'](/images/shell/1-step-shell-4.svg)
+!['git switch my-book'](/.images/shell/1-step-shell-4.svg)
 
 
 
@@ -116,7 +116,7 @@ $ git branch
 ```
 -->
 
-!['git branch'](/images/shell/1-step-shell-5.svg)
+!['git branch'](/.images/shell/1-step-shell-5.svg)
 
 
 
@@ -130,7 +130,7 @@ $ git switch -c throwaway
 ```
 -->
 
-!['git switch -c throwaway'](/images/shell/1-step-shell-6.svg)
+!['git switch -c throwaway'](/.images/shell/1-step-shell-6.svg)
 
 
 
@@ -142,7 +142,7 @@ $ git branch
 ```
 -->
 
-!['git branch'](/images/shell/1-step-shell-7.svg)
+!['git branch'](/.images/shell/1-step-shell-7.svg)
 
 
 
@@ -158,7 +158,7 @@ $ git branch -d throwaway
 ```
 -->
 
-!['git branch -d throwaway'](/images/shell/1-step-shell-8.svg)
+!['git branch -d throwaway'](/.images/shell/1-step-shell-8.svg)
 
 
 
@@ -172,7 +172,7 @@ $ git switch my-book
 ```
 -->
 
-!['git switch my-book'](/images/shell/1-step-shell-9.svg)
+!['git switch my-book'](/.images/shell/1-step-shell-9.svg)
 
 
 
@@ -184,7 +184,7 @@ $ git branch -d throwaway
 ```
 -->
 
-!['git branch -d throwaway'](/images/shell/1-step-shell-10.svg)
+!['git branch -d throwaway'](/.images/shell/1-step-shell-10.svg)
 
 
 
@@ -196,7 +196,7 @@ $ git branch
 ```
 -->
 
-!['git branch'](/images/shell/1-step-shell-11.svg)
+!['git branch'](/.images/shell/1-step-shell-11.svg)
 
 
 
@@ -208,7 +208,7 @@ $ git status
 ```
 -->
 
-!['git status'](/images/shell/1-step-shell-12.svg)
+!['git status'](/.images/shell/1-step-shell-12.svg)
 
 
 
@@ -224,7 +224,7 @@ $ touch table-of-contents about-the-author index
 ```
 -->
 
-!['touch table-of-contents about-the-author index'](/images/shell/1-step-shell-13.svg)
+!['touch table-of-contents about-the-author index'](/.images/shell/1-step-shell-13.svg)
 
 
 
@@ -236,7 +236,7 @@ $ git status
 ```
 -->
 
-!['git status'](/images/shell/1-step-shell-14.svg)
+!['git status'](/.images/shell/1-step-shell-14.svg)
 
 
 
@@ -254,7 +254,7 @@ $ git add .
 ```
 -->
 
-!['git add .'](/images/shell/1-step-shell-15.svg)
+!['git add .'](/.images/shell/1-step-shell-15.svg)
 
 
 
@@ -268,7 +268,7 @@ $ git status
 ```
 -->
 
-!['git status'](/images/shell/1-step-shell-16.svg)
+!['git status'](/.images/shell/1-step-shell-16.svg)
 
 
 
@@ -282,7 +282,7 @@ $ git commit -m "Added stuff"
 ```
 -->
 
-!['git commit -m "Added stuff"'](/images/shell/1-step-shell-17.svg)
+!['git commit -m "Added stuff"'](/.images/shell/1-step-shell-17.svg)
 
 
 
@@ -297,7 +297,7 @@ $ git status
 ```
 -->
 
-!['git status'](/images/shell/1-step-shell-18.svg)
+!['git status'](/.images/shell/1-step-shell-18.svg)
 
 
 
@@ -311,7 +311,7 @@ $ git log -n 1
 ```
 -->
 
-!['git log -n 1'](/images/shell/1-step-shell-19.svg)
+!['git log -n 1'](/.images/shell/1-step-shell-19.svg)
 
 
 
@@ -355,7 +355,7 @@ $ git log --oneline --decorate --all --graph -n 10
 ```
 -->
 
-!['git log --oneline --decorate --all --graph -n 10'](/images/shell/1-step-shell-20.svg)
+!['git log --oneline --decorate --all --graph -n 10'](/.images/shell/1-step-shell-20.svg)
 
 
 
@@ -373,7 +373,7 @@ $ git switch main
 ```
 -->
 
-!['git switch main'](/images/shell/1-step-shell-21.svg)
+!['git switch main'](/.images/shell/1-step-shell-21.svg)
 
 
 
@@ -385,7 +385,7 @@ $ git log --oneline --decorate --all --graph -n 10
 ```
 -->
 
-!['git log --oneline --decorate --all --graph -n 10'](/images/shell/1-step-shell-22.svg)
+!['git log --oneline --decorate --all --graph -n 10'](/.images/shell/1-step-shell-22.svg)
 
 
 
@@ -399,7 +399,7 @@ $ git switch my-book
 ```
 -->
 
-!['git switch my-book'](/images/shell/1-step-shell-23.svg)
+!['git switch my-book'](/.images/shell/1-step-shell-23.svg)
 
 
 
@@ -411,7 +411,7 @@ $ touch head-test && git add head-test && git commit -m "Learning about HEAD"
 ```
 -->
 
-!['touch head-test && git add head-test && git commit -m "Learning about HEAD"'](/images/shell/1-step-shell-24.svg)
+!['touch head-test && git add head-test && git commit -m "Learning about HEAD"'](/.images/shell/1-step-shell-24.svg)
 
 
 
@@ -423,7 +423,7 @@ $ git log --oneline --decorate --all --graph -n 10
 ```
 -->
 
-!['git log --oneline --decorate --all --graph -n 10'](/images/shell/1-step-shell-25.svg)
+!['git log --oneline --decorate --all --graph -n 10'](/.images/shell/1-step-shell-25.svg)
 
 
 
@@ -439,7 +439,7 @@ $ git checkout HEAD~3
 ```
 -->
 
-!['git checkout HEAD~3'](/images/shell/1-step-shell-26.svg)
+!['git checkout HEAD~3'](/.images/shell/1-step-shell-26.svg)
 
 
 
@@ -457,7 +457,7 @@ $ git log --oneline --decorate --all --graph -n 10
 ```
 -->
 
-!['git log --oneline --decorate --all --graph -n 10'](/images/shell/1-step-shell-27.svg)
+!['git log --oneline --decorate --all --graph -n 10'](/.images/shell/1-step-shell-27.svg)
 
 
 
@@ -475,7 +475,7 @@ $ touch detached-test && git add detached-test && git commit -m "Testing detache
 ```
 -->
 
-!['touch detached-test && git add detached-test && git commit -m "Testing detached HEAD"'](/images/shell/1-step-shell-28.svg)
+!['touch detached-test && git add detached-test && git commit -m "Testing detached HEAD"'](/.images/shell/1-step-shell-28.svg)
 
 
 
@@ -487,7 +487,7 @@ $ git log --oneline --decorate --all --graph -n 10
 ```
 -->
 
-!['git log --oneline --decorate --all --graph -n 10'](/images/shell/1-step-shell-29.svg)
+!['git log --oneline --decorate --all --graph -n 10'](/.images/shell/1-step-shell-29.svg)
 
 
 
@@ -521,7 +521,7 @@ $ git switch -
 ```
 -->
 
-!['git switch -'](/images/shell/1-step-shell-30.svg)
+!['git switch -'](/.images/shell/1-step-shell-30.svg)
 
 
 
@@ -535,7 +535,7 @@ $ git log --oneline --decorate --all --graph -n 10
 ```
 -->
 
-!['git log --oneline --decorate --all --graph -n 10'](/images/shell/1-step-shell-31.svg)
+!['git log --oneline --decorate --all --graph -n 10'](/.images/shell/1-step-shell-31.svg)
 
 
 
@@ -576,7 +576,7 @@ $ tree -n -I objects ../.git
 ```
 -->
 
-!['tree -n -I objects ../.git'](/images/shell/1-step-shell-32.svg)
+!['tree -n -I objects ../.git'](/.images/shell/1-step-shell-32.svg)
 
 
 
@@ -590,7 +590,7 @@ $ cat ../.git/HEAD
 ```
 -->
 
-!['cat ../.git/HEAD'](/images/shell/1-step-shell-33.svg)
+!['cat ../.git/HEAD'](/.images/shell/1-step-shell-33.svg)
 
 
 
@@ -602,7 +602,7 @@ $ cat ../.git/refs/heads/my-book
 ```
 -->
 
-!['cat ../.git/refs/heads/my-book'](/images/shell/1-step-shell-34.svg)
+!['cat ../.git/refs/heads/my-book'](/.images/shell/1-step-shell-34.svg)
 
 
 
@@ -614,7 +614,7 @@ $ cat ../.git/refs/heads/main
 ```
 -->
 
-!['cat ../.git/refs/heads/main'](/images/shell/1-step-shell-35.svg)
+!['cat ../.git/refs/heads/main'](/.images/shell/1-step-shell-35.svg)
 
 
 
@@ -634,7 +634,7 @@ $ git reflog
 ```
 -->
 
-!['git reflog'](/images/shell/1-step-shell-36.svg)
+!['git reflog'](/.images/shell/1-step-shell-36.svg)
 
 
 
@@ -646,7 +646,7 @@ $ git rev-parse HEAD@{1} > ../.git/refs/heads/tada
 ```
 -->
 
-!['git rev-parse HEAD@{1} > ../.git/refs/heads/tada'](/images/shell/1-step-shell-37.svg)
+!['git rev-parse HEAD@{1} > ../.git/refs/heads/tada'](/.images/shell/1-step-shell-37.svg)
 
 
 
@@ -658,7 +658,7 @@ $ git log --oneline --graph --decorate --all -n 10
 ```
 -->
 
-!['git log --oneline --graph --decorate --all -n 10'](/images/shell/1-step-shell-38.svg)
+!['git log --oneline --graph --decorate --all -n 10'](/.images/shell/1-step-shell-38.svg)
 
 
 
@@ -676,7 +676,7 @@ $ rm table-of-contents about-the-author index
 ```
 -->
 
-!['rm table-of-contents about-the-author index'](/images/shell/1-step-shell-39.svg)
+!['rm table-of-contents about-the-author index'](/.images/shell/1-step-shell-39.svg)
 
 
 
@@ -688,7 +688,7 @@ $ ls -l
 ```
 -->
 
-!['ls -l'](/images/shell/1-step-shell-40.svg)
+!['ls -l'](/.images/shell/1-step-shell-40.svg)
 
 
 
@@ -700,7 +700,7 @@ $ git status
 ```
 -->
 
-!['git status'](/images/shell/1-step-shell-41.svg)
+!['git status'](/.images/shell/1-step-shell-41.svg)
 
 
 
@@ -716,7 +716,7 @@ $ git restore table-of-contents about-the-author index
 ```
 -->
 
-!['git restore table-of-contents about-the-author index'](/images/shell/1-step-shell-42.svg)
+!['git restore table-of-contents about-the-author index'](/.images/shell/1-step-shell-42.svg)
 
 
 
@@ -728,7 +728,7 @@ $ ls -l
 ```
 -->
 
-!['ls -l'](/images/shell/1-step-shell-43.svg)
+!['ls -l'](/.images/shell/1-step-shell-43.svg)
 
 
 
@@ -742,7 +742,7 @@ $ rm table-of-contents about-the-author index
 ```
 -->
 
-!['rm table-of-contents about-the-author index'](/images/shell/1-step-shell-44.svg)
+!['rm table-of-contents about-the-author index'](/.images/shell/1-step-shell-44.svg)
 
 
 
@@ -754,7 +754,7 @@ $ ls -l
 ```
 -->
 
-!['ls -l'](/images/shell/1-step-shell-45.svg)
+!['ls -l'](/.images/shell/1-step-shell-45.svg)
 
 
 
@@ -766,7 +766,7 @@ $ git restore .
 ```
 -->
 
-!['git restore .'](/images/shell/1-step-shell-46.svg)
+!['git restore .'](/.images/shell/1-step-shell-46.svg)
 
 
 
@@ -778,7 +778,7 @@ $ ls -l
 ```
 -->
 
-!['ls -l'](/images/shell/1-step-shell-47.svg)
+!['ls -l'](/.images/shell/1-step-shell-47.svg)
 
 
 
@@ -800,7 +800,7 @@ $ git log -n 1
 ```
 -->
 
-!['git commit -m "ToC, About Author, and Index" --amend'](/images/shell/1-step-shell-48.svg)!['git log -n 1'](/images/shell/1-step-shell-49.svg)
+!['git commit -m "ToC, About Author, and Index" --amend'](/.images/shell/1-step-shell-48.svg)!['git log -n 1'](/.images/shell/1-step-shell-49.svg)
 
 
 
@@ -819,7 +819,7 @@ $ git commit --amend --no-edit
 ```
 -->
 
-!['echo "# Chapter 1" >> chapter1'](/images/shell/1-step-shell-50.svg)!['cat chapter1'](/images/shell/1-step-shell-51.svg)!['git add chapter1'](/images/shell/1-step-shell-52.svg)!['git commit --amend --no-edit'](/images/shell/1-step-shell-53.svg)
+!['echo "# Chapter 1" >> chapter1'](/.images/shell/1-step-shell-50.svg)!['cat chapter1'](/.images/shell/1-step-shell-51.svg)!['git add chapter1'](/.images/shell/1-step-shell-52.svg)!['git commit --amend --no-edit'](/.images/shell/1-step-shell-53.svg)
 
 
 
@@ -831,7 +831,7 @@ $ git log -n 1
 ```
 -->
 
-!['git log -n 1'](/images/shell/1-step-shell-54.svg)
+!['git log -n 1'](/.images/shell/1-step-shell-54.svg)
 
 
 
@@ -851,7 +851,7 @@ $ cat chapter1
 ```
 -->
 
-!['echo "Lorum ipsum" >> chapter1'](/images/shell/1-step-shell-55.svg)!['cat chapter1'](/images/shell/1-step-shell-56.svg)
+!['echo "Lorum ipsum" >> chapter1'](/.images/shell/1-step-shell-55.svg)!['cat chapter1'](/.images/shell/1-step-shell-56.svg)
 
 
 
@@ -865,7 +865,7 @@ $ git commit -am "Brainstorming"
 ```
 -->
 
-!['git commit -am "Brainstorming"'](/images/shell/1-step-shell-57.svg)
+!['git commit -am "Brainstorming"'](/.images/shell/1-step-shell-57.svg)
 
 
 
@@ -879,7 +879,7 @@ $ git log -n 2
 ```
 -->
 
-!['git log -n 2'](/images/shell/1-step-shell-58.svg)
+!['git log -n 2'](/.images/shell/1-step-shell-58.svg)
 
 
 
@@ -891,7 +891,7 @@ $ git revert HEAD --no-edit
 ```
 -->
 
-!['git revert HEAD --no-edit'](/images/shell/1-step-shell-59.svg)
+!['git revert HEAD --no-edit'](/.images/shell/1-step-shell-59.svg)
 
 
 
@@ -903,7 +903,7 @@ $ git log -n 2
 ```
 -->
 
-!['git log -n 2'](/images/shell/1-step-shell-60.svg)
+!['git log -n 2'](/.images/shell/1-step-shell-60.svg)
 
 
 
@@ -915,7 +915,7 @@ $ cat chapter1
 ```
 -->
 
-!['cat chapter1'](/images/shell/1-step-shell-61.svg)
+!['cat chapter1'](/.images/shell/1-step-shell-61.svg)
 
 
 
@@ -933,7 +933,7 @@ $ git push
 ```
 -->
 
-!['git push'](/images/shell/1-step-shell-62.svg)
+!['git push'](/.images/shell/1-step-shell-62.svg)
 
 
 
@@ -943,7 +943,7 @@ $ git push --set-upstream origin my-first-branch
 ```
 -->
 
-!['git push --set-upstream origin my-first-branch'](/images/shell/1-step-shell-63.svg)
+!['git push --set-upstream origin my-first-branch'](/.images/shell/1-step-shell-63.svg)
 
 
 

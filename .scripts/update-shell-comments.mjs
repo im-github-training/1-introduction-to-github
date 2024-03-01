@@ -100,7 +100,7 @@ const processor = remark()
 
               image_nodes.push({
                 type: 'image',
-                url: path.join('/images/shell', imageFilename),
+                url: path.join('/.images/shell', imageFilename),
                 alt: `'${command}'`,
               })
             }

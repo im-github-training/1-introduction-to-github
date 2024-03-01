@@ -62,7 +62,7 @@
           <div xmlns="http://www.w3.org/1999/xhtml" class="container">
             <div class="input"><pre><span class="prompt">$</span> ls -l</pre></div>
             <div class="output"><pre>total 0
--rw-r--r-- 1 node node 0 Mar  1 10:05 head-test</pre></div>
+-rw-r--r-- 1 node node 0 Mar  1 10:08 head-test</pre></div>
           </div>
         </foreignObject>
       </svg>
