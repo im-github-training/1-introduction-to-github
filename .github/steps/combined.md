@@ -94,7 +94,7 @@ Let's set things up by creating something called a `branch`.
 A branch is basically a pointer to a specific commit.  Allow me to elaborate:
 
 * When you create a branch, Git creates a *pointer* and points it at your current commit
-* As you make new commits, Git automatically moves this *branch pointer* to the latest commit
+* As you make new commits, Git automatically moves this *branch* pointer to the latest commit
 * In this way, a *branch pointer* always represents the latest line of development in a *branch*
 
 Branches are useful because they give you a place to experiment and try things out before you make changes to your `main` branch.
