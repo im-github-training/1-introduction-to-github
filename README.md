@@ -37,31 +37,31 @@ We recommend reading the following sections of the [InfoMagnus GitHub Training G
 
 1. Click the `Fork` button on the repository site.
 
-![Image 1](./images/image.png)
+![Image 1](./.images/image.png)
 
 1. Set "Owner *" to your GitHub handle
 1. Check the "Copy the `main` branch only" box
 1. Click the "Create fork" button!
 
-![Image 1](./images/image-1.png)
+![Image 1](./.images/image-1.png)
 
 ## Step 2: Enable Actions
 
 Click on the 'Actions' in your forked repo.
 
-![Image 1](./images/image-2.png)
+![Image 1](./.images/image-2.png)
 
 Click on "I understand my workflows, go ahead and enable them" (you"ll have to trust us)
 
-![Image 1](./images/image-3.png)
+![Image 1](./.images/image-3.png)
 
 Then, click "exercises" to return back to the home screen.
 
-![Image 1](./images/image-5.png)
+![Image 1](./.images/image-5.png)
 
 ## Step 3: Star Your Repo
 
-![Image 1](./images/image-7.png)
+![Image 1](./.images/image-7.png)
 
 <footer>
 

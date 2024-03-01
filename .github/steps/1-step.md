@@ -5,10 +5,10 @@
 To get started, we'll need a local copy of this repository.  To do that:
 
 1. **Click the "Code" button, and then click the "Copy url to clipboard" icon:**
-   ![Copy Repo URL](/images/image-9.png)
+   ![Copy Repo URL](/.images/image-9.png)
 
 2. **Open a terminal window and do a `git clone`:**
-   ![Clone Repo](/images/image-10.png)
+   ![Clone Repo](/.images/image-10.png)
 
 In the next series of exercises, we will be using this repository to work on a New York Times bestseller.
 
@@ -26,8 +26,6 @@ $ git status
 
 !['git status'](/.images/shell/1-step-shell-0.svg)
 
-
-
 Looks good!
 
 Git is telling us the following things:
@@ -40,19 +38,19 @@ Git is telling us the following things:
 
 ### Our First Branch
 
-Let's set things up by creating something called a `branch`.
+Let's set things up by creating something called a ***branch***.
 
-A branch is basically a pointer to a specific commit.  Allow me to elaborate:
+A ***branch*** is a pointer to a specific ***commit***:
 
-* When you create a branch, Git creates a *pointer* and points it at your current commit
-* As you make new commits, Git automatically moves this *branch* pointer to the latest commit
-* In this way, a *branch pointer* always represents the latest line of development in a *branch*
+* When you create a ***branch***, Git creates a ***reference*** and points it at your ***current  commit***
+* As you make ***new commits***, Git automatically updates this ***reference*** to the ***latest commit***
+* In this way, a ***branch reference*** always represents the latest line of development in a ***branch***
 
-Branches are useful because they give you a place to experiment and try things out before you make changes to your `main` branch.
+Branches are useful because they give you a place to experiment and try things out before you make changes to your `main` branch.  So let's create one for us to work in.
 
 #### Listing all branches
 
-First, let's see what branches already exist, so we can pick a unique name:
+First, let's see what branches this repo already has, because we want to pick a unique name:
 
 <!--
 ```shellSession
@@ -62,25 +60,23 @@ $ git branch
 
 !['git branch'](/.images/shell/1-step-shell-1.svg)
 
+Ok, it looks like there's only one branch, `main`
 
-
-Ok, it looks like there's only one branch, `main`, and the `*` in front of it means that we're currently working in the `main` branch.
+> The `*` in front of `main` means that we're currently working "in" the `main` branch.  Alternatively, we have `main` "checked out".
 
 #### Creating a branch
 
-Now let's actually create a branch, with `git branch <branchname>`:
+Now let's actually create the branch, which we can do with `git branch <branchname>`:
 
 <!--
 ```shellSession
-$ git branch my-book
+$ git branch feature
 ```
 -->
 
-!['git branch my-book'](/.images/shell/1-step-shell-2.svg)
+!['git branch feature'](/.images/shell/1-step-shell-2.svg)
 
-
-
-Checking our `git branch`...
+Let's see what `git branch` looks like with our new branch:
 
 <!--
 ```shellSession
@@ -90,25 +86,21 @@ $ git branch
 
 !['git branch'](/.images/shell/1-step-shell-3.svg)
 
+Interesting, so we can see that `feature` was created, but the `*` is still in front of `main`.
 
+This means that we're still working "in" the `main` branch.
 
-Interesting, so we can see that `my-book` was created, but the `*` is still in front of `main`.
-
-This means that we're still in the `main` branch.
-
-To switch over to the `my-book` branch we need to do a `git switch`:
+To start working in the `feature` branch we need to do a `git switch`:
 
 <!--
 ```shellSession
-$ git switch my-book
+$ git switch feature
 ```
 -->
 
-!['git switch my-book'](/.images/shell/1-step-shell-4.svg)
+!['git switch feature'](/.images/shell/1-step-shell-4.svg)
 
-
-
-And just to double-check `git branch`:
+And just to double-check:
 
 <!--
 ```shellSession
@@ -118,9 +110,9 @@ $ git branch
 
 !['git branch'](/.images/shell/1-step-shell-5.svg)
 
+Something that we'll address head-on is that Git often has multiple ways of doing the same thing.
 
-
-That feels like a lot of work just to start working on a new branch, luckily, `git switch` provides the `--create` or `-c` flag, which lets you create and switch all in one go.
+In our case, `git switch` provides the `--create` or `-c` flag, which lets you create and switch all in one go.
 
 Let's give it a shot and create a throwaway branch:
 
@@ -132,8 +124,6 @@ $ git switch -c throwaway
 
 !['git switch -c throwaway'](/.images/shell/1-step-shell-6.svg)
 
-
-
 And...
 
 <!--
@@ -143,8 +133,6 @@ $ git branch
 -->
 
 !['git branch'](/.images/shell/1-step-shell-7.svg)
-
-
 
 Perfect!
 
@@ -160,23 +148,19 @@ $ git branch -d throwaway
 
 !['git branch -d throwaway'](/.images/shell/1-step-shell-8.svg)
 
-
-
 Ah, so we cannot delete a branch that is currently in use or "checked out".
 
-So let's switch back to `my-book`...
+So let's switch back to `feature` using the handy `git switch -`:
 
 <!--
 ```shellSession
-$ git switch my-book
+$ git switch -
 ```
 -->
 
-!['git switch my-book'](/.images/shell/1-step-shell-9.svg)
+!['git switch feature'](/.images/shell/1-step-shell-9.svg)
 
-
-
-... and try again...
+Trying the delete again:
 
 <!--
 ```shellSession
@@ -186,9 +170,7 @@ $ git branch -d throwaway
 
 !['git branch -d throwaway'](/.images/shell/1-step-shell-10.svg)
 
-
-
-... and...
+Great, and checking `git branch`:
 
 <!--
 ```shellSession
@@ -198,9 +180,7 @@ $ git branch
 
 !['git branch'](/.images/shell/1-step-shell-11.svg)
 
-
-
-and let's do a `git status` for good measure:
+And a `git status` for good measure:
 
 <!--
 ```shellSession
@@ -210,25 +190,21 @@ $ git status
 
 !['git status'](/.images/shell/1-step-shell-12.svg)
 
-
-
 *Magnifique.*
 
 ### Our First Commit
 
-Now that we've got a branch to work in, let's create some structure by adding the following:
+Now that we've got a branch to work in, let's create a few files to experiment:
 
 <!--
 ```shellSession
-$ touch table-of-contents about-the-author index
+$ touch file1 file2 file3
 ```
 -->
 
 !['touch table-of-contents about-the-author index'](/.images/shell/1-step-shell-13.svg)
 
-
-
-Let's see if Git noticed a change to our `working tree`:
+Let's see if Git noticed this change to our ***working tree***:
 
 <!--
 ```shellSession
@@ -238,13 +214,9 @@ $ git status
 
 !['git status'](/.images/shell/1-step-shell-14.svg)
 
-
-
 Interesting, Git noticed that we added the files, but is saying that they're *untracked*.
 
-> The way Git works is that you have to *explicitly* tell it to start tracking files by using the `git add` command.  Until you do that, Git considers the file *untracked*.
->
-> Once a file has been added via `git add`, it becomes a "tracked" file and Git will start monitoring it for changes. If you modify a tracked file, Git will recognize that it has been modified and will mark it as "modified" but not yet "staged" for the next commit.
+> With Git, you have to *explicitly* tell it to start tracking files using `git add`.  Until you do that, Git considers the file *untracked*.
 
 Let's go ahead and start tracking the files with a `git add`:
 
@@ -256,9 +228,7 @@ $ git add .
 
 !['git add .'](/.images/shell/1-step-shell-15.svg)
 
-
-
-> We could have individually added the files by typing `git add table-of-contents about-the-author index`, but `git add` provides the convenient `git add .`, which stages any and all changes present in the working directory.
+> We could have individually added the files by typing `git add file1 file2 file3`, but `git add` provides the convenience method `git add .`, which stages any and all changes present in the working directory.
 
 Let's see how things look now:
 
@@ -270,11 +240,9 @@ $ git status
 
 !['git status'](/.images/shell/1-step-shell-16.svg)
 
-
-
 Alright, it looks like our files are staged and ready to be committed!
 
-Let's go ahead and do that with `git commit -m "Added ToC, About Author, and Index"`:
+Let's go ahead and do that with `git commit -m "Added stuff"`:
 
 <!--
 ```shellSession
@@ -284,10 +252,7 @@ $ git commit -m "Added stuff"
 
 !['git commit -m "Added stuff"'](/.images/shell/1-step-shell-17.svg)
 
-
-
-> `-m` is the short form of `--message`, which allows us to specify short commit messages via the command-line.
-> Typing `git commit` brings up a text editor, which is useful for longform commit messages.
+> `-m` is the short form of `--message`, which allows us to specify short commit messages via the command-line.  If you need to enter a longer commit message, typing `git commit` without any flags brings up a text editor
 
 Let's see what `git status` says now that the files have been committed:
 
@@ -298,8 +263,6 @@ $ git status
 -->
 
 !['git status'](/.images/shell/1-step-shell-18.svg)
-
-
 
 Nice, looks like the files were moved from the staging area to the repository!
 
@@ -313,41 +276,29 @@ $ git log -n 1
 
 !['git log -n 1'](/.images/shell/1-step-shell-19.svg)
 
+Great, but while we're here, what's that long number-like thing next to `commit`, above?
 
-
-Perfect!
-
-But now that we're staring at it, what is that long, complicated number in the `git log` output above?
-
-A **commit ID**.
+It's a **commit ID**.
 
 ## Beyond the Basics
 
-### What Are Commit IDs?
+### What is a Commit ID?
 
-In Git, a **commit ID**, also known as a **commit hash**, is a unique identifier for each commit. It is a 40-character string calculated based on the contents of a commit.
+A **commit ID** (or **commit hash**) is a unique identifier for each commit. It is a 40-character alpha-numeric string calculated based on the contents of a commit.
 
-> In practice, you often don't need to use the full 40 characters. Git is usually able to identify a commit using just the first few characters, as long as it's unique within your repository.  For example, you might see short versions of commit hashes in `git log` output, like `e83c516`.
+> When using a commit ID, you only need to type out the first few characters, just enough to uniquely identify the commit within your repository. For example, you might see short versions of commit hashes in `git log` output, like `e83c516`.
 
 ### What is HEAD?
 
-Something else you may have noticed in the `git log` output is the `(HEAD -> my-book)` bit over to the top-right.  It seems to indicate that something called `HEAD` is pointing to `my-book`.
+To the right of the **commit ID** in the `git log` output is `(HEAD -> feature)`, which seems to indicate that something called `HEAD` is pointing to `feature`.
 
 Let's dig in.
 
-In Git, `HEAD` can be thought of as the "you are here" marker in your project. It's a pointer that indicates what the currently checked-out commit is in your repository.
-
-> Remember, the checked-out commit dictates what set of files is present in your working directory
-
-<!-- If you think of your project as a timeline of commits, `HEAD` points to the place on the timeline where you are currently standing. When you make a new commit, `HEAD` moves forward along the timeline.
-
-When you checkout a branch, `HEAD` moves to the tip of that branch, the most recent commit on that branch. If you checkout a specific commit, `HEAD` detaches from the branch and points directly to that commit, and you're in what's called a "detached HEAD" state.
-
-So, in simple terms, `HEAD` is like a bookmark that tells Git what commit you're currently working with. -->
+In Git, `HEAD` can be thought of as the "you are here" marker in your repository. It's a pointer that indicates what the currently "checked out" commit is.
 
 #### Understanding HEAD
 
-To get an intuitive understanding of `HEAD`, let's take a look at our `git log`, except let's use some flags that'll make things easier to see:
+To get an intuitive understanding of `HEAD`, let's take a look at our `git log` (using some flags to make things easier to see):
 
 <!--
 ```shellSession
@@ -357,11 +308,9 @@ $ git log --oneline --decorate --all --graph -n 10
 
 !['git log --oneline --decorate --all --graph -n 10'](/.images/shell/1-step-shell-20.svg)
 
+This is a text-based graph of the commits in your repository. The commit that `HEAD` is pointing to is marked with `(HEAD)`.
 
-
-This command shows a text-based graph of your commits. The commit that `HEAD` is pointing to is marked with `(HEAD)`.
-
-> Note that `HEAD` is pointing to the latest commit on the `my-book` branch.
+> Note that `HEAD` is pointing to the latest commit on the `feature` branch.
 
 #### Moving HEAD
 
@@ -375,8 +324,6 @@ $ git switch main
 
 !['git switch main'](/.images/shell/1-step-shell-21.svg)
 
-
-
 And see what `HEAD` is pointing to:
 
 <!--
@@ -387,21 +334,17 @@ $ git log --oneline --decorate --all --graph -n 10
 
 !['git log --oneline --decorate --all --graph -n 10'](/.images/shell/1-step-shell-22.svg)
 
-
-
 > Notice how `HEAD` has moved to the latest commit on `main`?
 
-Now let's switch back to `my-book`:
+Now let's switch back to `feature`:
 
 <!--
 ```shellSession
-$ git switch my-book
+$ git switch feature
 ```
 -->
 
-!['git switch my-book'](/.images/shell/1-step-shell-23.svg)
-
-
+!['git switch feature'](/.images/shell/1-step-shell-23.svg)
 
 And make a commit:
 
@@ -413,8 +356,6 @@ $ touch head-test && git add head-test && git commit -m "Learning about HEAD"
 
 !['touch head-test && git add head-test && git commit -m "Learning about HEAD"'](/.images/shell/1-step-shell-24.svg)
 
-
-
 And see what happens to `HEAD`:
 
 <!--
@@ -425,13 +366,11 @@ $ git log --oneline --decorate --all --graph -n 10
 
 !['git log --oneline --decorate --all --graph -n 10'](/.images/shell/1-step-shell-25.svg)
 
-
-
-> Interesting... `HEAD` has moved to the new commit.
+> `HEAD` has been automatically moved to the new commit!
 
 #### Detached HEAD
 
-Now let's see what happens when we checkout a specific commit:
+Now let's see what happens when we checkout a specific commit, instead of a `branch`:
 
 <!--
 ```shellSession
@@ -441,11 +380,7 @@ $ git checkout HEAD~3
 
 !['git checkout HEAD~3'](/.images/shell/1-step-shell-26.svg)
 
-
-
-This warning seems quite scary, `detached HEAD` and all...
-
-> `detached HEAD` happens so often that it's a perennial right of passage for Git users.  Having an intuitive understanding on what it means is key to Git success
+This warning seems quite scary, `detached HEAD` and all...  Get used to it, because you'll be seeing it a lot. `detached HEAD` happens so often that it's a perennial right of passage for Git users.  Having an intuitive understanding on what it means is key to Git success.
 
 ### Understanding Detached HEAD
 
@@ -459,15 +394,11 @@ $ git log --oneline --decorate --all --graph -n 10
 
 !['git log --oneline --decorate --all --graph -n 10'](/.images/shell/1-step-shell-27.svg)
 
-
-
 Seems pretty normal.
 
-In fact, the only thing remotely "strange" is that `HEAD` isn't `->` to anything, namely, a branch like `main` or `my-book`.
+In fact, the only thing remotely "strange" is that `HEAD` doesn't have an arrow (`->`) pointing to a branch like `main` or `feature`.
 
-We are in a sort of Norman's land.
-
-Let's push ahead and actually ***commit*** something!
+Let's see what happens when we **commit** something:
 
 <!--
 ```shellSession
@@ -476,8 +407,6 @@ $ touch detached-test && git add detached-test && git commit -m "Testing detache
 -->
 
 !['touch detached-test && git add detached-test && git commit -m "Testing detached HEAD"'](/.images/shell/1-step-shell-28.svg)
-
-
 
 And seeing what we have wrought:
 
@@ -489,11 +418,9 @@ $ git log --oneline --decorate --all --graph -n 10
 
 !['git log --oneline --decorate --all --graph -n 10'](/.images/shell/1-step-shell-29.svg)
 
+It looks like we've created a `branch`! Or, at least something that *looks* like a `branch`...
 
-
-Interesting, we've created a `branch`! Or, something that looks like a `branch`...  except without a name...  An *unnamed* branch...
-
-Let's think about that `detached HEAD` warning:
+Let's think about that `detached HEAD` warning...
 
 ```shell
 You are in 'detached HEAD' state. You can look around, make experimental
@@ -511,7 +438,7 @@ Or undo this operation with:
 ...
 ```
 
-So `git checkout` is advising us to **create a *branch***.
+... `git checkout` is advising us to create a *branch*...
 
 For the sake of adventure, let's try the second option `git switch -`:
 
@@ -522,8 +449,6 @@ $ git switch -
 -->
 
 !['git switch -'](/.images/shell/1-step-shell-30.svg)
-
-
 
 Now Git is literally *begging* us to create a *branch* at that commit, even giving us a whole ***new*** command for doing so...
 
@@ -537,17 +462,15 @@ $ git log --oneline --decorate --all --graph -n 10
 
 !['git log --oneline --decorate --all --graph -n 10'](/.images/shell/1-step-shell-31.svg)
 
-
-
 And the commit is gone.
 
-But is it *really*?  I mean, we have the commit ID right there on our screen... and *two* different suggestions for saving things...
+But is it *really*?  I mean, we have the commit ID right there on our screen... what's stopping us from doing a `git branch <new-branch-name> <commit-id>` now?  In ten minutes?  A month from now?
 
 So here's the important thing you need to learn about Git:
 
-> It is *nearly* **impossible** to lose anything that you've committed to a Git repository... as long as you have a ***reference*** to it.
+> It is *nearly* **impossible** to lose anything that you've committed to a Git repository... as long as you have a ***reference***.
 
-### What are references
+### What is a reference?
 
 In Git, a reference (or "ref") is a **file** that contains the commit ID of a commit - it's a way to save a pointer to a specific commit.
 
@@ -564,11 +487,11 @@ There are three main types of references in Git:
 3. **Remotes**: are references to commits in other repositories.
    * They are stored in the `.git/refs/remotes/` directory
 
-#### They're ***files***?
+#### Wait, they're ***files***?
 
-The next few minutes will be the deepest we are going to go in this tutorial, but muscling through will be well worth it.
+Yes, references are *files*:
 
-So, yes, references are *files*:
+Let's take a quick peek into the `.git` directory mentioned above:
 
 <!--
 ```shellSession
@@ -578,9 +501,7 @@ $ tree -n -I objects ../.git
 
 !['tree -n -I objects ../.git'](/.images/shell/1-step-shell-32.svg)
 
-
-
-> The `-I objects` flag excludes the .git/objects folder, which contains compressed versions of all of your commits, because it contains a lot of files
+> The `-I objects` flag excludes the .git/objects folder because it contains a lot of files
 
 Let's examine `.git/HEAD` and the contents of `.git/refs/heads/*`:
 
@@ -592,21 +513,17 @@ $ cat ../.git/HEAD
 
 !['cat ../.git/HEAD'](/.images/shell/1-step-shell-33.svg)
 
-
-
-So `.git/HEAD` points to `refs/heads/my-book`, which makes sense, since we currently have `my-book` checked out.
+So `.git/HEAD` points to `refs/heads/feature`, which makes sense, since we currently have `feature` checked out.
 
 <!--
 ```shellSession
-$ cat ../.git/refs/heads/my-book
+$ cat ../.git/refs/heads/feature
 ```
 -->
 
-!['cat ../.git/refs/heads/my-book'](/.images/shell/1-step-shell-34.svg)
+!['cat ../.git/refs/heads/feature'](/.images/shell/1-step-shell-34.svg)
 
-
-
-This commit ID seems familiar, in fact, it looks like the commit ID that `HEAD` and `my-book` are pointing to from the `git log` above.
+This commit ID seems familiar, in fact, it looks like the commit ID that `HEAD` and `feature` are pointing to from the `git log` above.
 
 <!--
 ```shellSession
@@ -616,17 +533,15 @@ $ cat ../.git/refs/heads/main
 
 !['cat ../.git/refs/heads/main'](/.images/shell/1-step-shell-35.svg)
 
-
-
 No surprise here, so references ***are*** files!
-
-#### Introducing the reference log
 
 Let's try something crazy, let's see if we can recover that 'lost' commit from the `detached HEAD` episode.  From what we've just discovered, it feels like all we have to do is create a file in `.git/refs/heads` containing the commit ID of the commit.
 
-But it's been like an hour and we've totally forgotten the commit ID of that commit.
+What, you don't remember the commit ID?
 
-Introducing `git reflog`;
+Check the reflog.
+
+#### Introducing the reflog
 
 <!--
 ```shellSession
@@ -635,8 +550,6 @@ $ git reflog
 -->
 
 !['git reflog'](/.images/shell/1-step-shell-36.svg)
-
-
 
 There it is, near the top.  So let's take that commit ID and put it in a file called `.git/refs/heads/tada`:
 
@@ -648,8 +561,6 @@ $ git rev-parse HEAD@{1} > ../.git/refs/heads/tada
 
 !['git rev-parse HEAD@{1} > ../.git/refs/heads/tada'](/.images/shell/1-step-shell-37.svg)
 
-
-
 And checking `git log`:
 
 <!--
@@ -660,11 +571,9 @@ $ git log --oneline --graph --decorate --all -n 10
 
 !['git log --oneline --graph --decorate --all -n 10'](/.images/shell/1-step-shell-38.svg)
 
-
-
 ***TADA!***
 
-### Fixing Things
+### Handling common scenarios
 
 #### Restoring files
 
@@ -678,8 +587,6 @@ $ rm table-of-contents about-the-author index
 
 !['rm table-of-contents about-the-author index'](/.images/shell/1-step-shell-39.svg)
 
-
-
 Making sure the files are deleted:
 
 <!--
@@ -690,8 +597,6 @@ $ ls -l
 
 !['ls -l'](/.images/shell/1-step-shell-40.svg)
 
-
-
 Seeing what Git has to say:
 
 <!--
@@ -701,8 +606,6 @@ $ git status
 -->
 
 !['git status'](/.images/shell/1-step-shell-41.svg)
-
-
 
 As expected, Git noticed the change to the *working directory*, namely, that we deleted our files.
 
@@ -718,8 +621,6 @@ $ git restore table-of-contents about-the-author index
 
 !['git restore table-of-contents about-the-author index'](/.images/shell/1-step-shell-42.svg)
 
-
-
 Double-checking with an `ls -l`:
 
 <!--
@@ -729,8 +630,6 @@ $ ls -l
 -->
 
 !['ls -l'](/.images/shell/1-step-shell-43.svg)
-
-
 
 Great!  But that was a lot of typing, let's try something...
 
@@ -744,8 +643,6 @@ $ rm table-of-contents about-the-author index
 
 !['rm table-of-contents about-the-author index'](/.images/shell/1-step-shell-44.svg)
 
-
-
 Checking...
 
 <!--
@@ -755,8 +652,6 @@ $ ls -l
 -->
 
 !['ls -l'](/.images/shell/1-step-shell-45.svg)
-
-
 
 And...
 
@@ -768,8 +663,6 @@ $ git restore .
 
 !['git restore .'](/.images/shell/1-step-shell-46.svg)
 
-
-
 Yup...
 
 <!--
@@ -779,8 +672,6 @@ $ ls -l
 -->
 
 !['ls -l'](/.images/shell/1-step-shell-47.svg)
-
-
 
 Cool!
 
@@ -802,8 +693,6 @@ $ git log -n 1
 
 !['git commit -m "ToC, About Author, and Index" --amend'](/.images/shell/1-step-shell-48.svg)!['git log -n 1'](/.images/shell/1-step-shell-49.svg)
 
-
-
 Great!
 
 Now, let's make an update to `chapter1` and add it to the commit:
@@ -821,8 +710,6 @@ $ git commit --amend --no-edit
 
 !['echo "# Chapter 1" >> chapter1'](/.images/shell/1-step-shell-50.svg)!['cat chapter1'](/.images/shell/1-step-shell-51.svg)!['git add chapter1'](/.images/shell/1-step-shell-52.svg)!['git commit --amend --no-edit'](/.images/shell/1-step-shell-53.svg)
 
-
-
 And checking with `git log`, we can see the commit id has updated:
 
 <!--
@@ -832,8 +719,6 @@ $ git log -n 1
 -->
 
 !['git log -n 1'](/.images/shell/1-step-shell-54.svg)
-
-
 
 > **Note:** Here we used the `--no-edit` flag, which allows us to skip retyping the commit message.
 
@@ -853,8 +738,6 @@ $ cat chapter1
 
 !['echo "Lorum ipsum" >> chapter1'](/.images/shell/1-step-shell-55.svg)!['cat chapter1'](/.images/shell/1-step-shell-56.svg)
 
-
-
 So, now `chapter1` has a new line, "Lorum ipsum" added to it.
 
 Let's go ahead and commit that:
@@ -866,8 +749,6 @@ $ git commit -am "Brainstorming"
 -->
 
 !['git commit -am "Brainstorming"'](/.images/shell/1-step-shell-57.svg)
-
-
 
 > **Note:** Here we used the `-a` flag which automatically `git add`s all changes found in tracked files.
 
@@ -881,8 +762,6 @@ $ git log -n 2
 
 !['git log -n 2'](/.images/shell/1-step-shell-58.svg)
 
-
-
 And now let's revert the commit:
 
 <!--
@@ -892,8 +771,6 @@ $ git revert HEAD --no-edit
 -->
 
 !['git revert HEAD --no-edit'](/.images/shell/1-step-shell-59.svg)
-
-
 
 Once again checking with `git log`:
 
@@ -905,8 +782,6 @@ $ git log -n 2
 
 !['git log -n 2'](/.images/shell/1-step-shell-60.svg)
 
-
-
 Yup, and now let's check the contents of `chapter1`:
 
 <!--
@@ -916,8 +791,6 @@ $ cat chapter1
 -->
 
 !['cat chapter1'](/.images/shell/1-step-shell-61.svg)
-
-
 
 And there you go!
 
@@ -935,8 +808,6 @@ $ git push
 
 !['git push'](/.images/shell/1-step-shell-62.svg)
 
-
-
 <!--
 ```shellSession
 $ git push --set-upstream origin my-first-branch
@@ -944,8 +815,6 @@ $ git push --set-upstream origin my-first-branch
 -->
 
 !['git push --set-upstream origin my-first-branch'](/.images/shell/1-step-shell-63.svg)
-
-
 
 <!--
   <<< Author notes: Step 1 >>>
