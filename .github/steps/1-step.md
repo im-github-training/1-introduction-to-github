@@ -26,6 +26,8 @@ $ git status
 
 !['git status'](/images/shell/1-step-shell-0.svg)
 
+
+
 Looks good!
 
 Git is telling us the following things:
@@ -60,6 +62,8 @@ $ git branch
 
 !['git branch'](/images/shell/1-step-shell-1.svg)
 
+
+
 Ok, it looks like there's only one branch, `main`, and the `*` in front of it means that we're currently working in the `main` branch.
 
 #### Creating a branch
@@ -74,6 +78,8 @@ $ git branch my-book
 
 !['git branch my-book'](/images/shell/1-step-shell-2.svg)
 
+
+
 Checking our `git branch`...
 
 <!--
@@ -83,6 +89,8 @@ $ git branch
 -->
 
 !['git branch'](/images/shell/1-step-shell-3.svg)
+
+
 
 Interesting, so we can see that `my-book` was created, but the `*` is still in front of `main`.
 
@@ -98,6 +106,8 @@ $ git switch my-book
 
 !['git switch my-book'](/images/shell/1-step-shell-4.svg)
 
+
+
 And just to double-check `git branch`:
 
 <!--
@@ -107,6 +117,8 @@ $ git branch
 -->
 
 !['git branch'](/images/shell/1-step-shell-5.svg)
+
+
 
 That feels like a lot of work just to start working on a new branch, luckily, `git switch` provides the `--create` or `-c` flag, which lets you create and switch all in one go.
 
@@ -120,6 +132,8 @@ $ git switch -c throwaway
 
 !['git switch -c throwaway'](/images/shell/1-step-shell-6.svg)
 
+
+
 And...
 
 <!--
@@ -129,6 +143,8 @@ $ git branch
 -->
 
 !['git branch'](/images/shell/1-step-shell-7.svg)
+
+
 
 Perfect!
 
@@ -144,6 +160,8 @@ $ git branch -d throwaway
 
 !['git branch -d throwaway'](/images/shell/1-step-shell-8.svg)
 
+
+
 Ah, so we cannot delete a branch that is currently in use or "checked out".
 
 So let's switch back to `my-book`...
@@ -156,6 +174,8 @@ $ git switch my-book
 
 !['git switch my-book'](/images/shell/1-step-shell-9.svg)
 
+
+
 ... and try again...
 
 <!--
@@ -165,6 +185,8 @@ $ git branch -d throwaway
 -->
 
 !['git branch -d throwaway'](/images/shell/1-step-shell-10.svg)
+
+
 
 ... and...
 
@@ -176,6 +198,8 @@ $ git branch
 
 !['git branch'](/images/shell/1-step-shell-11.svg)
 
+
+
 and let's do a `git status` for good measure:
 
 <!--
@@ -185,6 +209,8 @@ $ git status
 -->
 
 !['git status'](/images/shell/1-step-shell-12.svg)
+
+
 
 *Magnifique.*
 
@@ -200,6 +226,8 @@ $ touch table-of-contents about-the-author index
 
 !['touch table-of-contents about-the-author index'](/images/shell/1-step-shell-13.svg)
 
+
+
 Let's see if Git noticed a change to our `working tree`:
 
 <!--
@@ -209,6 +237,8 @@ $ git status
 -->
 
 !['git status'](/images/shell/1-step-shell-14.svg)
+
+
 
 Interesting, Git noticed that we added the files, but is saying that they're *untracked*.
 
@@ -226,6 +256,8 @@ $ git add .
 
 !['git add .'](/images/shell/1-step-shell-15.svg)
 
+
+
 > We could have individually added the files by typing `git add table-of-contents about-the-author index`, but `git add` provides the convenient `git add .`, which stages any and all changes present in the working directory.
 
 Let's see how things look now:
@@ -238,6 +270,8 @@ $ git status
 
 !['git status'](/images/shell/1-step-shell-16.svg)
 
+
+
 Alright, it looks like our files are staged and ready to be committed!
 
 Let's go ahead and do that with `git commit -m "Added ToC, About Author, and Index"`:
@@ -249,6 +283,8 @@ $ git commit -m "Added stuff"
 -->
 
 !['git commit -m "Added stuff"'](/images/shell/1-step-shell-17.svg)
+
+
 
 > `-m` is the short form of `--message`, which allows us to specify short commit messages via the command-line.
 > Typing `git commit` brings up a text editor, which is useful for longform commit messages.
@@ -263,6 +299,8 @@ $ git status
 
 !['git status'](/images/shell/1-step-shell-18.svg)
 
+
+
 Nice, looks like the files were moved from the staging area to the repository!
 
 We can confirm that the commit is part of our repository history by doing a `git log`:
@@ -274,6 +312,8 @@ $ git log -n 1
 -->
 
 !['git log -n 1'](/images/shell/1-step-shell-19.svg)
+
+
 
 Perfect!
 
@@ -317,6 +357,8 @@ $ git log --oneline --decorate --all --graph -n 10
 
 !['git log --oneline --decorate --all --graph -n 10'](/images/shell/1-step-shell-20.svg)
 
+
+
 This command shows a text-based graph of your commits. The commit that `HEAD` is pointing to is marked with `(HEAD)`.
 
 > Note that `HEAD` is pointing to the latest commit on the `my-book` branch.
@@ -333,6 +375,8 @@ $ git switch main
 
 !['git switch main'](/images/shell/1-step-shell-21.svg)
 
+
+
 And see what `HEAD` is pointing to:
 
 <!--
@@ -342,6 +386,8 @@ $ git log --oneline --decorate --all --graph -n 10
 -->
 
 !['git log --oneline --decorate --all --graph -n 10'](/images/shell/1-step-shell-22.svg)
+
+
 
 > Notice how `HEAD` has moved to the latest commit on `main`?
 
@@ -355,6 +401,8 @@ $ git switch my-book
 
 !['git switch my-book'](/images/shell/1-step-shell-23.svg)
 
+
+
 And make a commit:
 
 <!--
@@ -365,6 +413,8 @@ $ touch head-test && git add head-test && git commit -m "Learning about HEAD"
 
 !['touch head-test && git add head-test && git commit -m "Learning about HEAD"'](/images/shell/1-step-shell-24.svg)
 
+
+
 And see what happens to `HEAD`:
 
 <!--
@@ -374,6 +424,8 @@ $ git log --oneline --decorate --all --graph -n 10
 -->
 
 !['git log --oneline --decorate --all --graph -n 10'](/images/shell/1-step-shell-25.svg)
+
+
 
 > Interesting... `HEAD` has moved to the new commit.
 
@@ -388,6 +440,8 @@ $ git checkout HEAD~3
 -->
 
 !['git checkout HEAD~3'](/images/shell/1-step-shell-26.svg)
+
+
 
 This warning seems quite scary, `detached HEAD` and all...
 
@@ -405,6 +459,8 @@ $ git log --oneline --decorate --all --graph -n 10
 
 !['git log --oneline --decorate --all --graph -n 10'](/images/shell/1-step-shell-27.svg)
 
+
+
 Seems pretty normal.
 
 In fact, the only thing remotely "strange" is that `HEAD` isn't `->` to anything, namely, a branch like `main` or `my-book`.
@@ -421,6 +477,8 @@ $ touch detached-test && git add detached-test && git commit -m "Testing detache
 
 !['touch detached-test && git add detached-test && git commit -m "Testing detached HEAD"'](/images/shell/1-step-shell-28.svg)
 
+
+
 And seeing what we have wrought:
 
 <!--
@@ -430,6 +488,8 @@ $ git log --oneline --decorate --all --graph -n 10
 -->
 
 !['git log --oneline --decorate --all --graph -n 10'](/images/shell/1-step-shell-29.svg)
+
+
 
 Interesting, we've created a `branch`! Or, something that looks like a `branch`...  except without a name...  An *unnamed* branch...
 
@@ -463,6 +523,8 @@ $ git switch -
 
 !['git switch -'](/images/shell/1-step-shell-30.svg)
 
+
+
 Now Git is literally *begging* us to create a *branch* at that commit, even giving us a whole ***new*** command for doing so...
 
 Let's check `git log`:
@@ -474,6 +536,8 @@ $ git log --oneline --decorate --all --graph -n 10
 -->
 
 !['git log --oneline --decorate --all --graph -n 10'](/images/shell/1-step-shell-31.svg)
+
+
 
 And the commit is gone.
 
@@ -514,6 +578,8 @@ $ tree -n -I objects ../.git
 
 !['tree -n -I objects ../.git'](/images/shell/1-step-shell-32.svg)
 
+
+
 > The `-I objects` flag excludes the .git/objects folder, which contains compressed versions of all of your commits, because it contains a lot of files
 
 Let's examine `.git/HEAD` and the contents of `.git/refs/heads/*`:
@@ -526,6 +592,8 @@ $ cat ../.git/HEAD
 
 !['cat ../.git/HEAD'](/images/shell/1-step-shell-33.svg)
 
+
+
 So `.git/HEAD` points to `refs/heads/my-book`, which makes sense, since we currently have `my-book` checked out.
 
 <!--
@@ -536,6 +604,8 @@ $ cat ../.git/refs/heads/my-book
 
 !['cat ../.git/refs/heads/my-book'](/images/shell/1-step-shell-34.svg)
 
+
+
 This commit ID seems familiar, in fact, it looks like the commit ID that `HEAD` and `my-book` are pointing to from the `git log` above.
 
 <!--
@@ -545,6 +615,8 @@ $ cat ../.git/refs/heads/main
 -->
 
 !['cat ../.git/refs/heads/main'](/images/shell/1-step-shell-35.svg)
+
+
 
 No surprise here, so references ***are*** files!
 
@@ -564,6 +636,8 @@ $ git reflog
 
 !['git reflog'](/images/shell/1-step-shell-36.svg)
 
+
+
 There it is, near the top.  So let's take that commit ID and put it in a file called `.git/refs/heads/tada`:
 
 <!--
@@ -574,6 +648,8 @@ $ git rev-parse HEAD@{1} > ../.git/refs/heads/tada
 
 !['git rev-parse HEAD@{1} > ../.git/refs/heads/tada'](/images/shell/1-step-shell-37.svg)
 
+
+
 And checking `git log`:
 
 <!--
@@ -583,6 +659,8 @@ $ git log --oneline --graph --decorate --all -n 10
 -->
 
 !['git log --oneline --graph --decorate --all -n 10'](/images/shell/1-step-shell-38.svg)
+
+
 
 ***TADA!***
 
@@ -600,6 +678,8 @@ $ rm table-of-contents about-the-author index
 
 !['rm table-of-contents about-the-author index'](/images/shell/1-step-shell-39.svg)
 
+
+
 Making sure the files are deleted:
 
 <!--
@@ -610,6 +690,8 @@ $ ls -l
 
 !['ls -l'](/images/shell/1-step-shell-40.svg)
 
+
+
 Seeing what Git has to say:
 
 <!--
@@ -619,6 +701,8 @@ $ git status
 -->
 
 !['git status'](/images/shell/1-step-shell-41.svg)
+
+
 
 As expected, Git noticed the change to the *working directory*, namely, that we deleted our files.
 
@@ -634,6 +718,8 @@ $ git restore table-of-contents about-the-author index
 
 !['git restore table-of-contents about-the-author index'](/images/shell/1-step-shell-42.svg)
 
+
+
 Double-checking with an `ls -l`:
 
 <!--
@@ -643,6 +729,8 @@ $ ls -l
 -->
 
 !['ls -l'](/images/shell/1-step-shell-43.svg)
+
+
 
 Great!  But that was a lot of typing, let's try something...
 
@@ -656,6 +744,8 @@ $ rm table-of-contents about-the-author index
 
 !['rm table-of-contents about-the-author index'](/images/shell/1-step-shell-44.svg)
 
+
+
 Checking...
 
 <!--
@@ -665,6 +755,8 @@ $ ls -l
 -->
 
 !['ls -l'](/images/shell/1-step-shell-45.svg)
+
+
 
 And...
 
@@ -676,6 +768,8 @@ $ git restore .
 
 !['git restore .'](/images/shell/1-step-shell-46.svg)
 
+
+
 Yup...
 
 <!--
@@ -685,6 +779,8 @@ $ ls -l
 -->
 
 !['ls -l'](/images/shell/1-step-shell-47.svg)
+
+
 
 Cool!
 
@@ -706,6 +802,8 @@ $ git log -n 1
 
 !['git commit -m "ToC, About Author, and Index" --amend'](/images/shell/1-step-shell-48.svg)!['git log -n 1'](/images/shell/1-step-shell-49.svg)
 
+
+
 Great!
 
 Now, let's make an update to `chapter1` and add it to the commit:
@@ -723,6 +821,8 @@ $ git commit --amend --no-edit
 
 !['echo "# Chapter 1" >> chapter1'](/images/shell/1-step-shell-50.svg)!['cat chapter1'](/images/shell/1-step-shell-51.svg)!['git add chapter1'](/images/shell/1-step-shell-52.svg)!['git commit --amend --no-edit'](/images/shell/1-step-shell-53.svg)
 
+
+
 And checking with `git log`, we can see the commit id has updated:
 
 <!--
@@ -732,6 +832,8 @@ $ git log -n 1
 -->
 
 !['git log -n 1'](/images/shell/1-step-shell-54.svg)
+
+
 
 > **Note:** Here we used the `--no-edit` flag, which allows us to skip retyping the commit message.
 
@@ -751,6 +853,8 @@ $ cat chapter1
 
 !['echo "Lorum ipsum" >> chapter1'](/images/shell/1-step-shell-55.svg)!['cat chapter1'](/images/shell/1-step-shell-56.svg)
 
+
+
 So, now `chapter1` has a new line, "Lorum ipsum" added to it.
 
 Let's go ahead and commit that:
@@ -762,6 +866,8 @@ $ git commit -am "Brainstorming"
 -->
 
 !['git commit -am "Brainstorming"'](/images/shell/1-step-shell-57.svg)
+
+
 
 > **Note:** Here we used the `-a` flag which automatically `git add`s all changes found in tracked files.
 
@@ -775,6 +881,8 @@ $ git log -n 2
 
 !['git log -n 2'](/images/shell/1-step-shell-58.svg)
 
+
+
 And now let's revert the commit:
 
 <!--
@@ -784,6 +892,8 @@ $ git revert HEAD --no-edit
 -->
 
 !['git revert HEAD --no-edit'](/images/shell/1-step-shell-59.svg)
+
+
 
 Once again checking with `git log`:
 
@@ -795,6 +905,8 @@ $ git log -n 2
 
 !['git log -n 2'](/images/shell/1-step-shell-60.svg)
 
+
+
 Yup, and now let's check the contents of `chapter1`:
 
 <!--
@@ -804,6 +916,8 @@ $ cat chapter1
 -->
 
 !['cat chapter1'](/images/shell/1-step-shell-61.svg)
+
+
 
 And there you go!
 
@@ -821,6 +935,8 @@ $ git push
 
 !['git push'](/images/shell/1-step-shell-62.svg)
 
+
+
 <!--
 ```shellSession
 $ git push --set-upstream origin my-first-branch
@@ -828,6 +944,8 @@ $ git push --set-upstream origin my-first-branch
 -->
 
 !['git push --set-upstream origin my-first-branch'](/images/shell/1-step-shell-63.svg)
+
+
 
 <!--
   <<< Author notes: Step 1 >>>

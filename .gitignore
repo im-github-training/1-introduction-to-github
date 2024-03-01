@@ -1,5 +1,5 @@
 node_modules/*
-exercises/*
+.scripts/exercises/*
 package.json
 package-lock.json
 
