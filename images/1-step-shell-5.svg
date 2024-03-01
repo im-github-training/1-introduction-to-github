@@ -62,10 +62,9 @@
           <div xmlns="http://www.w3.org/1999/xhtml" class="container">
             <div class="input"><pre><span class="prompt">$</span> git status</pre></div>
             <div class="output"><pre>On branch my-first-branch
-Changes to be committed:
-  (use "git restore --staged &lt;file&gt;..." to unstage)
-	<span class="fg2">new file:   chapter1</span>
-</pre></div>
+Your branch is up to date with 'origin/my-first-branch'.
+
+nothing to commit, working tree clean</pre></div>
           </div>
         </foreignObject>
       </svg>

@@ -20,10 +20,6 @@ To begin, let's make sure everything is in order with our repository.
 
 To do this, we use the `git status` command which (unsurprisingly) prints out the current status of your repository.
 
-```shellSession
-$ git status
-```
-
 ![git status](/images/1-step-shell-0.svg)
 
 Looks good!

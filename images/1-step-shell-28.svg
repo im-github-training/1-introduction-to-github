@@ -61,14 +61,13 @@
         <foreignObject width="720" height="154">
           <div xmlns="http://www.w3.org/1999/xhtml" class="container">
             <div class="input"><pre><span class="prompt">$</span> git push</pre></div>
-            <div class="output"><pre>fatal: The current branch my-first-branch has no upstream branch.
-To push the current branch and set the remote as upstream, use
-
-    git push --set-upstream origin my-first-branch
-
-To have this happen automatically for branches without a tracking
-upstream, see 'push.autoSetupRemote' in 'git help config'.
-</pre></div>
+            <div class="output"><pre>To https://github.com/im-sampm/exercises.git
+ <span class="fg1">! [rejected]       </span> my-first-branch -&gt; my-first-branch (non-fast-forward)
+<span class="fg1">error: failed to push some refs to 'https://github.com/im-sampm/exercises.git'
+</span><span class="fg3">hint: Updates were rejected because the tip of your current branch is behind</span>
+<span class="fg3">hint: its remote counterpart. If you want to integrate the remote changes,</span>
+<span class="fg3">hint: use 'git pull' before pushing again.</span>
+<span class="fg3">hint: See the 'Note about fast-forwards' in 'git push --help' for details.</span></pre></div>
           </div>
         </foreignObject>
       </svg>

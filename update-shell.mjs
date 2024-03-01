@@ -7,20 +7,6 @@ import { execSync } from 'child_process';
 import fs from 'fs';
 import path from 'path';
 
-// const markdownText = `
-// # My Document
-
-// Here's the output of a command:
-
-// \`\`\`shell
-// ls -l --color=always
-// \`\`\`
-
-// \`\`\`shell
-// ls -l ../ --color=always
-// \`\`\`
-
-// `;
 
 // Get the file name from the command-line arguments
 const filename = process.argv[2];
@@ -41,7 +27,6 @@ const options = {
 // Get basename of the file
 const basename = path.basename(filename, '.md');
 
-
 // Read the Markdown text from the file
 const markdownText = fs.readFileSync(filename, 'utf8');
 
@@ -53,12 +38,12 @@ const processor = remark()
     visit(tree, 'code', (node, index, parent) => {
       if (node.lang === 'shellSession') {
         const commands = node.value.split('\n')
-                                   // Filter out lines starting with $
-                                   .filter(line => line.startsWith('$'))
-                                   // Escape each line
-                                   .map(line => line.replace(/'/g, "'\\''"))
-                                   // Remove the $ at the beginning of each line
-                                   .map(line => `${line.slice(2)}`)
+          // Filter out lines starting with $
+          .filter(line => line.startsWith('$'))
+          // Escape each line
+          .map(line => line.replace(/'/g, "'\\''"))
+          // Remove the $ at the beginning of each line
+          .map(line => `${line.slice(2)}`)
 
 
         let nodes = [];
@@ -70,8 +55,10 @@ const processor = remark()
           // term-script outputs raw SVG data to stdout
           const cmd_output = execSync(`unbuffer ${command} | term-transcript capture '${command}'`, options).toString().trim();
 
+          const imageFilename = `${basename}-shell-${counter++}.svg`;
+
           // Write the captured output to an SVG file
-          fs.writeFileSync(path.join('images', `${basename}-shell-${counter++}.svg`), cmd_output);
+          fs.writeFileSync(path.join('images', imageFilename), cmd_output);
 
           nodes.push({
             type: 'image',
