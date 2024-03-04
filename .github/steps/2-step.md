@@ -4,6 +4,8 @@
 
 If you're seeing this, it means you passed Lesson 1, great job!
 
+In today's lesson, we'll learn about how to handle a few common scenarios.
+
 Let's start by creating a branch for today's work!
 
 <!--
@@ -14,13 +16,9 @@ $ git switch -c lesson/2
 
 !['git switch -c lesson/2'](/.images/shell/2-step-shell-0.svg)
 
-## Fixing common mistakes
+## Exercise 1: Restoring files
 
-### Restoring files
-
-As we demostrated in Lesson 1, once a file has been added to a repository, it's *almost* **impossible** to lose.  Luckily, most scenarios won't have us pulling up `git reflog`.
-
-One common scenario is accidentally deleting a file, here's what to do if that happens to you.
+A common Git scenario is accidentally deleting a file - here's what to do if that happens to you.
 
 Let's start by creating some files to accidentally delete:
 
@@ -32,6 +30,8 @@ $ touch file1 file2 file3
 
 !['touch file1 file2 file3'](/.images/shell/2-step-shell-1.svg)
 
+Stage them:
+
 <!--
 ```shellSession
 $ git add file*
@@ -39,6 +39,8 @@ $ git add file*
 -->
 
 !['git add file\*'](/.images/shell/2-step-shell-2.svg)
+
+And commit them:
 
 <!--
 ```shellSession
@@ -48,7 +50,7 @@ $ git commit -m "Added some files"
 
 !['git commit -m "Added some files"'](/.images/shell/2-step-shell-3.svg)
 
-Now let's delete them:
+Now, let's delete them:
 
 <!--
 ```shellSession
@@ -58,7 +60,7 @@ $ rm file*
 
 !['rm file\*'](/.images/shell/2-step-shell-4.svg)
 
-And making sure the files are deleted:
+And make sure the files are actually deleted:
 
 <!--
 ```shellSession
@@ -78,9 +80,9 @@ $ git status
 
 !['git status'](/.images/shell/2-step-shell-6.svg)
 
-As expected, Git noticed the change to the *working directory*, namely, that we deleted our files.
+As expected, Git noticed a change to the *working directory*, namely, that we deleted our files.
 
-Helpfully, Git also tells us what command restores the file, `git restore`.
+Helpfully, Git also tells us what to do to restore the files, use `git restore`.
 
 Let's give it a try:
 
@@ -146,13 +148,15 @@ $ ls -l
 
 Cool!
 
-> While you're learning Git it's important to experiment.  You'll probably be using Git a lot, so it makes sense to get familiar as quickly as possible.
+> While you're learning Git take the opportunity to experiment!  There's often an easier way to do almost everything in Git.
 
-### Reverting a commit
+## Exercise 2: Reverting a commit
 
 Occasionally, we'll need to "undo" a commit, and one way of doing that is with `git revert`
 
-First, let's clean up the directory:
+To test things out, let's create three commits, two "good" commits and one "bad"commit.
+
+Let's start by cleaning up the current directory:
 
 <!--
 ```shellSession
@@ -170,7 +174,7 @@ $ git commit -am "Cleanup"
 
 !['git commit -am "Cleanup"'](/.images/shell/2-step-shell-14.svg)
 
-Next, let's create three commits, two good and one "bad":
+Next, let's a "good" commit:
 
 <!--
 ```shellSession
@@ -182,7 +186,7 @@ $ git commit -m "Added feature 1"
 
 !['echo "good" > file1'](/.images/shell/2-step-shell-15.svg)!['git add file1'](/.images/shell/2-step-shell-16.svg)!['git commit -m "Added feature 1"'](/.images/shell/2-step-shell-17.svg)
 
-The "bad" file:
+A "bad" commit:
 
 <!--
 ```shellSession
@@ -194,7 +198,7 @@ $ git commit -m "Added feature 2"
 
 !['echo "bad" > file2'](/.images/shell/2-step-shell-18.svg)!['git add file2'](/.images/shell/2-step-shell-19.svg)!['git commit -m "Added feature 2"'](/.images/shell/2-step-shell-20.svg)
 
-A "good" file:
+And a "good" commit:
 
 <!--
 ```shellSession
@@ -242,7 +246,7 @@ To *really* get rid of a commit, we'll need to use `git rebase -i`, which we'll 
 
 The benefit of `git revert` over `git rebase` is that it is a non-destructive change.  This is especially useful when working on a shared codebase.  More on this soon.t
 
-### Amending a commit
+## Exercise 3: Amending a commit
 
 Another common scenario is making a typo in a commit message or committing too early.  Let's see how to handle both of these situations.
 
@@ -256,7 +260,7 @@ $ git commit -m "Bug fiix" --allow-empty
 
 !['git commit -m "Bug fiix" --allow-empty'](/.images/shell/2-step-shell-27.svg)
 
-> Git normally doesn't allow empty commits, unless you use the `--allow-empty` flag.
+> Git normally doesn't allow empty commits unless you use the `--allow-empty` flag.
 
 <!--
 ```shellSession
@@ -288,13 +292,13 @@ $ git log -n 2
 
 That was easy enough!
 
-### Resetting your tree
+## Exercise 4: Resetting your tree
 
 Sometimes you just want to reset the changes to your repository to a specified branch or commit.  The `git reset` command is allows you to do this by moving the `HEAD` pointer to a specific commit and can optionally change the staging area or the working directory to match that commit.
 
 There are three modes: `--soft`, `--mixed`, and `--hard`.
 
-#### Soft reset
+### Soft reset
 
 A soft reset moves the `HEAD` pointer to a specific commit, but leaves the staging area and the working directory unchanged. This means that your changes are preserved and remain staged.
 
@@ -370,7 +374,7 @@ $ git status
 
 We can see that `file1` is still staged.
 
-#### Mixed reset
+### Mixed reset
 
 A mixed reset, which is the default mode of `git reset`, moves the `HEAD` pointer and also updates the staging area to match the specified commit, but leaves the working directory alone. This means that your changes are preserved but become unstaged.
 
@@ -414,7 +418,7 @@ Both commands move `HEAD` back one commit and also unstage the changes from that
 
 You should see that `file1` is unstaged but the changes are still there.
 
-#### Hard reset
+### Hard reset
 
 A hard reset moves the `HEAD` pointer and also updates both the staging area and the working directory to match the specified commit. This means that your changes are permanently discarded.
 

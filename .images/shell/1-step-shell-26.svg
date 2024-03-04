@@ -1,5 +1,5 @@
 <!-- Created with term-transcript v0.3.0 (https://github.com/slowli/term-transcript) -->
-<svg viewBox="0 0 720 66" width="720" height="66" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 720 138" width="720" height="138" xmlns="http://www.w3.org/2000/svg">
   <switch>
     <g requiredExtensions="http://www.w3.org/1999/xhtml">
       <style>
@@ -57,11 +57,15 @@
         .fg15 { color: #f3f3f3; } .bg15 { background: #f3f3f3; }
       </style>
       <rect width="100%" height="100%" y="0" rx="4.5" style="fill: #1c1c1c;" />
-      <svg x="0" y="10" width="720" height="46" viewBox="0 0 720 46">
-        <foreignObject width="720" height="46">
+      <svg x="0" y="10" width="720" height="118" viewBox="0 0 720 118">
+        <foreignObject width="720" height="118">
           <div xmlns="http://www.w3.org/1999/xhtml" class="container">
-            <div class="input"><pre><span class="prompt">$</span> git commit -m &quot;lesson/1-merge commit&quot; --allow-empty</pre></div>
-            <div class="output"><pre>[lesson/1-merge 4a1b57f] lesson/1-merge commit</pre></div>
+            <div class="input"><pre><span class="prompt">$</span> git log --oneline --graph --decorate --all -n 5</pre></div>
+            <div class="output"><pre>* <span class="fg3">5511213</span><span class="fg3"> (</span><span class="bold fg2">feature</span><span class="fg3">)</span> lesson/1-merge commit
+* <span class="fg3">87b0234</span> lesson/1-merge commit
+* <span class="fg3">db8d23d</span> lesson/1 commit
+* <span class="fg3">c1ce109</span> lesson/1 commit
+* <span class="fg3">8a6e86f</span><span class="fg3"> (</span><span class="bold fg2">lesson/3-squash</span><span class="fg3">)</span> Added stuff</pre></div>
           </div>
         </foreignObject>
       </svg>

@@ -85,13 +85,34 @@ const processor = remark()
 
             let image_nodes = [];
 
-            // For each command in the code block...
-            for (const command of commands) {
+            if (commands.length === 1) {
+                const command = commands[0];
+
+                console.log(command)
+
+                // term-script outputs raw SVG data to stdout
+                const cmd_output = execSync(`unbuffer ${command} | term-transcript capture '${command}'`, options).toString().trim();
+
+                const imageFilename = `${basename}-shell-${counter++}.svg`;
+
+                // Write the captured output to an SVG file
+                fs.writeFileSync(path.join('../.images/shell', imageFilename), cmd_output);
+
+                image_nodes.push({
+                  type: 'image',
+                  url: path.join('/.images/shell', imageFilename),
+                  alt: `'${command}'`,
+                })
+            }
+            else if (commands.length > 1) {
+
+              // Join all commands into a single string with each command escaped by single quotes
+              let command = commands.map(line => `'${line}'`).join(' ');
 
               console.log(command)
 
               // term-script outputs raw SVG data to stdout
-              const cmd_output = execSync(`unbuffer ${command} | term-transcript capture '${command}'`, options).toString().trim();
+              const cmd_output = execSync(`term-transcript exec ${command} --pty`, options).toString().trim();
 
               const imageFilename = `${basename}-shell-${counter++}.svg`;
 

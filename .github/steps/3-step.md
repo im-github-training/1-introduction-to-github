@@ -14,7 +14,7 @@ $ git switch -c lesson/3
 
 !['git switch -c lesson/3'](/.images/shell/3-step-shell-0.svg)
 
-## Understanding rebase
+## Exercise 1: Understanding rebase
 
 Rebasing allows you to move or combine a sequence of commits to a new base commit.  In other words, it allows you to give your commits a new *base*.
 
