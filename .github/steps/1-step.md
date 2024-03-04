@@ -10,11 +10,7 @@ To get started, we'll need a local copy of this repository.  To do that:
 2. **Open a terminal window and do a `git clone`:**
    ![Clone Repo](/.images/image-10.png)
 
-In the next series of exercises, we will be using this repository to work on a New York Times bestseller.
-
-## Understanding the Basics
-
-To begin, let's make sure everything is in order with our repository.
+Now let's make sure everything is in order with our repository.
 
 To do this, we use the `git status` command which (unsurprisingly) prints out the current status of your repository.
 
@@ -46,7 +42,9 @@ A ***branch*** is a pointer to a specific ***commit***:
 * As you make ***new commits***, Git automatically updates this ***reference*** to the ***latest commit***
 * In this way, a ***branch reference*** always represents the latest line of development in a ***branch***
 
-Branches are useful because they give you a place to experiment and try things out before you make changes to your `main` branch.  So let's create one for us to work in.
+Branches are useful because they give you a place to experiment and try things out before you make changes to your `main` branch.
+
+Let's create one for us to work in.
 
 #### Listing all branches
 
@@ -54,7 +52,7 @@ First, let's see what branches this repo already has, because we want to pick a 
 
 <!--
 ```shellSession
-$ git branch
+$ git branch --all
 ```
 -->
 
@@ -63,6 +61,7 @@ $ git branch
 Ok, it looks like there's only one branch, `main`
 
 > The `*` in front of `main` means that we're currently working "in" the `main` branch.  Alternatively, we have `main` "checked out".
+
 
 #### Creating a branch
 
@@ -192,6 +191,20 @@ $ git status
 
 *Magnifique.*
 
+### Renaming a branch
+
+So at the start of this lesson we created a branch called `feature`, however, we aren't going to be building anything.
+
+A more appropriate name would be something like `lesson/1`, that way we can keep the files for each lesson separate.
+
+Now let's rename the branch using `git branch -m`:
+
+<!--
+```shellSession
+$ git branch -m feature lesson/1
+```
+-->
+
 ### Our First Commit
 
 Now that we've got a branch to work in, let's create a few files to experiment:
@@ -279,8 +292,6 @@ $ git log -n 1
 Great, but while we're here, what's that long number-like thing next to `commit`, above?
 
 It's a **commit ID**.
-
-## Beyond the Basics
 
 ### What is a Commit ID?
 

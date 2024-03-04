@@ -1,6 +1,6 @@
 name: Step 1
 
-# This step listens for the learner to create branch `my-first-branch`.
+# This step listens for the learner to create branch `lesson/1`.
 # This workflow updates from step 1 to step 2.
 
 # This will run every time we create a branch or tag.
@@ -40,7 +40,7 @@ jobs:
         run: exit 1
 
       - name: Check if branch is my-first-branch
-        if: github.ref_type == 'branch' && github.ref_name != 'my-first-branch'
+        if: github.ref_type == 'branch' && github.ref_name != 'lesson/1'
         run: exit 1
 
   main:
@@ -62,27 +62,27 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           from_step: 1
           to_step: 2
-          branch_name: my-first-branch
+          branch_name: lesson/1
 
       # Add three commits to the my-first-branch branch.
-      - name: Add chapter2 commits
-        if: github.event_name != 'workflow_dispatch'
-        run: |
-          echo "Chatper 2" > chapter2
-          git add chapter2
-          git commit -m "Added chaptor2"
+      # - name: Add chapter2 commits
+      #   if: github.event_name != 'workflow_dispatch'
+      #   run: |
+      #     echo "Chatper 2" > chapter2
+      #     git add chapter2
+      #     git commit -m "Added chaptor2"
 
-          echo "Chapter 2" > chapter2
-          git commit -am "FIxed tyypo"
+      #     echo "Chapter 2" > chapter2
+      #     git commit -am "FIxed tyypo"
 
-          git commit -m "bugfix" --allow-empty
-          git commit -m "bugfix" --allow-empty
+      #     git commit -m "bugfix" --allow-empty
+      #     git commit -m "bugfix" --allow-empty
 
-          echo "Section 2" >> chapter2
-          git commit -am "Added 'Section 1' to chapter2"
+      #     echo "Section 2" >> chapter2
+      #     git commit -am "Added 'Section 1' to chapter2"
 
-          echo "Section 2" >> chapter2
-          git commit -am "fix"
-          git commit -m "fiix" --allow-empty
+      #     echo "Section 2" >> chapter2
+      #     git commit -am "fix"
+      #     git commit -m "fiix" --allow-empty
 
-          git push origin my-first-branch
+      #     git push origin my-first-branch

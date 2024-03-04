@@ -14,9 +14,88 @@ $ git switch -c lesson/2
 
 !['git switch -c lesson/2'](/.images/shell/2-step-shell-0.svg)
 
+### Specifying revisions
 
+In Lesson 1, you may have noticed the use of syntax such as `HEAD~3` used in place of commit IDs.
 
-### Handling common scenarios
+This syntax is called Git's **revision syntax** and provides a convenient, albeit confusing, way to identify a commit or a range of commits.
+
+Remember, these are just references to commits. They can be used anywhere a commit hash is used. For example, you can use them with `git diff` to see the difference between the current state of the code and some prior state.
+
+Revisions can be specified using the following notation:
+
+1. `HEAD`
+2. `HEAD~`
+3. `HEAD^`
+4. `HEAD@{}`.
+
+**1. HEAD**
+
+`HEAD` is a reference to the last commit in the current checked-out branch. You can think of it as the "current commit".
+
+For example, if you want to see the log of the most recent commit, you can use:
+
+```bash
+git log -1 HEAD
+```
+
+**2. HEAD~ and HEAD~n**
+
+`HEAD~` (or `HEAD~1`) is a reference to the commit before the last commit.
+
+`HEAD~n` refers to the nth commit before the last commit.
+
+For example, if you want to see the log of the commit before the last commit, you can use:
+
+```bash
+git log -1 HEAD~1
+```
+
+And if you want to see the log of the commit two steps before the last commit, you can use:
+
+```bash
+git log -1 HEAD~2
+```
+
+**3. HEAD^ and HEAD^n**
+
+`HEAD^` (or `HEAD^1`) is a reference to the first parent of the last commit. This is useful in a merge commit situation where a commit has more than one parent.
+
+`HEAD^n` refers to the nth parent of the last commit.
+
+For example, if you want to see the log of the first parent of the last commit, you can use:
+
+```bash
+git log -1 HEAD^1
+```
+
+And if you want to see the log of the second parent of the last commit (in a merge commit situation), you can use:
+
+```bash
+git log -1 HEAD^2
+```
+
+**4. HEAD@{...}**
+
+`HEAD@{}` is a reference to the `HEAD` at a certain point in time.
+
+`HEAD@{n}` refers to the nth prior value of `HEAD`.
+
+For example, if you want to see where `HEAD` was three moves ago, you can use:
+
+```bash
+git log -1 HEAD@{3}
+```
+
+`HEAD@{date}` refers to the value of `HEAD` at a certain date.
+
+For example, if you want to see where `HEAD` was yesterday, you can use:
+
+```bash
+git log -1 HEAD@{yesterday}
+```
+
+### Fixing common mistakes
 
 #### Restoring files
 
@@ -34,8 +113,6 @@ $ touch file1 file2 file3
 
 !['touch file1 file2 file3'](/.images/shell/2-step-shell-1.svg)
 
-
-
 <!--
 ```shellSession
 $ git add file*
@@ -44,8 +121,6 @@ $ git add file*
 
 !['git add file\*'](/.images/shell/2-step-shell-2.svg)
 
-
-
 <!--
 ```shellSession
 $ git commit -m "Added some files"
@@ -53,8 +128,6 @@ $ git commit -m "Added some files"
 -->
 
 !['git commit -m "Added some files"'](/.images/shell/2-step-shell-3.svg)
-
-
 
 Now let's delete them:
 
@@ -66,8 +139,6 @@ $ rm file*
 
 !['rm file\*'](/.images/shell/2-step-shell-4.svg)
 
-
-
 And making sure the files are deleted:
 
 <!--
@@ -78,8 +149,6 @@ $ ls -l
 
 !['ls -l'](/.images/shell/2-step-shell-5.svg)
 
-
-
 Let's see what Git has to say:
 
 <!--
@@ -89,8 +158,6 @@ $ git status
 -->
 
 !['git status'](/.images/shell/2-step-shell-6.svg)
-
-
 
 As expected, Git noticed the change to the *working directory*, namely, that we deleted our files.
 
@@ -106,8 +173,6 @@ $ git restore file1 file2 file3
 
 !['git restore file1 file2 file3'](/.images/shell/2-step-shell-7.svg)
 
-
-
 Double-checking with an `ls -l`:
 
 <!--
@@ -117,8 +182,6 @@ $ ls -l
 -->
 
 !['ls -l'](/.images/shell/2-step-shell-8.svg)
-
-
 
 Great!  But that was a lot of typing, let's try something...
 
@@ -132,8 +195,6 @@ $ rm file1 file2 file3
 
 !['rm file1 file2 file3'](/.images/shell/2-step-shell-9.svg)
 
-
-
 Checking...
 
 <!--
@@ -143,8 +204,6 @@ $ ls -l
 -->
 
 !['ls -l'](/.images/shell/2-step-shell-10.svg)
-
-
 
 And...
 
@@ -156,8 +215,6 @@ $ git restore .
 
 !['git restore .'](/.images/shell/2-step-shell-11.svg)
 
-
-
 Yup...
 
 <!--
@@ -168,11 +225,171 @@ $ ls -l
 
 !['ls -l'](/.images/shell/2-step-shell-12.svg)
 
-
-
 Cool!
 
 > While you're learning Git it's important to experiment.  You'll probably be using Git a lot, so it makes sense to get familiar as quickly as possible.
+
+#### Resetting your working directory
+
+The `git reset` command is a powerful tool that allows you to undo changes in your Git repository. It moves the `HEAD` pointer to a specific commit and can optionally change the staging area or the working directory to match that commit. There are three modes: `--soft`, `--mixed`, and `--hard`.
+
+**1. Soft Reset**
+
+A soft reset moves the `HEAD` pointer to a specific commit, but leaves the staging area and the working directory unchanged. This means that your changes are preserved and remain staged.
+
+Example:
+
+```bash
+git reset --soft HEAD~1
+```
+
+This command moves `HEAD` back one commit (i.e., the last commit is "undone"), but the changes from that commit are left in the staging area.
+
+**Exercise 1:**
+
+<!--
+```shellSession
+$ touch file1 && git add file1 && git commit -m "Added file1"
+```
+-->
+
+!['touch file1 && git add file1 && git commit -m "Added file1"'](/.images/shell/2-step-shell-13.svg)
+
+Let's check `git log` and `git status` before we execute `git reset`:
+
+<!--
+```shellSession
+$ git log -n 1
+```
+-->
+
+!['git log -n 1'](/.images/shell/2-step-shell-14.svg)
+
+<!--
+```shellSession
+$ git status
+```
+-->
+
+!['git status'](/.images/shell/2-step-shell-15.svg)
+
+Now let's run `git reset --soft HEAD~1`:
+
+<!--
+```shellSession
+$ git reset --soft HEAD~1
+```
+-->
+
+!['git reset --soft HEAD~1'](/.images/shell/2-step-shell-16.svg)
+
+<!--
+```shellSession
+$ git log -n 1
+```
+-->
+
+!['git log -n 1'](/.images/shell/2-step-shell-17.svg)
+
+<!--
+```shellSession
+$ git status
+```
+-->
+
+!['git status'](/.images/shell/2-step-shell-18.svg)
+
+We can see that `file1` is still staged.
+
+**2. Mixed Reset**
+
+A mixed reset, which is the default mode of `git reset`, moves the `HEAD` pointer and also updates the staging area to match the specified commit, but leaves the working directory alone. This means that your changes are preserved but become unstaged.
+
+Since `file1` is still staged from the previous example, all we have to do is commit it:
+
+<!--
+```shellSession
+$ git commit -m "Added file1"
+```
+-->
+
+!['git commit -m "Added file1"'](/.images/shell/2-step-shell-19.svg)
+
+We know what `git log` and `git status` look like from the previous example, so let's go ahead and run `git reset --mixed HEAD~1`:
+
+<!--
+```shellSession
+$ git reset --mixed HEAD~1
+```
+-->
+
+!['git reset --mixed HEAD~1'](/.images/shell/2-step-shell-20.svg)
+
+<!--
+```shellSession
+$ git log -n 1
+```
+-->
+
+!['git log -n 1'](/.images/shell/2-step-shell-21.svg)
+
+<!--
+```shellSession
+$ git status
+```
+-->
+
+!['git status'](/.images/shell/2-step-shell-22.svg)
+
+Both commands move `HEAD` back one commit and also unstage the changes from that commit.
+
+You should see that `file1` is unstaged but the changes are still there.
+
+**3. Hard Reset**
+
+A hard reset moves the `HEAD` pointer and also updates both the staging area and the working directory to match the specified commit. This means that your changes are permanently discarded.
+
+Since the previous example unstaged `file1`, let's go ahead and get it staged and committed:
+
+<!--
+```shellSession
+$ git add file1 && git commit -m "Added file1"
+```
+-->
+
+!['git add file1 && git commit -m "Added file1"'](/.images/shell/2-step-shell-23.svg)
+
+We know what to expect with `git log` and `git status`, so let's execute `git reset --hard HEAD~1`:
+
+<!--
+```shellSession
+$ git reset --hard HEAD~1
+```
+-->
+
+!['git reset --hard HEAD~1'](/.images/shell/2-step-shell-24.svg)
+
+<!--
+```shellSession
+$ git log -n 1
+```
+-->
+
+!['git log -n 1'](/.images/shell/2-step-shell-25.svg)
+
+<!--
+```shellSession
+$ git status
+```
+-->
+
+!['git status'](/.images/shell/2-step-shell-26.svg)
+
+This command moves `HEAD` back one commit and discards the changes from that commit.
+
+You should see that `file3.txt` is gone.
+
+> Remember, `git reset` can permanently discard your changes if used improperly. Always make sure you have a backup of your changes or have pushed your changes to a remote repository before using `git reset --hard`.
 
 #### Reverting a commit
 
@@ -186,9 +403,7 @@ $ rm file* && git commit -am "Cleanup"
 ```
 -->
 
-!['rm file\* && git commit -am "Cleanup"'](/.images/shell/2-step-shell-13.svg)
-
-
+!['rm file\* && git commit -am "Cleanup"'](/.images/shell/2-step-shell-27.svg)
 
 Next, let's create three commits, two good and one "bad":
 
@@ -200,9 +415,7 @@ $ git commit -m "Added feature 1"
 ```
 -->
 
-!['echo "good" > file1'](/.images/shell/2-step-shell-14.svg)!['git add file1'](/.images/shell/2-step-shell-15.svg)!['git commit -m "Added feature 1"'](/.images/shell/2-step-shell-16.svg)
-
-
+!['echo "good" > file1'](/.images/shell/2-step-shell-28.svg)!['git add file1'](/.images/shell/2-step-shell-29.svg)!['git commit -m "Added feature 1"'](/.images/shell/2-step-shell-30.svg)
 
 The "bad" file:
 
@@ -214,9 +427,7 @@ $ git commit -m "Added feature 2"
 ```
 -->
 
-!['echo "bad" > file2'](/.images/shell/2-step-shell-17.svg)!['git add file2'](/.images/shell/2-step-shell-18.svg)!['git commit -m "Added feature 2"'](/.images/shell/2-step-shell-19.svg)
-
-
+!['echo "bad" > file2'](/.images/shell/2-step-shell-31.svg)!['git add file2'](/.images/shell/2-step-shell-32.svg)!['git commit -m "Added feature 2"'](/.images/shell/2-step-shell-33.svg)
 
 A "good" file:
 
@@ -228,9 +439,7 @@ $ git commit -m "Added feature 3"
 ```
 -->
 
-!['echo "good" > file3'](/.images/shell/2-step-shell-20.svg)!['git add file3'](/.images/shell/2-step-shell-21.svg)!['git commit -m "Added feature 3"'](/.images/shell/2-step-shell-22.svg)
-
-
+!['echo "good" > file3'](/.images/shell/2-step-shell-34.svg)!['git add file3'](/.images/shell/2-step-shell-35.svg)!['git commit -m "Added feature 3"'](/.images/shell/2-step-shell-36.svg)
 
 Now let's get rid of the "bad" commit, the one that was *one* commit ago:
 
@@ -240,9 +449,7 @@ $ git revert HEAD~1 --no-edit
 ```
 -->
 
-!['git revert HEAD~1 --no-edit'](/.images/shell/2-step-shell-23.svg)
-
-
+!['git revert HEAD~1 --no-edit'](/.images/shell/2-step-shell-37.svg)
 
 Let's see what that did:
 
@@ -252,9 +459,7 @@ $ ls -l
 ```
 -->
 
-!['ls -l'](/.images/shell/2-step-shell-24.svg)
-
-
+!['ls -l'](/.images/shell/2-step-shell-38.svg)
 
 Cool, `file2` is missing, as we'd expect.  Let's check the log:
 
@@ -264,9 +469,7 @@ $ git log -n 5
 ```
 -->
 
-!['git log -n 5'](/.images/shell/2-step-shell-25.svg)
-
-
+!['git log -n 5'](/.images/shell/2-step-shell-39.svg)
 
 Interesting, so the old commit is still in the history, but we have a new "revert" commit...
 
@@ -286,9 +489,7 @@ $ git commit -m "Bug fiix" --allow-empty
 ```
 -->
 
-!['git commit -m "Bug fiix" --allow-empty'](/.images/shell/2-step-shell-26.svg)
-
-
+!['git commit -m "Bug fiix" --allow-empty'](/.images/shell/2-step-shell-40.svg)
 
 > Git normally doesn't allow empty commits, unless you use the `--allow-empty` flag.
 
@@ -298,9 +499,7 @@ $ git log -n 2
 ```
 -->
 
-!['git log -n 2'](/.images/shell/2-step-shell-27.svg)
-
-
+!['git log -n 2'](/.images/shell/2-step-shell-41.svg)
 
 Now that's a beaut.  Let's fix it with a `git commit --amend`:
 
@@ -310,9 +509,7 @@ $ git commit -m "Fixed scrollbar bug" --amend
 ```
 -->
 
-!['git commit -m "Fixed scrollbar bug" --amend'](/.images/shell/2-step-shell-28.svg)
-
-
+!['git commit -m "Fixed scrollbar bug" --amend'](/.images/shell/2-step-shell-42.svg)
 
 And checking `git log`:
 
@@ -322,9 +519,7 @@ $ git log -n 2
 ```
 -->
 
-!['git log -n 2'](/.images/shell/2-step-shell-29.svg)
-
-
+!['git log -n 2'](/.images/shell/2-step-shell-43.svg)
 
 That was easy enough!
 
@@ -353,9 +548,7 @@ $ git push
 ```
 -->
 
-!['git push'](/.images/shell/2-step-shell-30.svg)
-
-
+!['git push'](/.images/shell/2-step-shell-44.svg)
 
 <!--
 ```shellSession
@@ -363,9 +556,7 @@ $ git push --set-upstream origin my-first-branch
 ```
 -->
 
-!['git push --set-upstream origin my-first-branch'](/.images/shell/2-step-shell-31.svg)
-
-
+!['git push --set-upstream origin my-first-branch'](/.images/shell/2-step-shell-45.svg)
 
 <!--
   <<< Author notes: Step 1 >>>
