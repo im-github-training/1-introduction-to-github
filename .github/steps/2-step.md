@@ -148,178 +148,6 @@ Cool!
 
 > While you're learning Git it's important to experiment.  You'll probably be using Git a lot, so it makes sense to get familiar as quickly as possible.
 
-### Resetting your working directory
-
-The `git reset` command is a powerful tool that allows you to undo changes in your Git repository. It moves the `HEAD` pointer to a specific commit and can optionally change the staging area or the working directory to match that commit. There are three modes: `--soft`, `--mixed`, and `--hard`.
-
-**1. Soft Reset**
-
-A soft reset moves the `HEAD` pointer to a specific commit, but leaves the staging area and the working directory unchanged. This means that your changes are preserved and remain staged.
-
-Example:
-
-```bash
-git reset --soft HEAD~1
-```
-
-This command moves `HEAD` back one commit (i.e., the last commit is "undone"), but the changes from that commit are left in the staging area.
-
-First, let's clean up the directory:
-
-**Exercise 1:**
-
-<!--
-```shellSession
-$ rm file* && git commit -am "Cleanup"
-```
--->
-
-!['rm file\* && git commit -am "Cleanup"'](/.images/shell/2-step-shell-13.svg)
-
-<!--
-```shellSession
-$ touch file1 && git add file1 && git commit -m "Added file1"
-```
--->
-
-!['touch file1 && git add file1 && git commit -m "Added file1"'](/.images/shell/2-step-shell-14.svg)
-
-Let's check `git log` and `git status` before we execute `git reset`:
-
-<!--
-```shellSession
-$ git log -n 1
-```
--->
-
-!['git log -n 1'](/.images/shell/2-step-shell-15.svg)
-
-<!--
-```shellSession
-$ git status
-```
--->
-
-!['git status'](/.images/shell/2-step-shell-16.svg)
-
-Now let's run `git reset --soft HEAD~1`:
-
-<!--
-```shellSession
-$ git reset --soft HEAD~1
-```
--->
-
-!['git reset --soft HEAD~1'](/.images/shell/2-step-shell-17.svg)
-
-<!--
-```shellSession
-$ git log -n 1
-```
--->
-
-!['git log -n 1'](/.images/shell/2-step-shell-18.svg)
-
-<!--
-```shellSession
-$ git status
-```
--->
-
-!['git status'](/.images/shell/2-step-shell-19.svg)
-
-We can see that `file1` is still staged.
-
-**2. Mixed Reset**
-
-A mixed reset, which is the default mode of `git reset`, moves the `HEAD` pointer and also updates the staging area to match the specified commit, but leaves the working directory alone. This means that your changes are preserved but become unstaged.
-
-Since `file1` is still staged from the previous example, all we have to do is commit it:
-
-<!--
-```shellSession
-$ git commit -m "Added file1"
-```
--->
-
-!['git commit -m "Added file1"'](/.images/shell/2-step-shell-20.svg)
-
-We know what `git log` and `git status` look like from the previous example, so let's go ahead and run `git reset --mixed HEAD~1`:
-
-<!--
-```shellSession
-$ git reset --mixed HEAD~1
-```
--->
-
-!['git reset --mixed HEAD~1'](/.images/shell/2-step-shell-21.svg)
-
-<!--
-```shellSession
-$ git log -n 1
-```
--->
-
-!['git log -n 1'](/.images/shell/2-step-shell-22.svg)
-
-<!--
-```shellSession
-$ git status
-```
--->
-
-!['git status'](/.images/shell/2-step-shell-23.svg)
-
-Both commands move `HEAD` back one commit and also unstage the changes from that commit.
-
-You should see that `file1` is unstaged but the changes are still there.
-
-**3. Hard Reset**
-
-A hard reset moves the `HEAD` pointer and also updates both the staging area and the working directory to match the specified commit. This means that your changes are permanently discarded.
-
-Since the previous example unstaged `file1`, let's go ahead and get it staged and committed:
-
-<!--
-```shellSession
-$ git add file1 && git commit -m "Added file1"
-```
--->
-
-!['git add file1 && git commit -m "Added file1"'](/.images/shell/2-step-shell-24.svg)
-
-We know what to expect with `git log` and `git status`, so let's execute `git reset --hard HEAD~1`:
-
-<!--
-```shellSession
-$ git reset --hard HEAD~1
-```
--->
-
-!['git reset --hard HEAD~1'](/.images/shell/2-step-shell-25.svg)
-
-<!--
-```shellSession
-$ git log -n 1
-```
--->
-
-!['git log -n 1'](/.images/shell/2-step-shell-26.svg)
-
-<!--
-```shellSession
-$ git status
-```
--->
-
-!['git status'](/.images/shell/2-step-shell-27.svg)
-
-This command moves `HEAD` back one commit and discards the changes from that commit.
-
-You should see that `file3.txt` is gone.
-
-> Remember, `git reset` can permanently discard your changes if used improperly. Always make sure you have a backup of your changes or have pushed your changes to a remote repository before using `git reset --hard`.
-
 ### Reverting a commit
 
 Occasionally, we'll need to "undo" a commit, and one way of doing that is with `git revert`
@@ -459,6 +287,178 @@ $ git log -n 2
 !['git log -n 2'](/.images/shell/2-step-shell-45.svg)
 
 That was easy enough!
+
+### Resetting your working directory
+
+Sometimes you just want to reset the changes to your repository to a specified branch or commit.  The `git reset` command is allows you to do this by moving the `HEAD` pointer to a specific commit and can optionally change the staging area or the working directory to match that commit.
+
+There are three modes: `--soft`, `--mixed`, and `--hard`.
+
+#### Soft reset
+
+A soft reset moves the `HEAD` pointer to a specific commit, but leaves the staging area and the working directory unchanged. This means that your changes are preserved and remain staged.
+
+Example:
+
+```bash
+git reset --soft HEAD~1
+```
+
+This command moves `HEAD` back one commit (i.e., the last commit is "undone"), but the changes from that commit are left in the staging area.
+
+First, let's clean up the directory:
+
+<!--
+```shellSession
+$ rm file* && git commit -am "Cleanup"
+```
+-->
+
+!['rm file\* && git commit -am "Cleanup"'](/.images/shell/2-step-shell-13.svg)
+
+<!--
+```shellSession
+$ touch file1 && git add file1 && git commit -m "Added file1"
+```
+-->
+
+!['touch file1 && git add file1 && git commit -m "Added file1"'](/.images/shell/2-step-shell-14.svg)
+
+Let's check `git log` and `git status` before we execute `git reset`:
+
+<!--
+```shellSession
+$ git log -n 1
+```
+-->
+
+!['git log -n 1'](/.images/shell/2-step-shell-15.svg)
+
+<!--
+```shellSession
+$ git status
+```
+-->
+
+!['git status'](/.images/shell/2-step-shell-16.svg)
+
+Now let's run `git reset --soft HEAD~1`:
+
+<!--
+```shellSession
+$ git reset --soft HEAD~1
+```
+-->
+
+!['git reset --soft HEAD~1'](/.images/shell/2-step-shell-17.svg)
+
+<!--
+```shellSession
+$ git log -n 1
+```
+-->
+
+!['git log -n 1'](/.images/shell/2-step-shell-18.svg)
+
+<!--
+```shellSession
+$ git status
+```
+-->
+
+!['git status'](/.images/shell/2-step-shell-19.svg)
+
+We can see that `file1` is still staged.
+
+#### Mixed reset
+
+A mixed reset, which is the default mode of `git reset`, moves the `HEAD` pointer and also updates the staging area to match the specified commit, but leaves the working directory alone. This means that your changes are preserved but become unstaged.
+
+Since `file1` is still staged from the previous example, all we have to do is commit it:
+
+<!--
+```shellSession
+$ git commit -m "Added file1"
+```
+-->
+
+!['git commit -m "Added file1"'](/.images/shell/2-step-shell-20.svg)
+
+We know what `git log` and `git status` look like from the previous example, so let's go ahead and run `git reset --mixed HEAD~1`:
+
+<!--
+```shellSession
+$ git reset --mixed HEAD~1
+```
+-->
+
+!['git reset --mixed HEAD~1'](/.images/shell/2-step-shell-21.svg)
+
+<!--
+```shellSession
+$ git log -n 1
+```
+-->
+
+!['git log -n 1'](/.images/shell/2-step-shell-22.svg)
+
+<!--
+```shellSession
+$ git status
+```
+-->
+
+!['git status'](/.images/shell/2-step-shell-23.svg)
+
+Both commands move `HEAD` back one commit and also unstage the changes from that commit.
+
+You should see that `file1` is unstaged but the changes are still there.
+
+#### Hard reset
+
+A hard reset moves the `HEAD` pointer and also updates both the staging area and the working directory to match the specified commit. This means that your changes are permanently discarded.
+
+Since the previous example unstaged `file1`, let's go ahead and get it staged and committed:
+
+<!--
+```shellSession
+$ git add file1 && git commit -m "Added file1"
+```
+-->
+
+!['git add file1 && git commit -m "Added file1"'](/.images/shell/2-step-shell-24.svg)
+
+We know what to expect with `git log` and `git status`, so let's execute `git reset --hard HEAD~1`:
+
+<!--
+```shellSession
+$ git reset --hard HEAD~1
+```
+-->
+
+!['git reset --hard HEAD~1'](/.images/shell/2-step-shell-25.svg)
+
+<!--
+```shellSession
+$ git log -n 1
+```
+-->
+
+!['git log -n 1'](/.images/shell/2-step-shell-26.svg)
+
+<!--
+```shellSession
+$ git status
+```
+-->
+
+!['git status'](/.images/shell/2-step-shell-27.svg)
+
+This command moves `HEAD` back one commit and discards the changes from that commit.
+
+You should see that `file3.txt` is gone.
+
+> Remember, `git reset` can permanently discard your changes if used improperly. Always make sure you have a backup of your changes or have pushed your changes to a remote repository before using `git reset --hard`.
 
 ## Understanding rebase
 

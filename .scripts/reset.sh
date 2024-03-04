@@ -2,7 +2,7 @@
 
 rm -Rf exercises
 gh repo delete "im-sampm/exercises" --yes
-gh repo fork https://github.com/im-github-training/exercises.git --clone --default-branch-only
+gh repo fork https://github.com/im-github-training/exercises.git --default-branch-only
 
 # read -p "Go to your repo and enable Actions, then press enter to continue"
 

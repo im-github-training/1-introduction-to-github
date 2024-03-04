@@ -10,7 +10,12 @@ To get started, we'll need a local copy of this repository.  To do that:
    ![Copy Repo URL](/.images/image-9.png)
 
 2. **Open a terminal window and do a `git clone`:**
-   ![Clone Repo](/.images/image-10.png)
+
+<!--
+```shellSession
+$ git clone https://github.com/im-sampm/exercises.git
+```
+-->
 
 Now let's make sure everything is in order with our repository.
 
@@ -58,7 +63,7 @@ $ git status
 
 !['git status'](/.images/shell/1-step-shell-2.svg)
 
-Interestingly, Git noticed that we added the files, but states that they're *untracked*.
+So, Git noticed that we added the files, but states that they're *untracked*.
 
 > With Git, you have to *explicitly* tell it to start tracking files using `git add`.  Until you do that, Git considers the file *untracked*.
 
@@ -84,7 +89,7 @@ $ git status
 
 !['git status'](/.images/shell/1-step-shell-4.svg)
 
-Alright, it looks like our files are staged and ready to be committed!
+Alright, it looks like our files are ***staged*** and ready to be committed!
 
 Let's go ahead and do that with `git commit -m "Added stuff"`:
 
@@ -108,9 +113,9 @@ $ git status
 
 !['git status'](/.images/shell/1-step-shell-6.svg)
 
-Nice, looks like the files were moved from the staging area to the repository!
+Nice, looks like the files were moved from the ***staging area*** to the ***repository***!
 
-We can confirm that the commit is part of our repository history by doing a `git log`:
+We can confirm that the commit is part of our repository by doing a `git log`:
 
 <!--
 ```shellSession
@@ -122,11 +127,8 @@ $ git log -n 1
 
 ## Understanding branches
 
-TODO: Branches are the second most fundamental concept in Git.
+Branches are pointers to a specific commit in the repository's history.  They are commonly used to isolate changes for specific features or bug fixes, enabling developers to work on multiple tasks simultaneously without affecting the main codebase.
 
-Let's set things up by creating something called a ***branch***.
-
-A ***branch*** is a pointer to a specific ***commit***:
 
 * When you create a ***branch***, Git creates a ***reference*** and points it at your ***current  commit***
 * As you make ***new commits***, Git automatically updates this ***reference*** to the ***latest commit***
@@ -138,7 +140,33 @@ Let's create one for us to work in.
 
 ### Listing all branches
 
-First, let's see what branches this repo already has, because we want to pick a unique name:
+First, let's see what branches this repo already has, because we want to pick a unique name.
+
+As mentioned in [What is a repository?](), Git has a concept of ***local*** and ***remote*** repositories.  Naturally, Git also has a concept of ***local*** and ***remote*** branches.
+
+#### Local branches
+
+Local branches are branches that exist in our *local* repository.
+
+To list all *local* branches, we use `git branch`:
+
+<!--
+```shellSession
+$ git branch
+```
+-->
+
+We can see that our local repository has only one branch, `main`.
+
+> The `*` in front of `main` means that we're currently working "in" the `main` branch.  Alternatively, we have `main` "checked out".
+
+#### Remote branches
+
+Remote branches are branches that exist in a *remote* repository.
+
+In our case, we made a local copy of a *remote* repository by *cloning* it.  When repositories are *cloned*, Git keeps track of the *remote* repositories *remote* branches.
+
+To list all *local* and *remote* branches, we use `git branch --all`:
 
 <!--
 ```shellSession
@@ -148,15 +176,13 @@ $ git branch --all
 
 !['git branch --all'](/.images/shell/1-step-shell-8.svg)
 
-TODO: Address remotes
+We can see that in addition to the local `main` branch, there are *remote* branches.
 
-Ok, it looks like there's only one branch, `main`
-
-> The `*` in front of `main` means that we're currently working "in" the `main` branch.  Alternatively, we have `main` "checked out".
+TODO:
 
 ### Creating branches
 
-Now let's actually create the branch, which we can do with `git branch <branchname>`:
+Now let's actually create a *local* branch, which we can do with `git branch <branchname>`:
 
 <!--
 ```shellSession
@@ -200,9 +226,9 @@ $ git branch
 
 !['git branch'](/.images/shell/1-step-shell-12.svg)
 
-Something that we'll address head-on is that Git often has multiple ways of doing the same thing.
-
-In our case, `git switch` provides the `--create` or `-c` flag, which lets you create and switch all in one go.
+> Something that we'll address head-on is that Git often has multiple ways of doing the same thing.
+>
+> In our case, `git switch` provides the `--create` or `-c` flag, which lets you create and switch all in one go.
 
 Let's give it a shot and create a throwaway branch:
 
@@ -225,63 +251,6 @@ $ git branch
 !['git branch'](/.images/shell/1-step-shell-14.svg)
 
 Perfect!
-
-#### Stashing commits
-
-TODO:
-
-**Git Stashing Tutorial**
-
-Stashing in Git allows you to save changes that you don't want to commit immediately. You can apply the stashed changes later, even on a different branch. This tutorial will guide you through the process of stashing changes and provide exercises to help you master this concept.
-
-**1. Basic Stashing**
-
-You're in the middle of working on a feature when you need to switch branches to fix a bug. You don't want to commit half-done work, so you can stash the changes.
-
-**Exercise 1:**
-
-1. Modify a file in your repository but do not commit the changes.
-2. Run `git stash`. Your changes are saved in a new stash and your working directory is reverted to the last commit.
-3. Switch to another branch and make some changes.
-4. Switch back to the original branch.
-
-**2. Applying Stashed Changes**
-
-Now that the bug is fixed, you want to go back to working on the feature. You can apply the stashed changes to your working directory.
-
-**Exercise 2:**
-
-1. Run `git stash list`. This will show a list of all stashes. You should see the stash you created earlier.
-2. Run `git stash apply`. This will apply the most recent stash to your working directory.
-
-**3. Stashing Specific Files**
-
-Sometimes, you only want to stash changes to certain files. You can do this with `git stash push`.
-
-**Exercise 3:**
-
-1. Modify two files in your repository but do not commit the changes.
-2. Run `git stash push -m "A descriptive message" <file>`. Replace `<file>` with the path to one of the files you modified. This will create a new stash with only the changes to that file.
-
-**4. Dropping a Stash**
-
-Once you've applied a stash and made sure you won't need it again, you can drop it to keep your stash list clean.
-
-**Exercise 4:**
-
-1. Run `git stash list`. This will show a list of all stashes.
-2. Run `git stash drop <stash>`. Replace `<stash>` with the name of the stash you want to drop.
-
-**5. Stashing Untracked Files**
-
-By default, `git stash` will not stash untracked files. If you want to include untracked files, you can use `git stash -u`.
-
-**Exercise 5:**
-
-1. Create a new file in your repository but do not stage or commit it.
-2. Run `git stash -u`. This will create a new stash that includes the untracked file.
-
-Remember, stashing is a powerful tool that allows you to save changes without committing them. It's useful when you need to switch context quickly, but don't want to lose your current work.
 
 ### Deleting branches
 
@@ -359,6 +328,12 @@ $ git branch -m feature lesson/1
 
 As we mentioned in the introduction to this lesson, the contents of two or more branches can be combined using a process called **merging**.
 
+Git supports two main types of merges:
+
+1. **Fast-forward merge**: This type of merge can occur when there is a linear path from the current branch tip to the target branch. Instead of creating a new commit, Git just moves the current branch pointer up to the target branch pointer.
+
+2. **Three-way merge**: This is the most common type of merge. When the two branches you're trying to merge have diverged, Git creates a new commit that includes changes from both branches. This is done by looking at the common ancestor of the two branches, the current branch, and the target branch.
+
 #### The fast-forward merge
 
 To better understand merging, let's merge some changes between branches.
@@ -415,7 +390,7 @@ $ git merge lesson/1-merge
 
 !['git merge lesson/1-merge'](/.images/shell/1-step-shell-27.svg)
 
-Git says it did a `fast-forward`...
+As Git reports, it has performed a ***fast-forward*** merge.
 
 <!--
 ```shellSession
@@ -425,9 +400,11 @@ $ git log --oneline --graph --decorate --all -n 5
 
 !['git log --oneline --graph --decorate --all -n 5'](/.images/shell/1-step-shell-28.svg)
 
+In this simple scenario, Git was able to simply take the commits in the `lesson/1-merge` branch and add them to the end of the `lesson/1` branch.
+
 #### Three-way merges
 
-Let's see what happens if we add commits to both `lesson/1` ***and*** `lesson/1-merge`:
+Now let's try a more complex scenario, and see what happens if we add commits to both `lesson/1` ***and*** `lesson/1-merge`:
 
 <!--
 ```shellSession
@@ -483,9 +460,13 @@ $ git log --oneline --graph --decorate --all -n 5
 
 #### Dealing with merge *conflicts*
 
-TODO: Something that commonly happens when merging branches is something called a ***merge conflict***.  This occurs when...
+A common occurrence when merging branches are ***merge conflicts***.
 
-Let's create a change to `file1`:
+***Merge conflicts*** occur when the same part of your code is changed in two branches that you're trying to merge together, and Git can't determine which change should take precedence.  When this happens, Git halts the merge process and requires manual intervention to resolve the conflict, after which you can continue with the merge.
+
+Let's create a merge conflict and learn how to ***resolve*** them.
+
+First, let's create a change to `file1` in the `lesson/1-merge` branch:
 
 <!--
 ```shellSession
@@ -497,7 +478,7 @@ $ git commit -am "Updated file1 in lesson/1-merge"
 
 !['git switch lesson/1-merge'](/.images/shell/1-step-shell-38.svg)!['echo "lesson/1-merge" > file1'](/.images/shell/1-step-shell-39.svg)!['git commit -am "Updated file1 in lesson/1-merge"'](/.images/shell/1-step-shell-40.svg)
 
-Now let's...
+Next let's create a change to `file1` in the `lesson/1` branch:
 
 <!--
 ```shellSession
@@ -509,7 +490,7 @@ $ git commit -am "Updated file1 in lesson/1"
 
 !['git switch lesson/1'](/.images/shell/1-step-shell-41.svg)!['echo "lesson/1" > file1'](/.images/shell/1-step-shell-42.svg)!['git commit -am "Updated file1 in lesson/1"'](/.images/shell/1-step-shell-43.svg)
 
-And merge:
+And now let's try to merge `lesson/1-merge` into `lesson/1`:
 
 <!--
 ```shellSession
@@ -519,7 +500,9 @@ $ git merge lesson/1-merge
 
 !['git merge lesson/1-merge'](/.images/shell/1-step-shell-44.svg)
 
-Git says...
+As expected, Git aborts the automatic merge and asks us to "fix the conflicts" and "commit the result".
+
+To start, let's take a look at `file1`:
 
 <!--
 ```shellSession
@@ -529,7 +512,17 @@ $ cat file1
 
 !['cat file1'](/.images/shell/1-step-shell-45.svg)
 
-So let's say we want to keep both changes, let's edit `file1`:
+We can see that Git has added ***conflict markers*** to `file1`:
+
+```diff
+<<<<<<<
+Code from your current branch
+=======
+Code from branch you are merging
+>>>>>>>
+```
+
+In our current example, let's say we want to keep *both* changes.  To do that, we need to edit `file1` so it looks like:
 
 ```diff
 lesson/1
@@ -541,10 +534,62 @@ And continue the merge with `git commit -a`:
 <!--
 ```shellSession
 $ git commit -am "Merging branches"
+$ git log --oneline --graph --decorate --all -n 5
 ```
 -->
 
 !['git commit -am "Merging branches"'](/.images/shell/1-step-shell-46.svg)
+
+### Stashing commits
+
+Git mostly stays out of your way as you create and switch between branches, however, Git disallows switching branches when the switch could result in losing uncommitted changes.
+
+This typically happens when the changes in your current working directory or staging area conflict with the branch you are trying to switch to. If the same file has been modified in your current branch and in the branch you're trying to check out, Git will prevent the branch switch to avoid overwriting those modifications.
+
+In these situations, you have two options:
+1. **Commit your changes**: `git commit`
+2. **Stash your changes**: `git stash`
+
+**Stashing** allows you to save changes that you don't want to commit immediately. You can apply the stashed changes later, even on a different branch.
+
+#### Basic Stashing
+
+You're in the middle of working on a feature when you need to switch branches to fix a bug. You don't want to commit half-done work, so you can stash the changes.
+
+1. Modify a file in your repository but do not commit the changes.
+2. Run `git stash`. Your changes are saved in a new stash and your working directory is reverted to the last commit.
+3. Switch to another branch and make some changes.
+4. Switch back to the original branch.
+
+#### Applying Stashed Changes
+
+Now that the bug is fixed, you want to go back to working on the feature. You can apply the stashed changes to your working directory.
+
+1. Run `git stash list`. This will show a list of all stashes. You should see the stash you created earlier.
+2. Run `git stash apply`. This will apply the most recent stash to your working directory.
+
+#### Stashing Specific Files
+
+Sometimes, you only want to stash changes to certain files. You can do this with `git stash push`.
+
+1. Modify two files in your repository but do not commit the changes.
+2. Run `git stash push -m "A descriptive message" <file>`. Replace `<file>` with the path to one of the files you modified. This will create a new stash with only the changes to that file.
+
+#### Dropping a Stash
+
+Once you've applied a stash and made sure you won't need it again, you can drop it to keep your stash list clean.
+
+1. Run `git stash list`. This will show a list of all stashes.
+2. Run `git stash drop <stash>`. Replace `<stash>` with the name of the stash you want to drop.
+
+#### Stashing Untracked Files
+
+By default, `git stash` will not stash untracked files. If you want to include untracked files, you can use `git stash -u`.
+
+1. Create a new file in your repository but do not stage or commit it.
+2. Run `git stash -u`. This will create a new stash that includes the untracked file.
+
+Remember, stashing is a powerful tool that allows you to save changes without committing them. It's useful when you need to switch context quickly, but don't want to lose your current work.
 
 ## Wrapping Things Up
 
