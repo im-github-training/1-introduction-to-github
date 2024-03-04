@@ -1,4 +1,4 @@
-# Lesson 3
+# Lesson 2
 
 ## Welcome Back
 
@@ -14,146 +14,42 @@ $ git switch -c lesson/3
 
 !['git switch -c lesson/3'](/.images/shell/3-step-shell-0.svg)
 
-## Specifying revisions
+## Understanding rebase
 
-In Lessons 1 and 2, you may have noticed the use of syntax such as `HEAD~3` used in place of commit IDs.
+Rebasing allows you to move or combine a sequence of commits to a new base commit.  In other words, it allows you to give your commits a new *base*.
 
-This syntax is called Git's **revision syntax** and provides a convenient, albeit confusing, way to identify a commit or a range of commits.
+There are two forms of rebasing: ***basic*** and ***interactive***
 
-Remember, these are just references to commits. They can be used anywhere a commit hash is used. For example, you can use them with `git diff` to see the difference between the current state of the code and some prior state.
+### Basic rebasing
 
-Revisions can be specified using the following notation:
+A basic rebase is very similar to a **fast-forward merge**.  Suppose you're working in a feature branch and the master branch gets updated.
 
-1. `HEAD`
-2. `HEAD~`
-3. `HEAD^`
-4. `HEAD@{}`.
+To include those updates in your feature branch you could either `git merge` or `git rebase`.
 
-**1. HEAD**
+Let's work through an example to illustrate.
 
-`HEAD` is a reference to the last commit in the current checked-out branch. You can think of it as the "current commit".
-
-For example, if you want to see the log of the most recent commit, you can use:
-
-```bash
-git log -1 HEAD
-```
-
-**2. HEAD~ and HEAD~n**
-
-`HEAD~` (or `HEAD~1`) is a reference to the commit before the last commit.
-
-`HEAD~n` refers to the nth commit before the last commit.
-
-For example, if you want to see the log of the commit before the last commit, you can use:
-
-```bash
-git log -1 HEAD~1
-```
-
-And if you want to see the log of the commit two steps before the last commit, you can use:
-
-```bash
-git log -1 HEAD~2
-```
-
-**3. HEAD^ and HEAD^n**
-
-`HEAD^` (or `HEAD^1`) is a reference to the first parent of the last commit. This is useful in a merge commit situation where a commit has more than one parent.
-
-`HEAD^n` refers to the nth parent of the last commit.
-
-For example, if you want to see the log of the first parent of the last commit, you can use:
-
-```bash
-git log -1 HEAD^1
-```
-
-And if you want to see the log of the second parent of the last commit (in a merge commit situation), you can use:
-
-```bash
-git log -1 HEAD^2
-```
-
-**4. HEAD@{...}**
-
-`HEAD@{}` is a reference to the `HEAD` at a certain point in time.
-
-`HEAD@{n}` refers to the nth prior value of `HEAD`.
-
-For example, if you want to see where `HEAD` was three moves ago, you can use:
-
-```bash
-git log -1 HEAD@{3}
-```
-
-`HEAD@{date}` refers to the value of `HEAD` at a certain date.
-
-For example, if you want to see where `HEAD` was yesterday, you can use:
-
-```bash
-git log -1 HEAD@{yesterday}
-```
-
-Great, but while we're here, what's that long number-like thing next to `commit`, above?
-
-It's a **commit ID**.
-
-## What is a Commit ID?
-
-A **commit ID** (or **commit hash**) is a unique identifier for each commit. It is a 40-character alpha-numeric string calculated based on the contents of a commit.
-
-> When using a commit ID, you only need to type out the first few characters, just enough to uniquely identify the commit within your repository. For example, you might see short versions of commit hashes in `git log` output, like `e83c516`.
-
-## What is HEAD?
-
-To the right of the **commit ID** in the `git log` output is `(HEAD -> lesson/3)`, which seems to indicate that something called `HEAD` is pointing to `lesson/3`.
-
-Let's dig in.
-
-In Git, `HEAD` can be thought of as the "you are here" marker in your repository. It's a pointer that indicates what the currently "checked out" commit is.
-
-### Understanding HEAD
-
-To get an intuitive understanding of `HEAD`, let's take a look at our `git log` (using some flags to make things easier to see):
+First, let's create a "feature" branch to work on:
 
 <!--
 ```shellSession
-$ git log --oneline --decorate --all --graph -n 10
+$ git switch -c lesson/3-rebase
 ```
 -->
 
-!['git log --oneline --decorate --all --graph -n 10'](/.images/shell/3-step-shell-1.svg)
+!['git switch -c lesson/3-rebase'](/.images/shell/3-step-shell-1.svg)
 
-This is a text-based graph of the commits in your repository. The commit that `HEAD` is pointing to is marked with `(HEAD)`.
-
-> Note that `HEAD` is pointing to the latest commit on the `lesson/3` branch.
-
-### Moving HEAD
-
-Now let's switch over to `main`:
+Let's create a few commits in the `lesson/3-rebase` branch:
 
 <!--
 ```shellSession
-$ git switch main
+$ git commit -m "lesson/3-rebase commit 1" --allow-empty
+$ git commit -m "lesson/3-rebase commit 2" --allow-empty
 ```
 -->
 
-!['git switch main'](/.images/shell/3-step-shell-2.svg)
+!['git commit -m "lesson/3-rebase commit 1" --allow-empty'](/.images/shell/3-step-shell-2.svg)!['git commit -m "lesson/3-rebase commit 2" --allow-empty'](/.images/shell/3-step-shell-3.svg)
 
-And see what `HEAD` is pointing to:
-
-<!--
-```shellSession
-$ git log --oneline --decorate --all --graph -n 10
-```
--->
-
-!['git log --oneline --decorate --all --graph -n 10'](/.images/shell/3-step-shell-3.svg)
-
-> Notice how `HEAD` has moved to the latest commit on `main`?
-
-Now let's switch back to `lesson/3`:
+Now let's switch back to the `lesson/3` branch:
 
 <!--
 ```shellSession
@@ -163,229 +59,120 @@ $ git switch lesson/3
 
 !['git switch lesson/3'](/.images/shell/3-step-shell-4.svg)
 
-And make a commit:
+And create a few commits to `lesson/3` branch:
 
 <!--
 ```shellSession
-$ touch head-test && git add head-test && git commit -m "Learning about HEAD"
+$ git commit -m "lesson/3 commit 1" --allow-empty
+$ git commit -m "lesson/3 commit 2" --allow-empty
 ```
 -->
 
-!['touch head-test && git add head-test && git commit -m "Learning about HEAD"'](/.images/shell/3-step-shell-5.svg)
-
-And see what happens to `HEAD`:
+!['git commit -m "lesson/3 commit 1" --allow-empty'](/.images/shell/3-step-shell-5.svg)!['git commit -m "lesson/3 commit 2" --allow-empty'](/.images/shell/3-step-shell-6.svg)
 
 <!--
 ```shellSession
-$ git log --oneline --decorate --all --graph -n 10
+$ git log --oneline --graph --decorate --all -n 7
 ```
 -->
 
-!['git log --oneline --decorate --all --graph -n 10'](/.images/shell/3-step-shell-6.svg)
+!['git log --oneline --graph --decorate --all -n 7'](/.images/shell/3-step-shell-7.svg)
 
-> `HEAD` has been automatically moved to the new commit!
-
-### Detached HEAD
-
-Now let's see what happens when we checkout a specific commit, instead of a `branch`:
+Now let's rebase `lesson/3-rebase` onto `lesson/3`:
 
 <!--
 ```shellSession
-$ git checkout HEAD~3
+$ git switch lesson/3-rebase
+$ git rebase lesson/3
 ```
 -->
 
-!['git checkout HEAD~3'](/.images/shell/3-step-shell-7.svg)
+!['git switch lesson/3-rebase'](/.images/shell/3-step-shell-8.svg)!['git rebase lesson/3'](/.images/shell/3-step-shell-9.svg)
 
-This warning seems quite scary, `detached HEAD` and all...  Get used to it, because you'll be seeing it a lot. `detached HEAD` happens so often that it's a perennial right of passage for Git users.  Having an intuitive understanding on what it means is key to Git success.
-
-## Understanding Detached HEAD
-
-First, let's take a look at `git log`:
+As you can see:
 
 <!--
 ```shellSession
-$ git log --oneline --decorate --all --graph -n 10
+$ git log --oneline --graph --decorate --all -n 7
 ```
 -->
 
-!['git log --oneline --decorate --all --graph -n 10'](/.images/shell/3-step-shell-8.svg)
+!['git log --oneline --graph --decorate --all -n 7'](/.images/shell/3-step-shell-10.svg)
 
-Seems pretty normal.
+### Interactive rebasing
 
-In fact, the only thing remotely "strange" is that `HEAD` doesn't have an arrow (`->`) pointing to a branch like `main` or `lesson/3`.
+Interactive rebasing allows you to alter individual commits in the process. You can squash commits (combine them), reorder them, amend them, or split them.
 
-Let's see what happens when we **commit** something:
+#### Squashing commits
+
+Create a new branch and make several commits:
 
 <!--
 ```shellSession
-$ touch detached-test && git add detached-test && git commit -m "Testing detached HEAD"
+$ git switch -c lesson/3-squash
+$ touch squash1 && git add squash1 && git commit -m "Added squash1"
+$ touch squash2 && git add squash2 && git commit -m "Added squash2"
 ```
 -->
 
-!['touch detached-test && git add detached-test && git commit -m "Testing detached HEAD"'](/.images/shell/3-step-shell-9.svg)
-
-And seeing what we have wrought:
+Peeking at the `git log`:
 
 <!--
 ```shellSession
-$ git log --oneline --decorate --all --graph -n 10
+$ git log --oneline --decorate --all --graph -n 5
 ```
 -->
 
-!['git log --oneline --decorate --all --graph -n 10'](/.images/shell/3-step-shell-10.svg)
-
-It looks like we've created a `branch`! Or, at least something that *looks* like a `branch`...
-
-Let's think about that `detached HEAD` warning...
+Now, initiate the rebase with `git rebase -i HEAD~2`:
 
 ```shell
-You are in 'detached HEAD' state. You can look around, make experimental
-changes and commit them, and you can discard any commits you make in this
-state without impacting any branches by switching back to a branch.
-
-If you want to create a new branch to retain commits you create, you may
-do so (now or later) by using -c with the switch command. Example:
-
-  git switch -c <new-branch-name>
-
-Or undo this operation with:
-
-  git switch -
-...
+git rebase -i HEAD~2
 ```
 
-... `git checkout` is advising us to create a *branch*...
+This opens a text editor with:
 
-For the sake of adventure, let's try the second option `git switch -`:
+![''](/.images/3-step-shell-squash-editor-1.svg)
+
+Change `pick` to `squash` on the second line and save the file:
+
+![''](/.images/3-step-shell-squash-editor-2.svg)
+
+Another text editor window will open for you to enter the new commit message. Save the file.
+
+![''](/.images/3-step-shell-squash-editor-3.svg)
+
+Change the commit message as desired and save the file:
+
+![''](/.images/3-step-shell-squash-editor-4.svg)
+
+After saving the file, the terminal output will be:
+
+![''](/.images/3-step-shell-squash-editor-5.svg)
+
+Looking at the `git log`:
+
+!['git log --oneline --decorate --all --graph -n 5'](/.images/3-step-shell-squash-log-2.svg)
+
+#### Reordering commits
+
+TBD
+
+## Wrapping Things Up
+
+Now let's push today's work back to GitHub.
 
 <!--
 ```shellSession
-$ git switch -
+$ git push
 ```
 -->
 
-!['git switch -'](/.images/shell/3-step-shell-11.svg)
-
-Now Git is literally *begging* us to create a *branch* at that commit, even giving us a whole ***new*** command for doing so...
-
-Let's check `git log`:
+!['git push'](/.images/shell/3-step-shell-11.svg)
 
 <!--
 ```shellSession
-$ git log --oneline --decorate --all --graph -n 10
+$ git push --set-upstream origin my-first-branch
 ```
 -->
 
-!['git log --oneline --decorate --all --graph -n 10'](/.images/shell/3-step-shell-12.svg)
-
-And the commit is gone.
-
-But is it *really*?  I mean, we have the commit ID right there on our screen... what's stopping us from doing a `git branch <new-branch-name> <commit-id>` now?  In ten minutes?  A month from now?
-
-So here's the important thing you need to learn about Git:
-
-> It is *nearly* **impossible** to lose anything that you've committed to a Git repository... as long as you have a ***reference***.
-
-## What is a reference?
-
-In Git, a reference (or "ref") is a **file** that contains the commit ID of a commit - it's a way to save a pointer to a specific commit.
-
-### Types of references
-
-There are three main types of references in Git:
-
-1. **Branches**: branch references are pointers to the latest commit in a branch.
-   * They are stored in the `.git/refs/heads/` directory
-
-2. **Tags**: are references to specific points in history, often used to capture a point where a particular version of a project was released.
-   * They are stored in the `.git/refs/tags/` directory
-
-3. **Remotes**: are references to commits in other repositories.
-   * They are stored in the `.git/refs/remotes/` directory
-
-### Wait, they're ***files***?
-
-Yes, references are *files*:
-
-Let's take a quick peek into the `.git` directory mentioned above:
-
-<!--
-```shellSession
-$ tree -n -I objects ../.git
-```
--->
-
-!['tree -n -I objects ../.git'](/.images/shell/3-step-shell-13.svg)
-
-> The `-I objects` flag excludes the .git/objects folder because it contains a lot of files
-
-Let's examine `.git/HEAD` and the contents of `.git/refs/heads/*`:
-
-<!--
-```shellSession
-$ cat ../.git/HEAD
-```
--->
-
-!['cat ../.git/HEAD'](/.images/shell/3-step-shell-14.svg)
-
-So `.git/HEAD` points to `refs/heads/lesson/3`, which makes sense, since we currently have `lesson/3` checked out.
-
-<!--
-```shellSession
-$ cat ../.git/refs/heads/lesson/3
-```
--->
-
-!['cat ../.git/refs/heads/lesson/3'](/.images/shell/3-step-shell-15.svg)
-
-This commit ID seems familiar, in fact, it looks like the commit ID that `HEAD` and `lesson/3` are pointing to from the `git log` above.
-
-<!--
-```shellSession
-$ cat ../.git/refs/heads/main
-```
--->
-
-!['cat ../.git/refs/heads/main'](/.images/shell/3-step-shell-16.svg)
-
-No surprise here, so references ***are*** files!
-
-Let's try something crazy, let's see if we can recover that 'lost' commit from the `detached HEAD` episode.  From what we've just discovered, it feels like all we have to do is create a file in `.git/refs/heads` containing the commit ID of the commit.
-
-What, you don't remember the commit ID?
-
-Check the reflog.
-
-### Introducing the reflog
-
-<!--
-```shellSession
-$ git reflog
-```
--->
-
-!['git reflog'](/.images/shell/3-step-shell-17.svg)
-
-There it is, near the top.  So let's take that commit ID and put it in a file called `.git/refs/heads/tada`:
-
-<!--
-```shellSession
-$ git rev-parse HEAD@{1} > ../.git/refs/heads/tada
-```
--->
-
-!['git rev-parse HEAD@{1} > ../.git/refs/heads/tada'](/.images/shell/3-step-shell-18.svg)
-
-And checking `git log`:
-
-<!--
-```shellSession
-$ git log --oneline --graph --decorate --all -n 10
-```
--->
-
-!['git log --oneline --graph --decorate --all -n 10'](/.images/shell/3-step-shell-19.svg)
-
-***TADA!***
+!['git push --set-upstream origin my-first-branch'](/.images/shell/3-step-shell-12.svg)

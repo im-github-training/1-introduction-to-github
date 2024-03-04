@@ -61,13 +61,13 @@
         <foreignObject width="720" height="154">
           <div xmlns="http://www.w3.org/1999/xhtml" class="container">
             <div class="input"><pre><span class="prompt">$</span> git log --oneline --graph --decorate --all -n 5</pre></div>
-            <div class="output"><pre>*   <span class="fg3">4d1f842</span><span class="fg3"> (</span><span class="bold fg6">HEAD</span><span class="fg3"> -&gt; </span><span class="bold fg2">lesson/1</span><span class="fg3">)</span> Merging branches
+            <div class="output"><pre>*   <span class="fg3">cc4c543</span><span class="fg3"> (</span><span class="bold fg6">HEAD</span><span class="fg3"> -&gt; </span><span class="bold fg2">lesson/1</span><span class="fg3">)</span> Merging branches
 <span class="fg1">|</span><span class="fg2">\</span>  
-<span class="fg1">|</span> * <span class="fg3">311b0b5</span><span class="fg3"> (</span><span class="bold fg2">lesson/1-merge</span><span class="fg3">)</span> Updated file1 in lesson/1-merge
-* <span class="fg2">|</span> <span class="fg3">8f03a85</span> Updated file1 in lesson/1
-* <span class="fg2">|</span> <span class="fg3">1dbfead</span> Merging branches
+<span class="fg1">|</span> * <span class="fg3">3907c94</span><span class="fg3"> (</span><span class="bold fg2">lesson/1-merge</span><span class="fg3">)</span> Updated file1 in lesson/1-merge
+* <span class="fg2">|</span> <span class="fg3">be307d8</span> Updated file1 in lesson/1
+* <span class="fg2">|</span> <span class="fg3">76169e5</span> Merging branches
 <span class="fg3">|</span><span class="fg2">\</span><span class="fg2">|</span> 
-<span class="fg3">|</span> * <span class="fg3">3336e63</span> lesson/1-merge commit</pre></div>
+<span class="fg3">|</span> * <span class="fg3">6bf958d</span> lesson/1-merge commit</pre></div>
           </div>
         </foreignObject>
       </svg>

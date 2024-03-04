@@ -531,7 +531,7 @@ Code from branch you are merging
 
 You need to manually resolve the conflict by choosing which changes to keep, and then remove the conflict markers before you can continue with the merge.
 
----
+***
 
 In our current example, let's say we want to keep *both* changes.  To do that, we need to edit `file1` so it looks like:
 

@@ -1,5 +1,5 @@
 <!-- Created with term-transcript v0.3.0 (https://github.com/slowli/term-transcript) -->
-<svg viewBox="0 0 720 264" width="720" height="264" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 720 174" width="720" height="174" xmlns="http://www.w3.org/2000/svg">
   <switch>
     <g requiredExtensions="http://www.w3.org/1999/xhtml">
       <style>
@@ -57,22 +57,17 @@
         .fg15 { color: #f3f3f3; } .bg15 { background: #f3f3f3; }
       </style>
       <rect width="100%" height="100%" y="0" rx="4.5" style="fill: #1c1c1c;" />
-      <svg x="0" y="10" width="720" height="244" viewBox="0 0 720 244">
-        <foreignObject width="720" height="244">
+      <svg x="0" y="10" width="720" height="154" viewBox="0 0 720 154">
+        <foreignObject width="720" height="154">
           <div xmlns="http://www.w3.org/1999/xhtml" class="container">
-            <div class="input"><pre><span class="prompt">$</span> git log --oneline --decorate --all --graph -n 10</pre></div>
-            <div class="output"><pre>* <span class="fg3">28e33c1</span><span class="fg3"> (</span><span class="bold fg6">HEAD</span><span class="fg3">)</span> Testing detached HEAD
-<span class="fg1">|</span> * <span class="fg3">548c0ac</span><span class="fg3"> (</span><span class="bold fg2">lesson/3</span><span class="fg3">)</span> Learning about HEAD
-<span class="fg1">|</span> * <span class="fg3">44c3922</span><span class="fg3"> (</span><span class="bold fg2">lesson/2</span><span class="fg3">)</span> Cleanup
-<span class="fg1">|</span> * <span class="fg3">ab04c74</span> Bug fiix
-<span class="fg1">|</span><span class="fg1">/</span>  
-* <span class="fg3">dcaa94c</span> Revert "Added feature 2"
-* <span class="fg3">792b637</span> Added feature 3
-* <span class="fg3">af0982d</span> Added feature 2
-* <span class="fg3">c582420</span> Added feature 1
-* <span class="fg3">c5afbdc</span> Cleanup
-*   <span class="fg3">4d1f842</span><span class="fg3"> (</span><span class="bold fg2">lesson/1</span><span class="fg3">)</span> Merging branches
-<span class="fg3">|</span><span class="fg4">\</span>  </pre></div>
+            <div class="input"><pre><span class="prompt">$</span> git log --oneline --graph --decorate --all -n 7</pre></div>
+            <div class="output"><pre>* <span class="fg3">b5672dd</span><span class="fg3"> (</span><span class="bold fg6">HEAD</span><span class="fg3"> -&gt; </span><span class="bold fg2">lesson/3-rebase</span><span class="fg3">)</span> lesson/3-rebase commit 2
+* <span class="fg3">00c2d44</span> lesson/3-rebase commit 1
+* <span class="fg3">162d7fb</span> lesson/3-rebase commit 2
+* <span class="fg3">1e1f632</span> lesson/3-rebase commit 1
+* <span class="fg3">1f622b2</span> lesson/3-rebase commit
+* <span class="fg3">ab32315</span> lesson/3-rebase commit
+* <span class="fg3">b7f1cbb</span><span class="fg3"> (</span><span class="bold fg2">lesson/3</span><span class="fg3">)</span> lesson/3 commit 2</pre></div>
           </div>
         </foreignObject>
       </svg>

@@ -61,7 +61,7 @@
         <foreignObject width="720" height="64">
           <div xmlns="http://www.w3.org/1999/xhtml" class="container">
             <div class="input"><pre><span class="prompt">$</span> git merge lesson/1-merge</pre></div>
-            <div class="output"><pre>Updating 1bfd9aa..169473e
+            <div class="output"><pre>Updating 801fb55..4a1b57f
 Fast-forward</pre></div>
           </div>
         </foreignObject>

@@ -61,7 +61,7 @@
         <foreignObject width="720" height="46">
           <div xmlns="http://www.w3.org/1999/xhtml" class="container">
             <div class="input"><pre><span class="prompt">$</span> git commit -am &quot;Merging branches&quot;</pre></div>
-            <div class="output"><pre>[lesson/1 4d1f842] Merging branches</pre></div>
+            <div class="output"><pre>[lesson/1 cc4c543] Merging branches</pre></div>
           </div>
         </foreignObject>
       </svg>

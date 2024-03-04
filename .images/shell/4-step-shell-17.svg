@@ -1,0 +1,119 @@
+<!-- Created with term-transcript v0.3.0 (https://github.com/slowli/term-transcript) -->
+<svg viewBox="0 0 720 930" width="720" height="930" xmlns="http://www.w3.org/2000/svg">
+  <switch>
+    <g requiredExtensions="http://www.w3.org/1999/xhtml">
+      <style>
+        .container {
+          padding: 0 10px;
+          color: #e5e5e5;
+          line-height: 18px;
+        }
+        .container pre {
+          padding: 0;
+          margin: 0;
+          font: 14px SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
+          line-height: inherit;
+        }
+        .input {
+          margin: 0 -10px 6px;
+          color: #e5e5e5;
+          background: rgba(255, 255, 255, 0.1);
+          padding: 2px 10px;
+        }
+        .input-hidden { display: none; }
+        .output { margin-bottom: 6px; }
+        .bold,.prompt { font-weight: bold; }
+        .italic { font-style: italic; }
+        .underline { text-decoration: underline; }
+        .dimmed { opacity: 0.7; }
+        .hard-br {
+          position: relative;
+          margin-left: 5px;
+        }
+        .hard-br:before {
+          content: '↓';
+          font-size: 16px;
+          height: 16px;
+          position: absolute;
+          bottom: 0;
+          transform: rotate(45deg);
+          opacity: 0.8;
+        }
+        .fg0 { color: #1c1c1c; } .bg0 { background: #1c1c1c; }
+        .fg1 { color: #ff005b; } .bg1 { background: #ff005b; }
+        .fg2 { color: #cee318; } .bg2 { background: #cee318; }
+        .fg3 { color: #ffe755; } .bg3 { background: #ffe755; }
+        .fg4 { color: #048ac7; } .bg4 { background: #048ac7; }
+        .fg5 { color: #833c9f; } .bg5 { background: #833c9f; }
+        .fg6 { color: #0ac1cd; } .bg6 { background: #0ac1cd; }
+        .fg7 { color: #e5e5e5; } .bg7 { background: #e5e5e5; }
+        .fg8 { color: #666666; } .bg8 { background: #666666; }
+        .fg9 { color: #ff00a0; } .bg9 { background: #ff00a0; }
+        .fg10 { color: #ccff00; } .bg10 { background: #ccff00; }
+        .fg11 { color: #ff9f00; } .bg11 { background: #ff9f00; }
+        .fg12 { color: #48c6ff; } .bg12 { background: #48c6ff; }
+        .fg13 { color: #be67e1; } .bg13 { background: #be67e1; }
+        .fg14 { color: #63e7f0; } .bg14 { background: #63e7f0; }
+        .fg15 { color: #f3f3f3; } .bg15 { background: #f3f3f3; }
+      </style>
+      <rect width="100%" height="100%" y="0" rx="4.5" style="fill: #1c1c1c;" />
+      <svg x="0" y="10" width="720" height="910" viewBox="0 0 720 910">
+        <foreignObject width="720" height="910">
+          <div xmlns="http://www.w3.org/1999/xhtml" class="container">
+            <div class="input"><pre><span class="prompt">$</span> git reflog</pre></div>
+            <div class="output"><pre><span class="fg3">e3b2b6b</span><span class="fg3"> (</span><span class="bold fg6">HEAD</span><span class="fg3"> -&gt; </span><span class="bold fg2">lesson/3</span><span class="fg3">)</span> HEAD@{0}: checkout: moving from ee3710d7c69b1bdeed8eb<b class="hard-br"><br/></b>4a57195811f89547ba8 to lesson/3
+<span class="fg3">ee3710d</span> HEAD@{1}: commit: Testing detached HEAD
+<span class="fg3">a2de7cd</span> HEAD@{2}: checkout: moving from lesson/3 to HEAD~3
+<span class="fg3">e3b2b6b</span><span class="fg3"> (</span><span class="bold fg6">HEAD</span><span class="fg3"> -&gt; </span><span class="bold fg2">lesson/3</span><span class="fg3">)</span> HEAD@{3}: commit: Learning about HEAD
+<span class="fg3">4df4a63</span><span class="fg3"> (</span><span class="bold fg2">lesson/2</span><span class="fg3">)</span> HEAD@{4}: checkout: moving from main to lesson/3
+<span class="fg3">4e48e69</span><span class="fg3"> (</span><span class="bold fg2">main</span><span class="fg3">)</span> HEAD@{5}: checkout: moving from lesson/3 to main
+<span class="fg3">4df4a63</span><span class="fg3"> (</span><span class="bold fg2">lesson/2</span><span class="fg3">)</span> HEAD@{6}: checkout: moving from lesson/2 to lesson/3
+<span class="fg3">4df4a63</span><span class="fg3"> (</span><span class="bold fg2">lesson/2</span><span class="fg3">)</span> HEAD@{7}: reset: moving to HEAD~1
+<span class="fg3">2d9c074</span> HEAD@{8}: commit: Added file1
+<span class="fg3">4df4a63</span><span class="fg3"> (</span><span class="bold fg2">lesson/2</span><span class="fg3">)</span> HEAD@{9}: reset: moving to HEAD~1
+<span class="fg3">ac420a5</span> HEAD@{10}: commit: Added file1
+<span class="fg3">4df4a63</span><span class="fg3"> (</span><span class="bold fg2">lesson/2</span><span class="fg3">)</span> HEAD@{11}: reset: moving to HEAD~1
+<span class="fg3">b173638</span> HEAD@{12}: commit: Added file1
+<span class="fg3">4df4a63</span><span class="fg3"> (</span><span class="bold fg2">lesson/2</span><span class="fg3">)</span> HEAD@{13}: commit: Cleanup
+<span class="fg3">cd66d5e</span> HEAD@{14}: commit: Bug fiix
+<span class="fg3">a2de7cd</span> HEAD@{15}: revert: Revert "Added feature 2"
+<span class="fg3">9f3019f</span> HEAD@{16}: commit: Added feature 3
+<span class="fg3">e65927b</span> HEAD@{17}: commit: Added feature 2
+<span class="fg3">19d3a14</span> HEAD@{18}: commit: Added feature 1
+<span class="fg3">3655d2e</span> HEAD@{19}: commit: Cleanup
+<span class="fg3">cc4c543</span><span class="fg3"> (</span><span class="bold fg2">lesson/1</span><span class="fg3">)</span> HEAD@{20}: checkout: moving from lesson/1 to lesson/2
+<span class="fg3">cc4c543</span><span class="fg3"> (</span><span class="bold fg2">lesson/1</span><span class="fg3">)</span> HEAD@{21}: commit (merge): Merging branches
+<span class="fg3">be307d8</span> HEAD@{22}: commit: Updated file1 in lesson/1
+<span class="fg3">76169e5</span> HEAD@{23}: checkout: moving from lesson/1-merge to lesson/1
+<span class="fg3">3907c94</span><span class="fg3"> (</span><span class="bold fg2">lesson/1-merge</span><span class="fg3">)</span> HEAD@{24}: commit: Updated file1 in lesson/1-merge
+<span class="fg3">6bf958d</span> HEAD@{25}: checkout: moving from lesson/1 to lesson/1-merge
+<span class="fg3">76169e5</span> HEAD@{26}: merge lesson/1-merge: Merge made by the 'ort' strategy.
+<span class="fg3">9b16864</span> HEAD@{27}: commit: lesson/1 commit
+<span class="fg3">6153b37</span> HEAD@{28}: commit: lesson/1 commit
+<span class="fg3">4a1b57f</span> HEAD@{29}: checkout: moving from lesson/1-merge to lesson/1
+<span class="fg3">6bf958d</span> HEAD@{30}: commit: lesson/1-merge commit
+<span class="fg3">9cb5690</span> HEAD@{31}: commit: lesson/1-merge commit
+<span class="fg3">4a1b57f</span> HEAD@{32}: checkout: moving from lesson/1 to lesson/1-merge
+<span class="fg3">4a1b57f</span> HEAD@{33}: merge lesson/1-merge: Fast-forward
+<span class="fg3">801fb55</span> HEAD@{34}: checkout: moving from lesson/1-merge to lesson/1
+<span class="fg3">4a1b57f</span> HEAD@{35}: commit: lesson/1-merge commit
+<span class="fg3">6cf4041</span> HEAD@{36}: commit: lesson/1-merge commit
+<span class="fg3">801fb55</span> HEAD@{37}: checkout: moving from lesson/1 to lesson/1-merge
+<span class="fg3">801fb55</span> HEAD@{38}: commit: lesson/1 commit
+<span class="fg3">c9bb683</span> HEAD@{39}: commit: lesson/1 commit
+<span class="fg3">4e48e69</span><span class="fg3"> (</span><span class="bold fg2">main</span><span class="fg3">)</span> HEAD@{40}: Branch: renamed refs/heads/feature to refs/heads/lesso<b class="hard-br"><br/></b>n/1
+<span class="fg3">4e48e69</span><span class="fg3"> (</span><span class="bold fg2">main</span><span class="fg3">)</span> HEAD@{42}: checkout: moving from throwaway to feature
+<span class="fg3">4e48e69</span><span class="fg3"> (</span><span class="bold fg2">main</span><span class="fg3">)</span> HEAD@{43}: checkout: moving from feature to throwaway
+<span class="fg3">4e48e69</span><span class="fg3"> (</span><span class="bold fg2">main</span><span class="fg3">)</span> HEAD@{44}: checkout: moving from main to feature
+<span class="fg3">4e48e69</span><span class="fg3"> (</span><span class="bold fg2">main</span><span class="fg3">)</span> HEAD@{45}: commit: Added stuff
+<span class="fg3">a9b8294</span><span class="fg3"> (</span><span class="bold fg1">upstream/main</span><span class="fg3">, </span><span class="bold fg1">origin/main</span><span class="fg3">, </span><span class="bold fg1">origin/HEAD</span><span class="fg3">)</span> HEAD@{46}: clone: from https:/<b class="hard-br"><br/></b>/github.com/im-sampm/exercises.git</pre></div>
+          </div>
+        </foreignObject>
+      </svg>
+    </g>
+    <text x="10" y="18" style="font: 14px SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace; fill: #ff005b;">
+      HTML embedding not supported.
+      Consult <tspan style="text-decoration: underline; text-decoration-thickness: 1px;"><a href="https://github.com/slowli/term-transcript/blob/HEAD/FAQ.md">term-transcript docs</a></tspan> for details.
+    </text>
+  </switch>
+</svg>

@@ -460,21 +460,6 @@ You should see that `file3.txt` is gone.
 
 > Remember, `git reset` can permanently discard your changes if used improperly. Always make sure you have a backup of your changes or have pushed your changes to a remote repository before using `git reset --hard`.
 
-## Understanding rebase
-
-### Insert rebase tutorial
-
-Here is a step-by-step guide on how to use `git rebase`:
-
-1. Start by checking out the branch you want to rebase onto.
-2. Run the command `git rebase <branch>` to start the rebase process.
-3. Resolve any conflicts that may arise during the rebase.
-4. Once the rebase is complete, push the changes to the remote repository using `git push`.
-
-That's it! You have successfully performed a rebase.
-
-### Example 2
-
 ## Wrapping Things Up
 
 Now let's push today's work back to GitHub.
@@ -493,19 +478,4 @@ $ git push --set-upstream origin my-first-branch
 ```
 -->
 
-!['git push --set-upstream origin my-first-branch'](/.images/shell/2-step-shell-47.svg)
-
-<!--
-  <<< Author notes: Step 1 >>>
-  Choose 3-5 steps for your course.
-  The first step is always the hardest, so pick something easy!
-  Link to docs.github.com for further explanations.
-  Encourage users to open new tabs for steps!
--->
-
-In this chapter we will be learning about:
-
-* `git rebase`
-* `git reset`
-* `git merge`
-* `git cherry-pick`
+['git push --set-upstream origin my-first-branch'](/.images/shell/2-step-shell-47.svg)

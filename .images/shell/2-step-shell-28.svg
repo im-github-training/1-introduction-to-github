@@ -61,19 +61,19 @@
         <foreignObject width="720" height="262">
           <div xmlns="http://www.w3.org/1999/xhtml" class="container">
             <div class="input"><pre><span class="prompt">$</span> git log -n 2</pre></div>
-            <div class="output"><pre><span class="fg3">commit ab04c7432e3ae7758b7bd002cfd1ddda7c169e07</span><span class="fg3"> (</span><span class="bold fg6">HEAD</span><span class="fg3"> -&gt; </span><span class="bold fg2">lesson/2</span><span class="fg3">)</span>
+            <div class="output"><pre><span class="fg3">commit cd66d5e6a34e17551ecfbfdbd9c492187c798c33</span><span class="fg3"> (</span><span class="bold fg6">HEAD</span><span class="fg3"> -&gt; </span><span class="bold fg2">lesson/2</span><span class="fg3">)</span>
 Author: Sam Peddamatham &lt;sam.pm@infomagnus.com&gt;
-Date:   Mon Mar 4 06:15:27 2024 +0000
+Date:   Mon Mar 4 06:42:51 2024 +0000
 
     Bug fiix
 
-<span class="fg3">commit dcaa94ca7374c7ee082d7f290ee59c09a978deef</span>
+<span class="fg3">commit a2de7cd01b623fdee61d61d85631a96e103c0aba</span>
 Author: Sam Peddamatham &lt;sam.pm@infomagnus.com&gt;
-Date:   Mon Mar 4 06:15:25 2024 +0000
+Date:   Mon Mar 4 06:42:50 2024 +0000
 
     Revert "Added feature 2"
     
-    This reverts commit af0982db3f6315070912068d1b731ac486a5537e.</pre></div>
+    This reverts commit e65927be053c4b90b74e52723b0137a01e80e5fb.</pre></div>
           </div>
         </foreignObject>
       </svg>
