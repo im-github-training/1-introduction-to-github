@@ -245,7 +245,15 @@ git reset --soft HEAD~1
 
 This command moves `HEAD` back one commit (i.e., the last commit is "undone"), but the changes from that commit are left in the staging area.
 
+First, let's clean up the directory:
+
 **Exercise 1:**
+
+<!--
+```shellSession
+$ rm file* && git commit -am "Cleanup"
+```
+-->
 
 <!--
 ```shellSession
