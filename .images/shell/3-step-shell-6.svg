@@ -1,5 +1,5 @@
 <!-- Created with term-transcript v0.3.0 (https://github.com/slowli/term-transcript) -->
-<svg viewBox="0 0 720 66" width="720" height="66" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 720 246" width="720" height="246" xmlns="http://www.w3.org/2000/svg">
   <switch>
     <g requiredExtensions="http://www.w3.org/1999/xhtml">
       <style>
@@ -57,11 +57,21 @@
         .fg15 { color: #f3f3f3; } .bg15 { background: #f3f3f3; }
       </style>
       <rect width="100%" height="100%" y="0" rx="4.5" style="fill: #1c1c1c;" />
-      <svg x="0" y="10" width="720" height="46" viewBox="0 0 720 46">
-        <foreignObject width="720" height="46">
+      <svg x="0" y="10" width="720" height="226" viewBox="0 0 720 226">
+        <foreignObject width="720" height="226">
           <div xmlns="http://www.w3.org/1999/xhtml" class="container">
-            <div class="input"><pre><span class="prompt">$</span> git commit -m &quot;lesson/1-merge commit&quot; --allow-empty</pre></div>
-            <div class="output"><pre>[lesson/1-merge deb42b3] lesson/1-merge commit</pre></div>
+            <div class="input"><pre><span class="prompt">$</span> git log --oneline --decorate --all --graph -n 10</pre></div>
+            <div class="output"><pre>* <span class="fg3">664f098</span><span class="fg3"> (</span><span class="bold fg6">HEAD</span><span class="fg3"> -&gt; </span><span class="bold fg2">lesson/3</span><span class="fg3">)</span> Learning about HEAD
+* <span class="fg3">1184abb</span><span class="fg3"> (</span><span class="bold fg2">lesson/2</span><span class="fg3">)</span> Bug fiix
+* <span class="fg3">50f07a9</span> Revert "Added feature 2"
+* <span class="fg3">558b6eb</span> Added feature 3
+* <span class="fg3">4bd720e</span> Added feature 2
+* <span class="fg3">8af641b</span> Added feature 1
+* <span class="fg3">4fe6516</span> Cleanup
+*   <span class="fg3">2f807a7</span><span class="fg3"> (</span><span class="bold fg2">lesson/1</span><span class="fg3">)</span> Merging branches
+<span class="fg2">|</span><span class="fg3">\</span>  
+<span class="fg2">|</span> * <span class="fg3">3e259ed</span><span class="fg3"> (</span><span class="bold fg2">lesson/1-merge</span><span class="fg3">)</span> Updated file1 in lesson/1-merge
+* <span class="fg3">|</span> <span class="fg3">2e790d0</span> Updated file1 in lesson/1</pre></div>
           </div>
         </foreignObject>
       </svg>

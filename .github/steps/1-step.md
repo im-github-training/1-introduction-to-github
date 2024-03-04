@@ -546,7 +546,6 @@ $ git commit -am "Merging branches"
 
 !['git commit -am "Merging branches"'](/.images/shell/1-step-shell-46.svg)
 
-
 ## Wrapping Things Up
 
 Phew, that was a whirlwind tour of Git, let's end things on a high-note.
@@ -561,7 +560,7 @@ $ git push
 ```
 -->
 
-!['git push'](/.images/shell/1-step-shell-66.svg)
+!['git push'](/.images/shell/1-step-shell-47.svg)
 
 <!--
 ```shellSession
@@ -569,4 +568,4 @@ $ git push --set-upstream origin feature
 ```
 -->
 
-!['git push --set-upstream origin feature'](/.images/shell/1-step-shell-67.svg)
+!['git push --set-upstream origin feature'](/.images/shell/1-step-shell-48.svg)

@@ -60,8 +60,8 @@
       <svg x="0" y="10" width="720" height="46" viewBox="0 0 720 46">
         <foreignObject width="720" height="46">
           <div xmlns="http://www.w3.org/1999/xhtml" class="container">
-            <div class="input"><pre><span class="prompt">$</span> git commit -m &quot;lesson/1-merge commit&quot; --allow-empty</pre></div>
-            <div class="output"><pre>[lesson/1-merge deb42b3] lesson/1-merge commit</pre></div>
+            <div class="input"><pre><span class="prompt">$</span> git switch -c lesson/3</pre></div>
+            <div class="output"><pre>Switched to a new branch 'lesson/3'</pre></div>
           </div>
         </foreignObject>
       </svg>

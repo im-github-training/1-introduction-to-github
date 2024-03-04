@@ -12,6 +12,8 @@ $ git switch -c lesson/3
 ```
 -->
 
+!['git switch -c lesson/3'](/.images/shell/3-step-shell-0.svg)
+
 ## Specifying revisions
 
 In Lessons 1 and 2, you may have noticed the use of syntax such as `HEAD~3` used in place of commit IDs.
@@ -93,7 +95,6 @@ For example, if you want to see where `HEAD` was yesterday, you can use:
 git log -1 HEAD@{yesterday}
 ```
 
-
 Great, but while we're here, what's that long number-like thing next to `commit`, above?
 
 It's a **commit ID**.
@@ -122,7 +123,7 @@ $ git log --oneline --decorate --all --graph -n 10
 ```
 -->
 
-!['git log --oneline --decorate --all --graph -n 10'](/.images/shell/1-step-shell-47.svg)
+!['git log --oneline --decorate --all --graph -n 10'](/.images/shell/3-step-shell-1.svg)
 
 This is a text-based graph of the commits in your repository. The commit that `HEAD` is pointing to is marked with `(HEAD)`.
 
@@ -138,7 +139,7 @@ $ git switch main
 ```
 -->
 
-!['git switch main'](/.images/shell/1-step-shell-48.svg)
+!['git switch main'](/.images/shell/3-step-shell-2.svg)
 
 And see what `HEAD` is pointing to:
 
@@ -148,7 +149,7 @@ $ git log --oneline --decorate --all --graph -n 10
 ```
 -->
 
-!['git log --oneline --decorate --all --graph -n 10'](/.images/shell/1-step-shell-49.svg)
+!['git log --oneline --decorate --all --graph -n 10'](/.images/shell/3-step-shell-3.svg)
 
 > Notice how `HEAD` has moved to the latest commit on `main`?
 
@@ -160,7 +161,7 @@ $ git switch lesson/3
 ```
 -->
 
-!['git switch feature'](/.images/shell/1-step-shell-50.svg)
+!['git switch lesson/3'](/.images/shell/3-step-shell-4.svg)
 
 And make a commit:
 
@@ -170,7 +171,7 @@ $ touch head-test && git add head-test && git commit -m "Learning about HEAD"
 ```
 -->
 
-!['touch head-test && git add head-test && git commit -m "Learning about HEAD"'](/.images/shell/1-step-shell-51.svg)
+!['touch head-test && git add head-test && git commit -m "Learning about HEAD"'](/.images/shell/3-step-shell-5.svg)
 
 And see what happens to `HEAD`:
 
@@ -180,7 +181,7 @@ $ git log --oneline --decorate --all --graph -n 10
 ```
 -->
 
-!['git log --oneline --decorate --all --graph -n 10'](/.images/shell/1-step-shell-52.svg)
+!['git log --oneline --decorate --all --graph -n 10'](/.images/shell/3-step-shell-6.svg)
 
 > `HEAD` has been automatically moved to the new commit!
 
@@ -194,7 +195,7 @@ $ git checkout HEAD~3
 ```
 -->
 
-!['git checkout HEAD~3'](/.images/shell/1-step-shell-53.svg)
+!['git checkout HEAD~3'](/.images/shell/3-step-shell-7.svg)
 
 This warning seems quite scary, `detached HEAD` and all...  Get used to it, because you'll be seeing it a lot. `detached HEAD` happens so often that it's a perennial right of passage for Git users.  Having an intuitive understanding on what it means is key to Git success.
 
@@ -208,7 +209,7 @@ $ git log --oneline --decorate --all --graph -n 10
 ```
 -->
 
-!['git log --oneline --decorate --all --graph -n 10'](/.images/shell/1-step-shell-54.svg)
+!['git log --oneline --decorate --all --graph -n 10'](/.images/shell/3-step-shell-8.svg)
 
 Seems pretty normal.
 
@@ -222,7 +223,7 @@ $ touch detached-test && git add detached-test && git commit -m "Testing detache
 ```
 -->
 
-!['touch detached-test && git add detached-test && git commit -m "Testing detached HEAD"'](/.images/shell/1-step-shell-55.svg)
+!['touch detached-test && git add detached-test && git commit -m "Testing detached HEAD"'](/.images/shell/3-step-shell-9.svg)
 
 And seeing what we have wrought:
 
@@ -232,7 +233,7 @@ $ git log --oneline --decorate --all --graph -n 10
 ```
 -->
 
-!['git log --oneline --decorate --all --graph -n 10'](/.images/shell/1-step-shell-56.svg)
+!['git log --oneline --decorate --all --graph -n 10'](/.images/shell/3-step-shell-10.svg)
 
 It looks like we've created a `branch`! Or, at least something that *looks* like a `branch`...
 
@@ -264,7 +265,7 @@ $ git switch -
 ```
 -->
 
-!['git switch -'](/.images/shell/1-step-shell-57.svg)
+!['git switch -'](/.images/shell/3-step-shell-11.svg)
 
 Now Git is literally *begging* us to create a *branch* at that commit, even giving us a whole ***new*** command for doing so...
 
@@ -276,7 +277,7 @@ $ git log --oneline --decorate --all --graph -n 10
 ```
 -->
 
-!['git log --oneline --decorate --all --graph -n 10'](/.images/shell/1-step-shell-58.svg)
+!['git log --oneline --decorate --all --graph -n 10'](/.images/shell/3-step-shell-12.svg)
 
 And the commit is gone.
 
@@ -315,7 +316,7 @@ $ tree -n -I objects ../.git
 ```
 -->
 
-!['tree -n -I objects ../.git'](/.images/shell/1-step-shell-59.svg)
+!['tree -n -I objects ../.git'](/.images/shell/3-step-shell-13.svg)
 
 > The `-I objects` flag excludes the .git/objects folder because it contains a lot of files
 
@@ -327,7 +328,7 @@ $ cat ../.git/HEAD
 ```
 -->
 
-!['cat ../.git/HEAD'](/.images/shell/1-step-shell-60.svg)
+!['cat ../.git/HEAD'](/.images/shell/3-step-shell-14.svg)
 
 So `.git/HEAD` points to `refs/heads/lesson/3`, which makes sense, since we currently have `lesson/3` checked out.
 
@@ -337,7 +338,7 @@ $ cat ../.git/refs/heads/lesson/3
 ```
 -->
 
-!['cat ../.git/refs/heads/feature'](/.images/shell/1-step-shell-61.svg)
+!['cat ../.git/refs/heads/lesson/3'](/.images/shell/3-step-shell-15.svg)
 
 This commit ID seems familiar, in fact, it looks like the commit ID that `HEAD` and `lesson/3` are pointing to from the `git log` above.
 
@@ -347,7 +348,7 @@ $ cat ../.git/refs/heads/main
 ```
 -->
 
-!['cat ../.git/refs/heads/main'](/.images/shell/1-step-shell-62.svg)
+!['cat ../.git/refs/heads/main'](/.images/shell/3-step-shell-16.svg)
 
 No surprise here, so references ***are*** files!
 
@@ -365,7 +366,7 @@ $ git reflog
 ```
 -->
 
-!['git reflog'](/.images/shell/1-step-shell-63.svg)
+!['git reflog'](/.images/shell/3-step-shell-17.svg)
 
 There it is, near the top.  So let's take that commit ID and put it in a file called `.git/refs/heads/tada`:
 
@@ -375,7 +376,7 @@ $ git rev-parse HEAD@{1} > ../.git/refs/heads/tada
 ```
 -->
 
-!['git rev-parse HEAD@{1} > ../.git/refs/heads/tada'](/.images/shell/1-step-shell-64.svg)
+!['git rev-parse HEAD@{1} > ../.git/refs/heads/tada'](/.images/shell/3-step-shell-18.svg)
 
 And checking `git log`:
 
@@ -385,6 +386,6 @@ $ git log --oneline --graph --decorate --all -n 10
 ```
 -->
 
-!['git log --oneline --graph --decorate --all -n 10'](/.images/shell/1-step-shell-65.svg)
+!['git log --oneline --graph --decorate --all -n 10'](/.images/shell/3-step-shell-19.svg)
 
 ***TADA!***
