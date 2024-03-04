@@ -41,8 +41,6 @@ Git is telling us the following things:
 
 ## Understanding commits
 
-TODO: Commits are the most fundamental concept in Git...
-
 Let's start by creating a few files:
 
 <!--
@@ -127,7 +125,7 @@ $ git log -n 1
 
 ## Understanding branches
 
-Branches are pointers to a specific commit in the repository's history.  They are commonly used to isolate changes for specific features or bug fixes, enabling developers to work on multiple tasks simultaneously without affecting the main codebase.
+Branches are pointers to a specific commit in the repository's history.
 
 * When you create a ***branch***, Git creates a ***reference*** and points it at your ***current  commit***
 * As you make ***new commits***, Git automatically updates this ***reference*** to the ***latest commit***
@@ -183,7 +181,7 @@ TODO:
 
 ### Creating branches
 
-Now let's actually create a *local* branch, which we can do with `git branch <branchname>`:
+Now let's actually create our *local* branch with a `git branch <branchname>`:
 
 <!--
 ```shellSession
@@ -203,11 +201,11 @@ $ git branch
 
 !['git branch'](/.images/shell/1-step-shell-11.svg)
 
-Interesting, so we can see that `feature` was created, but the `*` is still in front of `main`.
+Interesting, we can see that `feature` was created, but the `*` is still in front of `main`.
 
 This means that we're still working "in" the `main` branch.
 
-To start working in the `feature` branch we need to do a `git switch`:
+To start working "in" the `feature` branch, we need to ***switch*** to it using `git switch`:
 
 <!--
 ```shellSession
@@ -227,9 +225,9 @@ $ git branch
 
 !['git branch'](/.images/shell/1-step-shell-13.svg)
 
-> Something that we'll address head-on is that Git often has multiple ways of doing the same thing.
->
-> In our case, `git switch` provides the `--create` or `-c` flag, which lets you create and switch all in one go.
+Something that we'll address head-on is that Git often has multiple ways of doing the same thing.
+
+In our case, `git switch` provides the `--create` or `-c` flag, which lets you create and switch all in one go.
 
 Let's give it a shot and create a throwaway branch:
 
@@ -315,7 +313,7 @@ So at the start of this lesson we created a branch called `feature`, however, we
 
 A more appropriate name would be something like `lesson/1`, that way we can keep the files for each lesson separate.
 
-Now let's rename the branch using `git branch -m`:
+Let's go ahead and rename the `feature` branch using `git branch -m`:
 
 <!--
 ```shellSession
@@ -459,7 +457,7 @@ $ git log --oneline --graph --decorate --all -n 5
 
 !['git log --oneline --graph --decorate --all -n 5'](/.images/shell/1-step-shell-38.svg)
 
-#### Dealing with merge *conflicts*
+### Dealing with merge *conflicts*
 
 A common occurrence when merging branches are ***merge conflicts***.
 
@@ -513,15 +511,27 @@ $ cat file1
 
 !['cat file1'](/.images/shell/1-step-shell-46.svg)
 
-We can see that Git has added ***conflict markers*** to `file1`:
+We can see that Git has added ***conflict markers*** to `file1`.
+
+#### Conflict markers
+
+Conflict markers are used in Git to indicate where in the file the conflicts occurred that Git couldn't automatically resolve during a merge.
 
 ```diff
-<<<<<<<
+<<<<<<< HEAD
 Code from your current branch
 =======
 Code from branch you are merging
->>>>>>>
+>>>>>>> branch-name
 ```
+
+* The `<<<<<<< HEAD` marker indicates the start of the conflicting area and the version of the current branch.
+* The `=======` marker separates the conflicting content of the two branches.
+* The `>>>>>>> branch-name` marker indicates the end of the conflicting area and shows the version of the branch that's being merged.
+
+You need to manually resolve the conflict by choosing which changes to keep, and then remove the conflict markers before you can continue with the merge.
+
+---
 
 In our current example, let's say we want to keep *both* changes.  To do that, we need to edit `file1` so it looks like:
 
@@ -541,7 +551,7 @@ $ git log --oneline --graph --decorate --all -n 5
 
 !['git commit -am "Merging branches"'](/.images/shell/1-step-shell-47.svg)!['git log --oneline --graph --decorate --all -n 5'](/.images/shell/1-step-shell-48.svg)
 
-### Stashing commits
+## Stashing commits
 
 Git mostly stays out of your way as you create and switch between branches, however, Git disallows switching branches when the switch could result in losing uncommitted changes.
 
@@ -554,7 +564,7 @@ In these situations, you have two options:
 
 **Stashing** allows you to save changes that you don't want to commit immediately. You can apply the stashed changes later, even on a different branch.
 
-#### Basic Stashing
+### Basic stashing
 
 You're in the middle of working on a feature when you need to switch branches to fix a bug. You don't want to commit half-done work, so you can stash the changes.
 
@@ -563,28 +573,28 @@ You're in the middle of working on a feature when you need to switch branches to
 3. Switch to another branch and make some changes.
 4. Switch back to the original branch.
 
-#### Applying Stashed Changes
+### Applying stashes
 
 Now that the bug is fixed, you want to go back to working on the feature. You can apply the stashed changes to your working directory.
 
 1. Run `git stash list`. This will show a list of all stashes. You should see the stash you created earlier.
 2. Run `git stash apply`. This will apply the most recent stash to your working directory.
 
-#### Stashing Specific Files
+### Stashing specific files
 
 Sometimes, you only want to stash changes to certain files. You can do this with `git stash push`.
 
 1. Modify two files in your repository but do not commit the changes.
 2. Run `git stash push -m "A descriptive message" <file>`. Replace `<file>` with the path to one of the files you modified. This will create a new stash with only the changes to that file.
 
-#### Dropping a Stash
+### Dropping a stash
 
 Once you've applied a stash and made sure you won't need it again, you can drop it to keep your stash list clean.
 
 1. Run `git stash list`. This will show a list of all stashes.
 2. Run `git stash drop <stash>`. Replace `<stash>` with the name of the stash you want to drop.
 
-#### Stashing Untracked Files
+### Stashing untracked Files
 
 By default, `git stash` will not stash untracked files. If you want to include untracked files, you can use `git stash -u`.
 

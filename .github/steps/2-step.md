@@ -288,7 +288,7 @@ $ git log -n 2
 
 That was easy enough!
 
-### Resetting your working directory
+### Resetting your tree
 
 Sometimes you just want to reset the changes to your repository to a specified branch or commit.  The `git reset` command is allows you to do this by moving the `HEAD` pointer to a specific commit and can optionally change the staging area or the working directory to match that commit.
 
