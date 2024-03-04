@@ -1,6 +1,8 @@
-## Lesson 1
+# Lesson 1
 
-### Getting Started
+## Getting Started
+
+## Cloning repositories
 
 To get started, we'll need a local copy of this repository.  To do that:
 
@@ -32,7 +34,95 @@ Git is telling us the following things:
 
 > If any of these terms are unfamiliar to you, please check out [What is a Repository?](https://im-github-training.github.io/#/./docs/basic/git/repositories)
 
-### Our First Branch
+## Understanding commits
+
+TODO: Commits are the most fundamental concept in Git...
+
+Let's start by creating a few files:
+
+<!--
+```shellSession
+$ touch file1 file2 file3
+```
+-->
+
+!['touch file1 file2 file3'](/.images/shell/1-step-shell-13.svg)
+
+Let's see if Git noticed this change to our ***working tree***:
+
+<!--
+```shellSession
+$ git status
+```
+-->
+
+!['git status'](/.images/shell/1-step-shell-14.svg)
+
+Interestingly, Git noticed that we added the files, but states that they're *untracked*.
+
+> With Git, you have to *explicitly* tell it to start tracking files using `git add`.  Until you do that, Git considers the file *untracked*.
+
+Let's go ahead and start tracking the files with a `git add`:
+
+<!--
+```shellSession
+$ git add .
+```
+-->
+
+!['git add .'](/.images/shell/1-step-shell-15.svg)
+
+> We could have individually added the files by typing `git add file1 file2 file3`, but `git add` provides the convenience method `git add .`, which stages any and all changes present in the working directory.
+
+Let's see how things look now:
+
+<!--
+```shellSession
+$ git status
+```
+-->
+
+!['git status'](/.images/shell/1-step-shell-16.svg)
+
+Alright, it looks like our files are staged and ready to be committed!
+
+Let's go ahead and do that with `git commit -m "Added stuff"`:
+
+<!--
+```shellSession
+$ git commit -m "Added stuff"
+```
+-->
+
+!['git commit -m "Added stuff"'](/.images/shell/1-step-shell-17.svg)
+
+> `-m` is the short form of `--message`, which allows us to specify short commit messages via the command-line.  If you need to enter a longer commit message, typing `git commit` without any flags brings up a text editor
+
+Let's see what `git status` says now that the files have been committed:
+
+<!--
+```shellSession
+$ git status
+```
+-->
+
+!['git status'](/.images/shell/1-step-shell-18.svg)
+
+Nice, looks like the files were moved from the staging area to the repository!
+
+We can confirm that the commit is part of our repository history by doing a `git log`:
+
+<!--
+```shellSession
+$ git log -n 1
+```
+-->
+
+!['git log -n 1'](/.images/shell/1-step-shell-19.svg)
+
+## Understanding branches
+
+TODO: Branches are the second most fundamental concept in Git.
 
 Let's set things up by creating something called a ***branch***.
 
@@ -46,7 +136,7 @@ Branches are useful because they give you a place to experiment and try things o
 
 Let's create one for us to work in.
 
-#### Listing all branches
+### Listing all branches
 
 First, let's see what branches this repo already has, because we want to pick a unique name:
 
@@ -62,8 +152,7 @@ Ok, it looks like there's only one branch, `main`
 
 > The `*` in front of `main` means that we're currently working "in" the `main` branch.  Alternatively, we have `main` "checked out".
 
-
-#### Creating a branch
+### Creating branches
 
 Now let's actually create the branch, which we can do with `git branch <branchname>`:
 
@@ -135,7 +224,7 @@ $ git branch
 
 Perfect!
 
-#### Deleting a branch
+### Deleting branches
 
 Now let's get rid of the throwaway branch using `git branch`'s `--delete` or `-d` flag.
 
@@ -191,7 +280,7 @@ $ git status
 
 *Magnifique.*
 
-### Renaming a branch
+### Renaming branches
 
 So at the start of this lesson we created a branch called `feature`, however, we aren't going to be building anything.
 
@@ -205,101 +294,178 @@ $ git branch -m feature lesson/1
 ```
 -->
 
-### Our First Commit
+### Merging branches
 
-Now that we've got a branch to work in, let's create a few files to experiment:
+As we mentioned in the introduction to this lesson, the contents of two or more branches can be combined using a process called **merging**.
 
-<!--
-```shellSession
-$ touch file1 file2 file3
-```
--->
+#### The fast-forward merge
 
-!['touch file1 file2 file3'](/.images/shell/1-step-shell-13.svg)
+To better understand merging, let's merge some changes between branches.
 
-Let's see if Git noticed this change to our ***working tree***:
+First, let's create a few commits in the current `lesson/1` branch:
 
 <!--
 ```shellSession
-$ git status
+$ git commit -m "lesson/1 commit" --allow-empty
+$ git commit -m "lesson/1 commit" --allow-empty
 ```
 -->
 
-!['git status'](/.images/shell/1-step-shell-14.svg)
-
-Interesting, Git noticed that we added the files, but is saying that they're *untracked*.
-
-> With Git, you have to *explicitly* tell it to start tracking files using `git add`.  Until you do that, Git considers the file *untracked*.
-
-Let's go ahead and start tracking the files with a `git add`:
+Next, let's create a branch to merge:
 
 <!--
 ```shellSession
-$ git add .
+$ git switch -c lesson/1-merge
 ```
 -->
 
-!['git add .'](/.images/shell/1-step-shell-15.svg)
-
-> We could have individually added the files by typing `git add file1 file2 file3`, but `git add` provides the convenience method `git add .`, which stages any and all changes present in the working directory.
-
-Let's see how things look now:
+Let's create a few commits in the `lesson/1-merge` branch:
 
 <!--
 ```shellSession
-$ git status
+$ git commit -m "lesson/1-merge commit" --allow-empty
+$ git commit -m "lesson/1-merge commit" --allow-empty
 ```
 -->
 
-!['git status'](/.images/shell/1-step-shell-16.svg)
-
-Alright, it looks like our files are staged and ready to be committed!
-
-Let's go ahead and do that with `git commit -m "Added stuff"`:
+Now let's switch back to the `lesson/1` branch:
 
 <!--
 ```shellSession
-$ git commit -m "Added stuff"
+$ git switch lesson/1
 ```
 -->
 
-!['git commit -m "Added stuff"'](/.images/shell/1-step-shell-17.svg)
-
-> `-m` is the short form of `--message`, which allows us to specify short commit messages via the command-line.  If you need to enter a longer commit message, typing `git commit` without any flags brings up a text editor
-
-Let's see what `git status` says now that the files have been committed:
+And let's merge the branch:
 
 <!--
 ```shellSession
-$ git status
+$ git merge lesson/1-merge
 ```
 -->
 
-!['git status'](/.images/shell/1-step-shell-18.svg)
-
-Nice, looks like the files were moved from the staging area to the repository!
-
-We can confirm that the commit is part of our repository history by doing a `git log`:
+Git says it did a `fast-forward`...
 
 <!--
 ```shellSession
-$ git log -n 1
+$ git log --oneline --graph --decorate --all -n 5
 ```
 -->
 
-!['git log -n 1'](/.images/shell/1-step-shell-19.svg)
+#### Three-way merges
+
+Let's see what happens if we add commits to both `lesson/1` ***and*** `lesson/1-merge`:
+
+<!--
+```shellSession
+$ git switch lesson/1-merge
+$ git commit -m "lesson/1-merge commit" --allow-empty
+$ git commit -m "lesson/1-merge commit" --allow-empty
+```
+-->
+
+Now let's switch back to `lesson/1` and add a few commits:
+
+<!--
+```shellSession
+$ git switch lesson/1
+$ git commit -m "lesson/1 commit" --allow-empty
+$ git commit -m "lesson/1 commit" --allow-empty
+```
+-->
+
+Using `git log` we can now see two separate branches:
+
+<!--
+```shellSession
+$ git log --oneline --graph --decorate --all -n 5
+```
+-->
+
+Let's try merging these:
+
+<!--
+```shellSession
+$ git merge lesson/1-merge -m "Merging branches"
+```
+-->
+
+Now looking at `git log` we can now see the three-way branch:
+
+<!--
+```shellSession
+$ git log --oneline --graph --decorate --all -n 5
+```
+-->
+
+#### Dealing with merge *conflicts*
+
+TODO: Something that commonly happens when merging branches is something called a ***merge conflict***.  This occurs when...
+
+Let's create a change to `file1`:
+
+<!--
+```shellSession
+$ git switch lesson/1-merge
+$ echo "lesson/1-merge" > file1
+$ git commit -am "Updated file1 in lesson/1-merge"
+```
+-->
+
+Now let's...
+
+<!--
+```shellSession
+$ git switch lesson/1
+$ echo "lesson/1" > file1
+$ git commit -am "Updated file1 in lesson/1"
+```
+-->
+
+And merge:
+
+<!--
+```shellSession
+$ git merge lesson/1-merge
+```
+-->
+
+Git says...
+
+<!--
+```shellSession
+$ cat file1
+```
+-->
+
+So let's say we want to keep both changes, let's edit `file1`:
+
+```diff
+lesson/1
+lesson/1-merge
+```
+
+And continue the merge with `git commit -a`:
+
+<!--
+```shellSession
+$ git commit -am "Merging branches"
+```
+-->
+
+
 
 Great, but while we're here, what's that long number-like thing next to `commit`, above?
 
 It's a **commit ID**.
 
-### What is a Commit ID?
+## What is a Commit ID?
 
 A **commit ID** (or **commit hash**) is a unique identifier for each commit. It is a 40-character alpha-numeric string calculated based on the contents of a commit.
 
 > When using a commit ID, you only need to type out the first few characters, just enough to uniquely identify the commit within your repository. For example, you might see short versions of commit hashes in `git log` output, like `e83c516`.
 
-### What is HEAD?
+## What is HEAD?
 
 To the right of the **commit ID** in the `git log` output is `(HEAD -> feature)`, which seems to indicate that something called `HEAD` is pointing to `feature`.
 
@@ -307,7 +473,7 @@ Let's dig in.
 
 In Git, `HEAD` can be thought of as the "you are here" marker in your repository. It's a pointer that indicates what the currently "checked out" commit is.
 
-#### Understanding HEAD
+### Understanding HEAD
 
 To get an intuitive understanding of `HEAD`, let's take a look at our `git log` (using some flags to make things easier to see):
 
@@ -323,7 +489,7 @@ This is a text-based graph of the commits in your repository. The commit that `H
 
 > Note that `HEAD` is pointing to the latest commit on the `feature` branch.
 
-#### Moving HEAD
+### Moving HEAD
 
 Now let's switch over to `main`:
 
@@ -379,7 +545,7 @@ $ git log --oneline --decorate --all --graph -n 10
 
 > `HEAD` has been automatically moved to the new commit!
 
-#### Detached HEAD
+### Detached HEAD
 
 Now let's see what happens when we checkout a specific commit, instead of a `branch`:
 
@@ -393,7 +559,7 @@ $ git checkout HEAD~3
 
 This warning seems quite scary, `detached HEAD` and all...  Get used to it, because you'll be seeing it a lot. `detached HEAD` happens so often that it's a perennial right of passage for Git users.  Having an intuitive understanding on what it means is key to Git success.
 
-### Understanding Detached HEAD
+## Understanding Detached HEAD
 
 First, let's take a look at `git log`:
 
@@ -481,11 +647,11 @@ So here's the important thing you need to learn about Git:
 
 > It is *nearly* **impossible** to lose anything that you've committed to a Git repository... as long as you have a ***reference***.
 
-### What is a reference?
+## What is a reference?
 
 In Git, a reference (or "ref") is a **file** that contains the commit ID of a commit - it's a way to save a pointer to a specific commit.
 
-#### Types of references
+### Types of references
 
 There are three main types of references in Git:
 
@@ -498,7 +664,7 @@ There are three main types of references in Git:
 3. **Remotes**: are references to commits in other repositories.
    * They are stored in the `.git/refs/remotes/` directory
 
-#### Wait, they're ***files***?
+### Wait, they're ***files***?
 
 Yes, references are *files*:
 
@@ -552,7 +718,7 @@ What, you don't remember the commit ID?
 
 Check the reflog.
 
-#### Introducing the reflog
+### Introducing the reflog
 
 <!--
 ```shellSession

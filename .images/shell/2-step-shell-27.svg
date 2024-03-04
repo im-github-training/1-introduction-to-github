@@ -60,7 +60,7 @@
       <svg x="0" y="10" width="720" height="64" viewBox="0 0 720 64">
         <foreignObject width="720" height="64">
           <div xmlns="http://www.w3.org/1999/xhtml" class="container">
-            <div class="input"><pre><span class="prompt">$</span> rm file* &amp;&amp; git commit -am &quot;Cleanup&quot;</pre></div>
+            <div class="input"><pre><span class="prompt">$</span> git status</pre></div>
             <div class="output"><pre>On branch lesson/2
 nothing to commit, working tree clean</pre></div>
           </div>
