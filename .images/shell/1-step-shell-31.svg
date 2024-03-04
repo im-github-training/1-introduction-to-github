@@ -1,5 +1,5 @@
 <!-- Created with term-transcript v0.3.0 (https://github.com/slowli/term-transcript) -->
-<svg viewBox="0 0 720 228" width="720" height="228" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 720 66" width="720" height="66" xmlns="http://www.w3.org/2000/svg">
   <switch>
     <g requiredExtensions="http://www.w3.org/1999/xhtml">
       <style>
@@ -57,20 +57,11 @@
         .fg15 { color: #f3f3f3; } .bg15 { background: #f3f3f3; }
       </style>
       <rect width="100%" height="100%" y="0" rx="4.5" style="fill: #1c1c1c;" />
-      <svg x="0" y="10" width="720" height="208" viewBox="0 0 720 208">
-        <foreignObject width="720" height="208">
+      <svg x="0" y="10" width="720" height="46" viewBox="0 0 720 46">
+        <foreignObject width="720" height="46">
           <div xmlns="http://www.w3.org/1999/xhtml" class="container">
-            <div class="input"><pre><span class="prompt">$</span> git log --oneline --decorate --all --graph -n 10</pre></div>
-            <div class="output"><pre>* <span class="fg3">368e75e</span><span class="fg3"> (</span><span class="bold fg6">HEAD</span><span class="fg3"> -&gt; </span><span class="bold fg2">feature</span><span class="fg3">)</span> Learning about HEAD
-* <span class="fg3">9fb55f8</span> Added stuff
-* <span class="fg3">3df0f76</span><span class="fg3"> (</span><span class="bold fg1">upstream/main</span><span class="fg3">, </span><span class="bold fg1">origin/main</span><span class="fg3">, </span><span class="bold fg1">origin/HEAD</span><span class="fg3">, </span><span class="bold fg2">main</span><span class="fg3">)</span> Update
-* <span class="fg3">b177b73</span> Update
-* <span class="fg3">7f45673</span> More changes
-* <span class="fg3">288fca1</span> Major refactor
-* <span class="fg3">6fb7939</span> Update
-* <span class="fg3">d2cfdef</span> Restored README
-* <span class="fg3">e05eaeb</span> Updated
-* <span class="fg3">5fd75db</span> Update</pre></div>
+            <div class="input"><pre><span class="prompt">$</span> git commit -m &quot;lesson/1-merge commit&quot; --allow-empty</pre></div>
+            <div class="output"><pre>[lesson/1-merge 59672dd] lesson/1-merge commit</pre></div>
           </div>
         </foreignObject>
       </svg>

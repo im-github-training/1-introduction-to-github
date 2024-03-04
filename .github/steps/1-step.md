@@ -46,7 +46,7 @@ $ touch file1 file2 file3
 ```
 -->
 
-!['touch file1 file2 file3'](/.images/shell/1-step-shell-13.svg)
+!['touch file1 file2 file3'](/.images/shell/1-step-shell-1.svg)
 
 Let's see if Git noticed this change to our ***working tree***:
 
@@ -56,7 +56,7 @@ $ git status
 ```
 -->
 
-!['git status'](/.images/shell/1-step-shell-14.svg)
+!['git status'](/.images/shell/1-step-shell-2.svg)
 
 Interestingly, Git noticed that we added the files, but states that they're *untracked*.
 
@@ -70,7 +70,7 @@ $ git add .
 ```
 -->
 
-!['git add .'](/.images/shell/1-step-shell-15.svg)
+!['git add .'](/.images/shell/1-step-shell-3.svg)
 
 > We could have individually added the files by typing `git add file1 file2 file3`, but `git add` provides the convenience method `git add .`, which stages any and all changes present in the working directory.
 
@@ -82,7 +82,7 @@ $ git status
 ```
 -->
 
-!['git status'](/.images/shell/1-step-shell-16.svg)
+!['git status'](/.images/shell/1-step-shell-4.svg)
 
 Alright, it looks like our files are staged and ready to be committed!
 
@@ -94,7 +94,7 @@ $ git commit -m "Added stuff"
 ```
 -->
 
-!['git commit -m "Added stuff"'](/.images/shell/1-step-shell-17.svg)
+!['git commit -m "Added stuff"'](/.images/shell/1-step-shell-5.svg)
 
 > `-m` is the short form of `--message`, which allows us to specify short commit messages via the command-line.  If you need to enter a longer commit message, typing `git commit` without any flags brings up a text editor
 
@@ -106,7 +106,7 @@ $ git status
 ```
 -->
 
-!['git status'](/.images/shell/1-step-shell-18.svg)
+!['git status'](/.images/shell/1-step-shell-6.svg)
 
 Nice, looks like the files were moved from the staging area to the repository!
 
@@ -118,7 +118,7 @@ $ git log -n 1
 ```
 -->
 
-!['git log -n 1'](/.images/shell/1-step-shell-19.svg)
+!['git log -n 1'](/.images/shell/1-step-shell-7.svg)
 
 ## Understanding branches
 
@@ -146,7 +146,9 @@ $ git branch --all
 ```
 -->
 
-!['git branch'](/.images/shell/1-step-shell-1.svg)
+!['git branch --all'](/.images/shell/1-step-shell-8.svg)
+
+TODO: Address remotes
 
 Ok, it looks like there's only one branch, `main`
 
@@ -162,7 +164,7 @@ $ git branch feature
 ```
 -->
 
-!['git branch feature'](/.images/shell/1-step-shell-2.svg)
+!['git branch feature'](/.images/shell/1-step-shell-9.svg)
 
 Let's see what `git branch` looks like with our new branch:
 
@@ -172,7 +174,7 @@ $ git branch
 ```
 -->
 
-!['git branch'](/.images/shell/1-step-shell-3.svg)
+!['git branch'](/.images/shell/1-step-shell-10.svg)
 
 Interesting, so we can see that `feature` was created, but the `*` is still in front of `main`.
 
@@ -186,7 +188,7 @@ $ git switch feature
 ```
 -->
 
-!['git switch feature'](/.images/shell/1-step-shell-4.svg)
+!['git switch feature'](/.images/shell/1-step-shell-11.svg)
 
 And just to double-check:
 
@@ -196,7 +198,7 @@ $ git branch
 ```
 -->
 
-!['git branch'](/.images/shell/1-step-shell-5.svg)
+!['git branch'](/.images/shell/1-step-shell-12.svg)
 
 Something that we'll address head-on is that Git often has multiple ways of doing the same thing.
 
@@ -210,7 +212,7 @@ $ git switch -c throwaway
 ```
 -->
 
-!['git switch -c throwaway'](/.images/shell/1-step-shell-6.svg)
+!['git switch -c throwaway'](/.images/shell/1-step-shell-13.svg)
 
 And...
 
@@ -220,7 +222,7 @@ $ git branch
 ```
 -->
 
-!['git branch'](/.images/shell/1-step-shell-7.svg)
+!['git branch'](/.images/shell/1-step-shell-14.svg)
 
 Perfect!
 
@@ -234,7 +236,7 @@ $ git branch -d throwaway
 ```
 -->
 
-!['git branch -d throwaway'](/.images/shell/1-step-shell-8.svg)
+!['git branch -d throwaway'](/.images/shell/1-step-shell-15.svg)
 
 Ah, so we cannot delete a branch that is currently in use or "checked out".
 
@@ -246,7 +248,7 @@ $ git switch -
 ```
 -->
 
-!['git switch -'](/.images/shell/1-step-shell-9.svg)
+!['git switch -'](/.images/shell/1-step-shell-16.svg)
 
 Trying the delete again:
 
@@ -256,7 +258,7 @@ $ git branch -d throwaway
 ```
 -->
 
-!['git branch -d throwaway'](/.images/shell/1-step-shell-10.svg)
+!['git branch -d throwaway'](/.images/shell/1-step-shell-17.svg)
 
 Great, and checking `git branch`:
 
@@ -266,7 +268,7 @@ $ git branch
 ```
 -->
 
-!['git branch'](/.images/shell/1-step-shell-11.svg)
+!['git branch'](/.images/shell/1-step-shell-18.svg)
 
 And a `git status` for good measure:
 
@@ -276,7 +278,7 @@ $ git status
 ```
 -->
 
-!['git status'](/.images/shell/1-step-shell-12.svg)
+!['git status'](/.images/shell/1-step-shell-19.svg)
 
 *Magnifique.*
 
@@ -293,6 +295,8 @@ Now let's rename the branch using `git branch -m`:
 $ git branch -m feature lesson/1
 ```
 -->
+
+!['git branch -m feature lesson/1'](/.images/shell/1-step-shell-20.svg)
 
 ### Merging branches
 
@@ -311,6 +315,8 @@ $ git commit -m "lesson/1 commit" --allow-empty
 ```
 -->
 
+!['git commit -m "lesson/1 commit" --allow-empty'](/.images/shell/1-step-shell-21.svg)!['git commit -m "lesson/1 commit" --allow-empty'](/.images/shell/1-step-shell-22.svg)
+
 Next, let's create a branch to merge:
 
 <!--
@@ -318,6 +324,8 @@ Next, let's create a branch to merge:
 $ git switch -c lesson/1-merge
 ```
 -->
+
+!['git switch -c lesson/1-merge'](/.images/shell/1-step-shell-23.svg)
 
 Let's create a few commits in the `lesson/1-merge` branch:
 
@@ -328,6 +336,8 @@ $ git commit -m "lesson/1-merge commit" --allow-empty
 ```
 -->
 
+!['git commit -m "lesson/1-merge commit" --allow-empty'](/.images/shell/1-step-shell-24.svg)!['git commit -m "lesson/1-merge commit" --allow-empty'](/.images/shell/1-step-shell-25.svg)
+
 Now let's switch back to the `lesson/1` branch:
 
 <!--
@@ -335,6 +345,8 @@ Now let's switch back to the `lesson/1` branch:
 $ git switch lesson/1
 ```
 -->
+
+!['git switch lesson/1'](/.images/shell/1-step-shell-26.svg)
 
 And let's merge the branch:
 
@@ -344,6 +356,8 @@ $ git merge lesson/1-merge
 ```
 -->
 
+!['git merge lesson/1-merge'](/.images/shell/1-step-shell-27.svg)
+
 Git says it did a `fast-forward`...
 
 <!--
@@ -351,6 +365,8 @@ Git says it did a `fast-forward`...
 $ git log --oneline --graph --decorate --all -n 5
 ```
 -->
+
+!['git log --oneline --graph --decorate --all -n 5'](/.images/shell/1-step-shell-28.svg)
 
 #### Three-way merges
 
@@ -364,6 +380,8 @@ $ git commit -m "lesson/1-merge commit" --allow-empty
 ```
 -->
 
+!['git switch lesson/1-merge'](/.images/shell/1-step-shell-29.svg)!['git commit -m "lesson/1-merge commit" --allow-empty'](/.images/shell/1-step-shell-30.svg)!['git commit -m "lesson/1-merge commit" --allow-empty'](/.images/shell/1-step-shell-31.svg)
+
 Now let's switch back to `lesson/1` and add a few commits:
 
 <!--
@@ -374,6 +392,8 @@ $ git commit -m "lesson/1 commit" --allow-empty
 ```
 -->
 
+!['git switch lesson/1'](/.images/shell/1-step-shell-32.svg)!['git commit -m "lesson/1 commit" --allow-empty'](/.images/shell/1-step-shell-33.svg)!['git commit -m "lesson/1 commit" --allow-empty'](/.images/shell/1-step-shell-34.svg)
+
 Using `git log` we can now see two separate branches:
 
 <!--
@@ -381,6 +401,8 @@ Using `git log` we can now see two separate branches:
 $ git log --oneline --graph --decorate --all -n 5
 ```
 -->
+
+!['git log --oneline --graph --decorate --all -n 5'](/.images/shell/1-step-shell-35.svg)
 
 Let's try merging these:
 
@@ -390,6 +412,8 @@ $ git merge lesson/1-merge -m "Merging branches"
 ```
 -->
 
+!['git merge lesson/1-merge -m "Merging branches"'](/.images/shell/1-step-shell-36.svg)
+
 Now looking at `git log` we can now see the three-way branch:
 
 <!--
@@ -397,6 +421,8 @@ Now looking at `git log` we can now see the three-way branch:
 $ git log --oneline --graph --decorate --all -n 5
 ```
 -->
+
+!['git log --oneline --graph --decorate --all -n 5'](/.images/shell/1-step-shell-37.svg)
 
 #### Dealing with merge *conflicts*
 
@@ -412,6 +438,8 @@ $ git commit -am "Updated file1 in lesson/1-merge"
 ```
 -->
 
+!['git switch lesson/1-merge'](/.images/shell/1-step-shell-38.svg)!['echo "lesson/1-merge" > file1'](/.images/shell/1-step-shell-39.svg)!['git commit -am "Updated file1 in lesson/1-merge"'](/.images/shell/1-step-shell-40.svg)
+
 Now let's...
 
 <!--
@@ -422,6 +450,8 @@ $ git commit -am "Updated file1 in lesson/1"
 ```
 -->
 
+!['git switch lesson/1'](/.images/shell/1-step-shell-41.svg)!['echo "lesson/1" > file1'](/.images/shell/1-step-shell-42.svg)!['git commit -am "Updated file1 in lesson/1"'](/.images/shell/1-step-shell-43.svg)
+
 And merge:
 
 <!--
@@ -430,6 +460,8 @@ $ git merge lesson/1-merge
 ```
 -->
 
+!['git merge lesson/1-merge'](/.images/shell/1-step-shell-44.svg)
+
 Git says...
 
 <!--
@@ -437,6 +469,8 @@ Git says...
 $ cat file1
 ```
 -->
+
+!['cat file1'](/.images/shell/1-step-shell-45.svg)
 
 So let's say we want to keep both changes, let's edit `file1`:
 
@@ -453,7 +487,7 @@ $ git commit -am "Merging branches"
 ```
 -->
 
-
+!['git commit -am "Merging branches"'](/.images/shell/1-step-shell-46.svg)
 
 Great, but while we're here, what's that long number-like thing next to `commit`, above?
 
@@ -483,7 +517,7 @@ $ git log --oneline --decorate --all --graph -n 10
 ```
 -->
 
-!['git log --oneline --decorate --all --graph -n 10'](/.images/shell/1-step-shell-20.svg)
+!['git log --oneline --decorate --all --graph -n 10'](/.images/shell/1-step-shell-47.svg)
 
 This is a text-based graph of the commits in your repository. The commit that `HEAD` is pointing to is marked with `(HEAD)`.
 
@@ -499,7 +533,7 @@ $ git switch main
 ```
 -->
 
-!['git switch main'](/.images/shell/1-step-shell-21.svg)
+!['git switch main'](/.images/shell/1-step-shell-48.svg)
 
 And see what `HEAD` is pointing to:
 
@@ -509,7 +543,7 @@ $ git log --oneline --decorate --all --graph -n 10
 ```
 -->
 
-!['git log --oneline --decorate --all --graph -n 10'](/.images/shell/1-step-shell-22.svg)
+!['git log --oneline --decorate --all --graph -n 10'](/.images/shell/1-step-shell-49.svg)
 
 > Notice how `HEAD` has moved to the latest commit on `main`?
 
@@ -521,7 +555,7 @@ $ git switch feature
 ```
 -->
 
-!['git switch feature'](/.images/shell/1-step-shell-23.svg)
+!['git switch feature'](/.images/shell/1-step-shell-50.svg)
 
 And make a commit:
 
@@ -531,7 +565,7 @@ $ touch head-test && git add head-test && git commit -m "Learning about HEAD"
 ```
 -->
 
-!['touch head-test && git add head-test && git commit -m "Learning about HEAD"'](/.images/shell/1-step-shell-24.svg)
+!['touch head-test && git add head-test && git commit -m "Learning about HEAD"'](/.images/shell/1-step-shell-51.svg)
 
 And see what happens to `HEAD`:
 
@@ -541,7 +575,7 @@ $ git log --oneline --decorate --all --graph -n 10
 ```
 -->
 
-!['git log --oneline --decorate --all --graph -n 10'](/.images/shell/1-step-shell-25.svg)
+!['git log --oneline --decorate --all --graph -n 10'](/.images/shell/1-step-shell-52.svg)
 
 > `HEAD` has been automatically moved to the new commit!
 
@@ -555,7 +589,7 @@ $ git checkout HEAD~3
 ```
 -->
 
-!['git checkout HEAD~3'](/.images/shell/1-step-shell-26.svg)
+!['git checkout HEAD~3'](/.images/shell/1-step-shell-53.svg)
 
 This warning seems quite scary, `detached HEAD` and all...  Get used to it, because you'll be seeing it a lot. `detached HEAD` happens so often that it's a perennial right of passage for Git users.  Having an intuitive understanding on what it means is key to Git success.
 
@@ -569,7 +603,7 @@ $ git log --oneline --decorate --all --graph -n 10
 ```
 -->
 
-!['git log --oneline --decorate --all --graph -n 10'](/.images/shell/1-step-shell-27.svg)
+!['git log --oneline --decorate --all --graph -n 10'](/.images/shell/1-step-shell-54.svg)
 
 Seems pretty normal.
 
@@ -583,7 +617,7 @@ $ touch detached-test && git add detached-test && git commit -m "Testing detache
 ```
 -->
 
-!['touch detached-test && git add detached-test && git commit -m "Testing detached HEAD"'](/.images/shell/1-step-shell-28.svg)
+!['touch detached-test && git add detached-test && git commit -m "Testing detached HEAD"'](/.images/shell/1-step-shell-55.svg)
 
 And seeing what we have wrought:
 
@@ -593,7 +627,7 @@ $ git log --oneline --decorate --all --graph -n 10
 ```
 -->
 
-!['git log --oneline --decorate --all --graph -n 10'](/.images/shell/1-step-shell-29.svg)
+!['git log --oneline --decorate --all --graph -n 10'](/.images/shell/1-step-shell-56.svg)
 
 It looks like we've created a `branch`! Or, at least something that *looks* like a `branch`...
 
@@ -625,7 +659,7 @@ $ git switch -
 ```
 -->
 
-!['git switch -'](/.images/shell/1-step-shell-30.svg)
+!['git switch -'](/.images/shell/1-step-shell-57.svg)
 
 Now Git is literally *begging* us to create a *branch* at that commit, even giving us a whole ***new*** command for doing so...
 
@@ -637,7 +671,7 @@ $ git log --oneline --decorate --all --graph -n 10
 ```
 -->
 
-!['git log --oneline --decorate --all --graph -n 10'](/.images/shell/1-step-shell-31.svg)
+!['git log --oneline --decorate --all --graph -n 10'](/.images/shell/1-step-shell-58.svg)
 
 And the commit is gone.
 
@@ -676,7 +710,7 @@ $ tree -n -I objects ../.git
 ```
 -->
 
-!['tree -n -I objects ../.git'](/.images/shell/1-step-shell-32.svg)
+!['tree -n -I objects ../.git'](/.images/shell/1-step-shell-59.svg)
 
 > The `-I objects` flag excludes the .git/objects folder because it contains a lot of files
 
@@ -688,7 +722,7 @@ $ cat ../.git/HEAD
 ```
 -->
 
-!['cat ../.git/HEAD'](/.images/shell/1-step-shell-33.svg)
+!['cat ../.git/HEAD'](/.images/shell/1-step-shell-60.svg)
 
 So `.git/HEAD` points to `refs/heads/feature`, which makes sense, since we currently have `feature` checked out.
 
@@ -698,7 +732,7 @@ $ cat ../.git/refs/heads/feature
 ```
 -->
 
-!['cat ../.git/refs/heads/feature'](/.images/shell/1-step-shell-34.svg)
+!['cat ../.git/refs/heads/feature'](/.images/shell/1-step-shell-61.svg)
 
 This commit ID seems familiar, in fact, it looks like the commit ID that `HEAD` and `feature` are pointing to from the `git log` above.
 
@@ -708,7 +742,7 @@ $ cat ../.git/refs/heads/main
 ```
 -->
 
-!['cat ../.git/refs/heads/main'](/.images/shell/1-step-shell-35.svg)
+!['cat ../.git/refs/heads/main'](/.images/shell/1-step-shell-62.svg)
 
 No surprise here, so references ***are*** files!
 
@@ -726,7 +760,7 @@ $ git reflog
 ```
 -->
 
-!['git reflog'](/.images/shell/1-step-shell-36.svg)
+!['git reflog'](/.images/shell/1-step-shell-63.svg)
 
 There it is, near the top.  So let's take that commit ID and put it in a file called `.git/refs/heads/tada`:
 
@@ -736,7 +770,7 @@ $ git rev-parse HEAD@{1} > ../.git/refs/heads/tada
 ```
 -->
 
-!['git rev-parse HEAD@{1} > ../.git/refs/heads/tada'](/.images/shell/1-step-shell-37.svg)
+!['git rev-parse HEAD@{1} > ../.git/refs/heads/tada'](/.images/shell/1-step-shell-64.svg)
 
 And checking `git log`:
 
@@ -746,7 +780,7 @@ $ git log --oneline --graph --decorate --all -n 10
 ```
 -->
 
-!['git log --oneline --graph --decorate --all -n 10'](/.images/shell/1-step-shell-38.svg)
+!['git log --oneline --graph --decorate --all -n 10'](/.images/shell/1-step-shell-65.svg)
 
 ***TADA!***
 
@@ -764,7 +798,7 @@ $ git push
 ```
 -->
 
-!['git push'](/.images/shell/1-step-shell-39.svg)
+!['git push'](/.images/shell/1-step-shell-66.svg)
 
 <!--
 ```shellSession
@@ -772,4 +806,4 @@ $ git push --set-upstream origin feature
 ```
 -->
 
-!['git push --set-upstream origin feature'](/.images/shell/1-step-shell-40.svg)
+!['git push --set-upstream origin feature'](/.images/shell/1-step-shell-67.svg)

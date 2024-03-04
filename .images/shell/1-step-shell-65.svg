@@ -1,5 +1,5 @@
 <!-- Created with term-transcript v0.3.0 (https://github.com/slowli/term-transcript) -->
-<svg viewBox="0 0 720 42" width="720" height="42" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 720 282" width="720" height="282" xmlns="http://www.w3.org/2000/svg">
   <switch>
     <g requiredExtensions="http://www.w3.org/1999/xhtml">
       <style>
@@ -57,11 +57,23 @@
         .fg15 { color: #f3f3f3; } .bg15 { background: #f3f3f3; }
       </style>
       <rect width="100%" height="100%" y="0" rx="4.5" style="fill: #1c1c1c;" />
-      <svg x="0" y="10" width="720" height="22" viewBox="0 0 720 22">
-        <foreignObject width="720" height="22">
+      <svg x="0" y="10" width="720" height="262" viewBox="0 0 720 262">
+        <foreignObject width="720" height="262">
           <div xmlns="http://www.w3.org/1999/xhtml" class="container">
-            <div class="input"><pre><span class="prompt">$</span> git add .</pre></div>
-            <div class="output"><pre></pre></div>
+            <div class="input"><pre><span class="prompt">$</span> git log --oneline --graph --decorate --all -n 10</pre></div>
+            <div class="output"><pre>* <span class="fg3">0d8d834</span><span class="fg3"> (</span><span class="bold fg2">tada</span><span class="fg3">)</span> Testing detached HEAD
+<span class="fg1">|</span> * <span class="fg3">12613f3</span><span class="fg3"> (</span><span class="bold fg6">HEAD</span><span class="fg3"> -&gt; </span><span class="bold fg2">main</span><span class="fg3">)</span> Learning about HEAD
+<span class="fg1">|</span> <span class="fg2">|</span> *   <span class="fg3">d4ded0d</span><span class="fg3"> (</span><span class="bold fg2">lesson/1</span><span class="fg3">)</span> Merging branches
+<span class="fg1">|</span> <span class="fg2">|</span> <span class="fg3">|</span><span class="fg4">\</span>  
+<span class="fg1">|</span> <span class="fg2">|</span> <span class="fg3">|</span> * <span class="fg3">02fb3ec</span><span class="fg3"> (</span><span class="bold fg2">lesson/1-merge</span><span class="fg3">)</span> Updated file1 in lesson/1-merge
+<span class="fg1">|</span> <span class="fg2">|</span> * <span class="fg4">|</span> <span class="fg3">c02d9ce</span> Updated file1 in lesson/1
+<span class="fg1">|</span> <span class="fg2">|</span> * <span class="fg4">|</span> <span class="fg3">6369815</span> Merging branches
+<span class="fg1">|</span> <span class="fg2">|</span> <span class="fg5">|</span><span class="fg4">\</span><span class="fg4">|</span> 
+<span class="fg1">|</span> <span class="fg2">|</span> <span class="fg5">|</span> * <span class="fg3">59672dd</span> lesson/1-merge commit
+<span class="fg1">|</span> <span class="fg2">|</span> <span class="fg5">|</span> * <span class="fg3">6411850</span> lesson/1-merge commit
+<span class="fg1">|</span> <span class="fg2">|</span> * <span class="fg6">|</span> <span class="fg3">22f94c6</span> lesson/1 commit
+<span class="fg1">|</span> <span class="fg2">|</span> * <span class="fg6">|</span> <span class="fg3">206c260</span> lesson/1 commit
+<span class="fg1">|</span> <span class="fg2">|</span> <span class="fg6">|</span><span class="fg6">/</span>  </pre></div>
           </div>
         </foreignObject>
       </svg>
