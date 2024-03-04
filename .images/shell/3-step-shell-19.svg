@@ -61,18 +61,18 @@
         <foreignObject width="720" height="244">
           <div xmlns="http://www.w3.org/1999/xhtml" class="container">
             <div class="input"><pre><span class="prompt">$</span> git log --oneline --graph --decorate --all -n 10</pre></div>
-            <div class="output"><pre>* <span class="fg3">675b14a</span><span class="fg3"> (</span><span class="bold fg2">tada</span><span class="fg3">)</span> Testing detached HEAD
-<span class="fg1">|</span> * <span class="fg3">664f098</span><span class="fg3"> (</span><span class="bold fg6">HEAD</span><span class="fg3"> -&gt; </span><span class="bold fg2">lesson/3</span><span class="fg3">)</span> Learning about HEAD
-<span class="fg1">|</span> * <span class="fg3">1184abb</span><span class="fg3"> (</span><span class="bold fg2">lesson/2</span><span class="fg3">)</span> Bug fiix
-<span class="fg1">|</span> * <span class="fg3">50f07a9</span> Revert "Added feature 2"
+            <div class="output"><pre>* <span class="fg3">28e33c1</span><span class="fg3"> (</span><span class="bold fg2">tada</span><span class="fg3">)</span> Testing detached HEAD
+<span class="fg1">|</span> * <span class="fg3">548c0ac</span><span class="fg3"> (</span><span class="bold fg6">HEAD</span><span class="fg3"> -&gt; </span><span class="bold fg2">lesson/3</span><span class="fg3">)</span> Learning about HEAD
+<span class="fg1">|</span> * <span class="fg3">44c3922</span><span class="fg3"> (</span><span class="bold fg2">lesson/2</span><span class="fg3">)</span> Cleanup
+<span class="fg1">|</span> * <span class="fg3">ab04c74</span> Bug fiix
 <span class="fg1">|</span><span class="fg1">/</span>  
-* <span class="fg3">558b6eb</span> Added feature 3
-* <span class="fg3">4bd720e</span> Added feature 2
-* <span class="fg3">8af641b</span> Added feature 1
-* <span class="fg3">4fe6516</span> Cleanup
-*   <span class="fg3">2f807a7</span><span class="fg3"> (</span><span class="bold fg2">lesson/1</span><span class="fg3">)</span> Merging branches
-<span class="fg3">|</span><span class="fg4">\</span>  
-<span class="fg3">|</span> * <span class="fg3">3e259ed</span><span class="fg3"> (</span><span class="bold fg2">lesson/1-merge</span><span class="fg3">)</span> Updated file1 in lesson/1-merge</pre></div>
+* <span class="fg3">dcaa94c</span> Revert "Added feature 2"
+* <span class="fg3">792b637</span> Added feature 3
+* <span class="fg3">af0982d</span> Added feature 2
+* <span class="fg3">c582420</span> Added feature 1
+* <span class="fg3">c5afbdc</span> Cleanup
+*   <span class="fg3">4d1f842</span><span class="fg3"> (</span><span class="bold fg2">lesson/1</span><span class="fg3">)</span> Merging branches
+<span class="fg3">|</span><span class="fg4">\</span>  </pre></div>
           </div>
         </foreignObject>
       </svg>

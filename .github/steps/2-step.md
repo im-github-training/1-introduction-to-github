@@ -160,7 +160,7 @@ $ rm file*
 ```
 -->
 
-!['rm file\*'](/.images/shell/2-step-shell-28.svg)
+!['rm file\*'](/.images/shell/2-step-shell-13.svg)
 
 <!--
 ```shellSession
@@ -168,7 +168,7 @@ $ git commit -am "Cleanup"
 ```
 -->
 
-!['git commit -am "Cleanup"'](/.images/shell/2-step-shell-29.svg)
+!['git commit -am "Cleanup"'](/.images/shell/2-step-shell-14.svg)
 
 Next, let's create three commits, two good and one "bad":
 
@@ -180,7 +180,7 @@ $ git commit -m "Added feature 1"
 ```
 -->
 
-!['echo "good" > file1'](/.images/shell/2-step-shell-30.svg)!['git add file1'](/.images/shell/2-step-shell-31.svg)!['git commit -m "Added feature 1"'](/.images/shell/2-step-shell-32.svg)
+!['echo "good" > file1'](/.images/shell/2-step-shell-15.svg)!['git add file1'](/.images/shell/2-step-shell-16.svg)!['git commit -m "Added feature 1"'](/.images/shell/2-step-shell-17.svg)
 
 The "bad" file:
 
@@ -192,7 +192,7 @@ $ git commit -m "Added feature 2"
 ```
 -->
 
-!['echo "bad" > file2'](/.images/shell/2-step-shell-33.svg)!['git add file2'](/.images/shell/2-step-shell-34.svg)!['git commit -m "Added feature 2"'](/.images/shell/2-step-shell-35.svg)
+!['echo "bad" > file2'](/.images/shell/2-step-shell-18.svg)!['git add file2'](/.images/shell/2-step-shell-19.svg)!['git commit -m "Added feature 2"'](/.images/shell/2-step-shell-20.svg)
 
 A "good" file:
 
@@ -204,7 +204,7 @@ $ git commit -m "Added feature 3"
 ```
 -->
 
-!['echo "good" > file3'](/.images/shell/2-step-shell-36.svg)!['git add file3'](/.images/shell/2-step-shell-37.svg)!['git commit -m "Added feature 3"'](/.images/shell/2-step-shell-38.svg)
+!['echo "good" > file3'](/.images/shell/2-step-shell-21.svg)!['git add file3'](/.images/shell/2-step-shell-22.svg)!['git commit -m "Added feature 3"'](/.images/shell/2-step-shell-23.svg)
 
 Now let's get rid of the "bad" commit, the one that was *one* commit ago:
 
@@ -214,7 +214,7 @@ $ git revert HEAD~1 --no-edit
 ```
 -->
 
-!['git revert HEAD~1 --no-edit'](/.images/shell/2-step-shell-39.svg)
+!['git revert HEAD~1 --no-edit'](/.images/shell/2-step-shell-24.svg)
 
 Let's see what that did:
 
@@ -224,7 +224,7 @@ $ ls -l
 ```
 -->
 
-!['ls -l'](/.images/shell/2-step-shell-40.svg)
+!['ls -l'](/.images/shell/2-step-shell-25.svg)
 
 Cool, `file2` is missing, as we'd expect.  Let's check the log:
 
@@ -234,7 +234,7 @@ $ git log -n 5
 ```
 -->
 
-!['git log -n 5'](/.images/shell/2-step-shell-41.svg)
+!['git log -n 5'](/.images/shell/2-step-shell-26.svg)
 
 Interesting, so the old commit is still in the history, but we have a new "revert" commit...
 
@@ -254,7 +254,7 @@ $ git commit -m "Bug fiix" --allow-empty
 ```
 -->
 
-!['git commit -m "Bug fiix" --allow-empty'](/.images/shell/2-step-shell-42.svg)
+!['git commit -m "Bug fiix" --allow-empty'](/.images/shell/2-step-shell-27.svg)
 
 > Git normally doesn't allow empty commits, unless you use the `--allow-empty` flag.
 
@@ -264,7 +264,7 @@ $ git log -n 2
 ```
 -->
 
-!['git log -n 2'](/.images/shell/2-step-shell-43.svg)
+!['git log -n 2'](/.images/shell/2-step-shell-28.svg)
 
 Now that's a beaut.  Let's fix it with a `git commit --amend`:
 
@@ -274,7 +274,7 @@ $ git commit -m "Fixed scrollbar bug" --amend
 ```
 -->
 
-!['git commit -m "Fixed scrollbar bug" --amend'](/.images/shell/2-step-shell-44.svg)
+!['git commit -m "Fixed scrollbar bug" --amend'](/.images/shell/2-step-shell-29.svg)
 
 And checking `git log`:
 
@@ -284,7 +284,7 @@ $ git log -n 2
 ```
 -->
 
-!['git log -n 2'](/.images/shell/2-step-shell-45.svg)
+!['git log -n 2'](/.images/shell/2-step-shell-30.svg)
 
 That was easy enough!
 
@@ -314,7 +314,7 @@ $ rm file* && git commit -am "Cleanup"
 ```
 -->
 
-!['rm file\* && git commit -am "Cleanup"'](/.images/shell/2-step-shell-13.svg)
+!['rm file\* && git commit -am "Cleanup"'](/.images/shell/2-step-shell-31.svg)
 
 <!--
 ```shellSession
@@ -322,7 +322,7 @@ $ touch file1 && git add file1 && git commit -m "Added file1"
 ```
 -->
 
-!['touch file1 && git add file1 && git commit -m "Added file1"'](/.images/shell/2-step-shell-14.svg)
+!['touch file1 && git add file1 && git commit -m "Added file1"'](/.images/shell/2-step-shell-32.svg)
 
 Let's check `git log` and `git status` before we execute `git reset`:
 
@@ -332,7 +332,7 @@ $ git log -n 1
 ```
 -->
 
-!['git log -n 1'](/.images/shell/2-step-shell-15.svg)
+!['git log -n 1'](/.images/shell/2-step-shell-33.svg)
 
 <!--
 ```shellSession
@@ -340,7 +340,7 @@ $ git status
 ```
 -->
 
-!['git status'](/.images/shell/2-step-shell-16.svg)
+!['git status'](/.images/shell/2-step-shell-34.svg)
 
 Now let's run `git reset --soft HEAD~1`:
 
@@ -350,7 +350,7 @@ $ git reset --soft HEAD~1
 ```
 -->
 
-!['git reset --soft HEAD~1'](/.images/shell/2-step-shell-17.svg)
+!['git reset --soft HEAD~1'](/.images/shell/2-step-shell-35.svg)
 
 <!--
 ```shellSession
@@ -358,7 +358,7 @@ $ git log -n 1
 ```
 -->
 
-!['git log -n 1'](/.images/shell/2-step-shell-18.svg)
+!['git log -n 1'](/.images/shell/2-step-shell-36.svg)
 
 <!--
 ```shellSession
@@ -366,7 +366,7 @@ $ git status
 ```
 -->
 
-!['git status'](/.images/shell/2-step-shell-19.svg)
+!['git status'](/.images/shell/2-step-shell-37.svg)
 
 We can see that `file1` is still staged.
 
@@ -382,7 +382,7 @@ $ git commit -m "Added file1"
 ```
 -->
 
-!['git commit -m "Added file1"'](/.images/shell/2-step-shell-20.svg)
+!['git commit -m "Added file1"'](/.images/shell/2-step-shell-38.svg)
 
 We know what `git log` and `git status` look like from the previous example, so let's go ahead and run `git reset --mixed HEAD~1`:
 
@@ -392,7 +392,7 @@ $ git reset --mixed HEAD~1
 ```
 -->
 
-!['git reset --mixed HEAD~1'](/.images/shell/2-step-shell-21.svg)
+!['git reset --mixed HEAD~1'](/.images/shell/2-step-shell-39.svg)
 
 <!--
 ```shellSession
@@ -400,7 +400,7 @@ $ git log -n 1
 ```
 -->
 
-!['git log -n 1'](/.images/shell/2-step-shell-22.svg)
+!['git log -n 1'](/.images/shell/2-step-shell-40.svg)
 
 <!--
 ```shellSession
@@ -408,7 +408,7 @@ $ git status
 ```
 -->
 
-!['git status'](/.images/shell/2-step-shell-23.svg)
+!['git status'](/.images/shell/2-step-shell-41.svg)
 
 Both commands move `HEAD` back one commit and also unstage the changes from that commit.
 
@@ -426,7 +426,7 @@ $ git add file1 && git commit -m "Added file1"
 ```
 -->
 
-!['git add file1 && git commit -m "Added file1"'](/.images/shell/2-step-shell-24.svg)
+!['git add file1 && git commit -m "Added file1"'](/.images/shell/2-step-shell-42.svg)
 
 We know what to expect with `git log` and `git status`, so let's execute `git reset --hard HEAD~1`:
 
@@ -436,7 +436,7 @@ $ git reset --hard HEAD~1
 ```
 -->
 
-!['git reset --hard HEAD~1'](/.images/shell/2-step-shell-25.svg)
+!['git reset --hard HEAD~1'](/.images/shell/2-step-shell-43.svg)
 
 <!--
 ```shellSession
@@ -444,7 +444,7 @@ $ git log -n 1
 ```
 -->
 
-!['git log -n 1'](/.images/shell/2-step-shell-26.svg)
+!['git log -n 1'](/.images/shell/2-step-shell-44.svg)
 
 <!--
 ```shellSession
@@ -452,7 +452,7 @@ $ git status
 ```
 -->
 
-!['git status'](/.images/shell/2-step-shell-27.svg)
+!['git status'](/.images/shell/2-step-shell-45.svg)
 
 This command moves `HEAD` back one commit and discards the changes from that commit.
 

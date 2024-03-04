@@ -60,7 +60,7 @@
       <svg x="0" y="10" width="720" height="22" viewBox="0 0 720 22">
         <foreignObject width="720" height="22">
           <div xmlns="http://www.w3.org/1999/xhtml" class="container">
-            <div class="input"><pre><span class="prompt">$</span> git reset --mixed HEAD~1</pre></div>
+            <div class="input"><pre><span class="prompt">$</span> echo &quot;good&quot; &gt; file3</pre></div>
             <div class="output"><pre></pre></div>
           </div>
         </foreignObject>

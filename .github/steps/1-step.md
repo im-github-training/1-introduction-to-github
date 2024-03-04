@@ -12,7 +12,7 @@ To get started, we'll need a local copy of this repository.  To do that:
 2. **Open a terminal window and do a `git clone`:**
 
 <!--
-```shellSession
+```shell
 $ git clone https://github.com/im-sampm/exercises.git
 ```
 -->
@@ -129,7 +129,6 @@ $ git log -n 1
 
 Branches are pointers to a specific commit in the repository's history.  They are commonly used to isolate changes for specific features or bug fixes, enabling developers to work on multiple tasks simultaneously without affecting the main codebase.
 
-
 * When you create a ***branch***, Git creates a ***reference*** and points it at your ***current  commit***
 * As you make ***new commits***, Git automatically updates this ***reference*** to the ***latest commit***
 * In this way, a ***branch reference*** always represents the latest line of development in a ***branch***
@@ -156,6 +155,8 @@ $ git branch
 ```
 -->
 
+!['git branch'](/.images/shell/1-step-shell-8.svg)
+
 We can see that our local repository has only one branch, `main`.
 
 > The `*` in front of `main` means that we're currently working "in" the `main` branch.  Alternatively, we have `main` "checked out".
@@ -174,7 +175,7 @@ $ git branch --all
 ```
 -->
 
-!['git branch --all'](/.images/shell/1-step-shell-8.svg)
+!['git branch --all'](/.images/shell/1-step-shell-9.svg)
 
 We can see that in addition to the local `main` branch, there are *remote* branches.
 
@@ -190,7 +191,7 @@ $ git branch feature
 ```
 -->
 
-!['git branch feature'](/.images/shell/1-step-shell-9.svg)
+!['git branch feature'](/.images/shell/1-step-shell-10.svg)
 
 Let's see what `git branch` looks like with our new branch:
 
@@ -200,7 +201,7 @@ $ git branch
 ```
 -->
 
-!['git branch'](/.images/shell/1-step-shell-10.svg)
+!['git branch'](/.images/shell/1-step-shell-11.svg)
 
 Interesting, so we can see that `feature` was created, but the `*` is still in front of `main`.
 
@@ -214,7 +215,7 @@ $ git switch feature
 ```
 -->
 
-!['git switch feature'](/.images/shell/1-step-shell-11.svg)
+!['git switch feature'](/.images/shell/1-step-shell-12.svg)
 
 And just to double-check:
 
@@ -224,7 +225,7 @@ $ git branch
 ```
 -->
 
-!['git branch'](/.images/shell/1-step-shell-12.svg)
+!['git branch'](/.images/shell/1-step-shell-13.svg)
 
 > Something that we'll address head-on is that Git often has multiple ways of doing the same thing.
 >
@@ -238,7 +239,7 @@ $ git switch -c throwaway
 ```
 -->
 
-!['git switch -c throwaway'](/.images/shell/1-step-shell-13.svg)
+!['git switch -c throwaway'](/.images/shell/1-step-shell-14.svg)
 
 And...
 
@@ -248,7 +249,7 @@ $ git branch
 ```
 -->
 
-!['git branch'](/.images/shell/1-step-shell-14.svg)
+!['git branch'](/.images/shell/1-step-shell-15.svg)
 
 Perfect!
 
@@ -262,7 +263,7 @@ $ git branch -d throwaway
 ```
 -->
 
-!['git branch -d throwaway'](/.images/shell/1-step-shell-15.svg)
+!['git branch -d throwaway'](/.images/shell/1-step-shell-16.svg)
 
 Ah, so we cannot delete a branch that is currently in use or "checked out".
 
@@ -274,7 +275,7 @@ $ git switch -
 ```
 -->
 
-!['git switch -'](/.images/shell/1-step-shell-16.svg)
+!['git switch -'](/.images/shell/1-step-shell-17.svg)
 
 Trying the delete again:
 
@@ -284,7 +285,7 @@ $ git branch -d throwaway
 ```
 -->
 
-!['git branch -d throwaway'](/.images/shell/1-step-shell-17.svg)
+!['git branch -d throwaway'](/.images/shell/1-step-shell-18.svg)
 
 Great, and checking `git branch`:
 
@@ -294,7 +295,7 @@ $ git branch
 ```
 -->
 
-!['git branch'](/.images/shell/1-step-shell-18.svg)
+!['git branch'](/.images/shell/1-step-shell-19.svg)
 
 And a `git status` for good measure:
 
@@ -304,7 +305,7 @@ $ git status
 ```
 -->
 
-!['git status'](/.images/shell/1-step-shell-19.svg)
+!['git status'](/.images/shell/1-step-shell-20.svg)
 
 *Magnifique.*
 
@@ -322,7 +323,7 @@ $ git branch -m feature lesson/1
 ```
 -->
 
-!['git branch -m feature lesson/1'](/.images/shell/1-step-shell-20.svg)
+!['git branch -m feature lesson/1'](/.images/shell/1-step-shell-21.svg)
 
 ### Merging branches
 
@@ -347,7 +348,7 @@ $ git commit -m "lesson/1 commit" --allow-empty
 ```
 -->
 
-!['git commit -m "lesson/1 commit" --allow-empty'](/.images/shell/1-step-shell-21.svg)!['git commit -m "lesson/1 commit" --allow-empty'](/.images/shell/1-step-shell-22.svg)
+!['git commit -m "lesson/1 commit" --allow-empty'](/.images/shell/1-step-shell-22.svg)!['git commit -m "lesson/1 commit" --allow-empty'](/.images/shell/1-step-shell-23.svg)
 
 Next, let's create a branch to merge:
 
@@ -357,7 +358,7 @@ $ git switch -c lesson/1-merge
 ```
 -->
 
-!['git switch -c lesson/1-merge'](/.images/shell/1-step-shell-23.svg)
+!['git switch -c lesson/1-merge'](/.images/shell/1-step-shell-24.svg)
 
 Let's create a few commits in the `lesson/1-merge` branch:
 
@@ -368,7 +369,7 @@ $ git commit -m "lesson/1-merge commit" --allow-empty
 ```
 -->
 
-!['git commit -m "lesson/1-merge commit" --allow-empty'](/.images/shell/1-step-shell-24.svg)!['git commit -m "lesson/1-merge commit" --allow-empty'](/.images/shell/1-step-shell-25.svg)
+!['git commit -m "lesson/1-merge commit" --allow-empty'](/.images/shell/1-step-shell-25.svg)!['git commit -m "lesson/1-merge commit" --allow-empty'](/.images/shell/1-step-shell-26.svg)
 
 Now let's switch back to the `lesson/1` branch:
 
@@ -378,7 +379,7 @@ $ git switch lesson/1
 ```
 -->
 
-!['git switch lesson/1'](/.images/shell/1-step-shell-26.svg)
+!['git switch lesson/1'](/.images/shell/1-step-shell-27.svg)
 
 And let's merge the branch:
 
@@ -388,7 +389,7 @@ $ git merge lesson/1-merge
 ```
 -->
 
-!['git merge lesson/1-merge'](/.images/shell/1-step-shell-27.svg)
+!['git merge lesson/1-merge'](/.images/shell/1-step-shell-28.svg)
 
 As Git reports, it has performed a ***fast-forward*** merge.
 
@@ -398,7 +399,7 @@ $ git log --oneline --graph --decorate --all -n 5
 ```
 -->
 
-!['git log --oneline --graph --decorate --all -n 5'](/.images/shell/1-step-shell-28.svg)
+!['git log --oneline --graph --decorate --all -n 5'](/.images/shell/1-step-shell-29.svg)
 
 In this simple scenario, Git was able to simply take the commits in the `lesson/1-merge` branch and add them to the end of the `lesson/1` branch.
 
@@ -414,7 +415,7 @@ $ git commit -m "lesson/1-merge commit" --allow-empty
 ```
 -->
 
-!['git switch lesson/1-merge'](/.images/shell/1-step-shell-29.svg)!['git commit -m "lesson/1-merge commit" --allow-empty'](/.images/shell/1-step-shell-30.svg)!['git commit -m "lesson/1-merge commit" --allow-empty'](/.images/shell/1-step-shell-31.svg)
+!['git switch lesson/1-merge'](/.images/shell/1-step-shell-30.svg)!['git commit -m "lesson/1-merge commit" --allow-empty'](/.images/shell/1-step-shell-31.svg)!['git commit -m "lesson/1-merge commit" --allow-empty'](/.images/shell/1-step-shell-32.svg)
 
 Now let's switch back to `lesson/1` and add a few commits:
 
@@ -426,7 +427,7 @@ $ git commit -m "lesson/1 commit" --allow-empty
 ```
 -->
 
-!['git switch lesson/1'](/.images/shell/1-step-shell-32.svg)!['git commit -m "lesson/1 commit" --allow-empty'](/.images/shell/1-step-shell-33.svg)!['git commit -m "lesson/1 commit" --allow-empty'](/.images/shell/1-step-shell-34.svg)
+!['git switch lesson/1'](/.images/shell/1-step-shell-33.svg)!['git commit -m "lesson/1 commit" --allow-empty'](/.images/shell/1-step-shell-34.svg)!['git commit -m "lesson/1 commit" --allow-empty'](/.images/shell/1-step-shell-35.svg)
 
 Using `git log` we can now see two separate branches:
 
@@ -436,7 +437,7 @@ $ git log --oneline --graph --decorate --all -n 5
 ```
 -->
 
-!['git log --oneline --graph --decorate --all -n 5'](/.images/shell/1-step-shell-35.svg)
+!['git log --oneline --graph --decorate --all -n 5'](/.images/shell/1-step-shell-36.svg)
 
 Let's try merging these:
 
@@ -446,7 +447,7 @@ $ git merge lesson/1-merge -m "Merging branches"
 ```
 -->
 
-!['git merge lesson/1-merge -m "Merging branches"'](/.images/shell/1-step-shell-36.svg)
+!['git merge lesson/1-merge -m "Merging branches"'](/.images/shell/1-step-shell-37.svg)
 
 Now looking at `git log` we can now see the three-way branch:
 
@@ -456,7 +457,7 @@ $ git log --oneline --graph --decorate --all -n 5
 ```
 -->
 
-!['git log --oneline --graph --decorate --all -n 5'](/.images/shell/1-step-shell-37.svg)
+!['git log --oneline --graph --decorate --all -n 5'](/.images/shell/1-step-shell-38.svg)
 
 #### Dealing with merge *conflicts*
 
@@ -476,7 +477,7 @@ $ git commit -am "Updated file1 in lesson/1-merge"
 ```
 -->
 
-!['git switch lesson/1-merge'](/.images/shell/1-step-shell-38.svg)!['echo "lesson/1-merge" > file1'](/.images/shell/1-step-shell-39.svg)!['git commit -am "Updated file1 in lesson/1-merge"'](/.images/shell/1-step-shell-40.svg)
+!['git switch lesson/1-merge'](/.images/shell/1-step-shell-39.svg)!['echo "lesson/1-merge" > file1'](/.images/shell/1-step-shell-40.svg)!['git commit -am "Updated file1 in lesson/1-merge"'](/.images/shell/1-step-shell-41.svg)
 
 Next let's create a change to `file1` in the `lesson/1` branch:
 
@@ -488,7 +489,7 @@ $ git commit -am "Updated file1 in lesson/1"
 ```
 -->
 
-!['git switch lesson/1'](/.images/shell/1-step-shell-41.svg)!['echo "lesson/1" > file1'](/.images/shell/1-step-shell-42.svg)!['git commit -am "Updated file1 in lesson/1"'](/.images/shell/1-step-shell-43.svg)
+!['git switch lesson/1'](/.images/shell/1-step-shell-42.svg)!['echo "lesson/1" > file1'](/.images/shell/1-step-shell-43.svg)!['git commit -am "Updated file1 in lesson/1"'](/.images/shell/1-step-shell-44.svg)
 
 And now let's try to merge `lesson/1-merge` into `lesson/1`:
 
@@ -498,7 +499,7 @@ $ git merge lesson/1-merge
 ```
 -->
 
-!['git merge lesson/1-merge'](/.images/shell/1-step-shell-44.svg)
+!['git merge lesson/1-merge'](/.images/shell/1-step-shell-45.svg)
 
 As expected, Git aborts the automatic merge and asks us to "fix the conflicts" and "commit the result".
 
@@ -510,7 +511,7 @@ $ cat file1
 ```
 -->
 
-!['cat file1'](/.images/shell/1-step-shell-45.svg)
+!['cat file1'](/.images/shell/1-step-shell-46.svg)
 
 We can see that Git has added ***conflict markers*** to `file1`:
 
@@ -538,7 +539,7 @@ $ git log --oneline --graph --decorate --all -n 5
 ```
 -->
 
-!['git commit -am "Merging branches"'](/.images/shell/1-step-shell-46.svg)
+!['git commit -am "Merging branches"'](/.images/shell/1-step-shell-47.svg)!['git log --oneline --graph --decorate --all -n 5'](/.images/shell/1-step-shell-48.svg)
 
 ### Stashing commits
 
@@ -547,6 +548,7 @@ Git mostly stays out of your way as you create and switch between branches, howe
 This typically happens when the changes in your current working directory or staging area conflict with the branch you are trying to switch to. If the same file has been modified in your current branch and in the branch you're trying to check out, Git will prevent the branch switch to avoid overwriting those modifications.
 
 In these situations, you have two options:
+
 1. **Commit your changes**: `git commit`
 2. **Stash your changes**: `git stash`
 
@@ -605,7 +607,7 @@ $ git push
 ```
 -->
 
-!['git push'](/.images/shell/1-step-shell-47.svg)
+!['git push'](/.images/shell/1-step-shell-49.svg)
 
 <!--
 ```shellSession
@@ -613,4 +615,4 @@ $ git push --set-upstream origin feature
 ```
 -->
 
-!['git push --set-upstream origin feature'](/.images/shell/1-step-shell-48.svg)
+!['git push --set-upstream origin feature'](/.images/shell/1-step-shell-50.svg)

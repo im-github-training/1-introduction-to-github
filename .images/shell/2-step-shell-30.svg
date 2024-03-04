@@ -1,5 +1,5 @@
 <!-- Created with term-transcript v0.3.0 (https://github.com/slowli/term-transcript) -->
-<svg viewBox="0 0 720 42" width="720" height="42" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 720 282" width="720" height="282" xmlns="http://www.w3.org/2000/svg">
   <switch>
     <g requiredExtensions="http://www.w3.org/1999/xhtml">
       <style>
@@ -57,11 +57,23 @@
         .fg15 { color: #f3f3f3; } .bg15 { background: #f3f3f3; }
       </style>
       <rect width="100%" height="100%" y="0" rx="4.5" style="fill: #1c1c1c;" />
-      <svg x="0" y="10" width="720" height="22" viewBox="0 0 720 22">
-        <foreignObject width="720" height="22">
+      <svg x="0" y="10" width="720" height="262" viewBox="0 0 720 262">
+        <foreignObject width="720" height="262">
           <div xmlns="http://www.w3.org/1999/xhtml" class="container">
-            <div class="input"><pre><span class="prompt">$</span> echo &quot;good&quot; &gt; file1</pre></div>
-            <div class="output"><pre></pre></div>
+            <div class="input"><pre><span class="prompt">$</span> git log -n 2</pre></div>
+            <div class="output"><pre><span class="fg3">commit ab04c7432e3ae7758b7bd002cfd1ddda7c169e07</span><span class="fg3"> (</span><span class="bold fg6">HEAD</span><span class="fg3"> -&gt; </span><span class="bold fg2">lesson/2</span><span class="fg3">)</span>
+Author: Sam Peddamatham &lt;sam.pm@infomagnus.com&gt;
+Date:   Mon Mar 4 06:15:27 2024 +0000
+
+    Bug fiix
+
+<span class="fg3">commit dcaa94ca7374c7ee082d7f290ee59c09a978deef</span>
+Author: Sam Peddamatham &lt;sam.pm@infomagnus.com&gt;
+Date:   Mon Mar 4 06:15:25 2024 +0000
+
+    Revert "Added feature 2"
+    
+    This reverts commit af0982db3f6315070912068d1b731ac486a5537e.</pre></div>
           </div>
         </foreignObject>
       </svg>

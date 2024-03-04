@@ -64,12 +64,12 @@
             <div class="output"><pre>Warning: you are leaving 1 commit behind, not connected to
 any of your branches:
 
-  675b14a Testing detached HEAD
+  28e33c1 Testing detached HEAD
 
 If you want to keep it by creating a new branch, this may be a good time
 to do so with:
 
- git branch &lt;new-branch-name&gt; 675b14a
+ git branch &lt;new-branch-name&gt; 28e33c1
 
 Switched to branch 'lesson/3'</pre></div>
           </div>

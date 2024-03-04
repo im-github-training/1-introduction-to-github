@@ -78,7 +78,7 @@ Or undo this operation with:
 
 Turn off this advice by setting config variable advice.detachedHead to false
 
-HEAD is now at 558b6eb Added feature 3</pre></div>
+HEAD is now at dcaa94c Revert "Added feature 2"</pre></div>
           </div>
         </foreignObject>
       </svg>
