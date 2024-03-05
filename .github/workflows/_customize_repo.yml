@@ -2,14 +2,13 @@ name: Customize repository
 
 on:
   workflow_dispatch:
-
-inputs:
-  from_name:
-    description: 'From name'
-    required: true
-  to_name:
-    description: 'To name'
-    required: true
+    inputs:
+      from_name:
+        description: 'From name'
+        required: true
+      to_name:
+        description: 'To name'
+        required: true
 
 # Reference: https://docs.github.com/en/actions/security-guides/automatic-token-authentication
 permissions:
