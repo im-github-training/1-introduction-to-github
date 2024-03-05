@@ -23,6 +23,13 @@ jobs:
       - id: get_step
         run: echo "step=$(cat ./.github/steps/-step.txt)" >> $GITHUB_OUTPUT
 
+      - name: Debug
+        run: echo "${{ steps.get_step.outputs.step }}"
+
+      - name: Debug
+        run: echo ${{ toJSON(github) }}
+
+
       - name: Check if correct step
         if: ${{ steps.get_step.outputs.step != 3 }}
         run: exit 1
