@@ -1,5 +1,5 @@
 <!-- Created with term-transcript v0.3.0 (https://github.com/slowli/term-transcript) -->
-<svg viewBox="0 0 720 120" width="720" height="120" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 720 606" width="720" height="606" xmlns="http://www.w3.org/2000/svg">
   <switch>
     <g requiredExtensions="http://www.w3.org/1999/xhtml">
       <style>
@@ -57,14 +57,41 @@
         .fg15 { color: #f3f3f3; } .bg15 { background: #f3f3f3; }
       </style>
       <rect width="100%" height="100%" y="0" rx="4.5" style="fill: #1c1c1c;" />
-      <svg x="0" y="10" width="720" height="100" viewBox="0 0 720 100">
-        <foreignObject width="720" height="100">
+      <svg x="0" y="10" width="720" height="586" viewBox="0 0 720 586">
+        <foreignObject width="720" height="586">
           <div xmlns="http://www.w3.org/1999/xhtml" class="container">
-            <div class="input"><pre><span class="prompt">$</span> git revert HEAD~1 --no-edit</pre></div>
-            <div class="output"><pre>[lesson/2 c555475] Revert "Added feature 2"
- Date: Tue Mar 5 00:57:36 2024 +0000
- 1 file changed, 1 deletion(-)
- delete mode 100644 book/file2</pre></div>
+            <div class="input"><pre><span class="prompt">$</span> git log -n 5</pre></div>
+            <div class="output"><pre><span class="fg3">commit e9405d5aceb87c44565ce05c884245635a1b91e6</span><span class="fg3"> (</span><span class="bold fg6">HEAD</span><span class="fg3"> -&gt; </span><span class="bold fg2">lesson/2</span><span class="fg3">)</span>
+Author: Sam Peddamatham &lt;sam.pm@infomagnus.com&gt;
+Date:   Tue Mar 5 05:39:42 2024 +0000
+
+    Revert "Added feature 2"
+    
+    This reverts commit 1a98606a3d187c90996b79e362b4aa092093922d.
+
+<span class="fg3">commit 3194af26f7bed0bc592c5f4309b4189f93d821ad</span>
+Author: Sam Peddamatham &lt;sam.pm@infomagnus.com&gt;
+Date:   Tue Mar 5 05:39:40 2024 +0000
+
+    Added feature 3
+
+<span class="fg3">commit 1a98606a3d187c90996b79e362b4aa092093922d</span>
+Author: Sam Peddamatham &lt;sam.pm@infomagnus.com&gt;
+Date:   Tue Mar 5 05:39:36 2024 +0000
+
+    Added feature 2
+
+<span class="fg3">commit c9cf9d9f104e6ba3f2ba240eaca38f12c80a73f0</span>
+Author: Sam Peddamatham &lt;sam.pm@infomagnus.com&gt;
+Date:   Tue Mar 5 05:39:32 2024 +0000
+
+    Added feature 1
+
+<span class="fg3">commit 5bcdf4f03bbda6173ed095ef519cf0e2acdc6752</span>
+Author: Sam Peddamatham &lt;sam.pm@infomagnus.com&gt;
+Date:   Tue Mar 5 05:39:28 2024 +0000
+
+    Cleanup</pre></div>
           </div>
         </foreignObject>
       </svg>

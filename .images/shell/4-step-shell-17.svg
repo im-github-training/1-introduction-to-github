@@ -1,5 +1,5 @@
 <!-- Created with term-transcript v0.3.0 (https://github.com/slowli/term-transcript) -->
-<svg viewBox="0 0 720 1002" width="720" height="1002" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 720 1326" width="720" height="1326" xmlns="http://www.w3.org/2000/svg">
   <switch>
     <g requiredExtensions="http://www.w3.org/1999/xhtml">
       <style>
@@ -57,60 +57,70 @@
         .fg15 { color: #f3f3f3; } .bg15 { background: #f3f3f3; }
       </style>
       <rect width="100%" height="100%" y="0" rx="4.5" style="fill: #1c1c1c;" />
-      <svg x="0" y="10" width="720" height="982" viewBox="0 0 720 982">
-        <foreignObject width="720" height="982">
+      <svg x="0" y="10" width="720" height="1306" viewBox="0 0 720 1306">
+        <foreignObject width="720" height="1306">
           <div xmlns="http://www.w3.org/1999/xhtml" class="container">
             <div class="input"><pre><span class="prompt">$</span> git reflog</pre></div>
-            <div class="output"><pre><span class="fg3">f807007</span><span class="fg3"> (</span><span class="bold fg6">HEAD</span><span class="fg3">)</span> HEAD@{0}: commit: Testing detached HEAD
-<span class="fg3">bbc13b5</span> HEAD@{1}: checkout: moving from lesson/3-rebase to HEAD~3
-<span class="fg3">7ce6d6e</span><span class="fg3"> (</span><span class="bold fg2">lesson/3-rebase</span><span class="fg3">)</span> HEAD@{2}: commit: Learning about HEAD
-<span class="fg3">f5f222b</span> HEAD@{3}: commit: Added squash1
-<span class="fg3">6f31f7b</span> HEAD@{4}: checkout: moving from lesson/3 to lesson/3-rebase
-<span class="fg3">a6a2ad9</span><span class="fg3"> (</span><span class="bold fg2">lesson/3</span><span class="fg3">)</span> HEAD@{5}: commit: lesson/3 commit 2
-<span class="fg3">e8e9594</span> HEAD@{6}: commit: lesson/3 commit 1
-<span class="fg3">05e9980</span><span class="fg3"> (</span><span class="bold fg2">lesson/2</span><span class="fg3">)</span> HEAD@{7}: checkout: moving from lesson/3-rebase to lesson/3
-<span class="fg3">6f31f7b</span> HEAD@{8}: commit: lesson/3-rebase commit 2
-<span class="fg3">bbc13b5</span> HEAD@{9}: commit: lesson/3-rebase commit 1
-<span class="fg3">05e9980</span><span class="fg3"> (</span><span class="bold fg2">lesson/2</span><span class="fg3">)</span> HEAD@{10}: checkout: moving from lesson/3 to lesson/3-rebase
-<span class="fg3">05e9980</span><span class="fg3"> (</span><span class="bold fg2">lesson/2</span><span class="fg3">)</span> HEAD@{11}: checkout: moving from lesson/2 to lesson/3
-<span class="fg3">05e9980</span><span class="fg3"> (</span><span class="bold fg2">lesson/2</span><span class="fg3">)</span> HEAD@{12}: reset: moving to HEAD~1
-<span class="fg3">8fd9a4a</span> HEAD@{13}: commit: Added file1
-<span class="fg3">05e9980</span><span class="fg3"> (</span><span class="bold fg2">lesson/2</span><span class="fg3">)</span> HEAD@{14}: reset: moving to HEAD~1
-<span class="fg3">56ad321</span> HEAD@{15}: commit: Added file1
-<span class="fg3">05e9980</span><span class="fg3"> (</span><span class="bold fg2">lesson/2</span><span class="fg3">)</span> HEAD@{16}: reset: moving to HEAD~1
-<span class="fg3">2f5f676</span> HEAD@{17}: commit: Added file1
-<span class="fg3">05e9980</span><span class="fg3"> (</span><span class="bold fg2">lesson/2</span><span class="fg3">)</span> HEAD@{18}: commit: Cleanup
-<span class="fg3">06dc710</span> HEAD@{19}: commit: Bug fiix
-<span class="fg3">c555475</span> HEAD@{20}: revert: Revert "Added feature 2"
-<span class="fg3">9aea32b</span> HEAD@{21}: commit: Added feature 3
-<span class="fg3">cc7d57f</span> HEAD@{22}: commit: Added feature 2
-<span class="fg3">debb51c</span> HEAD@{23}: commit: Added feature 1
-<span class="fg3">ea38543</span> HEAD@{24}: commit: Cleanup
-<span class="fg3">157afdd</span><span class="fg3"> (</span><span class="bold fg1">origin/lesson/1</span><span class="fg3">, </span><span class="bold fg2">lesson/1</span><span class="fg3">)</span> HEAD@{25}: checkout: moving from lesson/1 to<b class="hard-br"><br/></b> lesson/2
-<span class="fg3">157afdd</span><span class="fg3"> (</span><span class="bold fg1">origin/lesson/1</span><span class="fg3">, </span><span class="bold fg2">lesson/1</span><span class="fg3">)</span> HEAD@{26}: commit (merge): Merging branches
-<span class="fg3">f912611</span> HEAD@{27}: commit: Updated file1 in lesson/1
-<span class="fg3">8b74dd4</span> HEAD@{28}: checkout: moving from lesson/1-merge to lesson/1
-<span class="fg3">5e48e21</span><span class="fg3"> (</span><span class="bold fg2">lesson/1-merge</span><span class="fg3">)</span> HEAD@{29}: commit: Updated file1 in lesson/1-merge
-<span class="fg3">fd433b1</span> HEAD@{30}: checkout: moving from lesson/1 to lesson/1-merge
-<span class="fg3">8b74dd4</span> HEAD@{31}: merge lesson/1-merge: Merge made by the 'ort' strategy.
-<span class="fg3">8a1a59e</span> HEAD@{32}: commit: lesson/1 commit
-<span class="fg3">a0488d8</span> HEAD@{33}: commit: lesson/1 commit
-<span class="fg3">da708e5</span> HEAD@{34}: checkout: moving from lesson/1-merge to lesson/1
-<span class="fg3">fd433b1</span> HEAD@{35}: commit: lesson/1-merge commit
-<span class="fg3">da708e5</span> HEAD@{36}: checkout: moving from lesson/1 to lesson/1-merge
-<span class="fg3">da708e5</span> HEAD@{37}: merge lesson/1-merge: Fast-forward
-<span class="fg3">4332cb3</span> HEAD@{38}: checkout: moving from lesson/1-merge to lesson/1
-<span class="fg3">da708e5</span> HEAD@{39}: commit: lesson/1-merge commit
-<span class="fg3">9f755ac</span> HEAD@{40}: commit: lesson/1-merge commit
-<span class="fg3">4332cb3</span> HEAD@{41}: checkout: moving from lesson/1 to lesson/1-merge
-<span class="fg3">4332cb3</span> HEAD@{42}: commit: lesson/1 commit
-<span class="fg3">6428440</span> HEAD@{43}: commit: lesson/1 commit
-<span class="fg3">3e17e07</span><span class="fg3"> (</span><span class="bold fg2">main</span><span class="fg3">)</span> HEAD@{44}: Branch: renamed refs/heads/feature to refs/heads/lesso<b class="hard-br"><br/></b>n/1
-<span class="fg3">3e17e07</span><span class="fg3"> (</span><span class="bold fg2">main</span><span class="fg3">)</span> HEAD@{46}: checkout: moving from throwaway to feature
-<span class="fg3">3e17e07</span><span class="fg3"> (</span><span class="bold fg2">main</span><span class="fg3">)</span> HEAD@{47}: checkout: moving from feature to throwaway
-<span class="fg3">3e17e07</span><span class="fg3"> (</span><span class="bold fg2">main</span><span class="fg3">)</span> HEAD@{48}: checkout: moving from main to feature
-<span class="fg3">3e17e07</span><span class="fg3"> (</span><span class="bold fg2">main</span><span class="fg3">)</span> HEAD@{49}: commit: Added stuff
-<span class="fg3">b2a8f0d</span><span class="fg3"> (</span><span class="bold fg1">upstream/main</span><span class="fg3">, </span><span class="bold fg1">origin/main</span><span class="fg3">, </span><span class="bold fg1">origin/HEAD</span><span class="fg3">)</span> HEAD@{50}: clone: from https:/<b class="hard-br"><br/></b>/github.com/im-sampm/exercises.git</pre></div>
+            <div class="output"><pre><span class="fg3">92787d6</span><span class="fg3"> (</span><span class="bold fg6">HEAD</span><span class="fg3"> -&gt; </span><span class="bold fg2">lesson/3</span><span class="fg3">)</span> HEAD@{0}: checkout: moving from 8ed2f3ae123aa16f3d7a6<b class="hard-br"><br/></b>5388fed701f6802cec6 to lesson/3
+<span class="fg3">8ed2f3a</span> HEAD@{1}: commit: Testing detached HEAD
+<span class="fg3">72b3641</span><span class="fg3"> (</span><span class="bold fg1">origin/lesson/2</span><span class="fg3">, </span><span class="bold fg2">lesson/2</span><span class="fg3">)</span> HEAD@{2}: checkout: moving from lesson/3 to <b class="hard-br"><br/></b>HEAD~3
+<span class="fg3">92787d6</span><span class="fg3"> (</span><span class="bold fg6">HEAD</span><span class="fg3"> -&gt; </span><span class="bold fg2">lesson/3</span><span class="fg3">)</span> HEAD@{3}: commit: Learning about HEAD
+<span class="fg3">e7241bb</span> HEAD@{4}: checkout: moving from main to lesson/3
+<span class="fg3">59064d3</span><span class="fg3"> (</span><span class="bold fg2">main</span><span class="fg3">)</span> HEAD@{5}: checkout: moving from lesson/4 to main
+<span class="fg3">14bfb80</span><span class="fg3"> (</span><span class="bold fg2">lesson/4</span><span class="fg3">, </span><span class="bold fg2">lesson/3-squash</span><span class="fg3">)</span> HEAD@{6}: checkout: moving from lesson/3-squ<b class="hard-br"><br/></b>ash to lesson/4
+<span class="fg3">14bfb80</span><span class="fg3"> (</span><span class="bold fg2">lesson/4</span><span class="fg3">, </span><span class="bold fg2">lesson/3-squash</span><span class="fg3">)</span> HEAD@{7}: commit: Added squash2
+<span class="fg3">f8423e7</span> HEAD@{8}: commit: Added squash1
+<span class="fg3">e3edd92</span><span class="fg3"> (</span><span class="bold fg2">lesson/3-rebase</span><span class="fg3">)</span> HEAD@{9}: checkout: moving from lesson/3-rebase to les<b class="hard-br"><br/></b>son/3-squash
+<span class="fg3">e3edd92</span><span class="fg3"> (</span><span class="bold fg2">lesson/3-rebase</span><span class="fg3">)</span> HEAD@{10}: rebase (finish): returning to refs/heads/le<b class="hard-br"><br/></b>sson/3-rebase
+<span class="fg3">e3edd92</span><span class="fg3"> (</span><span class="bold fg2">lesson/3-rebase</span><span class="fg3">)</span> HEAD@{11}: rebase (pick): lesson/3-rebase commit 2
+<span class="fg3">a319490</span> HEAD@{12}: rebase (pick): lesson/3-rebase commit 1
+<span class="fg3">e7241bb</span> HEAD@{13}: rebase (start): checkout lesson/3
+<span class="fg3">3d9a4b3</span> HEAD@{14}: checkout: moving from lesson/3 to lesson/3-rebase
+<span class="fg3">e7241bb</span> HEAD@{15}: commit: lesson/3 commit 2
+<span class="fg3">a8e80b9</span> HEAD@{16}: commit: lesson/3 commit 1
+<span class="fg3">72b3641</span><span class="fg3"> (</span><span class="bold fg1">origin/lesson/2</span><span class="fg3">, </span><span class="bold fg2">lesson/2</span><span class="fg3">)</span> HEAD@{17}: checkout: moving from lesson/3-re<b class="hard-br"><br/></b>base to lesson/3
+<span class="fg3">3d9a4b3</span> HEAD@{18}: commit: lesson/3-rebase commit 2
+<span class="fg3">8a75053</span> HEAD@{19}: commit: lesson/3-rebase commit 1
+<span class="fg3">72b3641</span><span class="fg3"> (</span><span class="bold fg1">origin/lesson/2</span><span class="fg3">, </span><span class="bold fg2">lesson/2</span><span class="fg3">)</span> HEAD@{20}: checkout: moving from lesson/3 to<b class="hard-br"><br/></b> lesson/3-rebase
+<span class="fg3">72b3641</span><span class="fg3"> (</span><span class="bold fg1">origin/lesson/2</span><span class="fg3">, </span><span class="bold fg2">lesson/2</span><span class="fg3">)</span> HEAD@{21}: checkout: moving from lesson/2 to<b class="hard-br"><br/></b> lesson/3
+<span class="fg3">72b3641</span><span class="fg3"> (</span><span class="bold fg1">origin/lesson/2</span><span class="fg3">, </span><span class="bold fg2">lesson/2</span><span class="fg3">)</span> HEAD@{22}: reset: moving to HEAD~1
+<span class="fg3">9bad921</span> HEAD@{23}: commit: Added file1
+<span class="fg3">72b3641</span><span class="fg3"> (</span><span class="bold fg1">origin/lesson/2</span><span class="fg3">, </span><span class="bold fg2">lesson/2</span><span class="fg3">)</span> HEAD@{24}: reset: moving to HEAD~1
+<span class="fg3">348b806</span> HEAD@{25}: commit: Added file1
+<span class="fg3">72b3641</span><span class="fg3"> (</span><span class="bold fg1">origin/lesson/2</span><span class="fg3">, </span><span class="bold fg2">lesson/2</span><span class="fg3">)</span> HEAD@{26}: reset: moving to HEAD~1
+<span class="fg3">d0d84ef</span> HEAD@{27}: commit: Added file1
+<span class="fg3">72b3641</span><span class="fg3"> (</span><span class="bold fg1">origin/lesson/2</span><span class="fg3">, </span><span class="bold fg2">lesson/2</span><span class="fg3">)</span> HEAD@{28}: commit: Cleanup
+<span class="fg3">e3cb113</span> HEAD@{29}: commit: Bug fiix
+<span class="fg3">e9405d5</span> HEAD@{30}: revert: Revert "Added feature 2"
+<span class="fg3">3194af2</span> HEAD@{31}: commit: Added feature 3
+<span class="fg3">1a98606</span> HEAD@{32}: commit: Added feature 2
+<span class="fg3">c9cf9d9</span> HEAD@{33}: commit: Added feature 1
+<span class="fg3">5bcdf4f</span> HEAD@{34}: commit: Cleanup
+<span class="fg3">bf3b2ae</span><span class="fg3"> (</span><span class="bold fg1">origin/lesson/1</span><span class="fg3">, </span><span class="bold fg2">lesson/1</span><span class="fg3">)</span> HEAD@{35}: checkout: moving from lesson/1 to<b class="hard-br"><br/></b> lesson/2
+<span class="fg3">bf3b2ae</span><span class="fg3"> (</span><span class="bold fg1">origin/lesson/1</span><span class="fg3">, </span><span class="bold fg2">lesson/1</span><span class="fg3">)</span> HEAD@{36}: commit (merge): Merging branches
+<span class="fg3">656a957</span> HEAD@{37}: commit: Updated file1 in lesson/1
+<span class="fg3">2dbd090</span> HEAD@{38}: checkout: moving from lesson/1-merge to lesson/1
+<span class="fg3">df5c53c</span><span class="fg3"> (</span><span class="bold fg2">lesson/1-merge</span><span class="fg3">)</span> HEAD@{39}: commit: Updated file1 in lesson/1-merge
+<span class="fg3">ed2fd72</span> HEAD@{40}: checkout: moving from lesson/1 to lesson/1-merge
+<span class="fg3">2dbd090</span> HEAD@{41}: merge lesson/1-merge: Merge made by the 'ort' strategy.
+<span class="fg3">9936267</span> HEAD@{42}: commit: Second lesson/1 commit
+<span class="fg3">e9732b5</span> HEAD@{43}: commit: First lesson/1 commit
+<span class="fg3">736a676</span> HEAD@{44}: checkout: moving from lesson/1-merge to lesson/1
+<span class="fg3">ed2fd72</span> HEAD@{45}: commit: Second lesson/1-merge commit
+<span class="fg3">ae8af05</span> HEAD@{46}: commit: First lesson/1-merge commit
+<span class="fg3">736a676</span> HEAD@{47}: checkout: moving from lesson/1 to lesson/1-merge
+<span class="fg3">736a676</span> HEAD@{48}: merge lesson/1-merge: Fast-forward
+<span class="fg3">790d823</span> HEAD@{49}: checkout: moving from lesson/1-merge to lesson/1
+<span class="fg3">736a676</span> HEAD@{50}: commit: Second lesson/1-merge commit
+<span class="fg3">07d9e25</span> HEAD@{51}: commit: First lesson/1-merge commit
+<span class="fg3">790d823</span> HEAD@{52}: checkout: moving from lesson/1 to lesson/1-merge
+<span class="fg3">790d823</span> HEAD@{53}: commit: First lesson/1 commit
+<span class="fg3">59064d3</span><span class="fg3"> (</span><span class="bold fg2">main</span><span class="fg3">)</span> HEAD@{54}: Branch: renamed refs/heads/feature to refs/heads/lesso<b class="hard-br"><br/></b>n/1
+<span class="fg3">59064d3</span><span class="fg3"> (</span><span class="bold fg2">main</span><span class="fg3">)</span> HEAD@{56}: checkout: moving from throwaway to feature
+<span class="fg3">59064d3</span><span class="fg3"> (</span><span class="bold fg2">main</span><span class="fg3">)</span> HEAD@{57}: checkout: moving from feature to throwaway
+<span class="fg3">59064d3</span><span class="fg3"> (</span><span class="bold fg2">main</span><span class="fg3">)</span> HEAD@{58}: checkout: moving from main to feature
+<span class="fg3">59064d3</span><span class="fg3"> (</span><span class="bold fg2">main</span><span class="fg3">)</span> HEAD@{59}: commit: Added stuff
+<span class="fg3">3fc2819</span><span class="fg3"> (</span><span class="bold fg1">upstream/main</span><span class="fg3">, </span><span class="bold fg1">origin/main</span><span class="fg3">, </span><span class="bold fg1">origin/HEAD</span><span class="fg3">)</span> HEAD@{60}: clone: from https:/<b class="hard-br"><br/></b>/github.com/im-sampm/exercises.git</pre></div>
           </div>
         </foreignObject>
       </svg>

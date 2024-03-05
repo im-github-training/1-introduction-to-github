@@ -1,5 +1,5 @@
 <!-- Created with term-transcript v0.3.0 (https://github.com/slowli/term-transcript) -->
-<svg viewBox="0 0 720 300" width="720" height="300" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 720 120" width="720" height="120" xmlns="http://www.w3.org/2000/svg">
   <switch>
     <g requiredExtensions="http://www.w3.org/1999/xhtml">
       <style>
@@ -57,24 +57,14 @@
         .fg15 { color: #f3f3f3; } .bg15 { background: #f3f3f3; }
       </style>
       <rect width="100%" height="100%" y="0" rx="4.5" style="fill: #1c1c1c;" />
-      <svg x="0" y="10" width="720" height="280" viewBox="0 0 720 280">
-        <foreignObject width="720" height="280">
+      <svg x="0" y="10" width="720" height="100" viewBox="0 0 720 100">
+        <foreignObject width="720" height="100">
           <div xmlns="http://www.w3.org/1999/xhtml" class="container">
-            <div class="input"><pre><span class="prompt">$</span> git push --set-upstream origin lesson/1</pre></div>
-            <div class="output"><pre>Enumerating objects: 25, done.
-Counting objects: 100% (25/25), done.
-Delta compression using up to 6 threads
-Compressing objects: 100% (21/21), done.
-Writing objects: 100% (24/24), 1.96 KiB | 35.00 KiB/s, done.
-Total 24 (delta 13), reused 1 (delta 0), pack-reused 0
-remote: Resolving deltas: 100% (13/13), completed with 1 local object.
-remote: 
-remote: Create a pull request for 'lesson/1' on GitHub by visiting:
-remote:      https://github.com/im-sampm/exercises/pull/new/lesson/1
-remote: 
-To https://github.com/im-sampm/exercises.git
- * [new branch]      lesson/1 -&gt; lesson/1
-branch 'lesson/1' set up to track 'origin/lesson/1'.</pre></div>
+            <div class="input"><pre><span class="prompt">$</span> git remote -v</pre></div>
+            <div class="output"><pre>origin	https://github.com/im-sampm/exercises.git (fetch)
+origin	https://github.com/im-sampm/exercises.git (push)
+upstream	https://github.com/im-github-training/exercises.git (fetch)
+upstream	https://github.com/im-github-training/exercises.git (push)</pre></div>
           </div>
         </foreignObject>
       </svg>

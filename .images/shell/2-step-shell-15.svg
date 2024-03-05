@@ -60,11 +60,11 @@
       <svg x="0" y="10" width="720" height="78" viewBox="0 0 720 78">
         <foreignObject width="720" height="78">
           <div xmlns="http://www.w3.org/1999/xhtml" class="container">
-            <div class="input" data-exit-status="0"><pre><span class="prompt">$</span> echo &quot;good&quot; &gt; file1</pre></div>
+            <div class="input" data-exit-status="0"><pre><span class="prompt">$</span> echo &quot;good&quot; &gt; file3</pre></div>
             <div class="output"><pre></pre></div>
-            <div class="input" data-exit-status="0"><pre><span class="prompt">$</span> git add file1</pre></div>
+            <div class="input" data-exit-status="0"><pre><span class="prompt">$</span> git add file3</pre></div>
             <div class="output"><pre></pre></div>
-            <div class="input"><pre><span class="prompt">$</span> git commit -m &quot;Added feature 1&quot;</pre></div>
+            <div class="input"><pre><span class="prompt">$</span> git commit -m &quot;Added feature 3&quot;</pre></div>
             <div class="output"><pre></pre></div>
           </div>
         </foreignObject>

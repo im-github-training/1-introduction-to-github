@@ -1,5 +1,5 @@
 <!-- Created with term-transcript v0.3.0 (https://github.com/slowli/term-transcript) -->
-<svg viewBox="0 0 720 606" width="720" height="606" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 720 282" width="720" height="282" xmlns="http://www.w3.org/2000/svg">
   <switch>
     <g requiredExtensions="http://www.w3.org/1999/xhtml">
       <style>
@@ -57,41 +57,23 @@
         .fg15 { color: #f3f3f3; } .bg15 { background: #f3f3f3; }
       </style>
       <rect width="100%" height="100%" y="0" rx="4.5" style="fill: #1c1c1c;" />
-      <svg x="0" y="10" width="720" height="586" viewBox="0 0 720 586">
-        <foreignObject width="720" height="586">
+      <svg x="0" y="10" width="720" height="262" viewBox="0 0 720 262">
+        <foreignObject width="720" height="262">
           <div xmlns="http://www.w3.org/1999/xhtml" class="container">
-            <div class="input"><pre><span class="prompt">$</span> git log -n 5</pre></div>
-            <div class="output"><pre><span class="fg3">commit c555475db2259c9789437441d9379b4a4583c6b7</span><span class="fg3"> (</span><span class="bold fg6">HEAD</span><span class="fg3"> -&gt; </span><span class="bold fg2">lesson/2</span><span class="fg3">)</span>
+            <div class="input"><pre><span class="prompt">$</span> git log -n 2</pre></div>
+            <div class="output"><pre><span class="fg3">commit e3cb11372b61704eda03a6f13f233abdc01e86ad</span><span class="fg3"> (</span><span class="bold fg6">HEAD</span><span class="fg3"> -&gt; </span><span class="bold fg2">lesson/2</span><span class="fg3">)</span>
 Author: Sam Peddamatham &lt;sam.pm@infomagnus.com&gt;
-Date:   Tue Mar 5 00:57:36 2024 +0000
+Date:   Tue Mar 5 05:39:43 2024 +0000
+
+    Bug fiix
+
+<span class="fg3">commit e9405d5aceb87c44565ce05c884245635a1b91e6</span>
+Author: Sam Peddamatham &lt;sam.pm@infomagnus.com&gt;
+Date:   Tue Mar 5 05:39:42 2024 +0000
 
     Revert "Added feature 2"
     
-    This reverts commit cc7d57fa32fe25b99d9deeaf19c16a56922ebc37.
-
-<span class="fg3">commit 9aea32b36ef2165819b4fc6ce5c9478c84ee8664</span>
-Author: Sam Peddamatham &lt;sam.pm@infomagnus.com&gt;
-Date:   Tue Mar 5 00:57:35 2024 +0000
-
-    Added feature 3
-
-<span class="fg3">commit cc7d57fa32fe25b99d9deeaf19c16a56922ebc37</span>
-Author: Sam Peddamatham &lt;sam.pm@infomagnus.com&gt;
-Date:   Tue Mar 5 00:57:30 2024 +0000
-
-    Added feature 2
-
-<span class="fg3">commit debb51c02008c1ffaeaee30c65e2bb1c9ebe1704</span>
-Author: Sam Peddamatham &lt;sam.pm@infomagnus.com&gt;
-Date:   Tue Mar 5 00:57:27 2024 +0000
-
-    Added feature 1
-
-<span class="fg3">commit ea385432015e634ec69c0c995ef3786e373dc9a1</span>
-Author: Sam Peddamatham &lt;sam.pm@infomagnus.com&gt;
-Date:   Tue Mar 5 00:57:23 2024 +0000
-
-    Cleanup</pre></div>
+    This reverts commit 1a98606a3d187c90996b79e362b4aa092093922d.</pre></div>
           </div>
         </foreignObject>
       </svg>

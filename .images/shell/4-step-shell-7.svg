@@ -78,7 +78,7 @@ Or undo this operation with:
 
 Turn off this advice by setting config variable advice.detachedHead to false
 
-HEAD is now at bbc13b5 lesson/3-rebase commit 1</pre></div>
+HEAD is now at 72b3641 Cleanup</pre></div>
           </div>
         </foreignObject>
       </svg>

@@ -1,5 +1,5 @@
 <!-- Created with term-transcript v0.3.0 (https://github.com/slowli/term-transcript) -->
-<svg viewBox="0 0 720 84" width="720" height="84" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 720 282" width="720" height="282" xmlns="http://www.w3.org/2000/svg">
   <switch>
     <g requiredExtensions="http://www.w3.org/1999/xhtml">
       <style>
@@ -57,12 +57,23 @@
         .fg15 { color: #f3f3f3; } .bg15 { background: #f3f3f3; }
       </style>
       <rect width="100%" height="100%" y="0" rx="4.5" style="fill: #1c1c1c;" />
-      <svg x="0" y="10" width="720" height="64" viewBox="0 0 720 64">
-        <foreignObject width="720" height="64">
+      <svg x="0" y="10" width="720" height="262" viewBox="0 0 720 262">
+        <foreignObject width="720" height="262">
           <div xmlns="http://www.w3.org/1999/xhtml" class="container">
-            <div class="input"><pre><span class="prompt">$</span> git commit -am &quot;Updated file1 in lesson/1-merge&quot;</pre></div>
-            <div class="output"><pre>[lesson/1-merge 3907c94] Updated file1 in lesson/1-merge
- 1 file changed, 1 insertion(+)</pre></div>
+            <div class="input"><pre><span class="prompt">$</span> git remote show origin</pre></div>
+            <div class="output"><pre>* remote origin
+  Fetch URL: https://github.com/im-sampm/exercises.git
+  Push  URL: https://github.com/im-sampm/exercises.git
+  HEAD branch: main
+  Remote branches:
+    lesson/1 tracked
+    main     tracked
+  Local branches configured for 'git pull':
+    lesson/1 merges with remote lesson/1
+    main     merges with remote main
+  Local refs configured for 'git push':
+    lesson/1 pushes to lesson/1 (up to date)
+    main     pushes to main     (fast-forwardable)</pre></div>
           </div>
         </foreignObject>
       </svg>

@@ -61,18 +61,18 @@
         <foreignObject width="720" height="244">
           <div xmlns="http://www.w3.org/1999/xhtml" class="container">
             <div class="input"><pre><span class="prompt">$</span> git log --oneline --graph --decorate --all -n 10</pre></div>
-            <div class="output"><pre>*   <span class="fg3">407f3bb</span><span class="fg3"> (</span><span class="bold fg6">HEAD</span><span class="fg3"> -&gt; </span><span class="bold fg2">lesson/1</span><span class="fg3">)</span> Merging branches
+            <div class="output"><pre>*   <span class="fg3">2dbd090</span><span class="fg3"> (</span><span class="bold fg6">HEAD</span><span class="fg3"> -&gt; </span><span class="bold fg2">lesson/1</span><span class="fg3">)</span> Merging branches
 <span class="fg1">|</span><span class="fg2">\</span>  
-<span class="fg1">|</span> * <span class="fg3">503506f</span><span class="fg3"> (</span><span class="bold fg2">lesson/1-merge</span><span class="fg3">)</span> Second lesson/1-merge commit
-<span class="fg1">|</span> * <span class="fg3">46a157a</span> First lesson/1-merge commit
-* <span class="fg2">|</span> <span class="fg3">5ecf403</span> Second lesson/1 commit
-* <span class="fg2">|</span> <span class="fg3">b95d93a</span> First lesson/1 commit
+<span class="fg1">|</span> * <span class="fg3">ed2fd72</span><span class="fg3"> (</span><span class="bold fg2">lesson/1-merge</span><span class="fg3">)</span> Second lesson/1-merge commit
+<span class="fg1">|</span> * <span class="fg3">ae8af05</span> First lesson/1-merge commit
+* <span class="fg2">|</span> <span class="fg3">9936267</span> Second lesson/1 commit
+* <span class="fg2">|</span> <span class="fg3">e9732b5</span> First lesson/1 commit
 <span class="fg2">|</span><span class="fg2">/</span>  
-* <span class="fg3">0ccf95c</span> Second lesson/1-merge commit
-* <span class="fg3">78fc947</span> First lesson/1-merge commit
-* <span class="fg3">450d672</span> Second lesson/1 commit
-* <span class="fg3">c123c71</span> First lesson/1 commit
-* <span class="fg3">9d56898</span><span class="fg3"> (</span><span class="bold fg2">main</span><span class="fg3">)</span> Added stuff</pre></div>
+* <span class="fg3">736a676</span> Second lesson/1-merge commit
+* <span class="fg3">07d9e25</span> First lesson/1-merge commit
+* <span class="fg3">790d823</span> First lesson/1 commit
+* <span class="fg3">59064d3</span><span class="fg3"> (</span><span class="bold fg2">main</span><span class="fg3">)</span> Added stuff
+* <span class="fg3">3fc2819</span><span class="fg3"> (</span><span class="bold fg1">upstream/main</span><span class="fg3">, </span><span class="bold fg1">origin/main</span><span class="fg3">, </span><span class="bold fg1">origin/HEAD</span><span class="fg3">)</span> Big update</pre></div>
           </div>
         </foreignObject>
       </svg>

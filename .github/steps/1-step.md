@@ -501,11 +501,7 @@ TBD
 
 ## Wrapping Things Up
 
-Phew, that was a whirlwind tour of Git, let's end things on a high-note.
-
-Once you're ready, push your changes back to GitHub.
-
-We'll grade your work and update your repo's `README.md` with instructions for Lesson 2.
+Phew, that was a whirlwind tour of Git, let's end things on a high-note and push your changes back to GitHub.
 
 <!--
 ```shellSession
@@ -515,82 +511,66 @@ $ git push
 
 !['git push'](/.images/shell/1-step-shell-37.svg)
 
-What this error is telling us is that Git had no idea *where* to push our changes to when we typed `git push`.
+*No bueno.*
 
-See, when we use `git push` we're relying on a bit of "magic" that Git does for us when we `git clone` a repository.
+What this error is telling us is that Git did not know *where* to push our changes to when we typed `git push`.
 
-## Understanding Git Remotes
+If you recall, when we `git clone` a repository, Git automatically manages the relationship between the local and remote copy of the repository by setting up `remotes`.
 
-Git is a distributed version control system, which means that every copy of a Git repository is a full-fledged repository with complete history and version-tracking capabilities. These copies, or "clones", can be located on different machines, in different locations. To manage the connections between these repositories, Git uses a concept known as "remotes".
+Let's dig in to see what went wrong.
 
-### What are Git Remotes?
+## Exercise 5: Understanding remotes
 
-A Git remote is like a bookmark that points to another copy of your repository that is usually hosted on a remote server. This could be on GitHub, GitLab, Bitbucket, or any other server where you host your Git repositories. Remotes are used to fetch code from other repositories (pull) or push code to them.
+### Listing remotes
 
-### The 'origin' Remote
+Let's start by taking a look at the remotes currently defined for the repository:
 
-When you clone a repository, Git automatically creates a remote named 'origin' that points to the location of the cloned repository. This is your main connection to the original repository: you can pull changes from it and push your updates to it.
-
-You can view your remotes with the command `git remote -v`. This will list all remotes for your repository.
-
-### Adding Remotes
-
-You can add new remotes using the `git remote add` command followed by the name you want to give to the remote and the URL of the repository.
-
-```bash
-git remote add remote_name remote_url
+<!--
+```shellSession
+$ git remote -v
 ```
+-->
 
-### Fetching, Pulling, and Pushing
+!['git remote -v'](/.images/shell/1-step-shell-38.svg)
 
-You can fetch changes from a remote without merging them into your local code with `git fetch remote_name`.
+So, this shows us that Git has configured the *default* remote, `origin`, to the repository we cloned from GitHub.
 
-To fetch changes and merge them into your current branch, you can use `git pull remote_name branch_name`.
+What `git remote -v` doesn't show us is which *branches* have defined upstream branches.
 
-To push your changes to a remote, you use `git push remote_name branch_name`.
+This means that when we do a `git fetch <remote> <branch>`, `git pull <remote> <branch>`, or `git push <remote> <branch>`, Git will automatically use the URL defined in `origin` as the `<remote>` parameter.
 
-### Conclusion
+### Showing remote configuration
 
-Understanding Git remotes is crucial for collaborating on any Git project. Whether you're working on a team or contributing to open source, knowing how to add, remove, and manipulate remotes will allow you to share your work, stay up-to-date, and navigate the broader Git network.
-
-### Cloning a Repository
-
-When you clone a repository using the `git clone` command, Git does a few things:
-
-1. It creates a new directory on your local machine with the same name as the repository.
-2. It initializes a new Git repository in this directory (`git init`).
-3. It adds a remote named `origin` that points to the URL of the cloned repository.
-   - This is done using the `git remote add` command, but you don't see this because it's done automatically by `git clone`.
-
-You can see this remote by navigating to the repository directory and running `git remote -v`. The output will look something like this:
-
-```bash
-origin  https://github.com/user/repo.git (fetch)
-origin  https://github.com/user/repo.git (push)
-```
-
-This means that when you run `git push` or `git pull` while on a branch that has an upstream set to `origin`, Git knows that it needs to push to or pull from the repository at `https://github.com/user/repo.git`.
-
-### Initializing a Repository
-
-When you create a new repository on your local machine using the `git init` command, Git initializes a new repository, but it does not add any remotes. This is because Git doesn't know where you want to push to or pull from.
-
-You can check this by running `git remote -v` in your newly initialized repository. The command will not return any output, indicating that no remotes have been set.
-
-To add a remote, you can use the `git remote add` command, like so:
-
-```bash
-git remote add origin https://github.com/user/new-repo.git
-```
-
-This command adds a new remote named `origin` that points to `https://github.com/user/new-repo.git`. Now, when you run `git push origin master`, Git knows that it needs to push to the `master` branch at `https://github.com/user/new-repo.git`.
-
-## Conclusion
-
-In conclusion, when you clone a repository, Git automatically sets up a remote named `origin` that points to the cloned repository. But when you initialize a new repository, Git does not set up any remotes, and you need to do this manually if you want to push to or pull from a remote repository.
+To view the configuration of the `origin` remote, we use:
 
 <!--
 ```shellSession
 $ git remote show origin
 ```
 -->
+
+!['git remote show origin'](/.images/shell/1-step-shell-39.svg)
+
+Similar to `git remote -v`, this command shows us the default fetch/push URLs.  More importantly, it shows us which branches have upstream branches defined.
+
+TODO:
+
+### Setting upstream
+
+<!--
+```shellSession
+$ git push --set-upstream origin lesson/1
+```
+-->
+
+!['git push --set-upstream origin lesson/1'](/.images/shell/1-step-shell-40.svg)
+
+And checking:
+
+<!--
+```shellSession
+$ git remote show origin
+```
+-->
+
+!['git remote show origin'](/.images/shell/1-step-shell-41.svg)
