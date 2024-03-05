@@ -27,7 +27,7 @@ jobs:
         run: echo "${{ steps.get_step.outputs.step }}"
 
       - name: Debug
-        run: echo ${{ toJSON(github) }}
+        run: echo "${{ toJSON(github) }}"
 
 
       - name: Check if correct step
