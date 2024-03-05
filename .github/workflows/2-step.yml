@@ -1,13 +1,8 @@
 name: Step 2
 
-# This step listens for the learner to delete the branch `my-first-branch`.
-# This workflow updates from step 2 to step 3.
-
-# This action will run every time `my-first-branch` is deleted.
-# Reference: https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows
 on:
   workflow_dispatch:
-  delete:
+  create:
 
 # Reference: https://docs.github.com/en/actions/security-guides/automatic-token-authentication
 permissions:
@@ -36,8 +31,8 @@ jobs:
         if:  github.event.repository.is_template
         run: exit 1
 
-      - name: Check if branch is my-first-branch
-        if: github.ref_type == 'branch' && github.ref != 'my-first-branch'
+      - name: Check if branch is lesson/2
+        if: github.ref_type == 'branch' && github.ref != 'lesson/2'
         run: exit 1
 
   main:
@@ -58,4 +53,4 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           from_step: 2
           to_step: 3
-          branch_name: my-first-branch
+          branch_name: lesson/2

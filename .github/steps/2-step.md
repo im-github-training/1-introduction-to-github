@@ -1,6 +1,6 @@
 # Lesson 2
 
-## Welcome Back
+## Welcome Back!
 
 In today's lesson, we'll learn about how to handle a few common scenarios.
 
@@ -447,6 +447,97 @@ $ git status
 We can see that `HEAD` has been moved back one commit and `file1` has not only been unstaged, but has been deleted completely!
 
 > Remember, `git reset` can permanently discard your changes if used improperly. Always make sure you have a backup of your changes or have pushed your changes to a remote repository before using `git reset --hard`.
+
+## Exercise 5: Cherry-picking commits
+
+## Cherry-picking changes
+
+`git cherry-pick` enables you to pick a commit from one branch and apply it onto another. This is useful when you want to apply some commit without merging or rebasing the whole branch.
+
+### Basic cherry-picking
+
+Let's start with a basic example. Suppose you have a repository with a `main` branch and a `feature` branch. You've made a commit in the `feature` branch that you want to apply to the `main` branch.
+
+First, get the commit hash of the commit you want to cherry-pick. You can do this with the `git log` command:
+
+```bash
+git log
+```
+
+This will show you a list of commits. Each commit has a hash, like `3a0b9b6`.
+
+Now, switch to the `main` branch:
+
+```bash
+git switch main
+```
+
+Then, cherry-pick the commit:
+
+```bash
+git cherry-pick 3a0b9b6
+```
+
+This will apply the changes from the specified commit to the `main` branch.
+
+### Cherry-picking multiple commits
+
+You can also cherry-pick multiple commits at once. To do this, list the commit hashes separated by spaces:
+
+```bash
+git cherry-pick 3a0b9b6 5b6c7d6f
+```
+
+This will apply the changes from both commits to the `main` branch.
+
+### Cherry-picking with conflicts
+
+Sometimes, cherry-picking a commit might result in conflicts, especially if the commit depends on changes that are not present in the current branch. In this case, Git will pause the cherry-pick and allow you to resolve the conflicts.
+
+When you try to cherry-pick, you'll see an output like this:
+
+```bash
+git cherry-pick 3a0b9b6
+```
+
+**Output:**
+
+```bash
+error: could not apply 3a0b9b6... Some commit message
+hint: after resolving the conflicts, mark the corrected paths
+hint: with 'git add <paths>' or 'git commit -a'
+hint: and commit the result with 'git commit'
+```
+
+To resolve the conflicts, open the file with conflicts in your text editor. You'll see the conflicting changes marked like this:
+
+```bash
+<<<<<<< HEAD
+This is some content from the main branch.
+=======
+This is some content from the feature branch.
+>>>>>>> feature
+```
+
+Edit the file to resolve the conflicts, then add the file to the staging area:
+
+```bash
+git add file.txt
+```
+
+And continue the cherry-pick:
+
+```bash
+git cherry-pick --continue
+```
+
+### Aborting a cherry-pick
+
+If you start a cherry-pick and then decide you want to stop, you can abort the cherry-pick with the `--abort` option:
+
+```bash
+git cherry-pick --abort
+```
 
 ## Wrapping Things Up
 

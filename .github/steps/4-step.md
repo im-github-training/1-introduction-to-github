@@ -1,8 +1,6 @@
 # Lesson 4
 
-## Welcome Back
-
-If you're seeing this, it means you passed Lesson 3, great job!
+## Welcome Back!
 
 Let's start by creating a branch for today's work!
 

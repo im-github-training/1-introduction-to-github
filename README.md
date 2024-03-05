@@ -38,7 +38,7 @@ We recommend reading the following sections of the [CLIENT_NAME GitHub Training 
     * For owner, choose your personal account or an organization to host the repository
     * Check the "Copy the `main` branch only" box
     * Scroll down and click the **Create fork** button at the bottom of the form
-3. After your new repository is created, click on the 'Actions' tab in your forked repo.
+3. After your new repository is created, click on the **Actions** tab in your forked repo.
     ![Image 1](./.images/image-2.png)
 4. Click on "I understand my workflows, go ahead and enable them"
     ![Image 1](./.images/image-3.png)

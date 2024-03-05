@@ -1,14 +1,23 @@
-name: Step 3
+name: Step 5
 
+# This step listens for the learner to open a pull request with branch `my-first-branch`.
+# This workflow updates from step 3 to step 4.
+
+# This will run every time we create a branch or tag.
+# Reference: https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows
 on:
   workflow_dispatch:
-  create:
+  pull_request:
+    types:
+      - opened
+      - reopened
 
 # Reference: https://docs.github.com/en/actions/security-guides/automatic-token-authentication
 permissions:
   # Need `contents: read` to checkout the repository.
   # Need `contents: write` to update the step metadata.
   contents: write
+
 
 jobs:
   # Get the current step to only run the main job when the learner is on the same step.
@@ -24,15 +33,15 @@ jobs:
         run: echo "step=$(cat ./.github/steps/-step.txt)" >> $GITHUB_OUTPUT
 
       - name: Check if correct step
-        if: ${{ steps.get_step.outputs.step != 3 }}
+        if: ${{ steps.get_step.outputs.step != 5 }}
         run: exit 1
 
       - name: Check if template repository
         if:  github.event.repository.is_template
         run: exit 1
 
-      - name: Check if branch is lesson/3
-        if: github.ref_type == 'branch' && github.ref != 'lesson/3'
+      - name: Check if branch is lesson/4
+        if: github.head_ref != 'lesson/4'
         run: exit 1
 
   main:
@@ -45,12 +54,13 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0 # Let's get all the branches.
+          ref: lesson/4  # Important, as normally `pull_request` event won't grab other branches.
 
-      # In README.md, switch step 3 for step 4
-      - name: Update to step 4
+      # In README.md, switch step 4 for step 5.
+      - name: Update to step 5
         uses: skills/action-update-step@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          from_step: 3
-          to_step: 4
-          branch_name: lesson/3
+          from_step: 5
+          to_step: X
+          branch_name: lesson/4

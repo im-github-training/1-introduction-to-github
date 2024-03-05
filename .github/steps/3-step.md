@@ -1,6 +1,6 @@
 # Lesson 3
 
-## Welcome Back
+## Welcome Back!
 
 In today's lesson, we'll learn about `git rebase`.
 

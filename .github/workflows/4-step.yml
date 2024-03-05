@@ -1,15 +1,8 @@
-name: Step 4, Merge your pull request
+name: Step 4
 
-# This step listens for the learner to merge a pull request with branch `my-first-branch`.
-# This workflow updates from step 4 to step X.
-
-# This will run every time we create push a commit to `main`.
-# Reference: https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - main
+  create:
 
 # Reference: https://docs.github.com/en/actions/security-guides/automatic-token-authentication
 permissions:
@@ -19,34 +12,33 @@ permissions:
 
 jobs:
   # Get the current step to only run the main job when the learner is on the same step.
-  get_current_step:
-    name: Check current step number
+  check_conditions:
     runs-on: ubuntu-latest
+    if: github.event_name != 'workflow_dispatch'
     steps:
+      # Needed so we can read the step number from -step.txt
       - name: Checkout
         uses: actions/checkout@v4
+
       - id: get_step
-        run: |
-          echo "current_step=$(cat ./.github/steps/-step.txt)" >> $GITHUB_OUTPUT
-    outputs:
-      current_step: ${{ steps.get_step.outputs.current_step }}
+        run: echo "step=$(cat ./.github/steps/-step.txt)" >> $GITHUB_OUTPUT
 
-  on_merge_your_pull_request:
-    name: On merge your pull request
-    needs: get_current_step
+      - name: Check if correct step
+        if: ${{ steps.get_step.outputs.step != 4 }}
+        run: exit 1
 
-    # We will only run this action when:
-    # 1. This repository isn't the template repository.
-    # 2. The step is currently 4.
-    # Reference: https://docs.github.com/en/actions/learn-github-actions/contexts
-    # Reference: https://docs.github.com/en/actions/learn-github-actions/expressions
-    if: >-
-      ${{ !github.event.repository.is_template
-          && needs.get_current_step.outputs.current_step == 4 }}
+      - name: Check if template repository
+        if:  github.event.repository.is_template
+        run: exit 1
 
-    # We'll run Ubuntu for performance instead of Mac or Windows.
+      - name: Check if branch is lesson/4
+        if: github.ref_type == 'branch' && github.ref != 'lesson/4'
+        run: exit 1
+
+  main:
+    needs: check_conditions
     runs-on: ubuntu-latest
-
+    if: github.event_name == 'workflow_dispatch' || success()
     steps:
       # We'll need to check out the repository so that we can edit the README.
       - name: Checkout
@@ -54,11 +46,10 @@ jobs:
         with:
           fetch-depth: 0 # Let's get all the branches.
 
-      # In README.md, switch step 4 for step X.
-      - name: Update to step X
+      - name: Update to step 4
         uses: skills/action-update-step@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           from_step: 4
-          to_step: X
-          branch_name: my-first-branch
+          to_step: 5
+          branch_name: lesson/4
