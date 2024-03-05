@@ -60,14 +60,15 @@
       <svg x="0" y="10" width="720" height="154" viewBox="0 0 720 154">
         <foreignObject width="720" height="154">
           <div xmlns="http://www.w3.org/1999/xhtml" class="container">
-            <div class="input"><pre><span class="prompt">$</span> git log --oneline --graph --decorate --all -n 7</pre></div>
-            <div class="output"><pre>* <span class="fg3">b5672dd</span><span class="fg3"> (</span><span class="bold fg6">HEAD</span><span class="fg3"> -&gt; </span><span class="bold fg2">lesson/3-rebase</span><span class="fg3">)</span> lesson/3-rebase commit 2
-* <span class="fg3">00c2d44</span> lesson/3-rebase commit 1
-* <span class="fg3">162d7fb</span> lesson/3-rebase commit 2
-* <span class="fg3">1e1f632</span> lesson/3-rebase commit 1
-* <span class="fg3">1f622b2</span> lesson/3-rebase commit
-* <span class="fg3">ab32315</span> lesson/3-rebase commit
-* <span class="fg3">b7f1cbb</span><span class="fg3"> (</span><span class="bold fg2">lesson/3</span><span class="fg3">)</span> lesson/3 commit 2</pre></div>
+            <div class="input"><pre><span class="prompt">$</span> git push</pre></div>
+            <div class="output"><pre>fatal: The current branch lesson/3-rebase has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin lesson/3-rebase
+
+To have this happen automatically for branches without a tracking
+upstream, see 'push.autoSetupRemote' in 'git help config'.
+</pre></div>
           </div>
         </foreignObject>
       </svg>

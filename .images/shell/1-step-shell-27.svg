@@ -62,9 +62,9 @@
           <div xmlns="http://www.w3.org/1999/xhtml" class="container">
             <div class="input"><pre><span class="prompt">$</span> git switch lesson/1-merge</pre></div>
             <div class="output"><pre></pre></div>
-            <div class="input"><pre><span class="prompt">$</span> git commit -m &quot;lesson/1-merge commit&quot; --allow-empty</pre></div>
+            <div class="input"><pre><span class="prompt">$</span> git commit -m &quot;First lesson/1-merge commit&quot; --allow-empty</pre></div>
             <div class="output"><pre></pre></div>
-            <div class="input"><pre><span class="prompt">$</span> git commit -m &quot;lesson/1-merge commit&quot; --allow-empty</pre></div>
+            <div class="input"><pre><span class="prompt">$</span> git commit -m &quot;Second lesson/1-merge commit&quot; --allow-empty</pre></div>
             <div class="output"><pre></pre></div>
           </div>
         </foreignObject>

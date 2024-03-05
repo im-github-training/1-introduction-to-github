@@ -1,5 +1,5 @@
 <!-- Created with term-transcript v0.3.0 (https://github.com/slowli/term-transcript) -->
-<svg viewBox="0 0 720 174" width="720" height="174" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 720 192" width="720" height="192" xmlns="http://www.w3.org/2000/svg">
   <switch>
     <g requiredExtensions="http://www.w3.org/1999/xhtml">
       <style>
@@ -57,17 +57,18 @@
         .fg15 { color: #f3f3f3; } .bg15 { background: #f3f3f3; }
       </style>
       <rect width="100%" height="100%" y="0" rx="4.5" style="fill: #1c1c1c;" />
-      <svg x="0" y="10" width="720" height="154" viewBox="0 0 720 154">
-        <foreignObject width="720" height="154">
+      <svg x="0" y="10" width="720" height="172" viewBox="0 0 720 172">
+        <foreignObject width="720" height="172">
           <div xmlns="http://www.w3.org/1999/xhtml" class="container">
             <div class="input"><pre><span class="prompt">$</span> git log --oneline --graph --decorate --all -n 7</pre></div>
-            <div class="output"><pre>* <span class="fg3">b7f1cbb</span><span class="fg3"> (</span><span class="bold fg6">HEAD</span><span class="fg3"> -&gt; </span><span class="bold fg2">lesson/3</span><span class="fg3">)</span> lesson/3 commit 2
-* <span class="fg3">5b90a16</span> lesson/3 commit 1
-<span class="fg1">|</span> * <span class="fg3">b8d5699</span><span class="fg3"> (</span><span class="bold fg2">lesson/3-rebase</span><span class="fg3">)</span> lesson/3-rebase commit 2
-<span class="fg1">|</span> * <span class="fg3">6bc85f1</span> lesson/3-rebase commit 1
-<span class="fg1">|</span> * <span class="fg3">5252a8d</span> lesson/3-rebase commit 2
-<span class="fg1">|</span> * <span class="fg3">77d4742</span> lesson/3-rebase commit 1
-<span class="fg1">|</span> * <span class="fg3">043c02c</span> lesson/3-rebase commit</pre></div>
+            <div class="output"><pre>* <span class="fg3">a6a2ad9</span><span class="fg3"> (</span><span class="bold fg2">lesson/3</span><span class="fg3">)</span> lesson/3 commit 2
+* <span class="fg3">e8e9594</span> lesson/3 commit 1
+<span class="fg1">|</span> * <span class="fg3">6f31f7b</span><span class="fg3"> (</span><span class="bold fg6">HEAD</span><span class="fg3"> -&gt; </span><span class="bold fg2">lesson/3-rebase</span><span class="fg3">)</span> lesson/3-rebase commit 2
+<span class="fg1">|</span> * <span class="fg3">bbc13b5</span> lesson/3-rebase commit 1
+<span class="fg1">|</span><span class="fg1">/</span>  
+* <span class="fg3">05e9980</span><span class="fg3"> (</span><span class="bold fg2">lesson/2</span><span class="fg3">)</span> Cleanup
+* <span class="fg3">06dc710</span> Bug fiix
+* <span class="fg3">c555475</span> Revert "Added feature 2"</pre></div>
           </div>
         </foreignObject>
       </svg>

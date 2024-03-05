@@ -1,5 +1,5 @@
 <!-- Created with term-transcript v0.3.0 (https://github.com/slowli/term-transcript) -->
-<svg viewBox="0 0 720 282" width="720" height="282" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 720 138" width="720" height="138" xmlns="http://www.w3.org/2000/svg">
   <switch>
     <g requiredExtensions="http://www.w3.org/1999/xhtml">
       <style>
@@ -57,23 +57,15 @@
         .fg15 { color: #f3f3f3; } .bg15 { background: #f3f3f3; }
       </style>
       <rect width="100%" height="100%" y="0" rx="4.5" style="fill: #1c1c1c;" />
-      <svg x="0" y="10" width="720" height="262" viewBox="0 0 720 262">
-        <foreignObject width="720" height="262">
+      <svg x="0" y="10" width="720" height="118" viewBox="0 0 720 118">
+        <foreignObject width="720" height="118">
           <div xmlns="http://www.w3.org/1999/xhtml" class="container">
-            <div class="input"><pre><span class="prompt">$</span> git log -n 2</pre></div>
-            <div class="output"><pre><span class="fg3">commit cd66d5e6a34e17551ecfbfdbd9c492187c798c33</span><span class="fg3"> (</span><span class="bold fg6">HEAD</span><span class="fg3"> -&gt; </span><span class="bold fg2">lesson/2</span><span class="fg3">)</span>
+            <div class="input"><pre><span class="prompt">$</span> git log -n 1</pre></div>
+            <div class="output"><pre><span class="fg3">commit 05e99805f9e2344d112d4a4a38255bb9adc2a85d</span><span class="fg3"> (</span><span class="bold fg6">HEAD</span><span class="fg3"> -&gt; </span><span class="bold fg2">lesson/2</span><span class="fg3">)</span>
 Author: Sam Peddamatham &lt;sam.pm@infomagnus.com&gt;
-Date:   Mon Mar 4 06:42:51 2024 +0000
+Date:   Tue Mar 5 00:57:42 2024 +0000
 
-    Bug fiix
-
-<span class="fg3">commit a2de7cd01b623fdee61d61d85631a96e103c0aba</span>
-Author: Sam Peddamatham &lt;sam.pm@infomagnus.com&gt;
-Date:   Mon Mar 4 06:42:50 2024 +0000
-
-    Revert "Added feature 2"
-    
-    This reverts commit e65927be053c4b90b74e52723b0137a01e80e5fb.</pre></div>
+    Cleanup</pre></div>
           </div>
         </foreignObject>
       </svg>

@@ -61,13 +61,13 @@
         <foreignObject width="720" height="280">
           <div xmlns="http://www.w3.org/1999/xhtml" class="container">
             <div class="input"><pre><span class="prompt">$</span> git push --set-upstream origin lesson/1</pre></div>
-            <div class="output"><pre>Enumerating objects: 32, done.
-Counting objects: 100% (32/32), done.
+            <div class="output"><pre>Enumerating objects: 25, done.
+Counting objects: 100% (25/25), done.
 Delta compression using up to 6 threads
-Compressing objects: 100% (28/28), done.
-Writing objects: 100% (31/31), 2.70 KiB | 43.00 KiB/s, done.
-Total 31 (delta 18), reused 1 (delta 0), pack-reused 0
-remote: Resolving deltas: 100% (18/18), completed with 1 local object.
+Compressing objects: 100% (21/21), done.
+Writing objects: 100% (24/24), 1.96 KiB | 35.00 KiB/s, done.
+Total 24 (delta 13), reused 1 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (13/13), completed with 1 local object.
 remote: 
 remote: Create a pull request for 'lesson/1' on GitHub by visiting:
 remote:      https://github.com/im-sampm/exercises/pull/new/lesson/1

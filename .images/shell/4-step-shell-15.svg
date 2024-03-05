@@ -61,7 +61,7 @@
         <foreignObject width="720" height="46">
           <div xmlns="http://www.w3.org/1999/xhtml" class="container">
             <div class="input"><pre><span class="prompt">$</span> cat ../.git/refs/heads/lesson/3</pre></div>
-            <div class="output"><pre>e3b2b6b1855ed1e09727fb7258721f6b174a2341</pre></div>
+            <div class="output"><pre>a6a2ad97d3e746f24080413ad6f7b6306a2b252e</pre></div>
           </div>
         </foreignObject>
       </svg>

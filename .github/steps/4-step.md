@@ -12,7 +12,7 @@ $ git switch -c lesson/4
 ```
 -->
 
-!['git switch -c lesson/3'](/.images/shell/4-step-shell-0.svg)
+!['git switch -c lesson/4'](/.images/shell/4-step-shell-0.svg)
 
 Great, but while we're here, what's that long number-like thing next to `commit`, above?
 

@@ -497,7 +497,55 @@ $ git log --oneline --graph --decorate --all -n 10
 
 ## Exercise 4: Stashing commits
 
-TBD
+Git mostly stays out of your way as you create and switch between branches, however, Git disallows switching branches when the switch could result in losing uncommitted changes.
+
+This typically happens when the changes in your current working directory or staging area conflict with the branch you are trying to switch to. If the same file has been modified in your current branch and in the branch you're trying to check out, Git will prevent the branch switch to avoid overwriting those modifications.
+
+In these situations, you have two options:
+
+1. **Commit your changes**: `git commit`
+2. **Stash your changes**: `git stash`
+
+**Stashing** allows you to save changes that you don't want to commit immediately. You can apply the stashed changes later, even on a different branch.
+
+### Basic stashing
+
+You're in the middle of working on a feature when you need to switch branches to fix a bug. You don't want to commit half-done work, so you can stash the changes.
+
+1. Modify a file in your repository but do not commit the changes.
+2. Run `git stash`. Your changes are saved in a new stash and your working directory is reverted to the last commit.
+3. Switch to another branch and make some changes.
+4. Switch back to the original branch.
+
+### Applying stashes
+
+Now that the bug is fixed, you want to go back to working on the feature. You can apply the stashed changes to your working directory.
+
+1. Run `git stash list`. This will show a list of all stashes. You should see the stash you created earlier.
+2. Run `git stash apply`. This will apply the most recent stash to your working directory.
+
+### Stashing specific files
+
+Sometimes, you only want to stash changes to certain files. You can do this with `git stash push`.
+
+1. Modify two files in your repository but do not commit the changes.
+2. Run `git stash push -m "A descriptive message" <file>`. Replace `<file>` with the path to one of the files you modified. This will create a new stash with only the changes to that file.
+
+### Dropping a stash
+
+Once you've applied a stash and made sure you won't need it again, you can drop it to keep your stash list clean.
+
+1. Run `git stash list`. This will show a list of all stashes.
+2. Run `git stash drop <stash>`. Replace `<stash>` with the name of the stash you want to drop.
+
+### Stashing untracked Files
+
+By default, `git stash` will not stash untracked files. If you want to include untracked files, you can use `git stash -u`.
+
+1. Create a new file in your repository but do not stage or commit it.
+2. Run `git stash -u`. This will create a new stash that includes the untracked file.
+
+Remember, stashing is a powerful tool that allows you to save changes without committing them. It's useful when you need to switch context quickly, but don't want to lose your current work.
 
 ## Wrapping Things Up
 
@@ -517,77 +565,7 @@ $ git push
 
 What this error is telling us is that Git had no idea *where* to push our changes to when we typed `git push`.
 
-See, when we use `git push` we're relying on a bit of "magic" that Git does for us when we `git clone` a repository.
-
-## Understanding Git Remotes
-
-Git is a distributed version control system, which means that every copy of a Git repository is a full-fledged repository with complete history and version-tracking capabilities. These copies, or "clones", can be located on different machines, in different locations. To manage the connections between these repositories, Git uses a concept known as "remotes".
-
-### What are Git Remotes?
-
-A Git remote is like a bookmark that points to another copy of your repository that is usually hosted on a remote server. This could be on GitHub, GitLab, Bitbucket, or any other server where you host your Git repositories. Remotes are used to fetch code from other repositories (pull) or push code to them.
-
-### The 'origin' Remote
-
-When you clone a repository, Git automatically creates a remote named 'origin' that points to the location of the cloned repository. This is your main connection to the original repository: you can pull changes from it and push your updates to it.
-
-You can view your remotes with the command `git remote -v`. This will list all remotes for your repository.
-
-### Adding Remotes
-
-You can add new remotes using the `git remote add` command followed by the name you want to give to the remote and the URL of the repository.
-
-```bash
-git remote add remote_name remote_url
-```
-
-### Fetching, Pulling, and Pushing
-
-You can fetch changes from a remote without merging them into your local code with `git fetch remote_name`.
-
-To fetch changes and merge them into your current branch, you can use `git pull remote_name branch_name`.
-
-To push your changes to a remote, you use `git push remote_name branch_name`.
-
-### Conclusion
-
-Understanding Git remotes is crucial for collaborating on any Git project. Whether you're working on a team or contributing to open source, knowing how to add, remove, and manipulate remotes will allow you to share your work, stay up-to-date, and navigate the broader Git network.
-
-### Cloning a Repository
-
-When you clone a repository using the `git clone` command, Git does a few things:
-
-1. It creates a new directory on your local machine with the same name as the repository.
-2. It initializes a new Git repository in this directory (`git init`).
-3. It adds a remote named `origin` that points to the URL of the cloned repository.
-   - This is done using the `git remote add` command, but you don't see this because it's done automatically by `git clone`.
-
-You can see this remote by navigating to the repository directory and running `git remote -v`. The output will look something like this:
-
-```bash
-origin  https://github.com/user/repo.git (fetch)
-origin  https://github.com/user/repo.git (push)
-```
-
-This means that when you run `git push` or `git pull` while on a branch that has an upstream set to `origin`, Git knows that it needs to push to or pull from the repository at `https://github.com/user/repo.git`.
-
-### Initializing a Repository
-
-When you create a new repository on your local machine using the `git init` command, Git initializes a new repository, but it does not add any remotes. This is because Git doesn't know where you want to push to or pull from.
-
-You can check this by running `git remote -v` in your newly initialized repository. The command will not return any output, indicating that no remotes have been set.
-
-To add a remote, you can use the `git remote add` command, like so:
-
-```bash
-git remote add origin https://github.com/user/new-repo.git
-```
-
-This command adds a new remote named `origin` that points to `https://github.com/user/new-repo.git`. Now, when you run `git push origin master`, Git knows that it needs to push to the `master` branch at `https://github.com/user/new-repo.git`.
-
-## Conclusion
-
-In conclusion, when you clone a repository, Git automatically sets up a remote named `origin` that points to the cloned repository. But when you initialize a new repository, Git does not set up any remotes, and you need to do this manually if you want to push to or pull from a remote repository.
+See, when we use `git push` we're relying on a bit of "magic" that Git does for us.
 
 <!--
 ```shellSession

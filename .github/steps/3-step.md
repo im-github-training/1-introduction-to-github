@@ -47,7 +47,7 @@ $ git commit -m "lesson/3-rebase commit 2" --allow-empty
 ```
 -->
 
-!['git commit -m "lesson/3-rebase commit 1" --allow-empty'](/.images/shell/3-step-shell-2.svg)!['git commit -m "lesson/3-rebase commit 2" --allow-empty'](/.images/shell/3-step-shell-3.svg)
+![''git commit -m "lesson/3-rebase commit 1" --allow-empty' 'git commit -m "lesson/3-rebase commit 2" --allow-empty''](/.images/shell/3-step-shell-2.svg)
 
 Now let's switch back to the `lesson/3` branch:
 
@@ -57,7 +57,7 @@ $ git switch lesson/3
 ```
 -->
 
-!['git switch lesson/3'](/.images/shell/3-step-shell-4.svg)
+!['git switch lesson/3'](/.images/shell/3-step-shell-3.svg)
 
 And create a few commits to `lesson/3` branch:
 
@@ -68,7 +68,7 @@ $ git commit -m "lesson/3 commit 2" --allow-empty
 ```
 -->
 
-!['git commit -m "lesson/3 commit 1" --allow-empty'](/.images/shell/3-step-shell-5.svg)!['git commit -m "lesson/3 commit 2" --allow-empty'](/.images/shell/3-step-shell-6.svg)
+![''git commit -m "lesson/3 commit 1" --allow-empty' 'git commit -m "lesson/3 commit 2" --allow-empty''](/.images/shell/3-step-shell-4.svg)
 
 <!--
 ```shellSession
@@ -76,7 +76,7 @@ $ git log --oneline --graph --decorate --all -n 7
 ```
 -->
 
-!['git log --oneline --graph --decorate --all -n 7'](/.images/shell/3-step-shell-7.svg)
+!['git log --oneline --graph --decorate --all -n 7'](/.images/shell/3-step-shell-5.svg)
 
 Now let's rebase `lesson/3-rebase` onto `lesson/3`:
 
@@ -87,7 +87,7 @@ $ git rebase lesson/3
 ```
 -->
 
-!['git switch lesson/3-rebase'](/.images/shell/3-step-shell-8.svg)!['git rebase lesson/3'](/.images/shell/3-step-shell-9.svg)
+![''git switch lesson/3-rebase' 'git rebase lesson/3''](/.images/shell/3-step-shell-6.svg)
 
 As you can see:
 
@@ -97,7 +97,7 @@ $ git log --oneline --graph --decorate --all -n 7
 ```
 -->
 
-!['git log --oneline --graph --decorate --all -n 7'](/.images/shell/3-step-shell-10.svg)
+!['git log --oneline --graph --decorate --all -n 7'](/.images/shell/3-step-shell-7.svg)
 
 ### Interactive rebasing
 
@@ -115,6 +115,8 @@ $ touch squash2 && git add squash2 && git commit -m "Added squash2"
 ```
 -->
 
+![''git switch -c lesson/3-squash' 'touch squash1 && git add squash1 && git commit -m "Added squash1"' 'touch squash2 && git add squash2 && git commit -m "Added squash2"''](/.images/shell/3-step-shell-8.svg)
+
 Peeking at the `git log`:
 
 <!--
@@ -122,6 +124,8 @@ Peeking at the `git log`:
 $ git log --oneline --decorate --all --graph -n 5
 ```
 -->
+
+!['git log --oneline --decorate --all --graph -n 5'](/.images/shell/3-step-shell-9.svg)
 
 Now, initiate the rebase with `git rebase -i HEAD~2`:
 
@@ -167,7 +171,7 @@ $ git push
 ```
 -->
 
-!['git push'](/.images/shell/3-step-shell-11.svg)
+!['git push'](/.images/shell/3-step-shell-10.svg)
 
 <!--
 ```shellSession
@@ -175,4 +179,4 @@ $ git push --set-upstream origin my-first-branch
 ```
 -->
 
-!['git push --set-upstream origin my-first-branch'](/.images/shell/3-step-shell-12.svg)
+!['git push --set-upstream origin my-first-branch'](/.images/shell/3-step-shell-11.svg)

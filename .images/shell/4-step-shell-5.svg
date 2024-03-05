@@ -1,5 +1,5 @@
 <!-- Created with term-transcript v0.3.0 (https://github.com/slowli/term-transcript) -->
-<svg viewBox="0 0 720 102" width="720" height="102" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 720 120" width="720" height="120" xmlns="http://www.w3.org/2000/svg">
   <switch>
     <g requiredExtensions="http://www.w3.org/1999/xhtml">
       <style>
@@ -57,13 +57,14 @@
         .fg15 { color: #f3f3f3; } .bg15 { background: #f3f3f3; }
       </style>
       <rect width="100%" height="100%" y="0" rx="4.5" style="fill: #1c1c1c;" />
-      <svg x="0" y="10" width="720" height="82" viewBox="0 0 720 82">
-        <foreignObject width="720" height="82">
+      <svg x="0" y="10" width="720" height="100" viewBox="0 0 720 100">
+        <foreignObject width="720" height="100">
           <div xmlns="http://www.w3.org/1999/xhtml" class="container">
             <div class="input"><pre><span class="prompt">$</span> touch head-test &amp;&amp; git add head-test &amp;&amp; git commit -m &quot;Learning about HEAD&quot;</pre></div>
-            <div class="output"><pre>[lesson/3 e3b2b6b] Learning about HEAD
- 1 file changed, 0 insertions(+), 0 deletions(-)
- create mode 100644 book/head-test</pre></div>
+            <div class="output"><pre>[lesson/3-rebase 7ce6d6e] Learning about HEAD
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 book/head-test
+ create mode 100644 book/squash2</pre></div>
           </div>
         </foreignObject>
       </svg>

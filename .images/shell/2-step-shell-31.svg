@@ -60,11 +60,12 @@
       <svg x="0" y="10" width="720" height="100" viewBox="0 0 720 100">
         <foreignObject width="720" height="100">
           <div xmlns="http://www.w3.org/1999/xhtml" class="container">
-            <div class="input"><pre><span class="prompt">$</span> rm file* &amp;&amp; git commit -am &quot;Cleanup&quot;</pre></div>
-            <div class="output"><pre>[lesson/2 4df4a63] Cleanup
- 2 files changed, 2 deletions(-)
- delete mode 100644 book/file1
- delete mode 100644 book/file3</pre></div>
+            <div class="input"><pre><span class="prompt">$</span> git status</pre></div>
+            <div class="output"><pre>On branch lesson/2
+Changes to be committed:
+  (use "git restore --staged &lt;file&gt;..." to unstage)
+	<span class="fg2">new file:   file1</span>
+</pre></div>
           </div>
         </foreignObject>
       </svg>

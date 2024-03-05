@@ -4,6 +4,7 @@ import remarkStringify from 'remark-stringify';
 import remarkRecommended from 'remark-preset-lint-recommended';
 import remarkListItemIndent from 'remark-lint-list-item-indent';
 import { visit } from 'unist-util-visit';
+import { remove } from 'unist-util-remove';
 import { execSync } from 'child_process';
 // import fs and path
 import fs from 'fs';
@@ -35,13 +36,10 @@ const processor = remark()
   .use(() => (tree) => {
     let counter = offset;
 
-    // Remove all existing image nodes from the tree
-    visit(tree, 'image', (node, index, parent) => {
-      if (node.url.startsWith('/.images/shell')) {
-        console.log("Removing image node: " + node.url)
-        parent.children.splice(index, Infinity);
-      }
-    });
+    // Remove all existing generated image nodes from the tree
+    console.log("Removing image nodes")
+    remove(tree, (node) => node.type === 'image' && node.url.startsWith('/.images/shell') )
+
 
     // Process all HTML comments in the tree
     visit(tree, 'html', (comment_node, index, parent) => {
@@ -52,14 +50,14 @@ const processor = remark()
         //   <!--
         //   ```shellSession
         //   # Code block 1
-        //   $ echo "hello"
-        //   $ echo "hello"
+        //   > echo "hello"
+        //   > echo "hello"
         //   ```
         //
         //   ```shellSession
         //   # Code block 2
-        //   $ echo "hello"
-        //   $ echo "hello"
+        //   > echo "hello"
+        //   > echo "hello"
         //   ```
         //   -->
 
@@ -80,7 +78,7 @@ const processor = remark()
               .filter(line => line.startsWith('$'))
               // Escape each line
               .map(line => line.replace(/'/g, "'\\''"))
-              // Remove the $ at the beginning of each line
+              // Remove the > at the beginning of each line
               .map(line => `${line.slice(2)}`)
 
             let image_nodes = [];
