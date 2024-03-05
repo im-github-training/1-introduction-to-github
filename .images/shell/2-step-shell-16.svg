@@ -61,8 +61,8 @@
         <foreignObject width="720" height="100">
           <div xmlns="http://www.w3.org/1999/xhtml" class="container">
             <div class="input"><pre><span class="prompt">$</span> git revert HEAD~1 --no-edit</pre></div>
-            <div class="output"><pre>[lesson/2 e9405d5] Revert "Added feature 2"
- Date: Tue Mar 5 05:39:42 2024 +0000
+            <div class="output"><pre>[lesson/2 09235c1] Revert "Added feature 2"
+ Date: Tue Mar 5 08:21:33 2024 +0000
  1 file changed, 1 deletion(-)
  delete mode 100644 book/file2</pre></div>
           </div>

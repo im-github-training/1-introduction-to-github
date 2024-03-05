@@ -2,7 +2,9 @@
 
 ## Welcome Back
 
-If you're seeing this, it means you passed Lesson 2, great job!
+In today's lesson, we'll learn about `git rebase`.
+
+### Getting Started
 
 Let's start by creating a branch for today's work!
 
@@ -43,20 +45,13 @@ Let's create a few commits in the `lesson/3-rebase` branch:
 <!--
 ```shellSession
 $ git commit -m "lesson/3-rebase commit 1" --allow-empty
-```
--->
-
-!['git commit -m "lesson/3-rebase commit 1" --allow-empty'](/.images/shell/3-step-shell-2.svg)
-
-<!--
-```shellSession
 $ git commit -m "lesson/3-rebase commit 2" --allow-empty
 ```
 -->
 
-!['git commit -m "lesson/3-rebase commit 2" --allow-empty'](/.images/shell/3-step-shell-3.svg)
+![''git commit -m "lesson/3-rebase commit 1" --allow-empty' 'git commit -m "lesson/3-rebase commit 2" --allow-empty''](/.images/shell/3-step-shell-2.svg)
 
-Now let's switch back to the `lesson/3` branch:
+Now, let's switch back to the `lesson/3` branch:
 
 <!--
 ```shellSession
@@ -64,25 +59,18 @@ $ git switch lesson/3
 ```
 -->
 
-!['git switch lesson/3'](/.images/shell/3-step-shell-4.svg)
+!['git switch lesson/3'](/.images/shell/3-step-shell-3.svg)
 
 And create a few commits to `lesson/3` branch:
 
 <!--
 ```shellSession
 $ git commit -m "lesson/3 commit 1" --allow-empty
-```
--->
-
-!['git commit -m "lesson/3 commit 1" --allow-empty'](/.images/shell/3-step-shell-5.svg)
-
-<!--
-```shellSession
 $ git commit -m "lesson/3 commit 2" --allow-empty
 ```
 -->
 
-!['git commit -m "lesson/3 commit 2" --allow-empty'](/.images/shell/3-step-shell-6.svg)
+![''git commit -m "lesson/3 commit 1" --allow-empty' 'git commit -m "lesson/3 commit 2" --allow-empty''](/.images/shell/3-step-shell-4.svg)
 
 <!--
 ```shellSession
@@ -90,7 +78,7 @@ $ git log --oneline --graph --decorate --all -n 7
 ```
 -->
 
-!['git log --oneline --graph --decorate --all -n 7'](/.images/shell/3-step-shell-7.svg)
+!['git log --oneline --graph --decorate --all -n 7'](/.images/shell/3-step-shell-5.svg)
 
 Let's switch back to `lesson/3-rebase`:
 
@@ -100,7 +88,7 @@ $ git switch lesson/3-rebase
 ```
 -->
 
-!['git switch lesson/3-rebase'](/.images/shell/3-step-shell-8.svg)
+!['git switch lesson/3-rebase'](/.images/shell/3-step-shell-6.svg)
 
 And finally rebase `lesson/3-rebase` onto `lesson/3`:
 
@@ -110,7 +98,7 @@ $ git rebase lesson/3
 ```
 -->
 
-!['git rebase lesson/3'](/.images/shell/3-step-shell-9.svg)
+!['git rebase lesson/3'](/.images/shell/3-step-shell-7.svg)
 
 Checking `git log`, we can see that the :
 
@@ -120,7 +108,7 @@ $ git log --oneline --graph --decorate --all -n 7
 ```
 -->
 
-!['git log --oneline --graph --decorate --all -n 7'](/.images/shell/3-step-shell-10.svg)
+!['git log --oneline --graph --decorate --all -n 7'](/.images/shell/3-step-shell-8.svg)
 
 ### Interactive rebasing
 
@@ -136,25 +124,18 @@ $ git switch -c lesson/3-squash
 ```
 -->
 
-!['git switch -c lesson/3-squash'](/.images/shell/3-step-shell-11.svg)
+!['git switch -c lesson/3-squash'](/.images/shell/3-step-shell-9.svg)
 
 ... and make several commits:
 
 <!--
 ```shellSession
 $ touch squash1 && git add squash1 && git commit -m "Added squash1"
-```
--->
-
-!['touch squash1 && git add squash1 && git commit -m "Added squash1"'](/.images/shell/3-step-shell-12.svg)
-
-<!--
-```shellSession
 $ touch squash2 && git add squash2 && git commit -m "Added squash2"
 ```
 -->
 
-!['touch squash2 && git add squash2 && git commit -m "Added squash2"'](/.images/shell/3-step-shell-13.svg)
+![''touch squash1 && git add squash1 && git commit -m "Added squash1"' 'touch squash2 && git add squash2 && git commit -m "Added squash2"''](/.images/shell/3-step-shell-10.svg)
 
 Peeking at the `git log`:
 
@@ -164,7 +145,7 @@ $ git log --oneline --decorate --all --graph -n 5
 ```
 -->
 
-!['git log --oneline --decorate --all --graph -n 5'](/.images/shell/3-step-shell-14.svg)
+!['git log --oneline --decorate --all --graph -n 5'](/.images/shell/3-step-shell-11.svg)
 
 Now, initiate the rebase with `git rebase -i HEAD~2`:
 
@@ -206,16 +187,8 @@ Now let's push today's work back to GitHub.
 
 <!--
 ```shellSession
-$ git push
+$ git push --set-upstream origin lesson/3
 ```
 -->
 
-!['git push'](/.images/shell/3-step-shell-15.svg)
-
-<!--
-```shellSession
-$ git push --set-upstream origin my-first-branch
-```
--->
-
-!['git push --set-upstream origin my-first-branch'](/.images/shell/3-step-shell-16.svg)
+!['git push --set-upstream origin lesson/3'](/.images/shell/3-step-shell-12.svg)

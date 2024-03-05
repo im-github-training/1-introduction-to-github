@@ -61,7 +61,7 @@
         <foreignObject width="720" height="82">
           <div xmlns="http://www.w3.org/1999/xhtml" class="container">
             <div class="input"><pre><span class="prompt">$</span> touch head-test &amp;&amp; git add head-test &amp;&amp; git commit -m &quot;Learning about HEAD&quot;</pre></div>
-            <div class="output"><pre>[lesson/3 92787d6] Learning about HEAD
+            <div class="output"><pre>[lesson/3 81f162e] Learning about HEAD
  1 file changed, 0 insertions(+), 0 deletions(-)
  create mode 100644 book/head-test</pre></div>
           </div>

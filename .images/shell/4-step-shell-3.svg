@@ -61,16 +61,16 @@
         <foreignObject width="720" height="208">
           <div xmlns="http://www.w3.org/1999/xhtml" class="container">
             <div class="input"><pre><span class="prompt">$</span> git log --oneline --decorate --all --graph -n 10</pre></div>
-            <div class="output"><pre>* <span class="fg3">14bfb80</span><span class="fg3"> (</span><span class="bold fg2">lesson/4</span><span class="fg3">, </span><span class="bold fg2">lesson/3-squash</span><span class="fg3">)</span> Added squash2
-* <span class="fg3">f8423e7</span> Added squash1
-* <span class="fg3">e3edd92</span><span class="fg3"> (</span><span class="bold fg2">lesson/3-rebase</span><span class="fg3">)</span> lesson/3-rebase commit 2
-* <span class="fg3">a319490</span> lesson/3-rebase commit 1
-* <span class="fg3">e7241bb</span><span class="fg3"> (</span><span class="bold fg2">lesson/3</span><span class="fg3">)</span> lesson/3 commit 2
-* <span class="fg3">a8e80b9</span> lesson/3 commit 1
-* <span class="fg3">72b3641</span><span class="fg3"> (</span><span class="bold fg1">origin/lesson/2</span><span class="fg3">, </span><span class="bold fg2">lesson/2</span><span class="fg3">)</span> Cleanup
-* <span class="fg3">e3cb113</span> Bug fiix
-* <span class="fg3">e9405d5</span> Revert "Added feature 2"
-* <span class="fg3">3194af2</span> Added feature 3</pre></div>
+            <div class="output"><pre>* <span class="fg3">71ec11d</span><span class="fg3"> (</span><span class="bold fg2">lesson/4</span><span class="fg3">, </span><span class="bold fg2">lesson/3-squash</span><span class="fg3">)</span> Added squash2
+* <span class="fg3">009c074</span> Added squash1
+* <span class="fg3">55a23da</span><span class="fg3"> (</span><span class="bold fg2">lesson/3-rebase</span><span class="fg3">)</span> lesson/3-rebase commit 2
+* <span class="fg3">f40fff0</span> lesson/3-rebase commit 1
+* <span class="fg3">3512f89</span><span class="fg3"> (</span><span class="bold fg1">origin/lesson/3</span><span class="fg3">, </span><span class="bold fg2">lesson/3</span><span class="fg3">)</span> lesson/3 commit 2
+* <span class="fg3">a2b4ddf</span> lesson/3 commit 1
+* <span class="fg3">ef927b0</span><span class="fg3"> (</span><span class="bold fg1">origin/lesson/2</span><span class="fg3">, </span><span class="bold fg2">lesson/2</span><span class="fg3">)</span> Cleanup
+* <span class="fg3">4d38b70</span> Bug fiix
+* <span class="fg3">09235c1</span> Revert "Added feature 2"
+* <span class="fg3">50108f8</span> Added feature 3</pre></div>
           </div>
         </foreignObject>
       </svg>

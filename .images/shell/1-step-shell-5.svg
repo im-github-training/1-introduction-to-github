@@ -60,12 +60,12 @@
       <svg x="0" y="10" width="720" height="118" viewBox="0 0 720 118">
         <foreignObject width="720" height="118">
           <div xmlns="http://www.w3.org/1999/xhtml" class="container">
-            <div class="input"><pre><span class="prompt">$</span> git commit -m &quot;Added stuff&quot;</pre></div>
-            <div class="output"><pre>[main 59064d3] Added stuff
- 3 files changed, 0 insertions(+), 0 deletions(-)
- create mode 100644 book/file1
- create mode 100644 book/file2
- create mode 100644 book/file3</pre></div>
+            <div class="input"><pre><span class="prompt">$</span> git status</pre></div>
+            <div class="output"><pre>On branch main
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean</pre></div>
           </div>
         </foreignObject>
       </svg>

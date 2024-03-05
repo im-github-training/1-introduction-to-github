@@ -62,8 +62,8 @@
           <div xmlns="http://www.w3.org/1999/xhtml" class="container">
             <div class="input"><pre><span class="prompt">$</span> ls -l</pre></div>
             <div class="output"><pre>total 0
--rw-r--r-- 1 node node 5 Mar  5 05:39 file1
--rw-r--r-- 1 node node 5 Mar  5 05:39 file3</pre></div>
+-rw-r--r-- 1 node node 5 Mar  5 08:21 file1
+-rw-r--r-- 1 node node 5 Mar  5 08:21 file3</pre></div>
           </div>
         </foreignObject>
       </svg>

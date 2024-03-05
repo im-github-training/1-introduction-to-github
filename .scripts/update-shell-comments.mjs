@@ -110,7 +110,7 @@ const processor = remark()
               console.log(command)
 
               // term-script outputs raw SVG data to stdout
-              const cmd_output = execSync(`term-transcript exec ${command} --pty`, options).toString().trim();
+              const cmd_output = execSync(`term-transcript exec ${command} --pty -I 1s`, options).toString().trim();
 
               const imageFilename = `${basename}-shell-${counter++}.svg`;
 

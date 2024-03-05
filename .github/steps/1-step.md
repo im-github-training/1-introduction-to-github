@@ -1,33 +1,26 @@
 # Lesson 1
 
-## Getting Started
+## Overview
+
+Before starting this lesson, please review the following sections of the guide:
+
+* [What is a Repository?](https://im-github-training.github.io/#/./docs/basic/git/repositories)
+* [What is a Commit?](https://im-github-training.github.io/#/./docs/basic/git/commits)
 
 ## Exercise 1: Cloning repositories
 
 To get started, we'll need a local copy of this repository.  To do that:
 
-1. **Click the "Code" button, and then click the "Copy url to clipboard" icon:**
-   ![Copy Repo URL](/.images/image-9.png)
+1. Click the "Code" button, and then click the "Copy url to clipboard" icon
 
-2. **Open a terminal window and do a `git clone`:**
+2. Open a terminal window and do a `git clone`:
 
-<!--
-```shell
-$ git clone https://github.com/im-sampm/exercises.git
-```
--->
+   ```shell
+   git clone https://github.com/im-sampm/exercises.git
+   ```
 
-Now let's make sure everything is in order with our repository.
-
-To do this, we use the `git status` command which (unsurprisingly) prints out the current status of your repository.
-
-<!--
-```shellSession
-$ git status
-```
- -->
-
-!['git status'](/.images/shell/1-step-shell-0.svg)
+3. Then use `git status` to make sure everything is in order with our repository:
+   !['git status'](/.images/1-step-git-status.svg)
 
 Looks good!
 
@@ -37,11 +30,7 @@ Git is telling us the following things:
 * that our ***staging area*** is empty
 * and no changes have been detected in our ***working tree*** (aka "working directory")
 
-> If any of these terms are unfamiliar to you, please check out [What is a Repository?](https://im-github-training.github.io/#/./docs/basic/git/repositories)
-
 ## Exercise 2: Understanding commits
-
-*Please refer to [What is a Commit?]() as you complete this exercise*
 
 Let's start by creating a few files:
 
@@ -51,7 +40,7 @@ $ touch file1 file2 file3
 ```
 -->
 
-!['touch file1 file2 file3'](/.images/shell/1-step-shell-1.svg)
+!['touch file1 file2 file3'](/.images/shell/1-step-shell-0.svg)
 
 Now, let's see if Git noticed this change to our ***working tree***:
 
@@ -61,11 +50,11 @@ $ git status
 ```
 -->
 
-!['git status'](/.images/shell/1-step-shell-2.svg)
+!['git status'](/.images/shell/1-step-shell-1.svg)
 
-So, Git noticed that we added the files, but states that they're *untracked*.
+So, Git noticed that we added the files but states that they're *untracked*.
 
-> Remember: files are considered *untracked* until tracking is *explicitly* enabled by adding them to the repository with `git add`.
+> In Git, files are considered *untracked* until tracking is *explicitly* enabled by adding them to the repository with `git add`.
 
 Let's go ahead and start tracking the files with a `git add`:
 
@@ -75,7 +64,7 @@ $ git add .
 ```
 -->
 
-!['git add .'](/.images/shell/1-step-shell-3.svg)
+!['git add .'](/.images/shell/1-step-shell-2.svg)
 
 Now, let's see how things look:
 
@@ -85,7 +74,7 @@ $ git status
 ```
 -->
 
-!['git status'](/.images/shell/1-step-shell-4.svg)
+!['git status'](/.images/shell/1-step-shell-3.svg)
 
 Alright, it looks like our files are ***staged*** and ready to be committed!
 
@@ -97,7 +86,7 @@ $ git commit -m "Added stuff"
 ```
 -->
 
-!['git commit -m "Added stuff"'](/.images/shell/1-step-shell-5.svg)
+!['git commit -m "Added stuff"'](/.images/shell/1-step-shell-4.svg)
 
 > Entering `git commit` without `-m` or `--message` brings up a text editor, useful when entering longer commit messages.
 
@@ -109,7 +98,7 @@ $ git status
 ```
 -->
 
-!['git status'](/.images/shell/1-step-shell-6.svg)
+!['git status'](/.images/shell/1-step-shell-5.svg)
 
 Nice, looks like the files were moved from the ***staging area*** to the ***repository***!
 
@@ -121,15 +110,29 @@ $ git log -n 1
 ```
 -->
 
-!['git log -n 1'](/.images/shell/1-step-shell-7.svg)
+!['git log -n 1'](/.images/shell/1-step-shell-6.svg)
 
 ## Exercise 3: Understanding branches
 
-Let's create a branch to help us keep track of the files we create for this lesson.
+To help us understand branches, let's create a branch to help us keep track of the files we create for this lesson.
 
 ### Listing branches
 
-Let's see what local *and* remote branches this repo contains so we can pick a unique name:
+Let's see what branches this repo contains so we can pick a unique name.
+
+<!--
+```shellSession
+$ git branch
+```
+-->
+
+!['git branch'](/.images/shell/1-step-shell-7.svg)
+
+Cool, so there's only one branch called `main`.
+
+But if you recall, repositories can have both *local* and *remote* branches and `git branch` only displays *local* branches.
+
+So let's use `git branch --all` to see *all* branches associated with this repository:
 
 <!--
 ```shellSession
@@ -139,14 +142,12 @@ $ git branch --all
 
 !['git branch --all'](/.images/shell/1-step-shell-8.svg)
 
-So it looks like there's a single *local* branch: `main` and a few *remote* branches.
+Interesting, so it looks like in addition to the *local* branch `main`, there are two *remote* branches:
 
-The first two are expected:
+* `origin/main` is the remote counterpart to our local `main` branch
+* `upstream/main` is created by GitHub when a repository is forked
 
-* `origin/HEAD` the remote counterpart to our local `HEAD`
-* `origin/main` the remote counterpart to our local `main` branch
-
-TODO: However, `upstream/main` warrants an explanation.
+> `origin/HEAD` isn't a branch, it's something called a *reference*, which we'll dive into later on in this lesson.
 
 ### Creating branches
 
@@ -160,7 +161,7 @@ $ git branch feature
 
 !['git branch feature'](/.images/shell/1-step-shell-9.svg)
 
-Let's see what `git branch` looks like with our new branch:
+Let's see what `git branch` has to say about our new branch:
 
 <!--
 ```shellSession
@@ -172,9 +173,9 @@ $ git branch
 
 Interesting, we can see that `feature` was created, but the `*` is still in front of `main`.
 
-This means that we're still working "in" the `main` branch.
+> The `*` next to main indicates that main is the currently active branch
 
-To start working "in" the `feature` branch, we need to ***switch*** to it using `git switch`:
+To make `feature` the active branch, we need to ***switch*** to it using `git switch`:
 
 <!--
 ```shellSession
@@ -194,7 +195,9 @@ $ git branch
 
 !['git branch'](/.images/shell/1-step-shell-12.svg)
 
-Git often has multiple ways of doing the same thing, in this case, `git switch` provides the `--create` or `-c` flag, which lets you create and switch all in one go.
+Great!
+
+> Git often has multiple ways of doing the same thing, for example, `git switch` provides the `--create` or `-c` flag, which lets you create and switch all in one go.
 
 Let's give it a shot and create a throwaway branch:
 
@@ -206,7 +209,7 @@ $ git switch -c throwaway
 
 !['git switch -c throwaway'](/.images/shell/1-step-shell-13.svg)
 
-And...
+And checking `git branch`:
 
 <!--
 ```shellSession
@@ -230,7 +233,7 @@ $ git branch -d throwaway
 
 !['git branch -d throwaway'](/.images/shell/1-step-shell-15.svg)
 
-Ah, so we cannot delete a branch that is currently in use or "checked out".
+Ah, so we cannot delete a branch that is currently active or "checked out".
 
 So let's switch back to `feature` using the handy `git switch -`:
 
@@ -276,11 +279,11 @@ $ git status
 
 ### Renaming branches
 
-At the start of this lesson we created a branch called `feature`, however, we aren't going to be building anything in this lesson.
+So we created a branch called `feature`, but we aren't really building anything in this lesson.
 
-A more appropriate name would be something like `lesson/1`, that way we can keep the files for each lesson separate.
+Perhaps a more appropriate name would be something like `lesson/1`.
 
-Let's go ahead and rename `feature` to `lesson/1` by using `git branch -m feature lesson/1`:
+Let's go ahead and rename `feature` to `lesson/1` by using `git branch -m`:
 
 <!--
 ```shellSession
@@ -312,6 +315,8 @@ $ git commit -m "Second lesson/1 commit" --allow-empty
 
 ![''git commit -m "First lesson/1 commit" --allow-empty' 'git commit -m "Second lesson/1 commit" --allow-empty''](/.images/shell/1-step-shell-21.svg)
 
+> Git doesn't let you create empty commits without the `--allow-empty` flag
+
 Next, let's create a `lesson/1-merge` branch to merge into `lesson/1`:
 
 <!--
@@ -322,7 +327,7 @@ $ git switch -c lesson/1-merge
 
 !['git switch -c lesson/1-merge'](/.images/shell/1-step-shell-22.svg)
 
-And a few commits in the new `lesson/1-merge` branch:
+And add a few commits:
 
 <!--
 ```shellSession
@@ -343,17 +348,7 @@ $ git switch lesson/1
 
 !['git switch lesson/1'](/.images/shell/1-step-shell-24.svg)
 
-And merge in the `lesson/1-merge` branch:
-
-<!--
-```shellSession
-$ git merge lesson/1-merge
-```
--->
-
-!['git merge lesson/1-merge'](/.images/shell/1-step-shell-25.svg)
-
-As Git reports, it has performed a ***fast-forward*** merge.
+And check `git log` before we perform the merge:
 
 <!--
 ```shellSession
@@ -361,9 +356,31 @@ $ git log --oneline --graph --decorate --all -n 5
 ```
 -->
 
-!['git log --oneline --graph --decorate --all -n 5'](/.images/shell/1-step-shell-26.svg)
+!['git log --oneline --graph --decorate --all -n 5'](/.images/shell/1-step-shell-25.svg)
 
-TODO: In this simple scenario, Git was able to simply take the commits in the `lesson/1-merge` branch and add them to the end of the `lesson/1` branch.
+Now, let's do the merge:
+
+<!--
+```shellSession
+$ git merge lesson/1-merge
+```
+-->
+
+!['git merge lesson/1-merge'](/.images/shell/1-step-shell-26.svg)
+
+As Git reports, it has performed a ***fast-forward*** merge.
+
+Checking `git log` we can see that the `lesson/1-merge` commits were tacked on after the `lesson/1` commits:
+
+<!--
+```shellSession
+$ git log --oneline --graph --decorate --all -n 5
+```
+-->
+
+!['git log --oneline --graph --decorate --all -n 5'](/.images/shell/1-step-shell-27.svg)
+
+In this simple scenario, Git was able to perform a fast-forward merge because there were no conflicts between the commits on the `lesson/1` and `lesson/1-merge` branches.
 
 #### Three-way merges
 
@@ -377,7 +394,7 @@ $ git commit -m "Second lesson/1-merge commit" --allow-empty
 ```
 -->
 
-![''git switch lesson/1-merge' 'git commit -m "First lesson/1-merge commit" --allow-empty' 'git commit -m "Second lesson/1-merge commit" --allow-empty''](/.images/shell/1-step-shell-27.svg)
+![''git switch lesson/1-merge' 'git commit -m "First lesson/1-merge commit" --allow-empty' 'git commit -m "Second lesson/1-merge commit" --allow-empty''](/.images/shell/1-step-shell-28.svg)
 
 Now let's switch back to `lesson/1` and add a few commits:
 
@@ -389,7 +406,7 @@ $ git commit -m "Second lesson/1 commit" --allow-empty
 ```
 -->
 
-![''git switch lesson/1' 'git commit -m "First lesson/1 commit" --allow-empty' 'git commit -m "Second lesson/1 commit" --allow-empty''](/.images/shell/1-step-shell-28.svg)
+![''git switch lesson/1' 'git commit -m "First lesson/1 commit" --allow-empty' 'git commit -m "Second lesson/1 commit" --allow-empty''](/.images/shell/1-step-shell-29.svg)
 
 Using `git log` we can now see two separate branches:
 
@@ -399,7 +416,7 @@ $ git log --oneline --graph --decorate --all -n 10
 ```
 -->
 
-!['git log --oneline --graph --decorate --all -n 10'](/.images/shell/1-step-shell-29.svg)
+!['git log --oneline --graph --decorate --all -n 10'](/.images/shell/1-step-shell-30.svg)
 
 Let's try merging these:
 
@@ -409,7 +426,7 @@ $ git merge lesson/1-merge -m "Merging branches"
 ```
 -->
 
-!['git merge lesson/1-merge -m "Merging branches"'](/.images/shell/1-step-shell-30.svg)
+!['git merge lesson/1-merge -m "Merging branches"'](/.images/shell/1-step-shell-31.svg)
 
 Now looking at `git log` we can now see the three-way merge:
 
@@ -419,15 +436,15 @@ $ git log --oneline --graph --decorate --all -n 10
 ```
 -->
 
-!['git log --oneline --graph --decorate --all -n 10'](/.images/shell/1-step-shell-31.svg)
+!['git log --oneline --graph --decorate --all -n 10'](/.images/shell/1-step-shell-32.svg)
 
 ### Dealing with merge *conflicts*
 
 A common occurrence when merging branches are ***merge conflicts***.
 
-Let's learn how to handle them by creating one and then resolving it.
+Let's learn how to handle them by intentionally creating a merge conflict and then resolving it.
 
-First, create a change to `file1` in the `lesson/1-merge` branch:
+Start by creating a change to `file1` in the `lesson/1-merge` branch:
 
 <!--
 ```shellSession
@@ -437,7 +454,7 @@ $ git commit -am "Updated file1 in lesson/1-merge"
 ```
 -->
 
-![''git switch lesson/1-merge' 'echo "lesson/1-merge" > file1' 'git commit -am "Updated file1 in lesson/1-merge"''](/.images/shell/1-step-shell-32.svg)
+![''git switch lesson/1-merge' 'echo "lesson/1-merge" > file1' 'git commit -am "Updated file1 in lesson/1-merge"''](/.images/shell/1-step-shell-33.svg)
 
 Next, create a change to `file1` in the `lesson/1` branch:
 
@@ -449,7 +466,7 @@ $ git commit -am "Updated file1 in lesson/1"
 ```
 -->
 
-![''git switch lesson/1' 'echo "lesson/1" > file1' 'git commit -am "Updated file1 in lesson/1"''](/.images/shell/1-step-shell-33.svg)
+![''git switch lesson/1' 'echo "lesson/1" > file1' 'git commit -am "Updated file1 in lesson/1"''](/.images/shell/1-step-shell-34.svg)
 
 And now let's try to merge `lesson/1-merge` into `lesson/1`:
 
@@ -459,7 +476,7 @@ $ git merge lesson/1-merge
 ```
 -->
 
-!['git merge lesson/1-merge'](/.images/shell/1-step-shell-34.svg)
+!['git merge lesson/1-merge'](/.images/shell/1-step-shell-35.svg)
 
 As expected, Git aborts the automatic merge and asks us to fix the conflicts and commit the result.
 
@@ -471,7 +488,7 @@ $ cat file1
 ```
 -->
 
-!['cat file1'](/.images/shell/1-step-shell-35.svg)
+!['cat file1'](/.images/shell/1-step-shell-36.svg)
 
 We can see that Git has added [conflict markers]() to `file1`.
 
@@ -493,11 +510,7 @@ $ git log --oneline --graph --decorate --all -n 10
 ```
 -->
 
-![''git commit -am "Merging branches"' 'git log --oneline --graph --decorate --all -n 10''](/.images/shell/1-step-shell-36.svg)
-
-## Exercise 4: Stashing commits
-
-TBD
+![''git commit -am "Merging branches"' 'git log --oneline --graph --decorate --all -n 10''](/.images/shell/1-step-shell-37.svg)
 
 ## Wrapping Things Up
 
@@ -509,17 +522,17 @@ $ git push
 ```
 -->
 
-!['git push'](/.images/shell/1-step-shell-37.svg)
+!['git push'](/.images/shell/1-step-shell-38.svg)
 
 *No bueno.*
 
 What this error is telling us is that Git did not know *where* to push our changes to when we typed `git push`.
 
-If you recall, when we `git clone` a repository, Git automatically manages the relationship between the local and remote copy of the repository by setting up `remotes`.
+If you recall, when we `git clone` a repository, Git automatically manages the connection between the local and remote copy of the repository by using `remotes`.
 
 Let's dig in to see what went wrong.
 
-## Exercise 5: Understanding remotes
+## Exercise 4: Understanding remotes
 
 ### Listing remotes
 
@@ -531,11 +544,11 @@ $ git remote -v
 ```
 -->
 
-!['git remote -v'](/.images/shell/1-step-shell-38.svg)
+!['git remote -v'](/.images/shell/1-step-shell-39.svg)
 
-So, this shows us that Git has configured the *default* remote, `origin`, to the repository we cloned from GitHub.
+This shows us that Git has configured the *default* remote, `origin`, to the repository we cloned in Exercise 1.
 
-What `git remote -v` doesn't show us is which *branches* have defined upstream branches.
+What `git remote -v` doesn't show us is which *branches* have defined upstreams.
 
 This means that when we do a `git fetch <remote> <branch>`, `git pull <remote> <branch>`, or `git push <remote> <branch>`, Git will automatically use the URL defined in `origin` as the `<remote>` parameter.
 
@@ -549,13 +562,15 @@ $ git remote show origin
 ```
 -->
 
-!['git remote show origin'](/.images/shell/1-step-shell-39.svg)
+!['git remote show origin'](/.images/shell/1-step-shell-40.svg)
 
 Similar to `git remote -v`, this command shows us the default fetch/push URLs.  More importantly, it shows us which branches have upstream branches defined.
 
-TODO:
+As we can see under the last two sections, only `main` has been configured for `git pull` and `git push`.
 
 ### Setting upstream
+
+To fix this, let's follow Git's guidance and use `git push --set-upstream`:
 
 <!--
 ```shellSession
@@ -563,9 +578,9 @@ $ git push --set-upstream origin lesson/1
 ```
 -->
 
-!['git push --set-upstream origin lesson/1'](/.images/shell/1-step-shell-40.svg)
+!['git push --set-upstream origin lesson/1'](/.images/shell/1-step-shell-41.svg)
 
-And checking:
+And checking `origin`s configuration:
 
 <!--
 ```shellSession
@@ -573,4 +588,4 @@ $ git remote show origin
 ```
 -->
 
-!['git remote show origin'](/.images/shell/1-step-shell-41.svg)
+!['git remote show origin'](/.images/shell/1-step-shell-42.svg)

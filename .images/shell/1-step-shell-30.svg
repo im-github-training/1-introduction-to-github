@@ -1,5 +1,5 @@
 <!-- Created with term-transcript v0.3.0 (https://github.com/slowli/term-transcript) -->
-<svg viewBox="0 0 720 66" width="720" height="66" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 720 246" width="720" height="246" xmlns="http://www.w3.org/2000/svg">
   <switch>
     <g requiredExtensions="http://www.w3.org/1999/xhtml">
       <style>
@@ -57,11 +57,21 @@
         .fg15 { color: #f3f3f3; } .bg15 { background: #f3f3f3; }
       </style>
       <rect width="100%" height="100%" y="0" rx="4.5" style="fill: #1c1c1c;" />
-      <svg x="0" y="10" width="720" height="46" viewBox="0 0 720 46">
-        <foreignObject width="720" height="46">
+      <svg x="0" y="10" width="720" height="226" viewBox="0 0 720 226">
+        <foreignObject width="720" height="226">
           <div xmlns="http://www.w3.org/1999/xhtml" class="container">
-            <div class="input"><pre><span class="prompt">$</span> git merge lesson/1-merge -m &quot;Merging branches&quot;</pre></div>
-            <div class="output"><pre>Merge made by the 'ort' strategy.</pre></div>
+            <div class="input"><pre><span class="prompt">$</span> git log --oneline --graph --decorate --all -n 10</pre></div>
+            <div class="output"><pre>* <span class="fg3">1bf909f</span><span class="fg3"> (</span><span class="bold fg6">HEAD</span><span class="fg3"> -&gt; </span><span class="bold fg2">lesson/1</span><span class="fg3">)</span> Second lesson/1 commit
+* <span class="fg3">fff8d3c</span> First lesson/1 commit
+<span class="fg1">|</span> * <span class="fg3">73a1c37</span><span class="fg3"> (</span><span class="bold fg2">lesson/1-merge</span><span class="fg3">)</span> Second lesson/1-merge commit
+<span class="fg1">|</span> * <span class="fg3">9bf87e1</span> First lesson/1-merge commit
+<span class="fg1">|</span><span class="fg1">/</span>  
+* <span class="fg3">01593d0</span> Second lesson/1-merge commit
+* <span class="fg3">81986c7</span> First lesson/1-merge commit
+* <span class="fg3">9998a9e</span> Second lesson/1 commit
+* <span class="fg3">369119c</span> First lesson/1 commit
+* <span class="fg3">7fced99</span><span class="fg3"> (</span><span class="bold fg2">main</span><span class="fg3">)</span> Added stuff
+* <span class="fg3">21d7c40</span><span class="fg3"> (</span><span class="bold fg1">upstream/main</span><span class="fg3">, </span><span class="bold fg1">origin/main</span><span class="fg3">, </span><span class="bold fg1">origin/HEAD</span><span class="fg3">)</span> Deployment prep</pre></div>
           </div>
         </foreignObject>
       </svg>

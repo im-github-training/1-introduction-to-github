@@ -60,12 +60,12 @@
       <svg x="0" y="10" width="720" height="118" viewBox="0 0 720 118">
         <foreignObject width="720" height="118">
           <div xmlns="http://www.w3.org/1999/xhtml" class="container">
-            <div class="input"><pre><span class="prompt">$</span> git status</pre></div>
-            <div class="output"><pre>On branch main
-Your branch is ahead of 'origin/main' by 1 commit.
-  (use "git push" to publish your local commits)
+            <div class="input"><pre><span class="prompt">$</span> git log -n 1</pre></div>
+            <div class="output"><pre><span class="fg3">commit 7fced999f06d0f8715d46b344866f92fdc2d89f9</span><span class="fg3"> (</span><span class="bold fg6">HEAD</span><span class="fg3"> -&gt; </span><span class="bold fg2">main</span><span class="fg3">)</span>
+Author: Sam Peddamatham &lt;sam.pm@infomagnus.com&gt;
+Date:   Tue Mar 5 08:19:50 2024 +0000
 
-nothing to commit, working tree clean</pre></div>
+    Added stuff</pre></div>
           </div>
         </foreignObject>
       </svg>

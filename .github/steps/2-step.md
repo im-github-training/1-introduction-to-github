@@ -2,9 +2,9 @@
 
 ## Welcome Back
 
-If you're seeing this, it means you passed Lesson 1, great job!
-
 In today's lesson, we'll learn about how to handle a few common scenarios.
+
+### Getting Started
 
 Let's start by creating a branch for today's work!
 
@@ -88,15 +88,15 @@ $ ls -l
 
 Great!  But that was a lot of typing, let's try something...
 
-`git add` let's us do `git add .`, let's see if `git restore` lets us do the same:
+Remember, with `git add` we were able to do `git add .`, let's see if `git restore` lets us do the same:
 
 <!--
 ```shellSession
-$ rm file1 file2 file3
+$ rm file*
 ```
 -->
 
-!['rm file1 file2 file3'](/.images/shell/2-step-shell-7.svg)
+!['rm file\*'](/.images/shell/2-step-shell-7.svg)
 
 Checking...
 
@@ -130,13 +130,11 @@ $ ls -l
 
 Cool!
 
-> While you're learning Git take the opportunity to experiment!  There's often an easier way to do almost everything in Git.
-
 ## Exercise 2: Reverting commits
 
-Occasionally, we'll need to "undo" a commit, and one way of doing that is with `git revert`
+Occasionally, we'll need to "undo" a commit, and one way of doing that is with `git revert`.
 
-To test things out, let's create three commits, two "good" commits and one "bad"commit.
+To test things out, let's create three commits, two ***good*** commits and one ***bad***commit.
 
 Let's start by cleaning up the current directory:
 
@@ -156,7 +154,7 @@ $ git commit -am "Cleanup"
 
 !['git commit -am "Cleanup"'](/.images/shell/2-step-shell-12.svg)
 
-Next, let's a "good" commit:
+Next, let's do a ***good*** commit:
 
 <!--
 ```shellSession
@@ -168,7 +166,7 @@ $ git commit -m "Added feature 1"
 
 ![''echo "good" > file1' 'git add file1' 'git commit -m "Added feature 1"''](/.images/shell/2-step-shell-13.svg)
 
-A "bad" commit:
+A ***bad*** commit:
 
 <!--
 ```shellSession
@@ -180,7 +178,7 @@ $ git commit -m "Added feature 2"
 
 ![''echo "bad" > file2' 'git add file2' 'git commit -m "Added feature 2"''](/.images/shell/2-step-shell-14.svg)
 
-And a "good" commit:
+And a ***good*** commit:
 
 <!--
 ```shellSession
@@ -192,7 +190,7 @@ $ git commit -m "Added feature 3"
 
 ![''echo "good" > file3' 'git add file3' 'git commit -m "Added feature 3"''](/.images/shell/2-step-shell-15.svg)
 
-Now let's get rid of the "bad" commit, the one that was *one* commit ago:
+Now let's get rid of the "bad" commit (the one that was *one* commit ago):
 
 <!--
 ```shellSession
@@ -212,7 +210,9 @@ $ ls -l
 
 !['ls -l'](/.images/shell/2-step-shell-17.svg)
 
-Cool, `file2` is missing, as we'd expect.  Let's check the log:
+Cool, `file2` is missing, as we'd expect.
+
+Let's check the log:
 
 <!--
 ```shellSession
@@ -224,9 +224,9 @@ $ git log -n 5
 
 Interesting, so the old commit is still in the history, but we have a new "revert" commit...
 
-To *really* get rid of a commit, we'll need to use `git rebase -i`, which we'll get to later.
+To *really* get rid of a commit, we'll need to use `git rebase -i`, which we'll get to in Lesson 3.
 
-The benefit of `git revert` over `git rebase` is that it is a non-destructive change.  This is especially useful when working on a shared codebase.  More on this soon.t
+The benefit of `git revert` over `git rebase` is that it is a ***non-destructive*** change.  This is especially useful when working on a shared codebase.  More on this soon.
 
 ## Exercise 3: Amending commits
 
@@ -276,21 +276,17 @@ That was easy enough!
 
 ## Exercise 4: Resetting your tree
 
-Sometimes you just want to reset the changes to your repository to a specified branch or commit.  The `git reset` command is allows you to do this by moving the `HEAD` pointer to a specific commit and can optionally change the staging area or the working directory to match that commit.
+Sometimes you just want to reset the changes to your repository to a specified branch or commit.
 
-There are three modes: `--soft`, `--mixed`, and `--hard`.
+The `git reset` command allows you to do this by moving the `HEAD` pointer to a specific commit.
+
+`git reset` comes in three flavors, which we'll get into below.
 
 ### Soft reset
 
 A soft reset moves the `HEAD` pointer to a specific commit, but leaves the staging area and the working directory unchanged. This means that your changes are preserved and remain staged.
 
-Example:
-
-```bash
-git reset --soft HEAD~1
-```
-
-This command moves `HEAD` back one commit (i.e., the last commit is "undone"), but the changes from that commit are left in the staging area.
+Let's see how this works.
 
 First, let's clean up the directory:
 
@@ -310,15 +306,15 @@ $ touch file1 && git add file1 && git commit -m "Added file1"
 
 !['touch file1 && git add file1 && git commit -m "Added file1"'](/.images/shell/2-step-shell-24.svg)
 
-Let's check `git log` and `git status` before we execute `git reset`:
+Next, let's check `git log` and `git status` before we execute `git reset`:
 
 <!--
 ```shellSession
-$ git log -n 1
+$ git log -n 2
 ```
 -->
 
-!['git log -n 1'](/.images/shell/2-step-shell-25.svg)
+!['git log -n 2'](/.images/shell/2-step-shell-25.svg)
 
 <!--
 ```shellSession
@@ -328,7 +324,7 @@ $ git status
 
 !['git status'](/.images/shell/2-step-shell-26.svg)
 
-Now let's run `git reset --soft HEAD~1`:
+Now let's run `git reset --soft HEAD~1`, which will move `HEAD` back one commit:
 
 <!--
 ```shellSession
@@ -338,13 +334,15 @@ $ git reset --soft HEAD~1
 
 !['git reset --soft HEAD~1'](/.images/shell/2-step-shell-27.svg)
 
+Checking `git log` and `git status` now:
+
 <!--
 ```shellSession
-$ git log -n 1
+$ git log -n 2
 ```
 -->
 
-!['git log -n 1'](/.images/shell/2-step-shell-28.svg)
+!['git log -n 2'](/.images/shell/2-step-shell-28.svg)
 
 <!--
 ```shellSession
@@ -354,13 +352,15 @@ $ git status
 
 !['git status'](/.images/shell/2-step-shell-29.svg)
 
-We can see that `file1` is still staged.
+We can see that `HEAD` has been moved back one commit and that `file1` is still staged.
 
 ### Mixed reset
 
-A mixed reset, which is the default mode of `git reset`, moves the `HEAD` pointer and also updates the staging area to match the specified commit, but leaves the working directory alone. This means that your changes are preserved but become unstaged.
+A mixed reset moves the `HEAD` pointer and also updates the staging area to match the specified commit, but leaves the working directory alone. This means that your changes are preserved but become unstaged.
 
-Since `file1` is still staged from the previous example, all we have to do is commit it:
+Let's see how this works.
+
+Since `file1` is still staged from the previous example, let's just re-commit it:
 
 <!--
 ```shellSession
@@ -380,13 +380,15 @@ $ git reset --mixed HEAD~1
 
 !['git reset --mixed HEAD~1'](/.images/shell/2-step-shell-31.svg)
 
+Checking `git log` and `git status` now:
+
 <!--
 ```shellSession
-$ git log -n 1
+$ git log -n 2
 ```
 -->
 
-!['git log -n 1'](/.images/shell/2-step-shell-32.svg)
+!['git log -n 2'](/.images/shell/2-step-shell-32.svg)
 
 <!--
 ```shellSession
@@ -396,13 +398,13 @@ $ git status
 
 !['git status'](/.images/shell/2-step-shell-33.svg)
 
-Both commands move `HEAD` back one commit and also unstage the changes from that commit.
-
-You should see that `file1` is unstaged but the changes are still there.
+We can see that `HEAD` has been moved back one commit and that `file1` has been unstaged, but is still in the working directory.
 
 ### Hard reset
 
 A hard reset moves the `HEAD` pointer and also updates both the staging area and the working directory to match the specified commit. This means that your changes are permanently discarded.
+
+Let's see how this works.
 
 Since the previous example unstaged `file1`, let's go ahead and get it staged and committed:
 
@@ -424,6 +426,8 @@ $ git reset --hard HEAD~1
 
 !['git reset --hard HEAD~1'](/.images/shell/2-step-shell-35.svg)
 
+Checking `git log` and `git status` now:
+
 <!--
 ```shellSession
 $ git log -n 1
@@ -440,9 +444,7 @@ $ git status
 
 !['git status'](/.images/shell/2-step-shell-37.svg)
 
-This command moves `HEAD` back one commit and discards the changes from that commit.
-
-You should see that `file3.txt` is gone.
+We can see that `HEAD` has been moved back one commit and `file1` has not only been unstaged, but has been deleted completely!
 
 > Remember, `git reset` can permanently discard your changes if used improperly. Always make sure you have a backup of your changes or have pushed your changes to a remote repository before using `git reset --hard`.
 
@@ -452,16 +454,8 @@ Now let's push today's work back to GitHub.
 
 <!--
 ```shellSession
-$ git push
-```
--->
-
-!['git push'](/.images/shell/2-step-shell-38.svg)
-
-<!--
-```shellSession
 $ git push --set-upstream origin lesson/2
 ```
 -->
 
-!['git push --set-upstream origin lesson/2'](/.images/shell/2-step-shell-39.svg)
+!['git push --set-upstream origin lesson/2'](/.images/shell/2-step-shell-38.svg)

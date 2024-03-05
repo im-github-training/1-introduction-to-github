@@ -1,5 +1,5 @@
 <!-- Created with term-transcript v0.3.0 (https://github.com/slowli/term-transcript) -->
-<svg viewBox="0 0 720 346" width="720" height="346" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 720 138" width="720" height="138" xmlns="http://www.w3.org/2000/svg">
   <switch>
     <g requiredExtensions="http://www.w3.org/1999/xhtml">
       <style>
@@ -57,27 +57,15 @@
         .fg15 { color: #f3f3f3; } .bg15 { background: #f3f3f3; }
       </style>
       <rect width="100%" height="100%" y="0" rx="4.5" style="fill: #1c1c1c;" />
-      <svg x="0" y="10" width="720" height="326" viewBox="0 0 720 326">
-        <foreignObject width="720" height="326">
+      <svg x="0" y="10" width="720" height="118" viewBox="0 0 720 118">
+        <foreignObject width="720" height="118">
           <div xmlns="http://www.w3.org/1999/xhtml" class="container">
-            <div class="input"><pre><span class="prompt">$</span> git commit -am &quot;Merging branches&quot;</pre></div>
-            <div class="output"><pre></pre></div>
-            <div class="input" data-exit-status="0"><pre><span class="prompt">$</span> git log --oneline --graph --decorate --all -n 10</pre></div>
-            <div class="output"><pre>[lesson/1 bf3b2ae] Merging branches
-$ 0
-$ *   <span class="fg3">bf3b2ae</span><span class="fg3"> (</span><span class="bold fg6">HEAD</span><span class="fg3"> -&gt; </span><span class="bold fg2">lesson/1</span><span class="fg3">)</span> Merging branches
-<span class="fg1">|</span><span class="fg2">\</span>  
-<span class="fg1">|</span> * <span class="fg3">df5c53c</span><span class="fg3"> (</span><span class="bold fg2">lesson/1-merge</span><span class="fg3">)</span> Updated file1 in lesson/1-merge
-* <span class="fg2">|</span> <span class="fg3">656a957</span> Updated file1 in lesson/1
-* <span class="fg2">|</span> <span class="fg3">2dbd090</span> Merging branches
-<span class="fg3">|</span><span class="fg2">\</span><span class="fg2">|</span> 
-<span class="fg3">|</span> * <span class="fg3">ed2fd72</span> Second lesson/1-merge commit
-<span class="fg3">|</span> * <span class="fg3">ae8af05</span> First lesson/1-merge commit
-* <span class="fg4">|</span> <span class="fg3">9936267</span> Second lesson/1 commit
-* <span class="fg4">|</span> <span class="fg3">e9732b5</span> First lesson/1 commit
-<span class="fg4">|</span><span class="fg4">/</span>  
-* <span class="fg3">736a676</span> Second lesson/1-merge commit
-* <span class="fg3">07d9e25</span> First lesson/1-merge commit</pre></div>
+            <div class="input"><pre><span class="prompt">$</span> cat file1</pre></div>
+            <div class="output"><pre>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+lesson/1
+=======
+lesson/1-merge
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; lesson/1-merge</pre></div>
           </div>
         </foreignObject>
       </svg>

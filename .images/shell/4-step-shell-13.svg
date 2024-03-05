@@ -1,5 +1,5 @@
 <!-- Created with term-transcript v0.3.0 (https://github.com/slowli/term-transcript) -->
-<svg viewBox="0 0 720 1308" width="720" height="1308" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 720 1344" width="720" height="1344" xmlns="http://www.w3.org/2000/svg">
   <switch>
     <g requiredExtensions="http://www.w3.org/1999/xhtml">
       <style>
@@ -57,8 +57,8 @@
         .fg15 { color: #f3f3f3; } .bg15 { background: #f3f3f3; }
       </style>
       <rect width="100%" height="100%" y="0" rx="4.5" style="fill: #1c1c1c;" />
-      <svg x="0" y="10" width="720" height="1288" viewBox="0 0 720 1288">
-        <foreignObject width="720" height="1288">
+      <svg x="0" y="10" width="720" height="1324" viewBox="0 0 720 1324">
+        <foreignObject width="720" height="1324">
           <div xmlns="http://www.w3.org/1999/xhtml" class="container">
             <div class="input"><pre><span class="prompt">$</span> tree -n -I objects ../.git</pre></div>
             <div class="output"><pre>../.git
@@ -104,7 +104,8 @@
 │           │   ├── HEAD
 │           │   └── lesson
 │           │       ├── 1
-│           │       └── 2
+│           │       ├── 2
+│           │       └── 3
 │           └── upstream
 │               └── main
 ├── ORIG_HEAD
@@ -125,12 +126,13 @@
     │   │   ├── HEAD
     │   │   └── lesson
     │   │       ├── 1
-    │   │       └── 2
+    │   │       ├── 2
+    │   │       └── 3
     │   └── upstream
     │       └── main
     └── tags
 
-19 directories, 48 files</pre></div>
+19 directories, 50 files</pre></div>
           </div>
         </foreignObject>
       </svg>

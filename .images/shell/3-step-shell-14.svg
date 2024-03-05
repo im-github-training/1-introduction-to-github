@@ -61,11 +61,11 @@
         <foreignObject width="720" height="118">
           <div xmlns="http://www.w3.org/1999/xhtml" class="container">
             <div class="input"><pre><span class="prompt">$</span> git log --oneline --decorate --all --graph -n 5</pre></div>
-            <div class="output"><pre>* <span class="fg3">14bfb80</span><span class="fg3"> (</span><span class="bold fg6">HEAD</span><span class="fg3"> -&gt; </span><span class="bold fg2">lesson/3-squash</span><span class="fg3">)</span> Added squash2
-* <span class="fg3">f8423e7</span> Added squash1
-* <span class="fg3">e3edd92</span><span class="fg3"> (</span><span class="bold fg2">lesson/3-rebase</span><span class="fg3">)</span> lesson/3-rebase commit 2
-* <span class="fg3">a319490</span> lesson/3-rebase commit 1
-* <span class="fg3">e7241bb</span><span class="fg3"> (</span><span class="bold fg2">lesson/3</span><span class="fg3">)</span> lesson/3 commit 2</pre></div>
+            <div class="output"><pre>* <span class="fg3">9425b48</span><span class="fg3"> (</span><span class="bold fg6">HEAD</span><span class="fg3"> -&gt; </span><span class="bold fg2">lesson/3-squash</span><span class="fg3">)</span> Added squash2
+* <span class="fg3">1362fa0</span> Added squash1
+* <span class="fg3">5d85be3</span><span class="fg3"> (</span><span class="bold fg2">lesson/3-rebase</span><span class="fg3">)</span> lesson/3-rebase commit 2
+* <span class="fg3">cd33f3a</span> lesson/3-rebase commit 1
+* <span class="fg3">aacf37c</span><span class="fg3"> (</span><span class="bold fg2">lesson/3</span><span class="fg3">)</span> lesson/3 commit 2</pre></div>
           </div>
         </foreignObject>
       </svg>
