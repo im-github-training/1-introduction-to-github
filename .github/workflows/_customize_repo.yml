@@ -25,9 +25,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Replace string
+      - name: Replace string in .md
         run: |
           find . -type f -name "*.md" -exec sed -i "s/${{ inputs.from_name }}/${{ inputs.to_name }}/g" {} +
+
+      - name: Replace string in .html
+        run: |
+          find . -type f -name "*.html" -exec sed -i "s/${{ inputs.from_name }}/${{ inputs.to_name }}/g" {} +
 
       - name: Set step to 0
         run: echo "0" > ./.github/steps/-step.txt
@@ -35,7 +39,7 @@ jobs:
       - name: Commit changes
         run: |
           git config --global user.name "GitHub Actions"
-          git config --global user.email "
+          git config --global user.email "info@github.com"
           git add .
           git commit -m "Replace ${{ inputs.from_name }} with ${{ inputs.to_name }}"
           git push
