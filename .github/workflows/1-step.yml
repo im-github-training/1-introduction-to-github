@@ -57,7 +57,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           from_step: 1
           to_step: 2
-          branch_name: lesson/2
+          branch_name: lesson/1
 
       # Add three commits to the my-first-branch branch.
       # - name: Add chapter2 commits
