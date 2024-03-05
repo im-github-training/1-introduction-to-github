@@ -4,47 +4,49 @@
 
 </header>
 
-## Welcome
+<!--
+  <<< Author notes: Step 3 >>>
+  Just a historic note: the previous version of this step forced the learner
+  to write a pull request description,
+  checked that `main` was the receiving branch,
+  and that the file was named correctly.
+-->
 
-Welcome to the CLIENT_NAME GitHub Training Course!
+## Step 3: Open a pull request
 
-This course accompanies the [CLIENT_NAME GitHub Training Guide](https://im-github-training.github.io/) and contains a series of exercises designed to introduce the following Git concepts: In this tutorial, we'll cover the basics of Git and GitHub by working through a series of exercises.  We'll start with the basics of creating a repository, working with branches, and making commits.  From there, we'll cover more advanced topics such as merging, rebasing, and pull requests.
+_Nice work making that commit! :sparkles:_
 
-### Prerequisites
+Now that you have made a change to the project and created a commit, it’s time to share your proposed change through a pull request!
 
-To complete this course, you will need a basic understanding of the terminal (or command line).  If you're new to the terminal, we recommend checking out [Codecademy's Command Line Course](https://www.codecademy.com/learn/learn-the-command-line).
+**What is a pull request?**: Collaboration happens on a _[pull request](https://docs.github.com/en/get-started/quickstart/github-glossary#pull-request)_. The pull request shows the changes in your branch to other people and allows people to accept, reject, or suggest additional changes to your branch. In a side by side comparison, this pull request is going to keep the changes you just made on your branch and propose applying them to the `main` project branch. For more information about pull requests, see "[About pull requests](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)".
 
-You'll also need to have Git installed on your machine and a GitHub account.  If you need help with this, please see:
+### :keyboard: Activity: Create a pull request
 
-* [Setting up Git](https://im-github-training.github.io/#/./docs/getting-started/setting-up-git)
-* [Setting up GitHub](https://im-github-training.github.io/#/./docs/getting-started/setting-up-github)
+You may have noticed after your commit that a message displayed indicating your recent push to your branch and providing a button that says **Compare & pull request**.
 
-### Recommended Reading
+![screenshot of message and button](/.images/compare-and-pull-request.png)
 
-We recommend reading the following sections of the [CLIENT_NAME GitHub Training Guide](https://im-github-training.github.io/):
+To create a pull request automatically, click **Compare & pull request**, and then skip to step 6 below. If you don't click the button, the instructions below walk you through manually setting up the pull request.
 
-* [What is Git?](https://im-github-training.github.io/#/./docs/basic/git/what-is-git)
-* [What is GitHub?](https://im-github-training.github.io/#/./docs/basic/github/what-is-github)
-* [What is a Repository?](https://im-github-training.github.io/#/./docs/basic/git/repositories)
-* [What is a Branch?](https://im-github-training.github.io/#/./docs/basic/git/branches)
-* [What is a Commit?](https://im-github-training.github.io/#/./docs/basic/git/commits)
+1. Click on the **Pull requests** tab in the header menu of your repository.
+2. Click **New pull request**.
+3. In the **base:** dropdown, make sure **main** is selected.
+4. Select the **compare:** dropdown, and click `my-first-branch`.
 
-### How to start this course
+   <img alt="screenshot showing both branch selections" src="/.images/pull-request-branches.png" />
 
-[![start-course](/.images/start_course.svg)](https://github.com/im-github-training/exercises/fork)
+5. Click **Create pull request**.
+6. Enter a title for your pull request. By default, the title will automatically be the name of your branch. For this exercise, let's edit the field to say `Add my first file`.
+7. The next field helps you provide a description of the changes you made. Here, you can add a description of what you’ve accomplished so far. As a reminder, you have: created a new branch, created a file, and made a commit.
 
-1. Right-click **Start course** and open the link in a new tab.
-2. In the new tab, most of the prompts will automatically fill in for you.
-    * For owner, choose your personal account or an organization to host the repository
-    * Check the "Copy the `main` branch only" box
-    * Scroll down and click the **Create fork** button at the bottom of the form
-3. After your new repository is created, click on the **Actions** tab in your forked repo.
-    ![Image 1](./.images/image-2.png)
-4. Click on "I understand my workflows, go ahead and enable them"
-    ![Image 1](./.images/image-3.png)
-5. Finally, click on the "Star" button to Star your Repo
-    ![Image 1](./.images/image-7.png)
-6. After your repository is starred, wait about 20 seconds, then refresh the page. Follow the step-by-step instructions in the new repository's README.
+   <img alt="screenshot showing pull request" src="/.images/Pull-request-description.png" />
+
+8. Click **Create pull request**. You will automatically be navigated to your new pull request.
+9. Wait about 20 seconds then refresh this page (the one you're following instructions from). [GitHub Actions](https://docs.github.com/en/actions) will automatically update to the next step.
+
+   **Note**: You may see evidence of GitHub Actions running on the tab with the pull request opened! The image below shows a line you might see on your pull request after the Action finishes running.
+
+   <img alt="screenshot of an example of an actions line" src="/.images/Actions-to-step-4.png"/>
 
 <footer>
 
