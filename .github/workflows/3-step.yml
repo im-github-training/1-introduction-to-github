@@ -39,7 +39,7 @@ jobs:
         run: exit 1
 
       - name: Check if branch is lesson/3
-        if: github.ref_type == 'branch' && github.ref != 'lesson/3'
+        if: github.ref_type == 'branch' && github.ref_name != 'lesson/3'
         run: exit 1
 
   main:
