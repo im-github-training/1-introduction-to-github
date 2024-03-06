@@ -38,7 +38,7 @@ jobs:
           step: 5
 
   main:
-    needs: check_conditions
+    needs: check_step
     runs-on: ubuntu-latest
     if: github.event_name == 'workflow_dispatch' || success()
     steps:
