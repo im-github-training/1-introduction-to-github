@@ -7,14 +7,6 @@ inputs:
 runs:
   using: composite
   steps:
-    # Needed so we can read the step number from -step.txt
-    - name: Checkout
-      uses: actions/checkout@v4
-      with:
-        sparse-checkout: |
-          .github/steps/-step.txt
-        sparse-checkout-cone-mode: false
-
     - id: get_step
       shell: bash
       run: echo "step=$(cat ./.github/steps/-step.txt)" >> $GITHUB_OUTPUT

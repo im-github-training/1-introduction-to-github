@@ -17,6 +17,15 @@ jobs:
     if: github.event_name != 'workflow_dispatch'
     steps:
       # Needed so we can read the step number from -step.txt
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            .github/steps/-step.txt
+            .github/actions/check-steps/action.yml
+          sparse-checkout-cone-mode: false
+
+      # Needed so we can read the step number from -step.txt
       - name: Check step
         uses: ./.github/actions/check-steps
         with:
