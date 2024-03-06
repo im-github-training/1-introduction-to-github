@@ -17,29 +17,10 @@ jobs:
     if: github.event_name != 'workflow_dispatch'
     steps:
       # Needed so we can read the step number from -step.txt
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - id: get_step
-        run: echo "step=$(cat ./.github/steps/-step.txt)" >> $GITHUB_OUTPUT
-
-      - name: Debug
-        run: echo "${{ steps.get_step.outputs.step }}"
-
-      - name: Debug
-        run: echo "${{ toJSON(github) }}"
-
-      - name: Check if correct step
-        if: ${{ steps.get_step.outputs.step != 1 }}
-        run: exit 1
-
-      - name: Check if template repository
-        if:  github.event.repository.is_template
-        run: exit 1
-
-      - name: Check if branch is my-first-branch
-        if: github.ref_type == 'branch' && github.ref_name != 'lesson/1'
-        run: exit 1
+      - name: Check step
+        uses: ./.github/actions/check-steps
+        with:
+          step: 1
 
   main:
     needs: check_conditions

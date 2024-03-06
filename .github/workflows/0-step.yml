@@ -18,6 +18,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            .github/steps/-step.txt
+          sparse-checkout-cone-mode: false
 
       - id: get_step
         run: |

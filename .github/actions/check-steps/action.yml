@@ -1,0 +1,41 @@
+name: "Check step"
+description: "Initial checks"
+inputs:
+  step:
+    description: "What step"
+
+runs:
+  using: composite
+  steps:
+    # Needed so we can read the step number from -step.txt
+    - name: Checkout
+      uses: actions/checkout@v4
+      with:
+        sparse-checkout: |
+          .github/steps/-step.txt
+        sparse-checkout-cone-mode: false
+
+    - id: get_step
+      shell: bash
+      run: echo "step=$(cat ./.github/steps/-step.txt)" >> $GITHUB_OUTPUT
+
+    - name: Debug output
+      shell: bash
+      run: |
+        echo "${{ steps.get_step.outputs.step }}"
+        echo "${{ toJSON(github) }}"
+
+    - name: Check if correct step
+      if: ${{ steps.get_step.outputs.step != inputs.step }}
+      shell: bash
+      run: exit 1
+
+    - name: Check if template repository
+      if:  github.event.repository.is_template
+      shell: bash
+      run: exit 1
+
+    - name: Check if branch is correct
+      if: github.ref_type == 'branch' && github.ref_name != 'lesson/${{ name.step }}'
+      shell: bash
+      run: exit 1
