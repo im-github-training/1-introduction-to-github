@@ -2,7 +2,7 @@ name: "Check step"
 description: "Check what step the repository is on."
 inputs:
   step:
-    description: "Step to check for""
+    description: "Step to check for"
   skip_branch_check:
     description: "Skip branch check"
     required: false
