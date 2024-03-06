@@ -11,36 +11,22 @@ permissions:
   contents: write
 
 jobs:
-  # Get the current step to only run the main job when the learner is on the same step.
-  check_conditions:
+  check_step:
+    name: Check step
     runs-on: ubuntu-latest
-    if: github.event_name != 'workflow_dispatch'
     steps:
       # Needed so we can read the step number from -step.txt
-      - name: Checkout
+      - name: Checkout step file from repo
         uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            .github/steps/-step.txt
+            .github/actions/check-steps/action.yml
+          sparse-checkout-cone-mode: false
 
-      - id: get_step
-        run: echo "step=$(cat ./.github/steps/-step.txt)" >> $GITHUB_OUTPUT
-
-      - name: Debug
-        run: echo "${{ steps.get_step.outputs.step }}"
-
-      - name: Debug
-        run: echo "${{ toJSON(github) }}"
-
-
-      - name: Check if correct step
-        if: ${{ steps.get_step.outputs.step != 3 }}
-        run: exit 1
-
-      - name: Check if template repository
-        if:  github.event.repository.is_template
-        run: exit 1
-
-      - name: Check if branch is lesson/3
-        if: github.ref_type == 'branch' && github.ref_name != 'lesson/3'
-        run: exit 1
+      - uses: ./.github/actions/check-steps
+        with:
+          step: 3
 
   main:
     needs: check_conditions

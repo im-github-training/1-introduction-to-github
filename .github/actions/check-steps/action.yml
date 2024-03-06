@@ -1,8 +1,8 @@
 name: "Check step"
-description: "Initial checks"
+description: "Check what step the repository is on."
 inputs:
   step:
-    description: "What step"
+    description: "Step to check for""
   skip_branch_check:
     description: "Skip branch check"
     required: false
@@ -18,8 +18,7 @@ runs:
     - name: Debug output
       shell: bash
       run: |
-        echo "${{ steps.get_step.outputs.step }}"
-        echo "${{ toJSON(github) }}"
+        echo "Current step: ${{ steps.get_step.outputs.step }}"
 
     - name: Check if correct step
       if: ${{ steps.get_step.outputs.step != inputs.step }}
