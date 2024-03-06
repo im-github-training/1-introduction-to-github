@@ -32,6 +32,6 @@ runs:
       run: exit 1
 
     - name: Check if branch isn't correct
-      if: ${{ !inputs.skip_branch_check && github.ref_type == 'branch' && github.ref_name != 'lesson/' + inputs.step }}
+      if: ${{ !inputs.skip_branch_check && github.ref_type == 'branch' && github.ref_name != format('lesson/{0}', inputs.step) }}
       shell: bash
       run: exit 1
