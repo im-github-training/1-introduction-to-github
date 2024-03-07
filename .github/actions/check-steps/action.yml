@@ -3,6 +3,10 @@ description: "Check what step the repository is on."
 inputs:
   step:
     description: "Step to check for"
+  initialize_step_file:
+    description: "Initialize step file"
+    required: false
+    default: false
   skip_branch_check:
     description: "Skip branch check"
     required: false
@@ -11,18 +15,20 @@ inputs:
 runs:
   using: composite
   steps:
-    # Needed so we can read the step number from -step.txt
-    - name: Checkout step file from repo
-      uses: actions/checkout@v4
-      with:
-        sparse-checkout: |
-          .github/steps/-step.txt
-          .github/actions/check-steps/action.yml
-        sparse-checkout-cone-mode: false
+    # Create new branch with no files
+    - id: create_branch
+      if: ${{ inputs.initialize_step_file }}
+      run: |
+        git switch -c step
+        git reset --hard
+        echo "0" > /.github/steps/-step.txt
+        git add .
+        git commit -m "Initialize step file"
+        git push --set-upstream origin step
 
     - id: get_step
       shell: bash
-      run: echo "step=$(cat ./.github/steps/-step.txt)" >> $GITHUB_OUTPUT
+      run: echo "step=$(cat step.txt)" >> $GITHUB_OUTPUT
 
     - name: Debug output
       shell: bash

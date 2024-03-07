@@ -13,12 +13,21 @@ permissions:
 
 jobs:
   check_step:
-    name: Check step
+    name: Check current step
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout step file and action from repo
+        uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            .github/steps/-step.txt
+            .github/actions/check-steps/action.yml
+          sparse-checkout-cone-mode: false
+
       - uses: ./.github/actions/check-steps
         with:
           step: 0
+          initialize_step: true
           skip_branch_check: true
 
   main:
