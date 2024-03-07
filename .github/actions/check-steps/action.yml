@@ -20,6 +20,9 @@ runs:
       if: ${{ inputs.initialize_step_file }}
       shell: bash
       run: |
+        git config user.name github-actions[bot]
+        git config user.email github-actions[bot]@users.noreply.github.com
+
         git switch -c step
         git reset --hard
         echo "0" > .github/steps/-step.txt
