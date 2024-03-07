@@ -32,7 +32,7 @@ runs:
 
     - id: get_step
       shell: bash
-      run: echo "step=$(cat step.txt)" >> $GITHUB_OUTPUT
+      run: echo "step=$(cat .github/steps/-step.txt)" >> $GITHUB_OUTPUT
 
     - name: Debug output
       shell: bash
