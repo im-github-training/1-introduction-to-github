@@ -23,6 +23,8 @@ jobs:
 
       - name: Commit changes
         run: |
+          git switch main
+
           # Rename main branch to main-old
           git branch -m main main-old
           git push -u origin main-old --force
