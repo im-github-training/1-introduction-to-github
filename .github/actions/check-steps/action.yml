@@ -30,16 +30,17 @@ runs:
         git commit -m "Initialize step file" --allow-empty
         git push --set-upstream origin step
 
-    - id: get_step
+    - name: Read step from file
+      id: get_step
       shell: bash
       run: |
         git switch step
         echo "step=$(cat .github/steps/-step.txt)" >> $GITHUB_OUTPUT
 
-    - name: Debug output
-      shell: bash
-      run: |
-        echo "Current step: ${{ steps.get_step.outputs.step }}"
+    # - name: Debug output
+    #   shell: bash
+    #   run: |
+    #     echo "Current step: ${{ steps.get_step.outputs.step }}"
 
     - name: Check if correct step
       if: ${{ steps.get_step.outputs.step != inputs.step }}

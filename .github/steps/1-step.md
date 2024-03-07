@@ -589,3 +589,8 @@ $ git remote show origin
 -->
 
 !['git remote show origin'](/.images/shell/1-step-shell-42.svg)
+
+
+## Wrapped Up
+
+With that last push of `lesson/1` back to GitHub, you've completed this lesson.  To continue to Lesson 2, wait about 20 seconds and refresh this page.

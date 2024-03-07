@@ -1,4 +1,4 @@
-name: Step 1
+name: Lesson - Step 1
 
 on:
   workflow_dispatch:
@@ -25,7 +25,8 @@ jobs:
             .github/actions/check-steps/action.yml
           sparse-checkout-cone-mode: false
 
-      - uses: ./.github/actions/check-steps
+      - name: Run checks
+        uses: ./.github/actions/check-steps
         with:
           step: 1
 

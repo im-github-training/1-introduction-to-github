@@ -1,4 +1,4 @@
-name: Customize repository
+name: Admin - Customize repository
 
 on:
   workflow_dispatch:

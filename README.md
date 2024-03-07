@@ -39,12 +39,12 @@ We recommend reading the following sections of the [Teradyne GitHub Training Gui
     * Check the "Copy the `main` branch only" box
     * Scroll down and click the **Create fork** button at the bottom of the form
 3. After your new repository is created, click on the **Actions** tab in your forked repo.
-    ![Image 1](./.images/image-2.png)
-4. Click on "I understand my workflows, go ahead and enable them"
-    ![Image 1](./.images/image-3.png)
+    ![alt text](.images/image-11.png)
+4. Click on **"I understand my workflows, go ahead and enable them"**
 5. Finally, click on the "Star" button to Star your Repo
-    ![Image 1](./.images/image-7.png)
-6. After your repository is starred, wait about 20 seconds, then refresh the page. Follow the step-by-step instructions in the new repository's README.
+    ![alt text](.images/image-12.png)
+6. After your repository is starred, **wait about 20 seconds**, then refresh the page.
+7. Follow the step-by-step instructions in the new repository's README.
 
 <footer>
 

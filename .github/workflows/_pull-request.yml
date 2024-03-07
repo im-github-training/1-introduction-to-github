@@ -1,4 +1,4 @@
-name: PR from fork
+name: Admin - PR from fork
 
 on:
   pull_request:
