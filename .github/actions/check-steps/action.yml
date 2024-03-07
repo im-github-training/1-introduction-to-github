@@ -18,6 +18,7 @@ runs:
     # Create new branch with no files
     - id: create_branch
       if: ${{ inputs.initialize_step_file }}
+      shell: bash
       run: |
         git switch -c step
         git reset --hard
