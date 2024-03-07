@@ -19,6 +19,7 @@ jobs:
       - name: Checkout step file from repo
         uses: actions/checkout@v4
         with:
+          ref: step
           sparse-checkout: |
             .github/steps/-step.txt
             .github/actions/check-steps/action.yml
