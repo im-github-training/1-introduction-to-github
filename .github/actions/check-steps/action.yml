@@ -16,7 +16,7 @@ runs:
   using: composite
   steps:
     # Create new branch with no files
-    - id: create_branch
+    - name: Create step branch
       if: ${{ inputs.initialize_step_file == 'true' }}
       shell: bash
       run: |
@@ -32,7 +32,9 @@ runs:
 
     - id: get_step
       shell: bash
-      run: echo "step=$(cat .github/steps/-step.txt)" >> $GITHUB_OUTPUT
+      run: |
+        git switch step
+        echo "step=$(cat .github/steps/-step.txt)" >> $GITHUB_OUTPUT
 
     - name: Debug output
       shell: bash
