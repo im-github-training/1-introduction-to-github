@@ -1,11 +1,9 @@
-name: Admin - Customize repository
+name: Admin - Reset repo
+description: Used to reinitialize the repository for new deployments
 
 on:
   workflow_dispatch:
     inputs:
-      from_name:
-        description: 'From name'
-        required: true
       to_name:
         description: 'To name'
         required: true
@@ -17,21 +15,22 @@ permissions:
   contents: write
 
 jobs:
-
-  configure:
-    name: Replace from_name with to_name in all .md files
+  reset:
+    name: Reset repository
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          ref: develop
 
-      - name: Replace string in .md
+      - name: Update client name in *.md
         run: |
-          find . -type f -name "*.md" -exec sed -i "s/${{ inputs.from_name }}/${{ inputs.to_name }}/g" {} +
+          find . -type f -name "*.md" -exec sed -i "s/{{CLIENT_NAME}}/${{ inputs.to_name }}/g" {} +
 
-      - name: Replace string in .html
+      - name: Update client name in *.html
         run: |
-          find . -type f -name "*.html" -exec sed -i "s/${{ inputs.from_name }}/${{ inputs.to_name }}/g" {} +
+          find . -type f -name "*.html" -exec sed -i "s/${{CLIENT_NAME}}/${{ inputs.to_name }}/g" {} +
 
       - name: Set step to 0
         run: echo "0" > ./.github/steps/-step.txt
@@ -42,5 +41,5 @@ jobs:
           git config user.email github-actions[bot]@users.noreply.github.com
 
           git add .
-          git commit -m "Replace ${{ inputs.from_name }} with ${{ inputs.to_name }}"
+          git commit -m "Reinitialized repository for ${{ inputs.to_name }}"
           git push
