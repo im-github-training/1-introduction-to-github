@@ -16,15 +16,6 @@ jobs:
     name: Check step
     runs-on: ubuntu-latest
     steps:
-      # Needed so we can read the step number from -step.txt
-      - name: Checkout step file from repo
-        uses: actions/checkout@v4
-        with:
-          sparse-checkout: |
-            .github/steps/-step.txt
-            .github/actions/check-steps/action.yml
-          sparse-checkout-cone-mode: false
-
       - uses: ./.github/actions/check-steps
         with:
           step: 0
@@ -48,3 +39,4 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           from_step: 0
           to_step: 1
+          branch_name: step

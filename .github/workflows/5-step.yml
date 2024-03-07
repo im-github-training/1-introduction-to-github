@@ -56,4 +56,4 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           from_step: 5
           to_step: X
-          branch_name: lesson/5
+          branch_name: step
