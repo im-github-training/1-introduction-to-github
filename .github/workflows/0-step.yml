@@ -27,7 +27,7 @@ jobs:
       - uses: ./.github/actions/check-steps
         with:
           step: 0
-          initialize_step: true
+          initialize_step_file: true
           skip_branch_check: true
 
   main:
