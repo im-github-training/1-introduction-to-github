@@ -27,7 +27,7 @@ runs:
         git reset --hard
         echo "0" > .github/steps/-step.txt
         git add .
-        git commit -m "Initialize step file"
+        git commit -m "Initialize step file" --allow-empty
         git push --set-upstream origin step
 
     - id: get_step
