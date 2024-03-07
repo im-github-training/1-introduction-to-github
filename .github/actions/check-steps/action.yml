@@ -22,7 +22,7 @@ runs:
       run: |
         git switch -c step
         git reset --hard
-        echo "0" > /.github/steps/-step.txt
+        echo "0" > .github/steps/-step.txt
         git add .
         git commit -m "Initialize step file"
         git push --set-upstream origin step
