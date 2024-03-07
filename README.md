@@ -1,14 +1,14 @@
 <header>
 
-# Teradyne GitHub Training Platform
+# {{CLIENT_NAME}} GitHub Training Platform
 
 </header>
 
 ## Welcome
 
-Welcome to the Teradyne GitHub Training Course!
+Welcome to the {{CLIENT_NAME}} GitHub Training Course!
 
-This course accompanies the [Teradyne GitHub Training Guide](https://im-github-training.github.io/) and contains a series of exercises designed to introduce the following Git concepts: In this tutorial, we'll cover the basics of Git and GitHub by working through a series of exercises.  We'll start with the basics of creating a repository, working with branches, and making commits.  From there, we'll cover more advanced topics such as merging, rebasing, and pull requests.
+This course accompanies the [{{CLIENT_NAME}} GitHub Training Guide](https://im-github-training.github.io/) and contains a series of exercises designed to introduce the following Git concepts: In this tutorial, we'll cover the basics of Git and GitHub by working through a series of exercises.  We'll start with the basics of creating a repository, working with branches, and making commits.  From there, we'll cover more advanced topics such as merging, rebasing, and pull requests.
 
 ### Prerequisites
 
@@ -21,7 +21,7 @@ You'll also need to have Git installed on your machine and a GitHub account.  If
 
 ### Recommended Reading
 
-We recommend reading the following sections of the [Teradyne GitHub Training Guide](https://im-github-training.github.io/):
+We recommend reading the following sections of the [{{CLIENT_NAME}} GitHub Training Guide](https://im-github-training.github.io/):
 
 * [What is Git?](https://im-github-training.github.io/#/./docs/basic/git/what-is-git)
 * [What is GitHub?](https://im-github-training.github.io/#/./docs/basic/github/what-is-github)
@@ -48,6 +48,6 @@ We recommend reading the following sections of the [Teradyne GitHub Training Gui
 
 <footer>
 
-&copy; 2024 Teradyne &bull; [Code of Conduct](https://www.contributor-covenant.org/version/2/1/code_of_conduct/code_of_conduct.md) &bull; [MIT License](https://gh.io/mit)
+&copy; 2024 {{CLIENT_NAME}} &bull; [Code of Conduct](https://www.contributor-covenant.org/version/2/1/code_of_conduct/code_of_conduct.md) &bull; [MIT License](https://gh.io/mit)
 
 </footer>
