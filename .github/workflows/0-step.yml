@@ -24,6 +24,9 @@ jobs:
             .github/actions/check-steps/action.yml
           sparse-checkout-cone-mode: false
 
+      - name: Debug
+        run: echo '${{ toJson(github) }}'
+
       - name: Run checks
         uses: ./.github/actions/check-steps
         with:

@@ -9,8 +9,6 @@ on:
 
 # Reference: https://docs.github.com/en/actions/security-guides/automatic-token-authentication
 permissions:
-  # Need `contents: read` to checkout the repository.
-  # Need `contents: write` to update the step metadata.
   contents: write
 
 jobs:
@@ -21,12 +19,17 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          ref: develop
+          fetch-depth: 0 # Grabs all branches
+          token: ${{ secrets.GH_TRAINING_TOKEN }}
 
       - name: Commit changes
         run: |
           # Rename main branch to main-old
           git branch -m main main-old
+          git switch main-old
+          git push -u origin main-old
+
+          git switch develop
 
           # Checkout first commit in repository
           git checkout $(git rev-list --max-parents=0 HEAD)
