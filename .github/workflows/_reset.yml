@@ -24,6 +24,20 @@ jobs:
         with:
           ref: develop
 
+      - name: Commit changes
+        run: |
+          # Rename main branch to main-old
+          git branch -m main main-old
+
+          # Checkout first commit in repository
+          git checkout $(git rev-list --max-parents=0 HEAD)
+
+          # Restore all files from develop branch
+          git checkout develop -- .
+
+          # Create new main branch
+          git switch -c main
+
       - name: Update client name in *.md
         run: |
           find . -type f -name "*.md" -exec sed -i "s/{{CLIENT_NAME}}/${{ inputs.to_name }}/g" {} +
@@ -42,4 +56,4 @@ jobs:
 
           git add .
           git commit -m "Reinitialized repository for ${{ inputs.to_name }}"
-          git push
+          git push origin main --force
